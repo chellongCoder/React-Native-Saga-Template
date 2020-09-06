@@ -17,7 +17,11 @@
     "prettier-check": "prettier --list-different **/*.js",
     "lint-fix": "eslint --fix .",
     "lint-check": "eslint .",
-    "rename": "react-native-rename"
+    "rename": "react-native-rename",
+    "codepush-ios:staging": "appcenter codepush release-react -a base-project/base-project-ios -d Staging",
+    "codepush-ios:production": "appcenter codepush promote -a base-project/base-project-ios -s Staging -d Production",
+    "codepush-android:staging": "appcenter codepush release-react -a base-project/base-project-android -d Staging",
+    "codepush-android:production": "appcenter codepush promote -a base-project/base-project-android -s Staging -d Production"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.9.0",
