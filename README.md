@@ -15,43 +15,42 @@
 [![Multilingual Support](https://img.shields.io/badge/Multilingual%20Support-Yes-green.svg)](https://shields.io/)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](https://shields.io/)
 
-# React-Native-Boilerplate
+# Base project
 
-This project is a [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
+Project là 1 [React Native](https://facebook.github.io/react-native/) boilerplate giúp khởi động 1 dự án react native 1 cách nhanh nhất 
 
-The boilerplate provides **a architecture optimized for developing reliable cross-platform mobile applications** through the separation of concerns between the UI and business logic. It is remarkably documented so that each section of code that lands in your application can be understood and used.
+Project cung cấp **1 Kiến trúc phát triển mobile đa nền tảng** Phân tách tầng UI và tầng Login. Dưới đây là những ghi chú để có thể sử dụng project 1 cách hiệu quả nhất.
 
-```
-If you find this boilerplate useful then please give the repository a star
-```
 
-## Architecture
+## Kiến trúc
 
 The main purpose of the Architecture of the boilerplate is the separation of concerns
+Mục tiêu chính của kiến trúc là phân tách các phần của project.
 
-- Presentational **components** are separated from **screens**.
+- phân tách giữa **components** và **screens**.
 
-- **State** is managed using global [Redux](https://redux.js.org/) stores.
+- **State** được quản lý qua [Redux](https://redux.js.org/) stores.
 
-- Application side-effects (API calls, etc.) are separated from **UI** and **state** manipulation using [Redux Saga](https://redux-saga.js.org/).
+- các logic khác của ứng dụng (API calls, etc.) được phân tách khỏi **UI** và **state** thông qua [Redux Saga](https://redux-saga.js.org/).
 
-## Content
+## Các thư viện liên qua
 
-The boilerplate contains:
+gồm có:
 
 - [React Native](https://facebook.github.io/react-native/) (v**0.62.3**)
-- [Clear directory layout](#directory-layout) to provide a base architecture for your application
-- [Redux](https://redux.js.org/) (v4.0.5) to help manage state
-- [Redux Persist](https://github.com/rt2zz/redux-persist) (v6.0.0) to persist the Redux state
-- [Redux Sagas](https://redux-saga.js.org) (v1.1.3) to separate side-effects and logic from state and UI logic
-- [React Navigation 5](https://reactnavigation.org/) with a [`NavigationService`](App/Navigation/NavigationService.js) to handle routing and navigation in the boilerplate
+- [Clear directory layout](#directory-layout) cung cấp 1 tổ chức code ổn định để phát triển ứng dụng
+- [Redux](https://redux.js.org/) (v4.0.5) để quản lý state
+- [Redux Persist](https://github.com/rt2zz/redux-persist) (v6.0.0) để quản lý lưu trữ state
+- [Redux Sagas](https://redux-saga.js.org) (v1.1.3)để phân tách logic tầng UI và tầng Business
+- [React Navigation 5](https://reactnavigation.org/) với [`NavigationService`](App/Navigation/NavigationService.js) để thực thi luồng màn hình.
 - [i18Next](https://www.i18next.com/) (v11.3.5) to facilitate the more than one language in the App
+đa ngôn ngữ 
 - [Firebase](https://rnfirebase.io/) (v5.6.0)
-- [Push Notifications](https://rnfirebase.io/messaging/usage) integrated in the boilerplate
-- [Code-Push](https://github.com/Microsoft/react-native-code-push) (v6.2.0) This plugin provides client-side integration for the CodePush service, allowing you to easily add a dynamic update experience to your React Native app(s).
-- [react-native-fbsdk](https://github.com/facebook/react-native-fbsdk) (v2.0.0) to facilitate the facebook login
-- [google-signin](https://github.com/react-native-community/google-signin) (v4.0.0) to facilitate the google signin
-- [Theme Support](https://callstack.github.io/react-native-paper/theming.html) with a [`DarkTheme`](App/Utils/DarkTheme.js) and [`LightTheme`](App/Utils/LightTheme.js)
+- [Push Notifications](https://rnfirebase.io/messaging/usage) được tích hợp ở project này
+- [Code-Push](https://github.com/Microsoft/react-native-code-push) (v6.2.0) cung cấp phân phối code cho dev và test 1 cách nhanh chóng
+- [react-native-fbsdk](https://github.com/facebook/react-native-fbsdk) (v2.0.0) tích hợp đăng nhập fb
+- [google-signin](https://github.com/react-native-community/google-signin) (v4.0.0) tích hợp đăng nhập google
+- [Theme Support](https://callstack.github.io/react-native-paper/theming.html) với [`DarkTheme`](App/Utils/DarkTheme.js) và [`LightTheme`](App/Utils/LightTheme.js)
 - [react-native-splash-screen](https://github.com/crazycodeboy/react-native-splash-screen) (v3.2.0) setup by default
 - [axios](https://github.com/axios/axios) to make API calls (v0.19.2)
 - [TypeScript](https://www.typescriptlang.org/) configured for React Native
