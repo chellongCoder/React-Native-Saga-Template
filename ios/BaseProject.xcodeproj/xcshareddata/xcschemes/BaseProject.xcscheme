@@ -10,14 +10,14 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp ${PROJECT_DIR}/../.env.production ${PROJECT_DIR}/../.env  # replace .env.staging for your file&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp ${PROJECT_DIR}/../.env.staging ${PROJECT_DIR}/../.env  # replace .env.staging for your file&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "boilerplate.app"
-                     BlueprintName = "boilerplate"
-                     ReferencedContainer = "container:boilerplate.xcodeproj">
+                     BuildableName = "BaseProject.app"
+                     BlueprintName = "BaseProject"
+                     ReferencedContainer = "container:BaseProject.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "boilerplate.app"
-               BlueprintName = "boilerplate"
-               ReferencedContainer = "container:boilerplate.xcodeproj">
+               BuildableName = "BaseProject.app"
+               BlueprintName = "BaseProject"
+               ReferencedContainer = "container:BaseProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,9 +51,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "boilerplateTests.xctest"
-               BlueprintName = "boilerplateTests"
-               ReferencedContainer = "container:boilerplate.xcodeproj">
+               BuildableName = "BaseProjectTests.xctest"
+               BlueprintName = "BaseProjectTests"
+               ReferencedContainer = "container:BaseProject.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "boilerplate.app"
-            BlueprintName = "boilerplate"
-            ReferencedContainer = "container:boilerplate.xcodeproj">
+            BuildableName = "BaseProject.app"
+            BlueprintName = "BaseProject"
+            ReferencedContainer = "container:BaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,9 +90,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "boilerplate.app"
-            BlueprintName = "boilerplate"
-            ReferencedContainer = "container:boilerplate.xcodeproj">
+            BuildableName = "BaseProject.app"
+            BlueprintName = "BaseProject"
+            ReferencedContainer = "container:BaseProject.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
@@ -102,5 +102,14 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp ${PROJECT_DIR}/../.env.staging ${PROJECT_DIR}/../.env  # replace .env.staging for your file&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
    </ArchiveAction>
 </Scheme>

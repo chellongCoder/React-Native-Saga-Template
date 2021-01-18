@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>boilerplate</string>
+	<string>BaseProject</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,28 +27,34 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.hisoft.base.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(RNC_REVERSED_CLIENT_ID)</string>
+				<string>$(REVERSED_CLIENT_ID)</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.hisoft.base.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>$(RNC_FacebookLoginProtocolScheme)</string>
+				<string>$(FacebookLoginProtocolScheme)</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CodePushDeploymentKey</key>
-	<string>$(RNC_CodePushDeploymentKey_iOS)</string>
+	<string>$(CodePushDeploymentKey_iOS)</string>
 	<key>FacebookAppID</key>
-	<string>$(RNC_FacebookAppID)</string>
+	<string>$(FacebookAppID)</string>
 	<key>FacebookDisplayName</key>
-	<string>$(RNC_AppName)</string>
+	<string>$(AppName)</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -64,7 +70,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>localhost</key>
+			<key>$(CodePushDomain)</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -119,6 +125,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

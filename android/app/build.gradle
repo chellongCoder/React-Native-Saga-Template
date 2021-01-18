@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.setup"
+        applicationId "com.hisoft.react.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         multiDexEnabled true
@@ -168,7 +168,7 @@ android {
             release {
                 // Caution! In production, you need to generate your own keystore file.
                 // see https://facebook.github.io/react-native/docs/signed-apk-android.
-                 resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKey")
+                 resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKey_Android")
                  signingConfig signingConfigs.release
                  minifyEnabled enableProguardInReleaseBuilds
                  proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">boilerplate</string>
+    <string name="app_name">BaseProject</string>
     <string name="facebook_app_id">@string/FacebookAppID</string>
     <string name="fb_login_protocol_scheme">@string/FacebookLoginProtocolScheme</string>
     <string name="CodePushDeploymentKey">@string/CodePushDeploymentKey_Android</string>
