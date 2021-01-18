@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'BaseProject' do
-  # Pods for BaseProject
+target 'ProCheck' do
+  # Pods for ProCheck
     permissions_path = '../node_modules/react-native-permissions/ios'
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
@@ -85,7 +85,7 @@ target 'BaseProject' do
   pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
-  target 'BaseProjectTests' do
+  target 'ProCheckTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -102,10 +102,10 @@ target 'BaseProject' do
   end
 end
 
-target 'BaseProject-tvOS' do
-  # Pods for BaseProject-tvOS
+target 'ProCheck-tvOS' do
+  # Pods for ProCheck-tvOS
 
-  target 'BaseProject-tvOSTests' do
+  target 'ProCheck-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

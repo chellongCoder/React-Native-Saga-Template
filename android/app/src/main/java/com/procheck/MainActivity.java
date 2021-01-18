@@ -1,4 +1,4 @@
-package com.hisoft.react.mobile;
+package com.procheck;
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // here
@@ -16,6 +16,6 @@ public class MainActivity extends ReactActivity {
   }
   @Override
   protected String getMainComponentName() {
-    return "BaseProject";
+    return "ProCheck";
   }
 }

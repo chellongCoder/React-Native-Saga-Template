@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* BaseProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BaseProjectTests.m */; };
+		00E356F31AD99517003FC87E /* ProCheckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ProCheckTests.m */; };
 		01C85149CB834D10967596B3 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 505D0E83FB1B4183A38E1068 /* Ionicons.ttf */; };
 		047F6620EC4D437EA2978232 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD2C119886463AB8A73018 /* SFProDisplay-Regular.otf */; };
 		04BF00A52478F2F00033FA00 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */; };
@@ -19,12 +19,12 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		15263CBF3DC14199A0D34E9F /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDC14E31E1943A8ABC3E7ED /* Feather.ttf */; };
-		154DA68FCBF499ABC309D059 /* libPods-BaseProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E76FB566B54119610D7E0AD /* libPods-BaseProject-tvOSTests.a */; };
+		154DA68FCBF499ABC309D059 /* libPods-ProCheck-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E76FB566B54119610D7E0AD /* libPods-ProCheck-tvOSTests.a */; };
 		1991DAAEFB4846828C12CF09 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A85B6F09B634456A5C2EDC8 /* FontAwesome5_Solid.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* BaseProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BaseProjectTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* ProCheckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ProCheckTests.m */; };
 		4145723D809443EF97020797 /* SFProDisplay-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 775B8516453E490CA47CD0BE /* SFProDisplay-SemiboldItalic.otf */; };
 		4A15318BAA2B4ADF9C13F8E5 /* SFProDisplay-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 992EE0FF0C374DF0940BA2C3 /* SFProDisplay-BlackItalic.otf */; };
 		4CA6AEEFCBCB49FC938C111F /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C204B8064D2845F3A3A13282 /* SFProDisplay-Thin.otf */; };
@@ -33,7 +33,7 @@
 		5A41CE6D1CFD4D12BAD10129 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF7B606DF515443E91AFE835 /* Roboto.ttf */; };
 		6264462B68B448DCB2F43803 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 731B0E07BC8448F29F09BB81 /* SFProDisplay-Semibold.otf */; };
 		6310BCDA85284FCFB58837B4 /* SFProDisplay-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3C719C9E0AEE4800855B024C /* SFProDisplay-ThinItalic.otf */; };
-		6F7953C6673CC4DAA4C0A84D /* libPods-BaseProject-BaseProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A4B350397AEB81F4721DB /* libPods-BaseProject-BaseProjectTests.a */; };
+		6F7953C6673CC4DAA4C0A84D /* libPods-ProCheck-ProCheckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */; };
 		706BDB61F440443ABFFC34E9 /* SFProDisplay-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60021F385A14842B9BAADE6 /* SFProDisplay-MediumItalic.otf */; };
 		7C6D6DB4132546058BB7E656 /* SFProDisplay-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8568AB49CD72426B8D320B79 /* SFProDisplay-HeavyItalic.otf */; };
 		7E516813BB5545568E6CD628 /* SFProDisplay-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 137BD759EE934966BE9A597B /* SFProDisplay-BoldItalic.otf */; };
@@ -44,7 +44,7 @@
 		8EA3EEDBA59F483EA6275C5A /* SFProDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2809C47744063B9F58702 /* SFProDisplay-Black.otf */; };
 		90FC6241617F449AA420C52B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5493F80DBB5B441683219706 /* Zocial.ttf */; };
 		9BBB426DB87D47DF8F998B8F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */; };
-		A41F6655E06DC53C6E207059 /* libPods-BaseProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4509E969860F335EA9817F27 /* libPods-BaseProject-tvOS.a */; };
+		A41F6655E06DC53C6E207059 /* libPods-ProCheck-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4509E969860F335EA9817F27 /* libPods-ProCheck-tvOS.a */; };
 		A8C280EE25B5DF2C0054DFD2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C280ED25B5DF2C0054DFD2 /* File.swift */; };
 		A8C6545F24FEBC1000B1B784 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */; };
 		AA229FF6C1634DB28AA6BE22 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80663627A0AF419BAC87B862 /* FontAwesome5_Brands.ttf */; };
@@ -53,7 +53,7 @@
 		ADAE268B24F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
 		ADAE268C24F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
 		B3AF75F3E5DE4CDA87FC7C3A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD5D184CEF4B66942DC424 /* SFProDisplay-Light.otf */; };
-		B440B99C67814253901AB15A /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA00B87CABC4BFADB28B7E5 /* libPods-BaseProject.a */; };
+		B440B99C67814253901AB15A /* libPods-ProCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA00B87CABC4BFADB28B7E5 /* libPods-ProCheck.a */; };
 		B5AAC9836149434494C25B6F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A55B84551B24BF1BC0B3DCD /* Roboto_medium.ttf */; };
 		B79DF86C345B4BF29ED50512 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B791581BFAFD4F4B96CC425E /* rubicon-icon-font.ttf */; };
 		B8FD3D5D7BCE4697A3E4EE41 /* SFProDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7FBE1B4450F462EBC2AA53D /* SFProDisplay-Heavy.otf */; };
@@ -72,39 +72,39 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = BaseProject;
+			remoteInfo = ProCheck;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "BaseProject-tvOS";
+			remoteInfo = "ProCheck-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* BaseProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ProCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* BaseProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseProjectTests.m; sourceTree = "<group>"; };
-		01701C05AD85D9D6BA0F8C40 /* Pods-BaseProject-BaseProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-BaseProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-BaseProject-BaseProjectTests/Pods-BaseProject-BaseProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		04BCF4DE24786D3700D19063 /* BaseProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BaseProject.entitlements; path = BaseProject/BaseProject.entitlements; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ProCheckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProCheckTests.m; sourceTree = "<group>"; };
+		01701C05AD85D9D6BA0F8C40 /* Pods-ProCheck-ProCheckTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-ProCheckTests.debug.xcconfig"; path = "Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests.debug.xcconfig"; sourceTree = "<group>"; };
+		04BCF4DE24786D3700D19063 /* ProCheck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ProCheck.entitlements; path = ProCheck/ProCheck.entitlements; sourceTree = "<group>"; };
 		04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		137BD759EE934966BE9A597B /* SFProDisplay-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-BoldItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-BoldItalic.otf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* BaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BaseProject/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BaseProject/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ProCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ProCheck/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ProCheck/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BaseProject/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BaseProject/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BaseProject/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ProCheck/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ProCheck/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ProCheck/main.m; sourceTree = "<group>"; };
 		1CCD2C119886463AB8A73018 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Regular.otf"; path = "../App/Assets/Fonts/SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		1CD2809C47744063B9F58702 /* SFProDisplay-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Black.otf"; path = "../App/Assets/Fonts/SFProDisplay-Black.otf"; sourceTree = "<group>"; };
-		27D8F8762F925E1772C88A76 /* Pods-BaseProject-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-BaseProject-tvOSTests/Pods-BaseProject-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		2BA00B87CABC4BFADB28B7E5 /* libPods-BaseProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E47B1E0B4A5D006451C7 /* BaseProject-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BaseProject-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* BaseProject-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BaseProject-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D8F8762F925E1772C88A76 /* Pods-ProCheck-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOSTests/Pods-ProCheck-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2BA00B87CABC4BFADB28B7E5 /* libPods-ProCheck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProCheck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* ProCheck-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ProCheck-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* ProCheck-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ProCheck-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EDD5D184CEF4B66942DC424 /* SFProDisplay-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Light.otf"; path = "../App/Assets/Fonts/SFProDisplay-Light.otf"; sourceTree = "<group>"; };
 		32A1ECC699024B41AA87C462 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		3665FAFCE2424FA1BDD4B097 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/native-base/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
@@ -112,15 +112,15 @@
 		3C415DD9E7F54176A45EB0B9 /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Medium.otf"; path = "../App/Assets/Fonts/SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
 		3C719C9E0AEE4800855B024C /* SFProDisplay-ThinItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-ThinItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-ThinItalic.otf"; sourceTree = "<group>"; };
 		3CEA46DFC7B74AECAFEB514F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		3EC9E2F90C7198996B84DD64 /* Pods-BaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.debug.xcconfig"; path = "Target Support Files/Pods-BaseProject/Pods-BaseProject.debug.xcconfig"; sourceTree = "<group>"; };
+		3EC9E2F90C7198996B84DD64 /* Pods-ProCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck.debug.xcconfig"; path = "Target Support Files/Pods-ProCheck/Pods-ProCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		430ABE673AD64C04AC2AC9F6 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		4509E969860F335EA9817F27 /* libPods-BaseProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4509E969860F335EA9817F27 /* libPods-ProCheck-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProCheck-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A55B84551B24BF1BC0B3DCD /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
 		4F4604FBCD504F088EDD6F21 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		505D0E83FB1B4183A38E1068 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		5195FE9121DC5FC7DD82326C /* Pods-BaseProject-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-BaseProject-tvOS/Pods-BaseProject-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5195FE9121DC5FC7DD82326C /* Pods-ProCheck-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOS/Pods-ProCheck-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5493F80DBB5B441683219706 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		5CDF15D48682B2D8C309B636 /* Pods-BaseProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-BaseProject-tvOS/Pods-BaseProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		5CDF15D48682B2D8C309B636 /* Pods-ProCheck-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOS/Pods-ProCheck-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		61DA29D29E27436CB538134E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		6DFA0D6669F74EE28BEE1F68 /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Bold.otf"; path = "../App/Assets/Fonts/SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
 		71E3F6B02E854911880EE829 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
@@ -128,14 +128,14 @@
 		775B8516453E490CA47CD0BE /* SFProDisplay-SemiboldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-SemiboldItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		7A85B6F09B634456A5C2EDC8 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		80663627A0AF419BAC87B862 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		840A4B350397AEB81F4721DB /* libPods-BaseProject-BaseProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject-BaseProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProCheck-ProCheckTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8568AB49CD72426B8D320B79 /* SFProDisplay-HeavyItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-HeavyItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-HeavyItalic.otf"; sourceTree = "<group>"; };
 		87EA2A553717431B96B69697 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		8E76FB566B54119610D7E0AD /* libPods-BaseProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E76FB566B54119610D7E0AD /* libPods-ProCheck-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProCheck-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED2331C6D134B5F9E9E32BB /* SFProDisplay-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-LightItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-LightItalic.otf"; sourceTree = "<group>"; };
 		992EE0FF0C374DF0940BA2C3 /* SFProDisplay-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-BlackItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-BlackItalic.otf"; sourceTree = "<group>"; };
 		A8C280ED25B5DF2C0054DFD2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BaseProject/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ProCheck/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADAE268824F937C500A83CF6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AF7B606DF515443E91AFE835 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		B60021F385A14842B9BAADE6 /* SFProDisplay-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-MediumItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-MediumItalic.otf"; sourceTree = "<group>"; };
@@ -145,11 +145,11 @@
 		C204B8064D2845F3A3A13282 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Thin.otf"; path = "../App/Assets/Fonts/SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
 		C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		CCDC14E31E1943A8ABC3E7ED /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		CEABED6149B32DC804DD7A46 /* Pods-BaseProject-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-BaseProject-tvOSTests/Pods-BaseProject-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEABED6149B32DC804DD7A46 /* Pods-ProCheck-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOSTests/Pods-ProCheck-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		DCEC9FAC379649C28D69074D /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		E41933CF72676C3C46F9D9BD /* Pods-BaseProject-BaseProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject-BaseProjectTests.release.xcconfig"; path = "Target Support Files/Pods-BaseProject-BaseProjectTests/Pods-BaseProject-BaseProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		E41933CF72676C3C46F9D9BD /* Pods-ProCheck-ProCheckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-ProCheckTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7FBE1B4450F462EBC2AA53D /* SFProDisplay-Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Heavy.otf"; path = "../App/Assets/Fonts/SFProDisplay-Heavy.otf"; sourceTree = "<group>"; };
-		EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-BaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseProject.release.xcconfig"; path = "Target Support Files/Pods-BaseProject/Pods-BaseProject.release.xcconfig"; sourceTree = "<group>"; };
+		EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-ProCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck.release.xcconfig"; path = "Target Support Files/Pods-ProCheck/Pods-ProCheck.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F3BA0965C52B4412B2B50C01 /* SFProDisplay-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-RegularItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-RegularItalic.otf"; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F7953C6673CC4DAA4C0A84D /* libPods-BaseProject-BaseProjectTests.a in Frameworks */,
+				6F7953C6673CC4DAA4C0A84D /* libPods-ProCheck-ProCheckTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B440B99C67814253901AB15A /* libPods-BaseProject.a in Frameworks */,
+				B440B99C67814253901AB15A /* libPods-ProCheck.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A41F6655E06DC53C6E207059 /* libPods-BaseProject-tvOS.a in Frameworks */,
+				A41F6655E06DC53C6E207059 /* libPods-ProCheck-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,20 +184,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				154DA68FCBF499ABC309D059 /* libPods-BaseProject-tvOSTests.a in Frameworks */,
+				154DA68FCBF499ABC309D059 /* libPods-ProCheck-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* BaseProjectTests */ = {
+		00E356EF1AD99517003FC87E /* ProCheckTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* BaseProjectTests.m */,
+				00E356F21AD99517003FC87E /* ProCheckTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = BaseProjectTests;
+			path = ProCheckTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -252,11 +252,11 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* BaseProject */ = {
+		13B07FAE1A68108700A75B9A /* ProCheck */ = {
 			isa = PBXGroup;
 			children = (
 				A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */,
-				04BCF4DE24786D3700D19063 /* BaseProject.entitlements */,
+				04BCF4DE24786D3700D19063 /* ProCheck.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -265,7 +265,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = BaseProject;
+			name = ProCheck;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -273,10 +273,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				2BA00B87CABC4BFADB28B7E5 /* libPods-BaseProject.a */,
-				840A4B350397AEB81F4721DB /* libPods-BaseProject-BaseProjectTests.a */,
-				4509E969860F335EA9817F27 /* libPods-BaseProject-tvOS.a */,
-				8E76FB566B54119610D7E0AD /* libPods-BaseProject-tvOSTests.a */,
+				2BA00B87CABC4BFADB28B7E5 /* libPods-ProCheck.a */,
+				840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */,
+				4509E969860F335EA9817F27 /* libPods-ProCheck-tvOS.a */,
+				8E76FB566B54119610D7E0AD /* libPods-ProCheck-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,14 +284,14 @@
 		809D76D6E19A366695E9F5F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3EC9E2F90C7198996B84DD64 /* Pods-BaseProject.debug.xcconfig */,
-				EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-BaseProject.release.xcconfig */,
-				01701C05AD85D9D6BA0F8C40 /* Pods-BaseProject-BaseProjectTests.debug.xcconfig */,
-				E41933CF72676C3C46F9D9BD /* Pods-BaseProject-BaseProjectTests.release.xcconfig */,
-				5195FE9121DC5FC7DD82326C /* Pods-BaseProject-tvOS.debug.xcconfig */,
-				5CDF15D48682B2D8C309B636 /* Pods-BaseProject-tvOS.release.xcconfig */,
-				27D8F8762F925E1772C88A76 /* Pods-BaseProject-tvOSTests.debug.xcconfig */,
-				CEABED6149B32DC804DD7A46 /* Pods-BaseProject-tvOSTests.release.xcconfig */,
+				3EC9E2F90C7198996B84DD64 /* Pods-ProCheck.debug.xcconfig */,
+				EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-ProCheck.release.xcconfig */,
+				01701C05AD85D9D6BA0F8C40 /* Pods-ProCheck-ProCheckTests.debug.xcconfig */,
+				E41933CF72676C3C46F9D9BD /* Pods-ProCheck-ProCheckTests.release.xcconfig */,
+				5195FE9121DC5FC7DD82326C /* Pods-ProCheck-tvOS.debug.xcconfig */,
+				5CDF15D48682B2D8C309B636 /* Pods-ProCheck-tvOS.release.xcconfig */,
+				27D8F8762F925E1772C88A76 /* Pods-ProCheck-tvOSTests.debug.xcconfig */,
+				CEABED6149B32DC804DD7A46 /* Pods-ProCheck-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 				A8C280ED25B5DF2C0054DFD2 /* File.swift */,
 				ADAE268824F937C500A83CF6 /* Config.xcconfig */,
 				04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */,
-				13B07FAE1A68108700A75B9A /* BaseProject */,
+				13B07FAE1A68108700A75B9A /* ProCheck */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* BaseProjectTests */,
+				00E356EF1AD99517003FC87E /* ProCheckTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				809D76D6E19A366695E9F5F9 /* Pods */,
@@ -325,10 +325,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* BaseProject.app */,
-				00E356EE1AD99517003FC87E /* BaseProjectTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* BaseProject-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* BaseProject-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* ProCheck.app */,
+				00E356EE1AD99517003FC87E /* ProCheckTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* ProCheck-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* ProCheck-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,9 +336,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* BaseProjectTests */ = {
+		00E356ED1AD99517003FC87E /* ProCheckTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BaseProjectTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ProCheckTests" */;
 			buildPhases = (
 				B5068A7844405DA865DD752A /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -351,14 +351,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = BaseProjectTests;
-			productName = BaseProjectTests;
-			productReference = 00E356EE1AD99517003FC87E /* BaseProjectTests.xctest */;
+			name = ProCheckTests;
+			productName = ProCheckTests;
+			productReference = 00E356EE1AD99517003FC87E /* ProCheckTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* BaseProject */ = {
+		13B07F861A680F5B00A75B9A /* ProCheck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BaseProject" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ProCheck" */;
 			buildPhases = (
 				CC5946A889587FF23433A7F7 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -373,14 +373,14 @@
 			);
 			dependencies = (
 			);
-			name = BaseProject;
-			productName = BaseProject;
-			productReference = 13B07F961A680F5B00A75B9A /* BaseProject.app */;
+			name = ProCheck;
+			productName = ProCheck;
+			productReference = 13B07F961A680F5B00A75B9A /* ProCheck.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* BaseProject-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* ProCheck-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BaseProject-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ProCheck-tvOS" */;
 			buildPhases = (
 				2DB6886DD6077F41C066D053 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -393,14 +393,14 @@
 			);
 			dependencies = (
 			);
-			name = "BaseProject-tvOS";
-			productName = "BaseProject-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* BaseProject-tvOS.app */;
+			name = "ProCheck-tvOS";
+			productName = "ProCheck-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* ProCheck-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* BaseProject-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* ProCheck-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BaseProject-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ProCheck-tvOSTests" */;
 			buildPhases = (
 				50E6FEB8B7B012CABCA7065B /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -412,9 +412,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "BaseProject-tvOSTests";
-			productName = "BaseProject-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* BaseProject-tvOSTests.xctest */;
+			name = "ProCheck-tvOSTests";
+			productName = "ProCheck-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* ProCheck-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -445,7 +445,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BaseProject" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ProCheck" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -458,10 +458,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* BaseProject */,
-				00E356ED1AD99517003FC87E /* BaseProjectTests */,
-				2D02E47A1E0B4A5D006451C7 /* BaseProject-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* BaseProject-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* ProCheck */,
+				00E356ED1AD99517003FC87E /* ProCheckTests */,
+				2D02E47A1E0B4A5D006451C7 /* ProCheck-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* ProCheck-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -587,7 +587,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BaseProject-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ProCheck-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -609,7 +609,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BaseProject-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ProCheck-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -622,7 +622,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BaseProject-BaseProjectTests/Pods-BaseProject-BaseProjectTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -665,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaseProject-BaseProjectTests/Pods-BaseProject-BaseProjectTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ADD1E99724FE4F7800427A17 /* Expose Environment Variables */ = {
@@ -701,7 +701,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BaseProject-BaseProjectTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ProCheck-ProCheckTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,7 +723,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BaseProject-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ProCheck-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -736,7 +736,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BaseProject/Pods-BaseProject-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ProCheck/Pods-ProCheck-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
@@ -779,7 +779,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaseProject/Pods-BaseProject-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProCheck/Pods-ProCheck-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -827,7 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* BaseProjectTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ProCheckTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,7 +854,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* BaseProjectTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* ProCheckTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,12 +863,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* BaseProject */;
+			target = 13B07F861A680F5B00A75B9A /* ProCheck */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* BaseProject-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* ProCheck-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -880,7 +880,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = BaseProject;
+			path = ProCheck;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -888,7 +888,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01701C05AD85D9D6BA0F8C40 /* Pods-BaseProject-BaseProjectTests.debug.xcconfig */;
+			baseConfigurationReference = 01701C05AD85D9D6BA0F8C40 /* Pods-ProCheck-ProCheckTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -896,7 +896,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = BaseProjectTests/Info.plist;
+				INFOPLIST_FILE = ProCheckTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -906,18 +906,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject.app/BaseProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProCheck.app/ProCheck";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E41933CF72676C3C46F9D9BD /* Pods-BaseProject-BaseProjectTests.release.xcconfig */;
+			baseConfigurationReference = E41933CF72676C3C46F9D9BD /* Pods-ProCheck-ProCheckTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = BaseProjectTests/Info.plist;
+				INFOPLIST_FILE = ProCheckTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -927,17 +927,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject.app/BaseProject";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProCheck.app/ProCheck";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EC9E2F90C7198996B84DD64 /* Pods-BaseProject.debug.xcconfig */;
+			baseConfigurationReference = 3EC9E2F90C7198996B84DD64 /* Pods-ProCheck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ProCheck/ProCheck.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -947,15 +947,15 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = BaseProject/Info.plist;
+				INFOPLIST_FILE = ProCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hisoft.base.app;
-				PRODUCT_NAME = BaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vn.procheck;
+				PRODUCT_NAME = ProCheck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -965,24 +965,24 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-BaseProject.release.xcconfig */;
+			baseConfigurationReference = EBC9A5D2DE47E9D9DF5B6CC3 /* Pods-ProCheck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ProCheck/ProCheck.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44DZTJZ28X;
-				INFOPLIST_FILE = BaseProject/Info.plist;
+				INFOPLIST_FILE = ProCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hisoft.base.app;
-				PRODUCT_NAME = BaseProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vn.procheck;
+				PRODUCT_NAME = ProCheck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -991,7 +991,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5195FE9121DC5FC7DD82326C /* Pods-BaseProject-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 5195FE9121DC5FC7DD82326C /* Pods-ProCheck-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1002,14 +1002,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BaseProject-tvOS/Info.plist";
+				INFOPLIST_FILE = "ProCheck-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BaseProject-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.ProCheck-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1019,7 +1019,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CDF15D48682B2D8C309B636 /* Pods-BaseProject-tvOS.release.xcconfig */;
+			baseConfigurationReference = 5CDF15D48682B2D8C309B636 /* Pods-ProCheck-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1030,14 +1030,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BaseProject-tvOS/Info.plist";
+				INFOPLIST_FILE = "ProCheck-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BaseProject-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.ProCheck-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1047,7 +1047,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27D8F8762F925E1772C88A76 /* Pods-BaseProject-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 27D8F8762F925E1772C88A76 /* Pods-ProCheck-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1057,24 +1057,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BaseProject-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ProCheck-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BaseProject-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.ProCheck-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject-tvOS.app/BaseProject-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProCheck-tvOS.app/ProCheck-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEABED6149B32DC804DD7A46 /* Pods-BaseProject-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = CEABED6149B32DC804DD7A46 /* Pods-ProCheck-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1084,17 +1084,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "BaseProject-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ProCheck-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.BaseProject-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.ProCheck-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BaseProject-tvOS.app/BaseProject-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProCheck-tvOS.app/ProCheck-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1217,7 +1217,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BaseProjectTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ProCheckTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1226,7 +1226,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BaseProject" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ProCheck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1235,7 +1235,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BaseProject-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ProCheck-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1244,7 +1244,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "BaseProject-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ProCheck-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1253,7 +1253,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BaseProject" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ProCheck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
