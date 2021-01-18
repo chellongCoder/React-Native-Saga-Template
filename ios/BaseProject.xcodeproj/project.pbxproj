@@ -45,6 +45,7 @@
 		90FC6241617F449AA420C52B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5493F80DBB5B441683219706 /* Zocial.ttf */; };
 		9BBB426DB87D47DF8F998B8F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */; };
 		A41F6655E06DC53C6E207059 /* libPods-BaseProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4509E969860F335EA9817F27 /* libPods-BaseProject-tvOS.a */; };
+		A8C280EE25B5DF2C0054DFD2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C280ED25B5DF2C0054DFD2 /* File.swift */; };
 		A8C6545F24FEBC1000B1B784 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */; };
 		AA229FF6C1634DB28AA6BE22 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80663627A0AF419BAC87B862 /* FontAwesome5_Brands.ttf */; };
 		ADAE268924F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
@@ -133,6 +134,7 @@
 		8E76FB566B54119610D7E0AD /* libPods-BaseProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BaseProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED2331C6D134B5F9E9E32BB /* SFProDisplay-LightItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-LightItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-LightItalic.otf"; sourceTree = "<group>"; };
 		992EE0FF0C374DF0940BA2C3 /* SFProDisplay-BlackItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-BlackItalic.otf"; path = "../App/Assets/Fonts/SFProDisplay-BlackItalic.otf"; sourceTree = "<group>"; };
+		A8C280ED25B5DF2C0054DFD2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "BaseProject/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ADAE268824F937C500A83CF6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AF7B606DF515443E91AFE835 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A8C280ED25B5DF2C0054DFD2 /* File.swift */,
 				ADAE268824F937C500A83CF6 /* Config.xcconfig */,
 				04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */,
 				13B07FAE1A68108700A75B9A /* BaseProject */,
@@ -428,7 +431,8 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 44DZTJZ28X;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1220;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -832,6 +836,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				A8C280EE25B5DF2C0054DFD2 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,6 +890,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01701C05AD85D9D6BA0F8C40 /* Pods-BaseProject-BaseProjectTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -908,6 +914,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E41933CF72676C3C46F9D9BD /* Pods-BaseProject-BaseProjectTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = BaseProjectTests/Info.plist;
@@ -931,6 +938,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44DZTJZ28X;
 				ENABLE_BITCODE = NO;
@@ -947,6 +956,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisoft.base.app;
 				PRODUCT_NAME = BaseProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -960,6 +970,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BaseProject/BaseProject.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 44DZTJZ28X;
 				INFOPLIST_FILE = BaseProject/Info.plist;
@@ -971,6 +983,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hisoft.base.app;
 				PRODUCT_NAME = BaseProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
