@@ -6,9 +6,11 @@ import { theme } from '../theme';
 const { colors } = theme;
 
 const tabIcons = {
-  search: <FontAwesome name="search" color={colors.white} size={25} />,
-  home: <FontAwesome name="home" color={colors.white} size={25} />,
-  profile: <MaterialIcons name="person" color={colors.white} size={25} />,
+  home: <MaterialIcons name={'home'} size={25} color={'#FFF'} />,
+  history: <MaterialIcons name="history" color={colors.white} size={25} />,
+  qrcode: <FontAwesome name="qrcode" color={colors.white} size={25} />,
+  news: <FontAwesome name="newspaper-o" color={colors.white} size={25} />,
+  profile: <FontAwesome name="user" color={colors.white} size={25} />,
 };
 
 export { tabIcons };
