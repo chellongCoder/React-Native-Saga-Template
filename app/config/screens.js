@@ -5,6 +5,7 @@ const screens = {
   appStack: 'AppStack',
   drawerStack: 'DrawerStack',
   bottomTabStack: 'BottomTabStack',
+  login: 'LoginScreen',
 };
 
 export { screens };

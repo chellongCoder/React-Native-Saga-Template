@@ -65,7 +65,7 @@ const WalkThrough = (props) => {
   };
   const _renderDoneButton = () => {
     return (
-      <TouchableOpacity style={styles.buttonCircle} onPress={() => props.navigation.navigate(screens.drawerStack)}>
+      <TouchableOpacity style={styles.buttonCircle} onPress={() => props.navigation.navigate(screens.login)}>
         <Ionicons name="md-checkmark" color={colors.white} size={24} />
       </TouchableOpacity>
     );
