@@ -15,18 +15,28 @@ function BottomTab(props) {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.tab}>
-        {tabIcons.search}
-        <Text style={styles.tabText}>{i18('BottomTab.search')}</Text>
+        {tabIcons.home}
+        <Text style={styles.tabText}>{i18('Home')}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.tab}>
-        {tabIcons.home}
-        <Text style={styles.tabText}>{i18('BottomTab.home')}</Text>
+        {tabIcons.history}
+        <Text style={styles.tabText}>{i18('History')}</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.tab}>
+        {tabIcons.qrcode}
+        <Text style={styles.tabText}>{i18('QR_Code')}</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.tab}>
+        {tabIcons.news}
+        <Text style={styles.tabText}>{i18('News')}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.tab}>
         {tabIcons.profile}
-        <Text style={styles.tabText}>{i18('BottomTab.profile')}</Text>
+        <Text style={styles.tabText}>{i18('Profile')}</Text>
       </TouchableOpacity>
     </View>
   );
