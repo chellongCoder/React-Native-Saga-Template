@@ -911,6 +911,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@nartc/react-native-barcode-mask@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@nartc/react-native-barcode-mask/-/react-native-barcode-mask-1.2.0.tgz#e01ab43f1fa848d73121c27d3675c2d6557d670f"
+  integrity sha512-QXawZlaQz+QQ6Jrg4AEgrCXxsYltLZ89sxJXyt36pDRnT122aoK0/84m2dORd29V+/22BjwceXDZePayqXDaRA==
+
 "@react-native-community/async-storage@^1.9.0":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.0.tgz#d2fc65bc08aa1c3e9514bbe9fe7095eab8e8aca3"
@@ -5919,6 +5924,13 @@ react-native-app-intro-slider@^4.0.2:
   resolved "https://registry.yarnpkg.com/react-native-app-intro-slider/-/react-native-app-intro-slider-4.0.4.tgz#fa5cda7057db62c448ac975ffd2ba0cff94cc8d8"
   integrity sha512-Zkjaol6X3BbZkHUpVDj2LjdidpS6rCgKi0fx80xgGKa0pHxBRd4swWTv2bHnnvu5k1/HXwYk0mY2TbK+2jHl5w==
 
+react-native-camera@^3.42.2:
+  version "3.42.2"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.42.2.tgz#df0f9d0d4d7dd317abf1f474b245508121818b20"
+  integrity sha512-sqeVZiHP3hDdSVlVTM62Nry9+Enff06IqicK2bth+NKWPccwOHw4QXLMf7M5rpGFAIfbSGCcy0U1r+biv6R6rw==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-code-push@^6.2.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-6.3.0.tgz#a30bdefe91867fe9d38c73caa126f3c9ff0061e4"
@@ -6006,10 +6018,10 @@ react-native-paper@^3.8.0:
     color "^3.1.2"
     react-native-safe-area-view "^0.14.9"
 
-react-native-permissions@^2.1.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.2.0.tgz#7980caccf98814c6a4677816d21e90ba456362d3"
-  integrity sha512-y5GvcYdEe9PEWVM12UgdkNI/BVvjEU6SZGN7zBpoalTczSlWGQ4SeD2dBz9KfCu1jg5l1752sKDAggTjaq3QKQ==
+react-native-permissions@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.2.2.tgz#3d2a63f6b7d6be52fc86e30f77412a9566283028"
+  integrity sha512-ihf4shQDSX5Oo9ChQXb9kr13mmyyNem5MaEvOpr3dCjhBOBWyEMztXm9/uPK1Qg5PsNpaYLa1KpcPZDCw87LXg==
 
 react-native-push-notification-popup@^1.4.0:
   version "1.6.0"
