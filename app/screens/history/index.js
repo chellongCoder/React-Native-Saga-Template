@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-export default class NewsScreen extends Component {
+export default class History extends Component {
 
     render() {
         return (
             <View>
-                <Text>NewsScreen</Text>
+                <Text>History</Text>
             </View>
         );
     }
