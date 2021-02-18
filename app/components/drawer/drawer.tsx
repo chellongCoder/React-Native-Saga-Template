@@ -6,9 +6,10 @@ import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { drawerIcons } from '../../helpers';
 import { images } from '../../constants';
+import { screens } from '../../config';
 import styles from './drawer.styles';
 
-function Drawer(props) {
+function Drawer({ navigation }) {
   const [t, i18n] = useTranslation();
 
   const i18 = (key) => {
@@ -40,13 +41,21 @@ function Drawer(props) {
     }
   };
 
+  const navigateToLogin = () => {
+    navigation.navigate(screens.login);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FastImage source={images.icon} style={styles.image} />
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <TouchableOpacity style={styles.itemContainer} onPress={() => changeLanguageWithRTL()}>
+        <TouchableOpacity style={styles.itemContainer} onPress={changeLanguageWithRTL}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.changeLanguage')}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
+          {drawerIcons.language}
+          <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

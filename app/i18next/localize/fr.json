@@ -14,7 +14,8 @@
   },
 
   "Drawer": {
-    "changeLanguage": "Changer de langue"
+    "changeLanguage": "Changer de langue",
+    "login": "Login"
   },
 
   "BottomTab": {
