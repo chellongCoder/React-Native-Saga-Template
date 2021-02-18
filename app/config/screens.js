@@ -6,6 +6,7 @@ const screens = {
   drawerStack: 'DrawerStack',
   bottomTabStack: 'BottomTabStack',
   login: 'LoginScreen',
+  TabMain: 'TabMain',
 };
 
 export { screens };
