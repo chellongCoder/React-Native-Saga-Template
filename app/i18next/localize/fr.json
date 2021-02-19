@@ -20,8 +20,11 @@
 
   "BottomTab": {
     "search": "Chercher",
-    "home": "Accueil",
-    "profile": "Profil"
+    "Home": "Home",
+    "Profile": "Profile",
+    "History": "History",
+    "News": "News",
+    "QRCode": "QRCode"
   },
 
   "Component": {

@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { screens } from '../config';
 import QRCode from '../screens/qr_code';
@@ -8,19 +7,17 @@ import Home from '../screens/home';
 import History from '../screens/history';
 import News from '../screens/news';
 import Account from '../screens/account';
+import { BottomTab } from '../components';
 
 const BottomTabStack = createBottomTabNavigator();
 
+export const tabBar = (props: any) => <BottomTab {...props} />;
+
 export default function TabNavigator() {
   return (
-    <BottomTabStack.Navigator
-      headerMode="none"
-      // tabBar={(props) => <BottomTab {...props} />}
-      activeColor={'#f0edf6'}
-      inactiveColor={'red'}
-      barStyle={styles.barStyle}>
+    <BottomTabStack.Navigator {...{ tabBar }}>
       <BottomTabStack.Screen
-        name={screens.appStack}
+        name={screens.home}
         component={Home}
         options={{
           tabBarLabel: 'Trang chủ',
@@ -28,7 +25,7 @@ export default function TabNavigator() {
         }}
       />
       <BottomTabStack.Screen
-        name={'appStack'}
+        name={screens.history}
         component={History}
         options={{
           tabBarLabel: 'Lịch sử',
@@ -36,15 +33,15 @@ export default function TabNavigator() {
         }}
       />
       <BottomTabStack.Screen
-        name={'qrCode'}
+        name={screens.qrcode}
         component={QRCode}
         options={{
-          tabBarLabel: 'Quyét mã',
+          tabBarLabel: 'Quét mã',
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="qrcode-scan" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
-        name={'news'}
+        name={screens.news}
         component={News}
         options={{
           tabBarLabel: 'Tin tức',
@@ -52,7 +49,7 @@ export default function TabNavigator() {
         }}
       />
       <BottomTabStack.Screen
-        name={'account'}
+        name={screens.profile}
         component={Account}
         options={{
           tabBarLabel: 'tài khoản',
@@ -62,7 +59,3 @@ export default function TabNavigator() {
     </BottomTabStack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  barStyle: { backgroundColor: '#694fad' },
-});
