@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+  	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>Boilerplate</key>
 	<string>AboutReactLogin</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -77,10 +79,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<array>
-		<string>armv7</string>
-	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
