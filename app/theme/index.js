@@ -1,5 +1,4 @@
 import { Appearance } from 'react-native';
-
 import LightTheme from './light-theme';
 import DarkTheme from './dark-theme';
 
@@ -9,3 +8,4 @@ console.log('====================================');
 console.log('colorScheme', colorScheme);
 console.log('====================================');
 export { theme };
+export * from './platform';
