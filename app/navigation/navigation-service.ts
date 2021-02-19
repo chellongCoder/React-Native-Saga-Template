@@ -1,12 +1,12 @@
 import { CommonActions } from '@react-navigation/native';
 
-let _navigator;
+let _navigator: any;
 
-function setTopLevelNavigator(navigatorRef) {
+function setTopLevelNavigator(navigatorRef: any) {
   _navigator = navigatorRef;
 }
 
-function navigate(routeName, params) {
+function navigate(routeName: string, params: any) {
   _navigator.dispatch(
     CommonActions.navigate({
       name: routeName,
@@ -15,12 +15,8 @@ function navigate(routeName, params) {
   );
 }
 
-function goBack(key) {
-  _navigator.dispatch(
-    CommonActions.back({
-      key: key,
-    }),
-  );
+function goBack() {
+  _navigator.dispatch(CommonActions.goBack());
 }
 
 // add other navigation functions that you need and export them

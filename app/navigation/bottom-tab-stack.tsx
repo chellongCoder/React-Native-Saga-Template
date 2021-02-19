@@ -1,16 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, View } from 'native-base';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { BottomTab } from '../components';
-import { screens } from '../config';
-import Home from '../screens/home/index';
-import History from '../screens/history/history';
-import QRCode from '../screens/qr_code/qr_code';
-import News from '../screens/news/news';
-import Account from '../screens/account/account';
-
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { screens } from '../config';
+import QRCode from '../screens/qr_code';
+import Home from '../screens/home';
+import History from '../screens/history';
+import News from '../screens/news';
+import Account from '../screens/account';
+
 const BottomTabStack = createBottomTabNavigator();
 
 export default function TabNavigator() {
@@ -26,9 +24,7 @@ export default function TabNavigator() {
         component={Home}
         options={{
           tabBarLabel: 'Trang chủ',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
@@ -36,9 +32,7 @@ export default function TabNavigator() {
         component={History}
         options={{
           tabBarLabel: 'Lịch sử',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="history" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="history" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
@@ -46,9 +40,7 @@ export default function TabNavigator() {
         component={QRCode}
         options={{
           tabBarLabel: 'Quyét mã',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="qrcode-scan" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="qrcode-scan" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
@@ -56,9 +48,7 @@ export default function TabNavigator() {
         component={News}
         options={{
           tabBarLabel: 'Tin tức',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="newspaper" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="newspaper" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
@@ -66,9 +56,7 @@ export default function TabNavigator() {
         component={Account}
         options={{
           tabBarLabel: 'tài khoản',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
         }}
       />
     </BottomTabStack.Navigator>
