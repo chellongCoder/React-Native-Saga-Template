@@ -25,7 +25,8 @@
     "Profile": "Profile",
     "History": "History",
     "News": "News",
-    "QRCode": "QRCode"
+    "QRCode": "QRCode",
+    "TabQRCode": "QRCode"
   },
 
   "Component": {

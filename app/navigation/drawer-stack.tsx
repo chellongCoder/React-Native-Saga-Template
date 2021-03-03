@@ -3,6 +3,7 @@ import React from 'react';
 import { Drawer } from '../components';
 import { screens } from '../config';
 import LoginScreen from '../screens/login';
+import QrCodeScreen from '../screens/qr_code';
 import RegisterScreen from '../screens/register';
 import BottomTabStack from './bottom-tab-stack';
 

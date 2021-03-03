@@ -2,6 +2,7 @@ const screens = {
   walkthrough: 'WalkThrough',
   home: 'Home',
   history: 'History',
+  tabqrcode: 'TabQRCode',
   qrcode: 'QRCode',
   news: 'News',
   profile: 'Profile',

@@ -2,12 +2,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { screens } from '../config';
-import QRCode from '../screens/qr_code';
-import Home from '../redux/connects/home.connect';
+import Home from '../screens/home';
 import History from '../screens/history';
 import News from '../screens/news';
 import Account from '../screens/account';
 import { BottomTab } from '../components';
+import TabQrCode from '../screens/qr_code/TabQrCode';
 
 const BottomTabStack = createBottomTabNavigator();
 
@@ -33,8 +33,8 @@ export default function TabNavigator() {
         }}
       />
       <BottomTabStack.Screen
-        name={screens.qrcode}
-        component={QRCode}
+        name={screens.tabqrcode}
+        component={TabQrCode}
         options={{
           tabBarLabel: 'Quét mã',
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="qrcode-scan" color={color} size={size} />,
