@@ -1,5 +1,5 @@
 import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import React, { useCallback, useMemo } from 'react';
+import React, { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '..';
@@ -34,8 +34,25 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
         }
       };
 
+      if (index === 2) {
+        return (
+          <Fragment key={index.toString()}>
+            <View style={styles.qrCodeContainer}>
+              <TouchableOpacity {...{ onPress }} style={styles.qrcodeButton}>
+                {IconsTab[2]}
+              </TouchableOpacity>
+              <Text style={styles.tabText}>{i18(`BottomTab.${route.name}`)}</Text>
+            </View>
+          </Fragment>
+        );
+      }
+
       return (
-        <TouchableOpacity accessibilityState={isFocused ? { selected: true } : {}} {...{ onPress }} style={styles.tab}>
+        <TouchableOpacity
+          key={index}
+          accessibilityState={isFocused ? { selected: true } : {}}
+          {...{ onPress }}
+          style={styles.tab}>
           {isFocused && <View style={styles.borderTab} />}
           {IconsTab[index]}
           <Text style={styles.tabText}>{i18(`BottomTab.${route.name}`)}</Text>

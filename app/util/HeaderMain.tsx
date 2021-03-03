@@ -16,9 +16,7 @@ const HeaderMain = (props: any) => {
       <SafeAreaView />
       <StatusBar barStyle={'light-content'} />
       <Row style={styles.styWrapHeader}>
-        <RippleButtonAnim
-        // onPress={openDrawer}
-        >
+        <RippleButtonAnim onPress={openDrawer}>
           <IconAntDesign name={'menu-unfold'} size={30} color={'#FFF'} />
         </RippleButtonAnim>
         <SearchComponent {...props} />

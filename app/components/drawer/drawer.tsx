@@ -1,15 +1,17 @@
 import React from 'react';
-import { I18nManager, SafeAreaView, ScrollView, Text, TouchableOpacity } from 'react-native';
+import { I18nManager, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
+import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { drawerIcons } from '../../helpers';
 import { images } from '../../constants';
 import { screens } from '../../config';
+import { Text } from '../text';
 import styles from './drawer.styles';
 
-function Drawer({ navigation }) {
+function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
 
   const i18 = (key) => {
@@ -45,6 +47,10 @@ function Drawer({ navigation }) {
     navigation.navigate(screens.login);
   };
 
+  const navigateToRegister = () => {
+    navigation.navigate(screens.register);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <FastImage source={images.icon} style={styles.image} />
@@ -56,6 +62,10 @@ function Drawer({ navigation }) {
         <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
+          {drawerIcons.language}
+          <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

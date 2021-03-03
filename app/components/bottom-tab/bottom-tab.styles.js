@@ -24,4 +24,13 @@ export default StyleSheet.create({
     position: 'absolute',
     top: -5,
   },
+  qrCodeContainer: { marginBottom: Platform.SizeScale(30), alignItems: 'center' },
+  qrcodeButton: {
+    width: Platform.SizeScale(60),
+    height: Platform.SizeScale(60),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: Platform.SizeScale(30),
+    backgroundColor: 'blue',
+  },
 });

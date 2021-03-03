@@ -9,7 +9,8 @@ const screens = {
   appStack: 'AppStack',
   drawerStack: 'DrawerStack',
   bottomTabStack: 'BottomTabStack',
-  login: 'LoginScreen',
+  login: 'Login',
+  register: 'Register',
   TabMain: 'TabMain',
 };
 
