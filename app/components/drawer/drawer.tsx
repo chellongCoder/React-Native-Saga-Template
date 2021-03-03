@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
+import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { drawerIcons } from '../../helpers';
 import { images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
 import styles from './drawer.styles';
 
-function Drawer({ navigation }) {
+function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
 
   const i18 = (key) => {

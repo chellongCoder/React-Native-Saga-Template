@@ -19,7 +19,7 @@ const Home = (props: any) => {
   return (
     <View style={styles.container}>
       {/* <MenuHeader {...props} /> */}
-      <HeaderMain screen={tabModel.home} {...props.screenProps} />
+      <HeaderMain screen={tabModel.home} {...props} {...props.screenProps} />
       <LinearGradient colors={['#4267B2', '#4267B2', '#4267B2', '#192f6a']} style={styles.styBorder} />
       <FlatList
         data={Array.from(Array(1).keys())}
