@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import Row from '../../util/Row';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import { AppIcon } from '../../Common/AppIcon';
@@ -31,7 +32,7 @@ function ItemMain(props: any) {
   const { img, title, onPress } = props;
   return (
     <RippleButtonAnim containerStyle={{ alignItems: 'center', width: 70 }} onPress={onPress}>
-      <Image source={img} style={styles.styImg} resizeMode={'contain'} />
+      <FastImage source={img} style={styles.styImg} resizeMode={'contain'} />
       <Text style={styles.styTxtTitle}>{title}</Text>
     </RippleButtonAnim>
   );
