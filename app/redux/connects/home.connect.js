@@ -7,6 +7,10 @@ function mapStateToProps({ products }) {
   };
 }
 
-const mapDispatchToProps = homeActionsCreator;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getDataProduct: (payload) => dispatch(homeActionsCreator.getDataRequest(payload)),
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

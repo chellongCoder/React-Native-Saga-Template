@@ -8,10 +8,11 @@ import 'react-native-gesture-handler';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { enableScreens } from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
+import { Provider } from 'react-redux';
 import { DropDownHolder, PushNotification } from './components';
 import AppNavigator from './navigation/root-stack';
 import { theme } from './theme';
-
+import { store } from './redux/store/index';
 enableScreens();
 
 const App = () => {
@@ -23,19 +24,21 @@ const App = () => {
   }, []);
 
   return (
-    <Suspense fallback={null}>
-      <Root>
-        <SafeAreaView style={styles.container}>
-          <PaperProvider>
-            <NavigationContainer theme={theme}>
-              <AppNavigator />
-              <PushNotification />
-              <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-            </NavigationContainer>
-          </PaperProvider>
-        </SafeAreaView>
-      </Root>
-    </Suspense>
+    <Provider store={store}>
+      <Suspense fallback={null}>
+        <Root>
+          <SafeAreaView style={styles.container}>
+            <PaperProvider>
+              <NavigationContainer theme={theme}>
+                <AppNavigator />
+                <PushNotification />
+                <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+              </NavigationContainer>
+            </PaperProvider>
+          </SafeAreaView>
+        </Root>
+      </Suspense>
+    </Provider>
   );
 };
 

@@ -27,6 +27,6 @@ export default function (state = initialState, action) {
         error: payload.error,
       };
     default:
-      break;
+      return state;
   }
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { screens } from '../config';
 import QRCode from '../screens/qr_code';
-import Home from '../screens/home';
+import Home from '../redux/connects/home.connect';
 import History from '../screens/history';
 import News from '../screens/news';
 import Account from '../screens/account';
