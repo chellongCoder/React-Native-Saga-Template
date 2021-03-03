@@ -4,6 +4,8 @@ import {
     View,
     StyleSheet,
     Dimensions,
+    Linking,
+    Alert
 } from 'react-native';
 import { useBarcodeRead, BarcodeMaskWithOuterLayout } from '@nartc/react-native-barcode-mask';
 import { RNCamera } from 'react-native-camera';
@@ -17,9 +19,19 @@ export default function QrCodeScreen() {
         onBarcodeFinderLayoutChange,
     } = useBarcodeRead(
         isbarcodeRead,
-        data => {
+        async data => {
             console.log('data', data);
             setbarcodeRead(false);
+            if (data) {
+                const supported = await Linking.canOpenURL(data);
+                if (supported) {
+                    await Linking.openURL(data);
+                    setbarcodeRead(true);
+                } else {
+                    Alert.alert(`Don't know how to open this URL: ${data}`);
+                    setbarcodeRead(true);
+                }
+            }
         },
         processed => {
             console.log('processed', processed);
