@@ -9,6 +9,8 @@ import Icon9 from '../assets/images/icon9.png';
 import Icon10 from '../assets/images/icon10.png';
 import Icon11 from '../assets/images/icon11.png';
 import Icon1 from '../assets/images/icon11.png';
+import IconStar from '../Assets/icons/icon_star.png';
+import IconStarActive from '../Assets/icons/icon_star_active.png';
 
 export const AppIcon = {
   Icon1,
@@ -22,4 +24,6 @@ export const AppIcon = {
   Icon9,
   Icon10,
   Icon11,
+  IconStar,
+  IconStarActive,
 };

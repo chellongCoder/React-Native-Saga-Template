@@ -11,7 +11,13 @@ const getDataProduct = (access_token, params) =>
     ...params,
   });
 
+const getDataSliders = (access_token, params) =>
+  api.post(`api/sliders?access_token=${access_token}`, {
+    server_key: SERVER_KEY,
+    ...params,
+  });
 // let's return back our create method as the default.
 export default {
   getDataProduct,
+  getDataSliders,
 };

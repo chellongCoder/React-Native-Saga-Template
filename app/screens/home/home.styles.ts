@@ -4,7 +4,10 @@ const { width } = Dimensions.get('window');
 const { colors } = theme;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
   buttonCircle: {
     width: 40,
     height: 40,

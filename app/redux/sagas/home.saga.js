@@ -1,29 +1,35 @@
 import { all, fork, put, take, takeEvery } from 'redux-saga/effects';
-import { Alert } from 'react-native';
 import { homeActionsCreator } from '../actions';
 import Api from '../../services/home-service';
-import { GET_DATA_PRODUCT_SUCCESS, GET_DATA_PRODUCT_FAILD, GET_DATA_PRODUCT_REQUEST } from '../types';
+import { GET_DATA_PRODUCT_REQUEST, GET_DATA_SLIDER_REQUEST } from '../types';
 
 function* getDataProducts({ payload }) {
   try {
     const response = yield Api.getDataProduct(payload.access_token, payload.params);
-    console.log('🚀 ~ file: home.saga.js ~ line 10 ~ function*getDataProducts ~ response', response);
-    if (response.success) {
+    if (response.status === 200) {
       yield put(homeActionsCreator.getDataSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataFaild({ error: response.message }));
     }
   } catch (err) {
-    yield put(homeActionsCreator.getDataFaild(GET_DATA_PRODUCT_FAILD, { error: err ? err : 'User Login Failed!' }));
+    yield put(homeActionsCreator.getDataFaild({ error: err ? err : 'User Login Failed!' }));
   }
 }
 
-function* watchHome() {
-  while (true) {
-    const action = yield take(GET_DATA_PRODUCT_REQUEST);
-    yield* getDataProducts(action);
+function* getDataSliders({ payload }) {
+  try {
+    const response = yield Api.getDataSliders(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataSlidersSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataSlidersFaild({ error: response.message }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataSlidersFaild({ error: err ? err : 'User Login Failed!' }));
   }
-  // yield takeEvery(GET_DATA_PRODUCT_REQUEST, getDataProducts);
 }
 
 export default function* () {
-  yield all([fork(watchHome)]);
+  yield takeEvery(GET_DATA_PRODUCT_REQUEST, getDataProducts);
+  yield takeEvery(GET_DATA_SLIDER_REQUEST, getDataSliders);
 }
