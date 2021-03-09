@@ -1,9 +1,9 @@
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions, Platform, StyleSheet } from 'react-native';
 
 export const os = Platform.OS;
 
-export const width = Dimensions.get('window').width;
-export const height = Dimensions.get('screen').height;
+export const { width } = Dimensions.get('window');
+export const { height } = Dimensions.get('screen');
 
 const DESIGN_DIMENSIONS = { width: 375, height: 812 };
 
@@ -39,3 +39,17 @@ export const textStyle = {
     fontWeight: '800',
   },
 };
+
+export const CommonStyle = StyleSheet.create({
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 1,
+      height: -0,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+
+    elevation: 6,
+  },
+});

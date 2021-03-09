@@ -8,7 +8,7 @@ import News from '../screens/news';
 import Account from '../screens/account';
 import { BottomTab } from '../components';
 import TabQrCode from '../screens/qr_code/TabQrCode';
-
+import { IconTabbar } from '../components/bottom-tab/index';
 const BottomTabStack = createBottomTabNavigator();
 
 export const tabBar = (props: any) => <BottomTab {...props} />;
@@ -21,7 +21,7 @@ export default function TabNavigator() {
         component={Home}
         options={{
           tabBarLabel: 'Trang chủ',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <IconTabbar />,
         }}
       />
       <BottomTabStack.Screen
