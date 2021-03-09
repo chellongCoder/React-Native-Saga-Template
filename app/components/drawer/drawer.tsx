@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { drawerIcons } from '../../helpers';
-import { images } from '../../constants';
+import { Images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
 import styles from './drawer.styles';
@@ -22,7 +22,7 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   const changeLanguageWithRTL = async () => {
     let currentLanguage = await AsyncStorage.getItem('language');
     if (currentLanguage == 'en') {
-      await AsyncStorage.setItem('language', 'fr');
+      await AsyncStorage.setItem('language', 'vi');
       I18nManager.forceRTL(true);
       RNRestart.Restart();
     } else {
@@ -53,7 +53,7 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
 
   return (
     <SafeAreaView style={styles.container}>
-      <FastImage source={images.icon} style={styles.image} />
+      <FastImage source={Images.icon} style={styles.image} />
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         <TouchableOpacity style={styles.itemContainer} onPress={changeLanguageWithRTL}>
           {drawerIcons.language}

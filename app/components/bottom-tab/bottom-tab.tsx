@@ -3,14 +3,18 @@ import React, { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '..';
+import { ICONS } from '../../constants';
 import { tabIcons } from '../../helpers';
+import { theme } from '../../theme';
 import styles from './bottom-tab.styles';
+import { IconTabbar } from './icon-tabbar';
 
-const IconsTab = [tabIcons.home, tabIcons.history, tabIcons.qrcode, tabIcons.news, tabIcons.profile];
+const IconsTab = [ICONS.HOME_UNFOCUS, ICONS.NEW_UNFOCUS, ICONS.QRCODE, ICONS.ALERT_UNFOCUS, ICONS.ACOUNT_UNFOCUS];
+const IconsTabFocus = [ICONS.HOME_FOCUS, ICONS.NEW_FOCUS, ICONS.QRCODE, ICONS.ALERT_FOCUS, ICONS.ACOUNT_FOCUS];
 
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomTabBarOptions>) => {
   const [t, i18n] = useTranslation();
-
+  const { colors } = theme;
   const i18 = useCallback(
     (key) => {
       return t(key);
@@ -39,9 +43,8 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
           <Fragment key={index.toString()}>
             <View style={styles.qrCodeContainer}>
               <TouchableOpacity {...{ onPress }} style={styles.qrcodeButton}>
-                {IconsTab[2]}
+                <IconTabbar styleImageContainer={styles.buttonQrcode} name={IconsTab[2]} />
               </TouchableOpacity>
-              <Text style={styles.tabText}>{i18(`BottomTab.${route.name}`)}</Text>
             </View>
           </Fragment>
         );
@@ -54,12 +57,14 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
           {...{ onPress }}
           style={styles.tab}>
           {isFocused && <View style={styles.borderTab} />}
-          {IconsTab[index]}
-          <Text style={styles.tabText}>{i18(`BottomTab.${route.name}`)}</Text>
+          {!isFocused ? <IconTabbar name={IconsTab[index]} /> : <IconTabbar name={IconsTabFocus[index]} />}
+          <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
+            {i18(`BottomTab.${route.name}`)}
+          </Text>
         </TouchableOpacity>
       );
     });
-  }, [i18, navigation, state.index, state.routes]);
+  }, [colors.green, i18, navigation, state.index, state.routes]);
 
   return <View style={styles.container}>{routes}</View>;
 };
