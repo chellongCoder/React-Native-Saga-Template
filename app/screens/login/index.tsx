@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { OutlinedTextField } from 'react-native-material-textfield';
-import { AppButton } from '../../components';
+import { AppButton, GoogleButton } from '../../components';
 
 const LoginScreen = withTheme(() => {
   const fieldRef: any = useRef();
@@ -35,6 +35,7 @@ const LoginScreen = withTheme(() => {
         secureTextEntry
       />
       <AppButton title="Submit" />
+      <GoogleButton />
     </View>
   );
 });

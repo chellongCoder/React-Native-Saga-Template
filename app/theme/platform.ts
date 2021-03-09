@@ -28,8 +28,8 @@ class PlBase {
   };
   readonly headerHeight = this.SizeScale(50);
   readonly version = PlatformBase.Version;
-  readonly textBase: TextStyle = {
-    fontSize: this.SizeScale(),
+  textBase: TextStyle = {
+    fontSize: this.SizeScale(10),
     fontFamily: 'Roboto',
   };
 }

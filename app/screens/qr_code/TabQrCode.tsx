@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { screens } from '../../config';
 
 interface Props {
@@ -19,5 +19,3 @@ const TabQrCode = ({ navigation }: Props) => {
 };
 
 export default TabQrCode;
-
-const styles = StyleSheet.create({});

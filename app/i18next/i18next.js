@@ -2,7 +2,7 @@ import React from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { en, fr } from './localize';
+import { en, fr, vi } from './localize';
 
 const LOCALE_PERSISTENCE_KEY = 'language';
 
@@ -15,7 +15,7 @@ const languageDetector = {
       // Find best available language from the resource ones
 
       // Return detected locale or default language
-      return language('en');
+      return language('vi');
     }
     return language(persistedLocale);
   },
@@ -35,6 +35,9 @@ i18next
       },
       fr: {
         translation: fr,
+      },
+      vi: {
+        translation: vi,
       },
     },
   });

@@ -20,11 +20,11 @@
   },
 
   "BottomTab": {
-    "search": "Search",
-    "Home": "Home",
-    "Profile": "Profile",
-    "History": "History",
-    "News": "News",
+    "search": "Tìm kiếm",
+    "Home": "Trang chủ",
+    "Profile": "Tài khoản",
+    "History": "Lịch sử",
+    "News": "Tin Tức",
     "QRCode": "QRCode",
     "TabQRCode": "QRCode"
   },
