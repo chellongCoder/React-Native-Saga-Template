@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Dimensions, Alert } from 'react-native';
 import Image from 'react-native-fast-image';
 import Row from '../../util/Row';
 import { FontFamily } from '../../theme/index';
 import { AppIcon } from '../../Common/AppIcon';
 import { VNDCurrencyFormatting } from '../../Common/Common';
+import RippButton from '../../anim/RippleButtonAnim';
+import { screens } from '../../config';
+import { CommonActions } from '@react-navigation/native';
 const { width, height } = Dimensions.get('window');
 export default class ListItem extends Component {
+
+    handlerGoToDetail = item => () => {
+        this.props.navigation.navigate(screens.appStack, { screen: screens.homeDetail, params: { product_id: item.id } });
+    }
+
     renderItem = ({ item }) => {
         return (
-            <View style={styles.styWrapElement}>
-                <Image source={{ uri: item.featured_img }} resizeMode={'contain'} style={styles.styImage} />
-                <Text style={styles.styTxtName} numberOfLines={1}>
-                    {item.name}
-                </Text>
-                {this.renderStar(item.rating)}
-                <Text style={styles.styTxtAmount}>{VNDCurrencyFormatting(item.unit_price)}</Text>
-            </View>
+            <RippButton
+                onPress={this.handlerGoToDetail(item)}
+            >
+                <View style={styles.styWrapElement}>
+                    <Image source={{ uri: item.featured_img }} resizeMode={'contain'} style={styles.styImage} />
+                    <Text style={styles.styTxtName} numberOfLines={1}>
+                        {item.name}
+                    </Text>
+                    {this.renderStar(item.rating)}
+                    <Text style={styles.styTxtAmount}>{VNDCurrencyFormatting(item.unit_price)}</Text>
+                </View>
+            </RippButton>
         );
     };
 

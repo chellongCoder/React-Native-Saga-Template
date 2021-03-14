@@ -5,6 +5,9 @@ import {
   GET_DATA_SLIDER_REQUEST,
   GET_DATA_SLIDER_SUCCESS,
   GET_DATA_SLIDER_FAILD,
+  GET_DATA_PRODUCT_DETAIL_REQUEST,
+  GET_DATA_PRODUCT_DETAIL_SUCCESS,
+  GET_DATA_PRODUCT_DETAIL_FAILD,
 } from '../types/index';
 
 const initialState = {
@@ -12,6 +15,7 @@ const initialState = {
   isLoading: false,
   error: null,
   sliders: null,
+  productDetail: null,
 };
 
 export default function (state = initialState, action) {
@@ -46,6 +50,23 @@ export default function (state = initialState, action) {
         sliders: payload.sliders,
       };
     case GET_DATA_SLIDER_FAILD:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    case GET_DATA_PRODUCT_DETAIL_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case GET_DATA_PRODUCT_DETAIL_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        productDetail: payload.product,
+      };
+    case GET_DATA_PRODUCT_DETAIL_FAILD:
       return {
         ...state,
         isLoading: false,

@@ -1,7 +1,7 @@
 import { all, fork, put, take, takeEvery } from 'redux-saga/effects';
 import { homeActionsCreator } from '../actions';
 import Api from '../../services/home-service';
-import { GET_DATA_PRODUCT_REQUEST, GET_DATA_SLIDER_REQUEST } from '../types';
+import { GET_DATA_PRODUCT_DETAIL_REQUEST, GET_DATA_PRODUCT_REQUEST, GET_DATA_SLIDER_REQUEST } from '../types';
 
 function* getDataProducts({ payload }) {
   try {
@@ -29,7 +29,21 @@ function* getDataSliders({ payload }) {
   }
 }
 
+function* getDataProductDetail({ payload }) {
+  try {
+    const response = yield Api.getDataProductDetail(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataProductDetailSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.message }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataProductDetailFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 export default function* () {
   yield takeEvery(GET_DATA_PRODUCT_REQUEST, getDataProducts);
   yield takeEvery(GET_DATA_SLIDER_REQUEST, getDataSliders);
+  yield takeEvery(GET_DATA_PRODUCT_DETAIL_REQUEST, getDataProductDetail);
 }
