@@ -4,10 +4,15 @@ import FastImage from 'react-native-fast-image';
 import Row from '../../util/Row';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import { AppIcon } from '../../Common/AppIcon';
+import navigationService from '../../navigation/navigation-service';
+import { screens } from '../../config';
 import styles from './home.styles';
 
 export default class MenuContent extends Component {
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
+  onPress = () => {
+    navigationService.navigate(screens.product, {});
+  };
+
   render() {
     return (
       <View style={styles.styWrapMenuContent}>
@@ -19,7 +24,7 @@ export default class MenuContent extends Component {
               this.props.getDataProduct({ access_token: null, params: {} });
             }}
           />
-          <ItemMain img={AppIcon.Icon6} title={'Mua mã thẻ điện thoại'} />
+          <ItemMain onPress={this.onPress} img={AppIcon.Icon6} title={'Mua mã thẻ điện thoại'} />
           <ItemMain img={AppIcon.Icon7} title={'Gian hàng ProCheck'} />
           <ItemMain img={AppIcon.Icon8} title={'Mua sắm'} />
         </Row>

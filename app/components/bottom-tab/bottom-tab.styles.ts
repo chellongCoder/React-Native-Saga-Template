@@ -17,7 +17,7 @@ export default StyleSheet.create({
     ...CommonStyle.shadow,
   },
   tab: { justifyContent: 'center', alignItems: 'center' },
-  tabText: { color: colors.gray, ...textStyle.medium, paddingTop: Platform.SizeScale(3) },
+  tabText: { color: colors.gray, fontSize: Platform.SizeScale(10), paddingTop: Platform.SizeScale(3) },
   borderTab: {
     width: Platform.SizeScale(32),
     height: Platform.SizeScale(4),

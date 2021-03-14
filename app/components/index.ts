@@ -8,3 +8,6 @@ export * from './menu-header';
 export { default as PushNotification } from './push-notifications';
 export * from './text';
 export * from './touchable';
+export * from './app-bars';
+export * from './search-bar';
+export * from './banner';

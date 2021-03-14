@@ -38,7 +38,8 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     'camelcase': 'off',
     '@typescript-eslint/camelcase': 0,
-    'eslint no-shadow': 0
+    'eslint no-shadow': 0,
+    '@typescript-eslint/explicit-member-accessibility': 0
   },
   settings: {
     parserOptions: {

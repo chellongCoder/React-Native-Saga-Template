@@ -13,6 +13,7 @@ import { DropDownHolder, PushNotification } from './components';
 import AppNavigator from './navigation/root-stack';
 import { theme } from './theme';
 import { store } from './redux/store/index';
+import navigationService from './navigation/navigation-service';
 enableScreens();
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
         <Root>
           <SafeAreaView style={styles.container}>
             <PaperProvider>
-              <NavigationContainer theme={theme}>
+              <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
                 <AppNavigator />
                 <PushNotification />
                 <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
