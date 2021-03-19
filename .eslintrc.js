@@ -38,7 +38,22 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 0,
     'camelcase': 'off',
     '@typescript-eslint/camelcase': 0,
-    'eslint no-shadow': 0
+    'eslint no-shadow': 0,
+    "comma-dangle": 0,
+    "react/jsx-uses-vars": 1,
+    "react/display-name": 1,
+    "no-unused-vars": "warn",
+    "no-console": 1,
+    "no-unexpected-multiline": "warn",
+    "no-undef": "off",
+    "max-len": [2, 120, 4, { "ignoreUrls": true }],
+    "no-irregular-whitespace": "off",
+    "react/prop-types": "off",
+    "no-console": "off",
+    "no-empty": "off",
+    "no-useless-escape": "off",
+    "no-extra-boolean-cast": "off",
+    "react/display-name": "off"
   },
   settings: {
     parserOptions: {

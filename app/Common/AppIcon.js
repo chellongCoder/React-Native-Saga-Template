@@ -8,10 +8,11 @@ import Icon8 from '../assets/images/icon8.png';
 import Icon9 from '../assets/images/icon9.png';
 import Icon10 from '../assets/images/icon10.png';
 import Icon11 from '../assets/images/icon11.png';
-import Icon1 from '../assets/images/icon11.png';
+import Icon1 from '../assets/images/icon1.png';
 import IconStar from '../Assets/icons/icon_star.png';
 import IconStarActive from '../Assets/icons/icon_star_active.png';
 import IconArrow from '../Assets/icons/icon_arrow.png';
+import IconVerify from '../Assets/icons/home_22.png';
 
 export const AppIcon = {
   Icon1,
@@ -28,4 +29,5 @@ export const AppIcon = {
   IconStar,
   IconStarActive,
   IconArrow,
+  IconVerify,
 };

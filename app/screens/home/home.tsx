@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
+import ListItem from '../../components/home-component/ListItem';
 import styles from './home.styles';
-import ListItem from './ListItem';
-export default class Home extends React.Component {
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
-  constructor(props: any) {
+// import ListItem from './ListItem';
+interface Props {
+  getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
+  getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
+  sliders?: [object];
+  products?: [object];
+}
+interface State {}
+class Home extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   componentDidMount() {
-    this.props.getDataProduct({ access_token: null, params: {} });
-    this.props.getDataSliders({ access_token: null, params: {} });
+    this.props.getDataProduct({ access_token: '', params: {} });
+    this.props.getDataSliders({ access_token: '', params: {} });
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   render() {
-    const { products, sliders } = this.props;
+    const { sliders, products } = this.props;
     return (
       <View style={styles.container}>
-        {/* <MenuHeader {...props} /> */}
         <HeaderMain screen={tabModel.home} {...this.props} />
         <BannerAdvertisement data={sliders} />
         <ListItem data={products} {...this.props} />
@@ -30,3 +34,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default Home;
