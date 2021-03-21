@@ -13,6 +13,11 @@ import IconStar from '../Assets/icons/icon_star.png';
 import IconStarActive from '../Assets/icons/icon_star_active.png';
 import IconArrow from '../Assets/icons/icon_arrow.png';
 import IconVerify from '../Assets/icons/home_22.png';
+import IconHomeGift from '../Assets/icons/home_gift.png';
+import IconHomeEvent from '../Assets/icons/home_event.png';
+import IconHomeProd from '../Assets/icons/home_prod.png';
+import IconHomeCode from '../Assets/icons/home_code.png';
+import IconHomeMore from '../Assets/icons/home_more.png';
 
 export const AppIcon = {
   Icon1,
@@ -30,4 +35,9 @@ export const AppIcon = {
   IconStarActive,
   IconArrow,
   IconVerify,
+  IconHomeGift,
+  IconHomeEvent,
+  IconHomeProd,
+  IconHomeCode,
+  IconHomeMore,
 };

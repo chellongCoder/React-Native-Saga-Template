@@ -12,15 +12,15 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.styWrapMenuMain}>
-        <Row>
-          <Text style={styles.styTextMeMai}>Xin chào, Long</Text>
-          <IconAntDesign name={'right'} />
+        <Row style={styles.styWrapItem}>
+          <ItemMain img={AppIcon.IconHomeGift} title={'Quà của tôi'} />
+          <ItemMain img={AppIcon.IconHomeEvent} title={'Sự kiện'} />
+          <ItemMain img={AppIcon.IconHomeProd} title={'Gian hàng'} />
         </Row>
         <Row style={styles.styWrapItem}>
-          <ItemMain img={AppIcon.Icon1} title={'Scan & Buy'} />
-          <ItemMain img={AppIcon.Icon2} title={'Quà của tôi'} />
-          <ItemMain img={AppIcon.Icon3} title={'Nhiệm vụ'} />
-          <ItemMain img={AppIcon.Icon4} title={'Chương trình'} />
+          <ItemMain img={AppIcon.IconHomeCode} title={'Mã của tôi'} />
+          <ItemMain img={AppIcon.IconHomeMore} title={'Xem thêm'} />
+          <ItemMain img={null} title={null} />
         </Row>
       </View>
     );

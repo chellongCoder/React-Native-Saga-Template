@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { View, StatusBar } from 'react-native';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import ListItem from '../../components/home-component/ListItem';
 import styles from './home.styles';
-// import ListItem from './ListItem';
+import MenuMain from './MenuMain';
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
@@ -27,7 +27,11 @@ class Home extends React.Component<Props, State> {
     const { sliders, products } = this.props;
     return (
       <View style={styles.container}>
-        <HeaderMain screen={tabModel.home} {...this.props} />
+        <View style={styles.styWrapHeader}>
+          <HeaderMain screen={tabModel.home} {...this.props} />
+          <MenuMain />
+        </View>
+        <View style={{ height: 20 }} />
         <BannerAdvertisement data={sliders} />
         <ListItem data={products} {...this.props} />
       </View>

@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize',
     marginTop: 10,
     fontFamily: FontFamily.fontRegular,
+    fontSize: 14,
   },
   styStar: {
     width: 12,
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
     color: '#2095a2',
     alignSelf: 'flex-start',
     marginBottom: 5,
+    fontSize: 14,
   },
   styTxtRate: {
     color: '#a7b1bf',

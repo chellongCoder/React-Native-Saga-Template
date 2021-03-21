@@ -28,8 +28,8 @@ export default class BannerAdvertisement extends Component {
                         style={{ marginVertical: 5 }}
                     >
                         <Image
-                            source={{ uri: 'https://sahatha.vn/uploads/sliders/ABxRoO1nJ8AzGV3PtTs8vBiaOWqRgHl3WuuSHdeL.png' }}
-                            resizeMode={'contain'}
+                            source={{ uri: `https://sahatha.vn/` + item.photo }}
+                            resizeMode={'stretch'}
                             style={styles.styImage}
                         />
                     </RippleButton>
