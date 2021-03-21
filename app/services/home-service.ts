@@ -24,8 +24,8 @@ const getDataSliders = (access_token: string, params: any) =>
     ...params,
   });
 
-const getDataProductDetail = (access_token: string, params: any) =>
-  api.post(`api/product_by_id?access_token=${access_token}`, {
+const getDataProductDetail = (params: any) =>
+  api.post(`api/product_by_id`, {
     server_key: SERVER_KEY,
     ...params,
   });

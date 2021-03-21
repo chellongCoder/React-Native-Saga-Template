@@ -2,22 +2,14 @@ import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { AppBars, Banner, SearchBar } from '../../components';
-import { Api } from '../../services';
+import { homeActionsCreator } from '../../redux/actions';
 import { useProductStyle } from './styles';
-import { Action } from './types';
 export const ProductScreen = () => {
   const styles = useProductStyle();
-  const dispatch: ({}: Action) => void = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({
-      meta: {
-        payload: {},
-        apiEndPoint: 'asdasd',
-        callApi: Api.getDataProducts,
-      },
-      type: 'TYPE',
-    });
+    dispatch(homeActionsCreator.getDataProductDetailRequest({ product_id: 2624 }));
   }, [dispatch]);
   return (
     <View style={styles.container}>

@@ -47,12 +47,16 @@ export default class ApiSauce {
     return await this.apiSauce.any({ method, url, params: payload });
   };
 
-  handleResponse = async (
-    apiRequest: (url: string, payload: any) => Promise<ApiResponse<unknown, unknown>>,
-    params: any,
-  ) => {
+  handleResponse = async (apiRequest: (url: string, payload: any) => Promise<ApiResponse<any, any>>, params: any) => {
     let formdata = new FormData();
+    const { payload } = params;
     formdata.append('device_type', Platform.OS);
+    for (const key in payload) {
+      if (Object.prototype.hasOwnProperty.call(payload, key)) {
+        const element = payload[key];
+        formdata.append(key, element);
+      }
+    }
     console.log('formdata', formdata);
     const res = await apiRequest(params.url, formdata);
     console.log(
@@ -64,9 +68,10 @@ export default class ApiSauce {
     return this.handleError(res);
   };
 
-  handleError = (res: ApiResponse<unknown, unknown>) => {
+  handleError = (res: ApiResponse<any, any>) => {
     if (!res.ok) {
       Alert.alert('Lỗi!', messageError[res.problem]);
+      return res;
     }
     return res.data;
   };
