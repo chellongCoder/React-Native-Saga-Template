@@ -4,3 +4,4 @@ export * from './login';
 export * from './register';
 export * from './news';
 export * from './qr_code';
+export * from './product';

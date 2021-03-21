@@ -29,8 +29,9 @@ class PlBase {
   readonly headerHeight = this.SizeScale(50);
   readonly version = PlatformBase.Version;
   textBase: TextStyle = {
-    fontSize: this.SizeScale(10),
-    fontFamily: 'Roboto',
+    fontSize: this.SizeScale(14),
+    fontFamily: 'RobotoMono-Light',
+    fontWeight: '300',
   };
 }
 

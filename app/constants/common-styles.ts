@@ -23,7 +23,7 @@ export const getPercentageWidth = (widthParam) => {
 
 export const textStyle = {
   small: {
-    fontSize: 12,
+    fontSize: 2,
     fontWeight: '200',
   },
   medium: {
@@ -36,7 +36,7 @@ export const textStyle = {
   },
   heading: {
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '100',
   },
 };
 
@@ -51,5 +51,9 @@ export const CommonStyle = StyleSheet.create({
     shadowRadius: 10,
 
     elevation: 6,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });

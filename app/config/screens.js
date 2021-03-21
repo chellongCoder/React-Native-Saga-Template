@@ -14,6 +14,7 @@ const screens = {
   login: 'Login',
   register: 'Register',
   TabMain: 'TabMain',
+  product: 'Product',
 };
 
 export { screens };

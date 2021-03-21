@@ -3,14 +3,17 @@ import React from 'react';
 import { StyleSheet, Text as RCText } from 'react-native';
 import { Platform } from '../../theme';
 
-const Text = (props) => {
+const Text = (props: any) => {
   var { style } = props;
   if (style instanceof Array) {
-    style = _.map(style, (styleObject) => styleObject && StyleSheet.flatten([Platform.textBase, styleObject]));
+    style.unshift(Platform.textBase);
   } else {
     style = StyleSheet.flatten([Platform.textBase, style]);
   }
 
+  console.log('====================================');
+  console.log(style);
+  console.log('====================================');
   return (
     <RCText {...props} style={style}>
       {props.children}
