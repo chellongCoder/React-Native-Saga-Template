@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '..';
 import { ICONS } from '../../constants';
-import { tabIcons } from '../../helpers';
 import { theme } from '../../theme';
 import styles from './bottom-tab.styles';
 import { IconTabbar } from './icon-tabbar';

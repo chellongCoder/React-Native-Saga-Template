@@ -6,3 +6,12 @@ export interface ProductProps {
   point: number;
   price: number;
 }
+
+export interface Action {
+  meta: {
+    payload: any;
+    apiEndPoint: string;
+    callApi: (params: any) => void;
+  };
+  type: string;
+}

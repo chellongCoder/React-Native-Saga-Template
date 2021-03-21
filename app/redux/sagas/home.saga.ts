@@ -1,11 +1,11 @@
 import { all, fork, put, take, takeEvery } from 'redux-saga/effects';
 import { homeActionsCreator } from '../actions';
-import Api from '../../services/home-service';
 import { GET_DATA_PRODUCT_DETAIL_REQUEST, GET_DATA_PRODUCT_REQUEST, GET_DATA_SLIDER_REQUEST } from '../types';
+import { Api } from '../../services';
 
 function* getDataProducts({ payload }) {
   try {
-    const response = yield Api.getDataProduct(payload.access_token, payload.params);
+    const response: any = yield Api.getDataProduct(payload.access_token, payload.params);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataSuccess(response));
     } else {
@@ -18,7 +18,17 @@ function* getDataProducts({ payload }) {
 
 function* getDataSliders({ payload }) {
   try {
+    console.log('====================================');
+    console.log('asasd');
+    console.log('====================================');
     const response = yield Api.getDataSliders(payload.access_token, payload.params);
+    console.log(
+      `🛠 LOG: 🚀 --> --------------------------------------------------------------------------------------------`,
+    );
+    console.log(`🛠 LOG: 🚀 --> ~ file: home.saga.js ~ line 22 ~ function*getDataSliders ~ response`, response);
+    console.log(
+      `🛠 LOG: 🚀 --> --------------------------------------------------------------------------------------------`,
+    );
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataSlidersSuccess(response));
     } else {

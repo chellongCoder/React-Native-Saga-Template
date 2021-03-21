@@ -7,6 +7,8 @@ import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers/index';
 // Imports: Redux Root Saga
 import rootSaga from '../sagas';
+import apiService from './middleware';
+
 const logger = createLogger({
   collapsed: true,
   timestamp: false,
@@ -18,14 +20,20 @@ const persistConfig = {
   blacklist: ['loading'],
 };
 // Middleware: Redux Saga
-const sagaMiddleware = createSagaMiddleware();
+const onError = (error: Error, errorInfo: any) => {
+  console.log(`🛠 LOG: 🚀 --> ------------------------------------------------------------------`);
+  console.log(`🛠 LOG: 🚀 --> ~ file: index.ts ~ line 25 ~ onError ~ error`, error, errorInfo);
+  console.log(`🛠 LOG: 🚀 --> ------------------------------------------------------------------`);
+};
+const sagaMiddleware = createSagaMiddleware({ onError });
 //persist
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewareProduction = [sagaMiddleware];
+const middlewareProduction: any[] = [sagaMiddleware];
 if (__DEV__) {
   middlewareProduction.push(logger);
 }
+middlewareProduction.push(apiService);
 // Redux: Store
 const store = createStore(persistedReducer, applyMiddleware(...middlewareProduction));
 let persistor = persistStore(store);

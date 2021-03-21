@@ -5,15 +5,20 @@ import FastImage from 'react-native-fast-image';
 import Row from '../../util/Row';
 import { AppIcon } from '../../Common/AppIcon';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import navigationService from '../../navigation/navigation-service';
+import { screens } from '../../config';
 import styles from './home.styles';
 
 export default class HomeScreen extends Component {
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
+  onPress = () => {
+    navigationService.navigate(screens.product, {});
+  };
   render() {
     return (
       <View style={styles.styWrapMenuMain}>
         <Row style={styles.styWrapItem}>
-          <ItemMain img={AppIcon.IconHomeGift} title={'Quà của tôi'} />
+          <ItemMain onPress={this.onPress} img={AppIcon.IconHomeGift} title={'Quà của tôi'} />
           <ItemMain img={AppIcon.IconHomeEvent} title={'Sự kiện'} />
           <ItemMain img={AppIcon.IconHomeProd} title={'Gian hàng'} />
         </Row>
