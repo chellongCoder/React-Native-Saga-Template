@@ -7,18 +7,11 @@ import Row from './Row';
 import styles from './StyleHeaderMain';
 
 const HeaderMain = (props: any) => {
-  const openDrawer = () => {
-    props.navigation.toggleDrawer();
-  };
-
   return (
     <View style={styles.contain}>
       <SafeAreaView />
       <StatusBar barStyle={'light-content'} />
       <Row style={styles.styWrapHeader}>
-        <RippleButtonAnim onPress={openDrawer}>
-          <IconAntDesign name={'menu-unfold'} size={30} color={'#FFF'} />
-        </RippleButtonAnim>
         <SearchComponent {...props} />
         <RightComponent {...props} />
       </Row>
@@ -31,8 +24,9 @@ function SearchComponent(props: any) {
   switch (screen) {
     case tabModel.home:
       return (
-        <View style={{ flex: 1 }}>
-          <TextInput placeholder="ProCheck" placeholderTextColor={'#828282'} style={styles.stySearch} />
+        <View style={styles.stySearch}>
+          <IconAntDesign name={'search1'} size={18} color={'#828282'} />
+          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={'#828282'} style={styles.styInput} />
         </View>
       );
     default:
@@ -47,11 +41,11 @@ function RightComponent(props: any) {
       return (
         <React.Fragment>
           <RippleButtonAnim>
-            <IconAntDesign name={'shoppingcart'} size={30} color={'#FFF'} />
+            <IconAntDesign name={'shoppingcart'} size={30} color={'#000'} />
           </RippleButtonAnim>
           <View style={{ width: 10 }} />
           <RippleButtonAnim>
-            <IconAntDesign name={'bells'} size={28} color={'#FFF'} />
+            <IconAntDesign name={'bells'} size={28} color={'#000'} />
           </RippleButtonAnim>
         </React.Fragment>
       );

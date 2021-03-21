@@ -55,6 +55,9 @@ export const checkStatusPermission = (name, permission, status, handler) => {
   }
 };
 
+export const VNDCurrencyFormatting = (unit_price) =>
+  new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(unit_price);
+
 export const androidCameraPermissionOptions = {
   title: 'permissionCamera',
   message: 'permissionCameraMessage',
@@ -65,4 +68,5 @@ export const androidCameraPermissionOptions = {
 module.exports = {
   checkPermissionCamera,
   androidCameraPermissionOptions,
+  VNDCurrencyFormatting,
 };

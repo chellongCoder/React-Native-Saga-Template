@@ -4,7 +4,10 @@ const { width } = Dimensions.get('window');
 const { colors } = theme;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   buttonCircle: {
     width: 40,
     height: 40,
@@ -36,8 +39,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     minHeight: 100,
     backgroundColor: '#FFF',
-    padding: 10,
+    paddingHorizontal: 10,
     margin: 10,
+    marginBottom: -20,
     flex: 1,
     shadowColor: '#000',
     shadowOffset: {
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
   },
   styWrapItem: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginVertical: 10,
   },
   styImg: {
@@ -71,6 +75,11 @@ const styles = StyleSheet.create({
     minHeight: 200,
     paddingVertical: 10,
     marginVertical: 10,
+  },
+  styWrapHeader: {
+    backgroundColor: '#b6d433',
+    flex: 1,
+    borderBottomRightRadius: 20,
   },
 });
 

@@ -37,6 +37,9 @@ export default class ApiSauce {
 
   handleResponse = async (apiRequest, params) => {
     let formdata = new FormData();
+    Object.keys(params.payload).forEach((value) => {
+      formdata.append(value, params.payload[value]);
+    });
     formdata.append('device_type', Platform.OS);
     console.log('formdata', formdata);
     const res = await apiRequest(params.url, formdata);
