@@ -9,15 +9,15 @@ import Icon9 from '../assets/images/icon9.png';
 import Icon10 from '../assets/images/icon10.png';
 import Icon11 from '../assets/images/icon11.png';
 import Icon1 from '../assets/images/icon1.png';
-import IconStar from '../Assets/icons/icon_star.png';
-import IconStarActive from '../Assets/icons/icon_star_active.png';
-import IconArrow from '../Assets/icons/icon_arrow.png';
-import IconVerify from '../Assets/icons/home_22.png';
-import IconHomeGift from '../Assets/icons/home_gift.png';
-import IconHomeEvent from '../Assets/icons/home_event.png';
-import IconHomeProd from '../Assets/icons/home_prod.png';
-import IconHomeCode from '../Assets/icons/home_code.png';
-import IconHomeMore from '../Assets/icons/home_more.png';
+import IconStar from '../assets/icons/icon_star.png';
+import IconStarActive from '../assets/icons/icon_star_active.png';
+import IconArrow from '../assets/icons/icon_arrow.png';
+import IconVerify from '../assets/icons/home_22.png';
+import IconHomeGift from '../assets/icons/home_gift.png';
+import IconHomeEvent from '../assets/icons/home_event.png';
+import IconHomeProd from '../assets/icons/home_prod.png';
+import IconHomeCode from '../assets/icons/home_code.png';
+import IconHomeMore from '../assets/icons/home_more.png';
 
 export const AppIcon = {
   Icon1,
