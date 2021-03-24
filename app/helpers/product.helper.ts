@@ -9,6 +9,9 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
       countRate: value.countRate,
       point: value.point,
       price: value.price,
+      featured_img: value.featured_img,
+      rating: value.rating,
+      unit_price: value.unit_price
     };
   });
 };
