@@ -15,6 +15,7 @@ const screens = {
   register: 'Register',
   TabMain: 'TabMain',
   product: 'Product',
+  product_detail: 'ProductDetail',
 };
 
 export { screens };
