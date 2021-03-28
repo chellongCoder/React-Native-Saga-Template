@@ -88,6 +88,11 @@ const styles = StyleSheet.create({
     padding: 5,
     alignSelf: 'flex-start',
   },
+  styWrapEmpty: {
+    height: height / 1.3,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 });
 
 export default styles;

@@ -9,8 +9,9 @@ import MenuMain from './MenuMain';
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
-  sliders?: [object];
-  products?: [object];
+  sliders: object[];
+  products: object[];
+  navigation: any;
 }
 interface State {}
 class Home extends React.Component<Props, State> {
@@ -39,8 +40,8 @@ class Home extends React.Component<Props, State> {
           <MenuMain />
         </View>
         <View style={{ height: 20 }} />
-        {/* <BannerAdvertisement data={sliders} /> */}
-        {/* <ListItem data={products} {...this.props} /> */}
+        <BannerAdvertisement data={sliders} />
+        <ListItem products={products} navigation={this.props.navigation} />
       </View>
     );
   }
