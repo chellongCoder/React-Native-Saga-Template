@@ -26,6 +26,13 @@ class Home extends React.Component<Props, State> {
 
   render() {
     const { sliders, products } = this.props;
+    console.log(
+      `🛠 LOG: 🚀 --> ------------------------------------------------------------------------------------------------`,
+    );
+    console.log(`🛠 LOG: 🚀 --> ~ file: home.tsx ~ line 28 ~ Home ~ render ~ sliders, products`, sliders, products);
+    console.log(
+      `🛠 LOG: 🚀 --> ------------------------------------------------------------------------------------------------`,
+    );
     return (
       <View style={styles.container}>
         <View style={styles.styWrapHeader}>

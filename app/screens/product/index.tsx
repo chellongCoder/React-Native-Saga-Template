@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { AppBars, Banner, SearchBar } from '../../components';
-import { homeActionsCreator } from '../../redux/actions';
 import { useProductStyle } from './styles';
-export const ProductScreen = () => {
+export const ProductScreen = ({}) => {
   const styles = useProductStyle();
-  const dispatch = useDispatch();
+  const navigation = useNavigation();
 
-  useEffect(() => {
-    dispatch(homeActionsCreator.getDataProductDetailRequest({ product_id: 2624 }));
-  }, [dispatch]);
+  const onNavigateDetailProduct = useCallback(() => {
+    navigation.navigate('ProductDetail');
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
-      <AppBars title="Điện tử, gia dụng" />
+      <AppBars title="Điện tử, gia dụng" onPressRight={onNavigateDetailProduct} />
       <SearchBar />
       <Banner />
     </View>

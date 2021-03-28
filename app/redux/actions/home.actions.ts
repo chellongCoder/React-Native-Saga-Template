@@ -1,4 +1,4 @@
-import { createAction } from 'redux-actions';
+import { ActionFunction0, createAction } from 'redux-actions';
 import {
   GET_DATA_PRODUCT_REQUEST,
   GET_DATA_PRODUCT_SUCCESS,
