@@ -30,7 +30,12 @@ function SearchComponent(props: any) {
         </View>
       );
     default:
-      return null;
+      return (
+        <View style={styles.stySearch}>
+          <IconAntDesign name={'search1'} size={18} color={'#828282'} />
+          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={'#828282'} style={styles.styInput} />
+        </View>
+      );
   }
 }
 

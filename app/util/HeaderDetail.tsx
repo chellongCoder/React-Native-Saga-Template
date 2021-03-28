@@ -3,7 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { AppIcon } from '../Common/AppIcon';
 import Image from 'react-native-fast-image';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
-const HeaderDetail = (props) => {
+import { FontFamily } from '../theme';
+
+interface Props {
+    navigation: any,
+    title?: string,
+}
+
+const HeaderDetail = (props: Props) => {
     return (
         <View style={styles.styWrapHead}>
             <RippleButtonAnim
@@ -11,7 +18,7 @@ const HeaderDetail = (props) => {
             >
                 <Image source={AppIcon.IconArrow} resizeMode={'contain'} style={styles.styIcon} />
             </RippleButtonAnim>
-            <Text>{props.title}</Text>
+            {props.title && <Text style={styles.styTitle}>{props.title}</Text>}
             <View style={styles.styIcon} />
         </View>
     );
@@ -30,5 +37,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 20,
         paddingVertical: 5
+    },
+    styTitle: {
+        fontFamily: FontFamily.fontRegular,
+        fontSize: 18
     }
 });

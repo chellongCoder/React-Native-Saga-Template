@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { FontFamily } from '../theme';
 
 const styles = StyleSheet.create({
   contain: {
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
   styInput: {
     color: '#000',
     marginHorizontal: 5,
+    fontFamily: FontFamily.fontRegular,
   },
 });
 
