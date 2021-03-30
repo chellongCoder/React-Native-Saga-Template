@@ -6,6 +6,13 @@ const api_url = API_URL_DEV;
 const api = new ApiSauce(api_url);
 //get data products home screen
 const getDataProduct = (access_token: string, params: any) =>
+  api.post(`api/get_home_category?access_token=${access_token}`, {
+    server_key: SERVER_KEY,
+  });
+
+
+// get data product more
+const getDataProductMore = (access_token: string, params: any) =>
   api.post(`api/products?access_token=${access_token}`, {
     server_key: SERVER_KEY,
     ...params,
@@ -33,6 +40,7 @@ const getDataProductDetail = (params: any) =>
 // let's return back our create method as the default.
 export const Api = {
   getDataProduct,
+  getDataProductMore,
   getDataSliders,
   getDataProductDetail,
   getDataProducts,

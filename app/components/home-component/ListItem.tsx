@@ -11,7 +11,9 @@ const width_img_product = width / 1.9;
 const height_img_product = (width - 80) / 2;
 interface Props {
   navigation?: any;
-  products: object[];
+  products: [ProductProps];
+  name: string;
+  category_id: string;
 };
 
 interface State { };
@@ -25,10 +27,11 @@ export default class ListItem extends Component<Props, State> {
   };
 
   handlerGoToMore = () => {
-    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore });
+    const { name, category_id } = this.props;
+    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { category_id, title: name } });
   }
 
-  renderItem = ({ item }: any) => {
+  renderItem = ({ item }: { item: ProductProps }) => {
     return (
       <ElementItem
         {...this.props}
@@ -40,11 +43,11 @@ export default class ListItem extends Component<Props, State> {
   };
 
   render() {
-    const { products } = this.props;
+    const { products, name } = this.props;
     return (
       <View style={styles.contain}>
         <Row>
-          <Text style={styles.styLabel}>Điện gia dụng</Text>
+          <Text style={styles.styLabel}>{name}</Text>
           <TouchableOpacity
             onPress={this.handlerGoToMore}
           >

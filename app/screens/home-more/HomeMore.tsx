@@ -13,18 +13,22 @@ import styles from '../../components/home-component/ListItem.style';
 const { width, height } = Dimensions.get('window');
 interface Props {
     navigation: any;
-    getDataProduct: (payload: object) => void;
-    products: ProductProps;
+    getDataProductMore: (payload: object) => void;
+    products: [ProductProps];
+    route: any;
 }
 
 const HomeMore = (props: Props) => {
 
+    const { category_id, title } = props.route.params;
     useEffect(() => {
         const payload = {
             access_token: '',
-            params: {},
+            params: {
+                category_id
+            },
         }
-        props.getDataProduct(payload);
+        props.getDataProductMore(payload);
     }, []);
 
     const handlerGoToDetail = (item: ProductProps) => () => {
@@ -35,14 +39,14 @@ const HomeMore = (props: Props) => {
     return (
         <View style={{ flex: 1 }}>
             <HeaderDetail
-                title={'Điện tử gia dụng'}
+                title={title}
                 navigation={props.navigation}
             />
             <HeaderMain  {...props} />
             <FlatList
                 data={props.products}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => <ElementItem
+                renderItem={({ item }: { item: ProductProps }) => <ElementItem
                     {...props} item={item}
                     width={(width - 40) / 2}
                     handlerGoToDetail={handlerGoToDetail(item)}
@@ -63,13 +67,13 @@ const renderEmpty = () => (
 
 const mapStateToProps = (state: any) => {
     return {
-        products: state.HomeData.products,
+        products: state.HomeData.productsMore,
     };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getDataProduct: (payload: any) => dispatch(homeActionsCreator.getDataRequest(payload)),
+        getDataProductMore: (payload: any) => dispatch(homeActionsCreator.getDataMoreRequest(payload)),
     };
 };
 

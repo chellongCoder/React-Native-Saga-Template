@@ -8,9 +8,15 @@ import { VNDCurrencyFormatting } from '../../Common/Common';
 import RippButton from '../../anim/RippleButtonAnim';
 import TextHelper from '../../Common/TextHelper';
 import styles from './ListItem.style';
+import { ProductProps } from '../../screens/product/types';
 
+interface Props {
+    handlerGoToDetail: () => void;
+    item: ProductProps;
+    width: number;
+}
 
-const ElementItem = (props: any) => {
+const ElementItem = (props: Props) => {
     const { featured_img, name, rating, unit_price } = props.item;
     return (
         <RippButton onPress={props.handlerGoToDetail}>
