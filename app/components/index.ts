@@ -14,3 +14,5 @@ export * from './banner';
 export * from './slider';
 export * from './info-product';
 export * from './detail-product-company';
+export * from './loading-global';
+export * from './rating';

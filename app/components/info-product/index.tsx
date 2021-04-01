@@ -5,6 +5,7 @@ import { Platform } from '../../theme';
 import { Text } from '../text';
 import { COLORS } from '../../constants/colors';
 import { DetailProductT } from '../../screens/product_detail/types';
+import { Rate } from '../rating';
 
 const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => {
   return (
@@ -37,7 +38,7 @@ const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => 
           <Text style={styles.txtNation}>Việt Nam</Text>
         </View>
         <View style={[CommonStyle.row]}>
-          <Text style={styles.txtMore}>sao</Text>
+          <Rate percent={3} />
           <Text style={styles.txtMore}>{productDetail?.countComments}</Text>
           <Text style={styles.txtMore}>xem them...</Text>
         </View>
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
   txtMore: {
     color: COLORS.blue,
     fontSize: Platform.SizeScale(12),
+    marginLeft: Platform.SizeScale(5),
   },
   txtNation: {
     color: COLORS.BOLD_GRAY,

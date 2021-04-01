@@ -9,11 +9,14 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { enableScreens } from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import LoadingGlobalProvider from '../tools/loading-global';
 import { DropDownHolder, PushNotification } from './components';
 import AppNavigator from './navigation/root-stack';
 import { theme } from './theme';
 import { store } from './redux/store/index';
 import navigationService from './navigation/navigation-service';
+
 enableScreens();
 
 const App = () => {
@@ -25,21 +28,25 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <Suspense fallback={null}>
-        <Root>
-          <SafeAreaView style={styles.container}>
-            <PaperProvider>
-              <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                <AppNavigator />
-                <PushNotification />
-                <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-              </NavigationContainer>
-            </PaperProvider>
-          </SafeAreaView>
-        </Root>
-      </Suspense>
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <Suspense fallback={null}>
+          <Root>
+            <SafeAreaView style={styles.container}>
+              <LoadingGlobalProvider>
+                <PaperProvider>
+                  <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                    <AppNavigator />
+                    <PushNotification />
+                    <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                  </NavigationContainer>
+                </PaperProvider>
+              </LoadingGlobalProvider>
+            </SafeAreaView>
+          </Root>
+        </Suspense>
+      </Provider>
+    </SafeAreaProvider>
   );
 };
 
