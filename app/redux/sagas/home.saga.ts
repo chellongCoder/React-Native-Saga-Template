@@ -17,6 +17,19 @@ function* getDataProducts({ payload }: Action<any>) {
   }
 }
 
+function* getDataProductsMore({ payload }: Action<any>) {
+  try {
+    const response: ApiResponse<any, any> = yield Api.getDataProductMore(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataMoreSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataMoreFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataMoreFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 function* getDataSliders({ payload }: Action<any>) {
   try {
     const response: ApiResponse<any, any> = yield Api.getDataSliders(payload.access_token, payload.params);
@@ -61,4 +74,5 @@ export default function* () {
   yield takeEvery(homeActionsCreator.getDataRequest, getDataProducts);
   yield takeEvery(homeActionsCreator.getDataSlidersRequest, getDataSliders);
   yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
+  yield takeEvery(homeActionsCreator.getDataMoreRequest, getDataProductsMore);
 }

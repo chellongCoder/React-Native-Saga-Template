@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { FontFamily } from '../theme';
-
+import { FontFamily, theme } from '../theme';
+const { colors } = theme;
 const styles = StyleSheet.create({
   contain: {
     paddingHorizontal: 10,
-    // backgroundColor: '#4267B2',
+    backgroundColor: colors.green,
     paddingVertical: 3,
   },
   styWrapHeader: {

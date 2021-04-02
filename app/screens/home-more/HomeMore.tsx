@@ -10,39 +10,45 @@ import ElementItem from '../../components/home-component/ElementItem';
 import { screens } from '../../config/screens';
 import { Text } from '../../components';
 import styles from '../../components/home-component/ListItem.style';
+import { mapListProduct } from '../../helpers/product.helper';
+
 const { width, height } = Dimensions.get('window');
 interface Props {
     navigation: any;
-    getDataProduct: (payload: object) => void;
-    products: ProductProps;
+    getDataProductMore: (payload: object) => void;
+    products: ProductProps[];
+    route: any;
 }
 
 const HomeMore = (props: Props) => {
 
+    const { categoryId, title } = props.route.params;
     useEffect(() => {
         const payload = {
             access_token: '',
-            params: {},
+            params: {
+                category_id: categoryId
+            },
         }
-        props.getDataProduct(payload);
+        props.getDataProductMore(payload);
     }, []);
 
     const handlerGoToDetail = (item: ProductProps) => () => {
         const params = { product_id: item.id };
         props.navigation.navigate(screens.appStack, { screen: screens.homeDetail, params });
     };
-
+    const data = mapListProduct(props.products);
     return (
         <View style={{ flex: 1 }}>
             <HeaderDetail
-                title={'Điện tử gia dụng'}
+                title={title}
                 navigation={props.navigation}
             />
             <HeaderMain  {...props} />
             <FlatList
-                data={props.products}
+                data={data}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => <ElementItem
+                renderItem={({ item }: { item: ProductProps }) => <ElementItem
                     {...props} item={item}
                     width={(width - 40) / 2}
                     handlerGoToDetail={handlerGoToDetail(item)}
@@ -63,13 +69,13 @@ const renderEmpty = () => (
 
 const mapStateToProps = (state: any) => {
     return {
-        products: state.HomeData.products,
+        products: state.HomeData.productsMore,
     };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getDataProduct: (payload: any) => dispatch(homeActionsCreator.getDataRequest(payload)),
+        getDataProductMore: (payload: any) => dispatch(homeActionsCreator.getDataMoreRequest(payload)),
     };
 };
 
