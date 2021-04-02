@@ -5,34 +5,34 @@ export interface ProductProps {
   countRate: number;
   point: number;
   price: number;
-  featured_img: string;
+  featuredImg: string;
   rating: number;
-  unit_price: string;
+  unitPrice: string;
   photos: string;
-  thumbnail_img: string;
+  thumbnailImg: string;
   unit: string;
-  video_provider: string;
-  video_link: string;
+  videoProvider: string;
+  videoLink: string;
   quantity: number;
   description: string;
-  created_at: string;
-  added_by: string;
+  createdAt: string;
+  addedBy: string;
 }
 
 export interface ProductCategoryProps {
-  category_id: string;
-  created_at: string;
-  id: number;
+  categoryId: string;
+  createdAt: string;
+  id: string;
   image: string;
-  image_thumb: string;
+  imageThumb: string;
   name: string;
   order: number;
   position: number;
-  product_id: string;
+  productId: string;
   products: [ProductProps];
   status: number;
-  subsubcategories: string;
-  updated_at: string;
+  subSubCategories: string;
+  updatedAt: string;
 }
 
 export interface Action {

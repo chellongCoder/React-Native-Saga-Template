@@ -6,14 +6,16 @@ import { screens } from '../../config';
 import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
 import ElementItem from './ElementItem';
+import { mapListProduct } from '../../helpers/product.helper';
+
 const { width } = Dimensions.get('window');
 const width_img_product = width / 1.9;
 const height_img_product = (width - 80) / 2;
 interface Props {
   navigation?: any;
-  products: [ProductProps];
+  products: ProductProps[];
   name: string;
-  category_id: string;
+  categoryId: string;
 };
 
 interface State { };
@@ -27,8 +29,8 @@ export default class ListItem extends Component<Props, State> {
   };
 
   handlerGoToMore = () => {
-    const { name, category_id } = this.props;
-    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { category_id, title: name } });
+    const { name, categoryId } = this.props;
+    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { categoryId, title: name } });
   }
 
   renderItem = ({ item }: { item: ProductProps }) => {
@@ -44,6 +46,7 @@ export default class ListItem extends Component<Props, State> {
 
   render() {
     const { products, name } = this.props;
+    const data = mapListProduct(products);
     return (
       <View style={styles.contain}>
         <Row>
@@ -55,7 +58,7 @@ export default class ListItem extends Component<Props, State> {
           </TouchableOpacity>
         </Row>
         <FlatList
-          data={products}
+          data={data}
           keyExtractor={(_item, index) => index.toString()}
           renderItem={this.renderItem}
           horizontal={true}

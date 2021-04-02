@@ -9,18 +9,18 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
       countRate: value.countRate,
       point: value.point,
       price: value.price,
-      featured_img: value.featured_img,
+      featuredImg: value.featured_img,
       rating: value.rating,
-      unit_price: value.unit_price,
+      unitPrice: value.unit_price,
       photos: value.photos,
-      thumbnail_img: value.thumbnail_img,
+      thumbnailImg: value.thumbnail_img,
       unit: value.unit,
-      video_provider: value.video_provider,
-      video_link: value.video_link,
+      videoProvider: value.video_provider,
+      videoLink: value.video_link,
       quantity: value.quantity,
       description: value.description,
-      created_at: value.created_at,
-      added_by: value.added_by,
+      createdAt: value.created_at,
+      addedBy: value.added_by,
     };
   });
 };
@@ -28,19 +28,19 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
 export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps[] => {
   return productsApi.map((value) => {
     return {
-      category_id: value.category_id,
-      created_at: value.created_at,
+      categoryId: value.category_id,
+      createdAt: value.created_at,
       id: value.id,
       image: value.image,
-      image_thumb: value.image_thumb,
+      imageThumb: value.image_thumb,
       name: value.name,
       order: value.order,
       position: value.position,
-      product_id: value.product_id,
+      productId: value.product_id,
       products: value.products,
       status: value.status,
-      subsubcategories: value.subsubcategories,
-      updated_at: value.updated_at,
+      subSubCategories: value.subsubcategories,
+      updatedAt: value.updated_at,
     };
   });
 };

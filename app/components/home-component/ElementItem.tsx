@@ -17,17 +17,17 @@ interface Props {
 }
 
 const ElementItem = (props: Props) => {
-    const { featured_img, name, rating, unit_price } = props.item;
+    const { featuredImg, name, rating, unitPrice } = props.item;
     return (
         <RippButton onPress={props.handlerGoToDetail}>
             <View style={[styles.styWrapElement, { width: props.width }]}>
-                <Image source={{ uri: featured_img }} resizeMode={'stretch'} style={[styles.styImage, { width: props.width }]} />
+                <Image source={{ uri: featuredImg }} resizeMode={'stretch'} style={[styles.styImage, { width: props.width }]} />
                 <View style={styles.styWrapInfo}>
                     <Text style={styles.styTxtName} numberOfLines={1}>
                         {name}
                     </Text>
                     {renderStar(rating)}
-                    <Text style={styles.styTxtAmount}>{VNDCurrencyFormatting(unit_price)}</Text>
+                    <Text style={styles.styTxtAmount}>{VNDCurrencyFormatting(unitPrice)}</Text>
                     <Row>
                         <Image source={AppIcon.IconVerify} resizeMode={'contain'} style={styles.styImgVer} />
                         <Text style={styles.styTxtVerify}>{TextHelper.text01}</Text>

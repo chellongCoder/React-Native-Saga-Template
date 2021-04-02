@@ -12,12 +12,14 @@ import ListItem from '../../components/home-component/ListItem';
 import styles from './home.styles';
 import MenuMain from './MenuMain';
 import { ProductCategoryProps } from '../product/types';
+import { mapListProductCategory } from '../../helpers/product.helper';
 import { theme } from '../../theme';
+
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   sliders: object[];
-  products: [ProductCategoryProps];
+  products: ProductCategoryProps[];
   navigation: any;
 }
 interface State { }
@@ -33,6 +35,7 @@ class Home extends React.Component<Props, State> {
 
   render() {
     const { sliders, products, navigation } = this.props;
+    const data = mapListProductCategory(products);
     return (
       <View style={styles.container}>
         <HeaderMain screen={tabModel.home} {...this.props} bgColor={theme.colors.green} />
@@ -44,14 +47,14 @@ class Home extends React.Component<Props, State> {
             <View style={{ height: 20 }} />
             <BannerAdvertisement data={sliders} />
             <FlatList
-              data={products}
+              data={data}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }: { item: ProductCategoryProps }) =>
                 <ListItem
                   navigation={navigation}
                   products={item.products}
                   name={item.name}
-                  category_id={item.category_id}
+                  categoryId={item.categoryId}
                 />
               }
             />

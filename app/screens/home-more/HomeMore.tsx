@@ -10,22 +10,24 @@ import ElementItem from '../../components/home-component/ElementItem';
 import { screens } from '../../config/screens';
 import { Text } from '../../components';
 import styles from '../../components/home-component/ListItem.style';
+import { mapListProduct } from '../../helpers/product.helper';
+
 const { width, height } = Dimensions.get('window');
 interface Props {
     navigation: any;
     getDataProductMore: (payload: object) => void;
-    products: [ProductProps];
+    products: ProductProps[];
     route: any;
 }
 
 const HomeMore = (props: Props) => {
 
-    const { category_id, title } = props.route.params;
+    const { categoryId, title } = props.route.params;
     useEffect(() => {
         const payload = {
             access_token: '',
             params: {
-                category_id
+                category_id: categoryId
             },
         }
         props.getDataProductMore(payload);
@@ -35,7 +37,7 @@ const HomeMore = (props: Props) => {
         const params = { product_id: item.id };
         props.navigation.navigate(screens.appStack, { screen: screens.homeDetail, params });
     };
-
+    const data = mapListProduct(props.products);
     return (
         <View style={{ flex: 1 }}>
             <HeaderDetail
@@ -44,7 +46,7 @@ const HomeMore = (props: Props) => {
             />
             <HeaderMain  {...props} />
             <FlatList
-                data={props.products}
+                data={data}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }: { item: ProductProps }) => <ElementItem
                     {...props} item={item}
