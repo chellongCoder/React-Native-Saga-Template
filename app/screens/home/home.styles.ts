@@ -6,7 +6,7 @@ const { colors } = theme;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.green,
   },
   buttonCircle: {
     width: 40,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   styWrapHeader: {
-    backgroundColor: '#b6d433',
+    backgroundColor: colors.green,
     flex: 1,
     borderBottomRightRadius: 20,
   },

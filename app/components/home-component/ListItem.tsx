@@ -6,12 +6,16 @@ import { screens } from '../../config';
 import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
 import ElementItem from './ElementItem';
+import { mapListProduct } from '../../helpers/product.helper';
+
 const { width } = Dimensions.get('window');
 const width_img_product = width / 1.9;
 const height_img_product = (width - 80) / 2;
 interface Props {
   navigation?: any;
-  products: object[];
+  products: ProductProps[];
+  name: string;
+  categoryId: string;
 };
 
 interface State { };
@@ -25,10 +29,11 @@ export default class ListItem extends Component<Props, State> {
   };
 
   handlerGoToMore = () => {
-    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore });
+    const { name, categoryId } = this.props;
+    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { categoryId, title: name } });
   }
 
-  renderItem = ({ item }: any) => {
+  renderItem = ({ item }: { item: ProductProps }) => {
     return (
       <ElementItem
         {...this.props}
@@ -40,11 +45,12 @@ export default class ListItem extends Component<Props, State> {
   };
 
   render() {
-    const { products } = this.props;
+    const { products, name } = this.props;
+    const data = mapListProduct(products);
     return (
       <View style={styles.contain}>
         <Row>
-          <Text style={styles.styLabel}>Điện gia dụng</Text>
+          <Text style={styles.styLabel}>{name}</Text>
           <TouchableOpacity
             onPress={this.handlerGoToMore}
           >
@@ -52,7 +58,7 @@ export default class ListItem extends Component<Props, State> {
           </TouchableOpacity>
         </Row>
         <FlatList
-          data={products}
+          data={data}
           keyExtractor={(_item, index) => index.toString()}
           renderItem={this.renderItem}
           horizontal={true}

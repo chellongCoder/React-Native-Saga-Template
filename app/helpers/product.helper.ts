@@ -1,4 +1,4 @@
-import { ProductProps } from '../screens/product/types';
+import { ProductProps, ProductCategoryProps } from '../screens/product/types';
 import { DetailProductT } from '../screens/product_detail/types';
 
 export const mapListProduct = (productsApi: any[]): ProductProps[] => {
@@ -10,9 +10,38 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
       countRate: value.countRate,
       point: value.point,
       price: value.price,
-      featured_img: value.featured_img,
+      featuredImg: value.featured_img,
       rating: value.rating,
-      unit_price: value.unit_price,
+      unitPrice: value.unit_price,
+      photos: value.photos,
+      thumbnailImg: value.thumbnail_img,
+      unit: value.unit,
+      videoProvider: value.video_provider,
+      videoLink: value.video_link,
+      quantity: value.quantity,
+      description: value.description,
+      createdAt: value.created_at,
+      addedBy: value.added_by,
+    };
+  });
+};
+
+export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps[] => {
+  return productsApi.map((value) => {
+    return {
+      categoryId: value.category_id,
+      createdAt: value.created_at,
+      id: value.id,
+      image: value.image,
+      imageThumb: value.image_thumb,
+      name: value.name,
+      order: value.order,
+      position: value.position,
+      productId: value.product_id,
+      products: value.products,
+      status: value.status,
+      subSubCategories: value.subsubcategories,
+      updatedAt: value.updated_at,
     };
   });
 };

@@ -5,9 +5,34 @@ export interface ProductProps {
   countRate: number;
   point: number;
   price: number;
-  featured_img: string;
+  featuredImg: string;
   rating: number;
-  unit_price: string;
+  unitPrice: string;
+  photos: string;
+  thumbnailImg: string;
+  unit: string;
+  videoProvider: string;
+  videoLink: string;
+  quantity: number;
+  description: string;
+  createdAt: string;
+  addedBy: string;
+}
+
+export interface ProductCategoryProps {
+  categoryId: string;
+  createdAt: string;
+  id: string;
+  image: string;
+  imageThumb: string;
+  name: string;
+  order: number;
+  position: number;
+  productId: string;
+  products: [ProductProps];
+  status: number;
+  subSubCategories: string;
+  updatedAt: string;
 }
 
 export interface Action {
