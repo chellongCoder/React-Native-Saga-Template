@@ -11,6 +11,7 @@ const account_unfocus = require('../assets/images/home_46.png');
 const qrcode = require('../assets/images/home_33.png');
 const back = require('../assets/images/product_detail_03.png');
 const banner_product = require('../assets/images/banner_product.png');
+const loading_global = require('../assets/images/eloading.gif');
 
 const Images = {
   logo,
@@ -26,6 +27,7 @@ const Images = {
   qrcode,
   back,
   banner_product,
+  loading_global,
 };
 
 export { Images };

@@ -58,18 +58,6 @@ function* getDataProductDetail({ payload }: Action<{ product_id: number; callbac
   }
 }
 
-export function* testGenerator() {
-  const response: ApiResponse<any, any> = yield Api.getDataSliders('', {});
-  console.log(
-    `🛠 LOG: 🚀 --> -------------------------------------------------------------------------------------------`,
-  );
-  console.log(`🛠 LOG: 🚀 --> ~ file: home.saga.ts ~ line 49 ~ function*testGenerator ~ response`, response);
-  console.log(
-    `🛠 LOG: 🚀 --> -------------------------------------------------------------------------------------------`,
-  );
-  return response;
-}
-
 export default function* () {
   yield takeEvery(homeActionsCreator.getDataRequest, getDataProducts);
   yield takeEvery(homeActionsCreator.getDataSlidersRequest, getDataSliders);

@@ -55,7 +55,7 @@ module.exports = {
     "no-useless-escape": "off",
     "no-extra-boolean-cast": "off",
     "react/display-name": "off",
-    "no-empty-interface": false,
+    "no-empty-interface": 0,
   },
   settings: {
     parserOptions: {

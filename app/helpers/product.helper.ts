@@ -1,4 +1,5 @@
 import { ProductProps, ProductCategoryProps } from '../screens/product/types';
+import { DetailProductT } from '../screens/product_detail/types';
 
 export const mapListProduct = (productsApi: any[]): ProductProps[] => {
   return productsApi.map((value) => {
@@ -43,4 +44,18 @@ export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps
       updatedAt: value.updated_at,
     };
   });
+};
+
+export const mapDetailProduct = (data: any): DetailProductT => {
+  return {
+    nameProduct: data.name,
+    codeProduct: data.product_code,
+    cost: data.unit_price,
+    countComments: 9,
+    grootCost: data.purchase_price,
+    rating: data.rating,
+    verify: data.admin_approval,
+    description: data.description,
+    photosSlider: data.photosSlider,
+  };
 };

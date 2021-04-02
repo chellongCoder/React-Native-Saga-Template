@@ -56,4 +56,14 @@ export const CommonStyle = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  spaceBetween: {
+    justifyContent: 'space-between',
+  },
+  paddingTop: {
+    paddingTop: getPercentageWidth(5),
+  },
 });
