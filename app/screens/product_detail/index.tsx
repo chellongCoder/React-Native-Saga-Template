@@ -8,10 +8,13 @@ import { mapDetailProduct } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { useProductDetailStyle } from './styles';
-import { DetailProductT } from './types';
+import { DetailProductT, ProductDetailProps } from './types';
 import { mocksData } from './__mocks__/data';
 
-const _ProductDetail = ({}) => {
+const _ProductDetail = ({ route }: ProductDetailProps) => {
+  const {
+    params: { productId },
+  } = route.params;
   const { isLoading } = useSelector((state: RootState) => state.HomeData);
   const styles = useProductDetailStyle();
   const navigation = useNavigation();
@@ -22,11 +25,11 @@ const _ProductDetail = ({}) => {
   const getDataProductDetailRequest = useCallback(async () => {
     await dispatch(
       homeActionsCreator.getDataProductDetailRequest({
-        product_id: 2624,
+        product_id: productId,
         callback: (response: any) => setProductDetail(mapDetailProduct(response.product)),
       }),
     );
-  }, [dispatch]);
+  }, [dispatch, productId]);
 
   const onBack = useCallback(() => {
     navigation.goBack();
@@ -46,7 +49,7 @@ const _ProductDetail = ({}) => {
 
   return (
     <View style={styles.container}>
-      <AppBars title="Điện tử, gia dụng" hasRightIcons={false} onPressLeft={onBack} />
+      <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
       <ScrollView>
         <Slider data={mocksData.topics} />
         <View style={styles.content}>

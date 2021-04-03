@@ -56,6 +56,7 @@ module.exports = {
     "no-extra-boolean-cast": "off",
     "react/display-name": "off",
     "no-empty-interface": 0,
+    '@typescript-eslint/prefer-interface': 0
   },
   settings: {
     parserOptions: {

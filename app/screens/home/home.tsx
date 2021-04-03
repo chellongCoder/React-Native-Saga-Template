@@ -1,19 +1,14 @@
 import React from 'react';
-import {
-  View,
-  StatusBar,
-  FlatList,
-  ScrollView
-} from 'react-native';
+import { View, StatusBar, FlatList, ScrollView } from 'react-native';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import ListItem from '../../components/home-component/ListItem';
-import styles from './home.styles';
-import MenuMain from './MenuMain';
 import { ProductCategoryProps } from '../product/types';
 import { mapListProductCategory } from '../../helpers/product.helper';
 import { theme } from '../../theme';
+import MenuMain from './MenuMain';
+import styles from './home.styles';
 
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
@@ -22,7 +17,7 @@ interface Props {
   products: ProductCategoryProps[];
   navigation: any;
 }
-interface State { }
+interface State {}
 class Home extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -49,14 +44,14 @@ class Home extends React.Component<Props, State> {
             <FlatList
               data={data}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item }: { item: ProductCategoryProps }) =>
+              renderItem={({ item }: { item: ProductCategoryProps }) => (
                 <ListItem
                   navigation={navigation}
                   products={item.products}
                   name={item.name}
                   categoryId={item.categoryId}
                 />
-              }
+              )}
             />
           </View>
         </ScrollView>

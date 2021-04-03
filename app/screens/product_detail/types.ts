@@ -1,5 +1,15 @@
-export interface ProductDetailScreen {}
+import { RouteProp } from '@react-navigation/native';
+import { ROUTES } from '../../config';
 
+type ProductDetailParamList = {
+  [ROUTES.product_detail]: {
+    screen: string;
+    params: { productId: number };
+  };
+};
+export interface ProductDetailProps {
+  route: RouteProp<ProductDetailParamList, typeof ROUTES.product_detail>;
+}
 export interface DetailProductT {
   nameProduct: string; // name
   cost: number; // unit_price

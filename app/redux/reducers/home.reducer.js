@@ -10,7 +10,7 @@ import {
   GET_DATA_PRODUCT_DETAIL_FAILD,
   GET_DATA_PRODUCT_MORE_REQUEST,
   GET_DATA_PRODUCT_MORE_SUCCESS,
-  GET_DATA_PRODUCT_MORE_FAILD
+  GET_DATA_PRODUCT_MORE_FAILD,
 } from '../types/index';
 
 const initialState = {
@@ -86,13 +86,13 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         productsMore: payload.product,
-      }
+      };
     case GET_DATA_PRODUCT_MORE_FAILD:
       return {
         ...state,
         isLoading: false,
         error: payload.error,
-      }
+      };
     default:
       return state;
   }

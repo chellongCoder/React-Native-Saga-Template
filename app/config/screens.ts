@@ -1,0 +1,43 @@
+const screens = {
+  walkthrough: 'WalkThrough',
+  home: 'Home',
+  homeDetail: 'HomeDetail',
+  homeMore: 'HomeMore',
+  history: 'History',
+  tabqrcode: 'TabQRCode',
+  qrcode: 'QRCode',
+  news: 'News',
+  profile: 'Profile',
+  authStack: 'AuthStack',
+  appStack: 'AppStack',
+  drawerStack: 'DrawerStack',
+  bottomTabStack: 'BottomTabStack',
+  login: 'Login',
+  register: 'Register',
+  TabMain: 'TabMain',
+  product: 'Product',
+  product_detail: 'ProductDetail',
+};
+
+enum ROUTES {
+  walkthrough = 'WalkThrough',
+  home = 'Home',
+  homeDetail = 'HomeDetail',
+  homeMore = 'HomeMore',
+  history = 'History',
+  tabqrcode = 'TabQRCode',
+  qrcode = 'QRCode',
+  news = 'News',
+  profile = 'Profile',
+  authStack = 'AuthStack',
+  appStack = 'AppStack',
+  drawerStack = 'DrawerStack',
+  bottomTabStack = 'BottomTabStack',
+  login = 'Login',
+  register = 'Register',
+  TabMain = 'TabMain',
+  product = 'Product',
+  product_detail = 'ProductDetail',
+}
+
+export { screens, ROUTES };
