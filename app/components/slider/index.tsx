@@ -6,7 +6,7 @@ import { COLORS } from '../../constants';
 import { TopicItem } from '../slider-item';
 import { useStyleSlider } from './styles';
 
-export const Slider = ({ data }: { data: any[] }) => {
+export const Slider = ({ data }: { data?: any[] }) => {
   const styles = useStyleSlider();
   const [isShowControl, setIsShowControl] = useState(true);
   const carousel = useRef<any>();
@@ -31,13 +31,14 @@ export const Slider = ({ data }: { data: any[] }) => {
   const pagination = useCallback(() => {
     return (
       <View style={styles.paging}>
-        {data.map((value, index) => {
-          return index === activeSlide ? (
-            <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_active_paging' }} />
-          ) : (
-            <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
-          );
-        })}
+        {data &&
+          data.map((value, index) => {
+            return index === activeSlide ? (
+              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_active_paging' }} />
+            ) : (
+              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
+            );
+          })}
       </View>
     );
   }, [activeSlide, data, styles.dot, styles.paging]);
@@ -53,7 +54,7 @@ export const Slider = ({ data }: { data: any[] }) => {
               backgroundColor: COLORS.WHITE,
             }}>
             <Carousel
-              data={data}
+              data={data ? data : []}
               firstItem={0}
               renderItem={topicItem}
               sliderWidth={Platform.baseScreenWith - 1}

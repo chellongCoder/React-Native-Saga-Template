@@ -58,6 +58,12 @@ export const mapDetailProduct = (data: any): DetailProductT => {
     rating: data.rating,
     verify: data.admin_approval,
     description: data.description,
-    photosSlider: data.photosSlider,
+    photosSlider: data.product_description.photos.map((value: string, index: any) => {
+      return {
+        id: index,
+        value,
+        cover: value,
+      };
+    }),
   };
 };

@@ -10,6 +10,12 @@ type ProductDetailParamList = {
 export interface ProductDetailProps {
   route: RouteProp<ProductDetailParamList, typeof ROUTES.product_detail>;
 }
+
+type PhotoSlider = {
+  id: number;
+  name: string;
+  cover: string;
+};
 export interface DetailProductT {
   nameProduct: string; // name
   cost: number; // unit_price
@@ -19,5 +25,5 @@ export interface DetailProductT {
   rating: number; //rating
   countComments: number; //dang  thieu
   description: string; //description
-  photosSlider: string[];
+  photosSlider: PhotoSlider[];
 }
