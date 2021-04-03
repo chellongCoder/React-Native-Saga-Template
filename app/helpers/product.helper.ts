@@ -27,23 +27,25 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
 };
 
 export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps[] => {
-  return productsApi.map((value) => {
-    return {
-      categoryId: value.category_id,
-      createdAt: value.created_at,
-      id: value.id,
-      image: value.image,
-      imageThumb: value.image_thumb,
-      name: value.name,
-      order: value.order,
-      position: value.position,
-      productId: value.product_id,
-      products: value.products,
-      status: value.status,
-      subSubCategories: value.subsubcategories,
-      updatedAt: value.updated_at,
-    };
-  });
+  return productsApi
+    ? productsApi.map((value) => {
+        return {
+          categoryId: value.category_id,
+          createdAt: value.created_at,
+          id: value.id,
+          image: value.image,
+          imageThumb: value.image_thumb,
+          name: value.name,
+          order: value.order,
+          position: value.position,
+          productId: value.product_id,
+          products: value.products,
+          status: value.status,
+          subSubCategories: value.subsubcategories,
+          updatedAt: value.updated_at,
+        };
+      })
+    : [];
 };
 
 export const mapDetailProduct = (data: any): DetailProductT => {
