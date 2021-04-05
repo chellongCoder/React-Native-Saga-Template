@@ -7,7 +7,7 @@ import styles from './google.styles';
 
 // uncomment and provide webClientId
 GoogleSignin.configure({
-  webClientId: '529847481591-hdmh4h818d739plc3qai850u2lrs52pk.apps.googleusercontent.com',
+  webClientId: '589588948398-qjkijnlu8ph4ntp49spevc771csr9vo0.apps.googleusercontent.com',
 });
 
 function GoogleButton(props) {

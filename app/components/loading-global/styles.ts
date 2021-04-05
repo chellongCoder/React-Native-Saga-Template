@@ -1,16 +1,14 @@
-import React, { memo, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { Platform } from '../../theme';
 
 export const useLoadingGlobalStyle = () => {
-  const insets = useSafeAreaInsets();
   return useMemo(
     () =>
       StyleSheet.create({
         container: {
-          width: Platform.baseScreenWith,
-          height: Platform.baseScreenHeight,
+          width: Platform.deviceWidth,
+          height: Platform.deviceHeight,
           position: 'absolute',
           top: 0,
           left: 0,

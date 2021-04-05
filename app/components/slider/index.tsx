@@ -49,16 +49,16 @@ export const Slider = ({ data }: { data?: any[] }) => {
         <View>
           <View
             style={{
-              width: Platform.baseScreenWith - 1,
-              height: Platform.baseScreenHeight / 3,
+              width: Platform.deviceWidth - 1,
+              height: Platform.deviceHeight / 3,
               backgroundColor: COLORS.WHITE,
             }}>
             <Carousel
               data={data ? data : []}
               firstItem={0}
               renderItem={topicItem}
-              sliderWidth={Platform.baseScreenWith - 1}
-              itemWidth={Platform.baseScreenWith}
+              sliderWidth={Platform.deviceWidth - 1}
+              itemWidth={Platform.deviceWidth}
               ref={carousel}
               loop={true}
               onSnapToItem={onSnapToItem}
