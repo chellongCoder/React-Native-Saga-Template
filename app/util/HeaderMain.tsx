@@ -11,7 +11,7 @@ const HeaderMain = (props: any) => {
   return (
     <View style={[styles.contain, { backgroundColor: props.bgColor || colors.white }]}>
       <SafeAreaView />
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'dark-content'} />
       <Row style={styles.styWrapHeader}>
         <SearchComponent {...props} />
         <RightComponent {...props} />
