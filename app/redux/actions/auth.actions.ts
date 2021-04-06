@@ -13,9 +13,10 @@ import {
   FACEBOOK_LOGIN_SUCCESS,
   FACEBOOK_LOGIN_ERROR,
 } from '../types';
+import { LOGIN_PARAMS } from '../../services/types';
 
 export const authActionsCreator = {
-  loginRequest: createAction(LOGIN_REQUEST),
+  loginRequest: createAction<LOGIN_PARAMS>(LOGIN_REQUEST),
   loginSuccess: createAction(LOGIN_SUCCESS),
   loginError: createAction(LOGIN_ERROR),
 
