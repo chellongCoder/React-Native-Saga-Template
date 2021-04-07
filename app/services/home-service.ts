@@ -10,7 +10,6 @@ const getDataProduct = (access_token: string, params: any) =>
     server_key: SERVER_KEY,
   });
 
-
 // get data product more
 const getDataProductMore = (access_token: string, params: any) =>
   api.post(`api/products?access_token=${access_token}`, {
