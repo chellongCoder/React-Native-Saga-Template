@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { I18nManager, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
+import { useDispatch } from 'react-redux';
 import { drawerIcons } from '../../helpers';
 import { Images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
+import { authActionsCreator } from '../../redux/actions';
 import styles from './drawer.styles';
 
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
+  const dispatch = useDispatch();
 
   const i18 = (key) => {
     return t(key);
@@ -51,6 +54,10 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
     navigation.navigate(screens.register);
   };
 
+  const onLogout = useCallback(() => {
+    dispatch(authActionsCreator.logoutRequest());
+  }, [dispatch]);
+
   return (
     <SafeAreaView style={styles.container}>
       <FastImage source={Images.icon} style={styles.image} />
@@ -66,6 +73,10 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
         <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
+          {drawerIcons.language}
+          <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

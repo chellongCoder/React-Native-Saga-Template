@@ -13,6 +13,13 @@ const login = (params: LOGIN_PARAMS) =>
     server_key: params.server_key || SERVER_KEY,
   });
 
+const logout = (params: any) =>
+  api.post(API_CONFIG.SAHATHA_LOGOUT, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
 export const AuthAPI = {
   login,
+  logout,
 };
