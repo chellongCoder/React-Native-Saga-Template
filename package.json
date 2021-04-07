@@ -19,10 +19,12 @@
     "lint-check": "eslint .",
     "rename": "react-native-rename",
     "generate": "plop",
-    "codepush-ios:staging": "appcenter codepush release-react -a base-project/base-project-ios -d Staging",
-    "codepush-ios:production": "appcenter codepush promote -a base-project/base-project-ios -s Staging -d Production",
-    "codepush-android:staging": "appcenter codepush release-react -a base-project/base-project-android -d Staging",
-    "codepush-android:production": "appcenter codepush promote -a base-project/base-project-android -s Staging -d Production"
+    "codepush:info-ios": "code-push deployment ls -k procheck/procheck-ios",
+    "codepush:info-android": "code-push deployment ls -k procheck/procheck-android",
+    "codepush-ios:staging": "appcenter codepush release-react -a procheck/procheck-ios -d Staging",
+    "codepush-ios:production": "appcenter codepush promote -a procheck/procheck-ios -s Staging -d Production",
+    "codepush-android:staging": "appcenter codepush release-react -a procheck/procheck-android -d Staging",
+    "codepush-android:production": "appcenter codepush promote -a procheck/procheck-android -s Staging -d Production"
   },
   "dependencies": {
     "@nartc/react-native-barcode-mask": "^1.2.0",

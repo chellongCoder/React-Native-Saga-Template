@@ -107,7 +107,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp ${PROJECT_DIR}/../.env.staging ${PROJECT_DIR}/../.env  # replace .env.staging for your file&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cp ${PROJECT_DIR}/../.env.production ${PROJECT_DIR}/../.env  # replace .env.staging for your file&#10;">
             </ActionContent>
          </ExecutionAction>
       </PreActions>

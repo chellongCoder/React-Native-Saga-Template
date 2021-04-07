@@ -9,7 +9,6 @@ import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
-import { mocksData } from './__mocks__/data';
 
 const _ProductDetail = ({ route }: ProductDetailProps) => {
   const {
@@ -51,13 +50,13 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
     <View style={styles.container}>
       <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
       <ScrollView>
-        <Slider data={mocksData.topics} />
+        <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
           <ItemCompany />
           <ItemCompany />
-          <AboutProduct {...{ productDetail }} />
         </View>
+        <AboutProduct {...{ productDetail }} />
       </ScrollView>
       <ButtonGroup />
     </View>
