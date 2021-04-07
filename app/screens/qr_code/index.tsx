@@ -21,7 +21,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
         if (supported) {
           if (data.indexOf('sahatha.vn') > 0) {
             navigation.navigate(screens.product_scan, {
-              params: { urlScan: 'https://sahatha.vn/a/G1409' },
+              params: { urlScan: data },
             });
             return;
           }
