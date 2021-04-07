@@ -17,6 +17,7 @@ const screens = {
   TabMain: 'TabMain',
   product: 'Product',
   product_detail: 'ProductDetail',
+  product_scan: 'ProductScan',
 };
 
 enum ROUTES {

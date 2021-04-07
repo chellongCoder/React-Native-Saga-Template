@@ -1,4 +1,4 @@
-import { put, putResolve, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 import { Action } from 'redux-actions';
 import { ApiResponse } from 'apisauce';
 import { homeActionsCreator } from '../actions';
