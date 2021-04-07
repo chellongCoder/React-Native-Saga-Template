@@ -24,7 +24,8 @@
     "codepush-ios:staging": "appcenter codepush release-react -a procheck/procheck-ios -d Staging",
     "codepush-ios:production": "appcenter codepush promote -a procheck/procheck-ios -s Staging -d Production",
     "codepush-android:staging": "appcenter codepush release-react -a procheck/procheck-android -d Staging",
-    "codepush-android:production": "appcenter codepush promote -a procheck/procheck-android -s Staging -d Production"
+    "codepush-android:production": "appcenter codepush promote -a procheck/procheck-android -s Staging -d Production",
+    "ios:beta": "fastlane ios beta"
   },
   "dependencies": {
     "@nartc/react-native-barcode-mask": "^1.2.0",
