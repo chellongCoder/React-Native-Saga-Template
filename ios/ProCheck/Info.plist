@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>4</string>
 	<key>CodePushDeploymentKey</key>
 	<string>$(CodePushDeploymentKey_iOS)</string>
 	<key>FacebookAppID</key>
