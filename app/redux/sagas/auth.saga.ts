@@ -1,40 +1,35 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import {
-  all,
-  call,
-  CallEffect,
-  Effect,
-  fork,
-  put,
-  SagaReturnType,
-  take,
-  TakeEffect,
-  takeEvery,
-  takeLatest,
-} from 'redux-saga/effects';
+import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
 import { mapUserLogin } from '../../helpers/auth.helper';
 import { UserLoginT } from '../../screens/login/types';
 import { AuthAPI } from '../../services';
 import { LOGIN_PARAMS, ResponseT } from '../../services/types';
 import { authActionsCreator } from '../actions';
 import { login, signUp } from '../api';
-import { LOGIN_REQUEST, REGISTER_REQUEST } from '../types';
-
-function* callSafe<Fn extends (...args: any[]) => Generator>(fn: Fn, ...args: Parameters<Fn>) {
-  const result: CallEffect<SagaReturnType<Fn>> = yield call(fn, ...args);
-  return result as Parameters<ReturnType<Fn>['return']>[0];
-}
+import { REGISTER_REQUEST } from '../types';
+import { callSafe } from './common.saga';
 
 function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   try {
-    const response: ResponseT<UserLoginT> = yield call(AuthAPI.login, action.payload);
-    console.log(
-      `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------`,
+    const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.login, action.payload);
+    const mapperData = mapUserLogin(response.data);
+    if (response.status === 200) {
+      AsyncStorage.setItem('@token', mapperData.accessToken);
+      const user = mapperData;
+      yield put(authActionsCreator.loginSuccess({ user }));
+    }
+  } catch (err) {
+    yield put(
+      authActionsCreator.loginError({
+        error: err ? err : 'User Login Failed!',
+      }),
     );
-    console.log(`🛠 LOG: 🚀 --> ~ file: auth.saga.ts ~ line 16 ~ function*loginSaga ~ response`, response);
-    console.log(
-      `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------`,
-    );
+  }
+}
+
+function* logoutSaga() {
+  try {
+    const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.logout, {});
     const mapperData = mapUserLogin(response.data);
     if (response.status === 200) {
       AsyncStorage.setItem('@token', mapperData.accessToken);
@@ -77,6 +72,13 @@ function* watchLogin() {
   }
 }
 
+function* watchLogout() {
+  while (true) {
+    yield take(authActionsCreator.logoutRequest);
+    yield* logoutSaga();
+  }
+}
+
 function* watchSignup() {
   while (true) {
     const action = yield take(REGISTER_REQUEST);
@@ -85,5 +87,5 @@ function* watchSignup() {
 }
 
 export default function* () {
-  yield all([fork(watchLogin), fork(watchSignup)]);
+  yield all([fork(watchLogin), fork(watchLogout), fork(watchSignup)]);
 }

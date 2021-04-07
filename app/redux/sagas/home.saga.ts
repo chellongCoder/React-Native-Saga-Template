@@ -3,6 +3,7 @@ import { Action } from 'redux-actions';
 import { ApiResponse } from 'apisauce';
 import { homeActionsCreator } from '../actions';
 import { Api } from '../../services';
+import { callSafe } from './common.saga';
 
 function* getDataProducts({ payload }: Action<any>) {
   try {
@@ -46,7 +47,7 @@ function* getDataSliders({ payload }: Action<any>) {
 
 function* getDataProductDetail({ payload }: Action<{ product_id: number; callback: any }>) {
   try {
-    const response: ApiResponse<any, any> = yield Api.getDataProductDetail(payload);
+    const response: ApiResponse<any, any> = yield callSafe(Api.getDataProductDetail, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataProductDetailSuccess(response));
       payload.callback(response);

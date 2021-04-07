@@ -4,5 +4,5 @@ import HomeSaga from './home.saga';
 import QrSaga from './qr.saga';
 
 export default function* rootSaga() {
-  yield all([fork(AuthSaga), fork(HomeSaga), fork(QrSaga)]);
+  yield all([fork(AuthSaga), fork(HomeSaga), fork(NewsSaga), fork(QrSaga)]);
 }
