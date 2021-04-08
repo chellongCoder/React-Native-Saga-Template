@@ -21,7 +21,9 @@ const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => 
       <View style={[CommonStyle.row, CommonStyle.spaceBetween, CommonStyle.paddingTop]}>
         <View style={[CommonStyle.row]}>
           <Image style={styles.icon} source={{ uri: 'product_detail_13' }} />
-          <Text style={styles.txtCode}>{productDetail?.codeProduct}</Text>
+          <Text selectable={true} style={styles.txtCode}>
+            {productDetail?.codeProduct}
+          </Text>
         </View>
         <View style={[CommonStyle.row]}>
           <View style={styles.iconContainer}>

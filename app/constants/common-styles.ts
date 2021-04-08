@@ -66,4 +66,16 @@ export const CommonStyle = StyleSheet.create({
   paddingTop: {
     paddingTop: getPercentageWidth(5),
   },
+  smallIcon: {
+    width: getPercentageWidth(10),
+    height: getPercentageWidth(10),
+  },
+  normalIcon: {
+    width: getPercentageWidth(20),
+    height: getPercentageWidth(20),
+  },
+  largeIcon: {
+    width: getPercentageWidth(40),
+    height: getPercentageWidth(40),
+  },
 });

@@ -22,4 +22,26 @@ export const mocksData = {
     { id: 3, name: 'Vitae dolorem maxime.', cover: IMAGE_TOPIC },
   ],
 
+  ratings: [
+    {
+      star: 5,
+      name: 'Chất lượng'
+    },
+    {
+      star: 4,
+      name: 'Đáng giá tiền'
+    },
+    {
+      star: 3,
+      name: 'Hiệu quả sử dụng'
+    },
+    {
+      star: 2, 
+      name: 'Sẽ sử dụng lại'
+    },
+    {
+      star: 1, 
+      name: 'Giới thiệu bạn bè'
+    }
+  ]
 }

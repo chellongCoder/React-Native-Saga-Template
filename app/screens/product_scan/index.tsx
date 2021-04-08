@@ -51,7 +51,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     <View style={styles.container}>
       <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
       <ScrollView>
-        <Slider data={mocksData.topics} />
+        <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
           <ItemCompany />
