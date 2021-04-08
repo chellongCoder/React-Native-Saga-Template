@@ -1,9 +1,19 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useLoadingGlobal } from '../../../hooks';
-import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, LoadingGlobal, Slider } from '../../components';
+import {
+  AboutProduct,
+  AppBars,
+  ButtonGroup,
+  Comment,
+  InfoProduct,
+  ItemCompany,
+  Rating,
+  Slider,
+} from '../../components';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
@@ -49,15 +59,17 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
   return (
     <View style={styles.container}>
       <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
-      <ScrollView>
-        <Slider data={productDetail?.photosSlider} />
+      <KeyboardAwareScrollView>
+        {/* <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
           <ItemCompany />
           <ItemCompany />
         </View>
-        <AboutProduct {...{ productDetail }} />
-      </ScrollView>
+        <AboutProduct {...{ productDetail }} /> */}
+        <Rating />
+        <Comment />
+      </KeyboardAwareScrollView>
       <ButtonGroup />
     </View>
   );

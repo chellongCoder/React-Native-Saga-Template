@@ -3,9 +3,9 @@ import React from 'react';
 import { StyleSheet, Text as RCText } from 'react-native';
 import HtmlView from 'react-native-htmlview';
 import { Platform } from '../../theme';
+import { ParsedTextProps } from './types';
 
-const Text = (props: any) => {
-  var { style, isViewHtml, children } = props;
+const Text = ({ style, isViewHtml, children, ...other }: ParsedTextProps) => {
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
@@ -30,8 +30,8 @@ const Text = (props: any) => {
     );
   }
   return (
-    <RCText {...props} style={style}>
-      {props.children}
+    <RCText selectable={true} {...other} style={style}>
+      {children}
     </RCText>
   );
 };

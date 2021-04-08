@@ -16,9 +16,12 @@ platform :ios do
 
     desc 'Build the iOS application.'
     private_lane :build do
-        produce
+      produce(
+        username: 'benglish.vn@gmail.com',
+        app_identifier: 'com.vn.procheck'
+      )
         increment_build_number(xcodeproj: './ios/ProCheck.xcodeproj')
-        build_app(workspace: "./ios/ProCheck.xcworkspace", scheme: "ProCheck")
+        build_app(workspace: "./ios/ProCheck.xcworkspace", scheme: "Release")
     end
 
     desc 'Ship to Testflight.'
