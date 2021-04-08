@@ -88,8 +88,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   txtTopic: {
-    fontSize: Platform.SizeScale(16),
-    color: COLORS.blue,
+    color: COLORS.darkBlue,
     textAlign: 'center',
   },
   inpuRateStyle: {

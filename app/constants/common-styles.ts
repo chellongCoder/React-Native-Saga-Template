@@ -78,4 +78,7 @@ export const CommonStyle = StyleSheet.create({
     width: getPercentageWidth(40),
     height: getPercentageWidth(40),
   },
+  paddingTop10: {
+    paddingTop: getPercentageWidth(10),
+  },
 });
