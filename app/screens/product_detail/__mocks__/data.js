@@ -43,5 +43,17 @@ export const mocksData = {
       star: 1, 
       name: 'Giới thiệu bạn bè'
     }
+  ],
+  comments: [
+    {
+      avatar: '',
+      name: 'Nguyễn Hoa',
+      createAt: '11/03/2021',
+      like: 10,
+      reply: 9,
+      rate: 5,
+      rateContent: '10.0 trên cả tuyệt vời ',
+      quote: "Rất thích sản phẩm của Paula Choice"
+    }
   ]
 }
