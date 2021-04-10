@@ -31,16 +31,6 @@ const _Comment = () => {
               <Text style={styles.date}>{comment.createAt}</Text>
             </View>
           </View>
-          <View style={[CommonStyle.row]}>
-            <View style={[CommonStyle.row, styles.react]}>
-              <Image style={[CommonStyle.normalIcon]} source={{ uri: 'product_detail_2_14' }} />
-              <Text style={styles.amount}>{comment.like}</Text>
-            </View>
-            <View style={[CommonStyle.row, styles.react]}>
-              <Image style={[CommonStyle.normalIcon]} source={{ uri: 'product_detail_2_17' }} />
-              <Text style={styles.amount}>{comment.reply}</Text>
-            </View>
-          </View>
         </View>
         <View style={[CommonStyle.row, CommonStyle.paddingTop10]}>
           <View style={styles.ratingContent}>
@@ -86,13 +76,6 @@ const styles = StyleSheet.create({
   },
   infoRateContainer: {
     alignItems: 'flex-start',
-  },
-  react: {
-    padding: Platform.SizeScale(5),
-    borderWidth: StyleSheet.hairlineWidth,
-    marginLeft: Platform.SizeScale(10),
-    borderColor: COLORS.GRAY,
-    borderRadius: Platform.SizeScale(5),
   },
   name: {
     fontWeight: 'bold',
