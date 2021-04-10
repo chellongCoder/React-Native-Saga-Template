@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     fontSize: Platform.SizeScale(14),
     fontFamily: 'RobotoMono-Regular',
     fontWeight: 'bold',
+    paddingLeft: Platform.SizeScale(20),
   },
   content: {
     marginTop: Platform.SizeScale(10),

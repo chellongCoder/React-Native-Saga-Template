@@ -86,9 +86,6 @@ const styles = StyleSheet.create({
   info: {
     marginLeft: Platform.SizeScale(10),
   },
-  amount: {
-    marginLeft: Platform.SizeScale(5),
-  },
   ratingContent: {
     borderWidth: 1,
     borderColor: COLORS.lightBlue,

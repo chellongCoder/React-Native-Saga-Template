@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { View } from 'native-base';
 import { mapRelatedProducts } from '../../helpers/product.helper';
 import { RelatedProduct } from '../../screens/product/types';
 import { Text } from '../text';
 import Row from '../../util/Row';
-import { FontFamily, theme } from '../../theme';
+import { FontFamily, Platform, theme } from '../../theme';
+import { COLORS } from '../../constants';
 import ItemSuggest from './ItemSuggest';
 const { colors } = theme;
 
@@ -14,7 +15,7 @@ interface Props {
   navigation: any;
 }
 
-const SuggestProduct = (props: Props) => {
+const _SuggestProduct = (props: Props) => {
   const { data } = props;
 
   const handlerGoToMore = () => {
@@ -22,9 +23,24 @@ const SuggestProduct = (props: Props) => {
     // props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { categoryId, title: name } });
   };
 
+  const renderItem = useCallback(
+    ({ item }: { item: RelatedProduct }) => {
+      item = mapRelatedProducts(item);
+      return (
+        <ItemSuggest
+          navigation={props.navigation}
+          productDescription={item.productDescription}
+          rating={item.rating}
+          id={item.id}
+        />
+      );
+    },
+    [props.navigation],
+  );
+
   return (
     <View style={styles.contain}>
-      <Row>
+      <Row style={styles.titleContainer}>
         <Text style={styles.styLabel}>Sản phẩm liên quan</Text>
         <TouchableOpacity onPress={handlerGoToMore}>
           <Text style={styles.styTxtMore}>Xem thêm</Text>
@@ -33,38 +49,34 @@ const SuggestProduct = (props: Props) => {
       <FlatList
         data={data || []}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }: { item: RelatedProduct }) => {
-          item = mapRelatedProducts(item);
-          return (
-            <ItemSuggest
-              navigation={props.navigation}
-              productDescription={item.productDescription}
-              rating={item.rating}
-              id={item.id}
-            />
-          );
-        }}
+        {...{ renderItem }}
         horizontal={true}
+        style={styles.list}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
 };
 
-export default SuggestProduct;
+export const SuggestProduct = memo(_SuggestProduct);
 
 const styles = StyleSheet.create({
   contain: {
-    marginVertical: 20,
+    marginVertical: Platform.SizeScale(20),
   },
   styLabel: {
     flex: 1,
-    fontFamily: FontFamily.fontRegular,
-    fontSize: 16,
-    color: colors.gray,
+    fontSize: Platform.SizeScale(16),
+    color: COLORS.darkBlue,
   },
   styTxtMore: {
-    fontSize: 14,
-    fontFamily: FontFamily.fontRegular,
-    color: colors.gray,
+    // fontSize: 14,
+    // fontFamily: FontFamily.fontRegular,
+  },
+  titleContainer: {
+    paddingHorizontal: Platform.SizeScale(15),
+  },
+  list: {
+    paddingLeft: Platform.SizeScale(15),
   },
 });

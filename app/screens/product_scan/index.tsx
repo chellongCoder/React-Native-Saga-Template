@@ -3,14 +3,12 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoadingGlobal } from '../../../hooks';
-import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, LoadingGlobal, Slider } from '../../components';
-import SuggestProduct from '../../components/detail-product-company/SuggestProduct';
+import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, Slider, SuggestProduct } from '../../components';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { qrActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
-import { mocksData } from './__mocks__/data';
 
 const _ProductScan = ({ route }: ProductDetailProps) => {
   const {
@@ -58,8 +56,8 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
           <ItemCompany />
           <ItemCompany />
           <AboutProduct {...{ productDetail }} />
-          <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
         </View>
+        <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
       </ScrollView>
       <ButtonGroup />
     </View>
