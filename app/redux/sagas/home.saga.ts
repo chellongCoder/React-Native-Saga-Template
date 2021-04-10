@@ -3,6 +3,7 @@ import { Action } from 'redux-actions';
 import { ApiResponse } from 'apisauce';
 import { homeActionsCreator } from '../actions';
 import { Api } from '../../services';
+import { callSafe } from './common.saga';
 
 function* getDataProducts({ payload }: Action<any>) {
   try {
@@ -14,6 +15,19 @@ function* getDataProducts({ payload }: Action<any>) {
     }
   } catch (err) {
     yield put(homeActionsCreator.getDataFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
+function* getDataProductsMore({ payload }: Action<any>) {
+  try {
+    const response: ApiResponse<any, any> = yield Api.getDataProductMore(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataMoreSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataMoreFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataMoreFaild({ error: err ? err : 'User Login Failed!' }));
   }
 }
 
@@ -31,11 +45,12 @@ function* getDataSliders({ payload }: Action<any>) {
   }
 }
 
-function* getDataProductDetail({ payload }: Action<{ product_id: number }>) {
+function* getDataProductDetail({ payload }: Action<{ product_id: number; callback: any }>) {
   try {
-    const response: ApiResponse<any, any> = yield Api.getDataProductDetail(payload);
+    const response: ApiResponse<any, any> = yield callSafe(Api.getDataProductDetail, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataProductDetailSuccess(response));
+      payload.callback(response);
     } else {
       yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.originalError }));
     }
@@ -48,4 +63,5 @@ export default function* () {
   yield takeEvery(homeActionsCreator.getDataRequest, getDataProducts);
   yield takeEvery(homeActionsCreator.getDataSlidersRequest, getDataSliders);
   yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
+  yield takeEvery(homeActionsCreator.getDataMoreRequest, getDataProductsMore);
 }

@@ -8,6 +8,7 @@ import {
 import Swiper from 'react-native-swiper';
 import RippleButton from '../anim/RippleButtonAnim';
 import Image from 'react-native-fast-image';
+import _ from 'lodash';
 const { width, height } = Dimensions.get('window');
 
 export default class BannerAdvertisement extends Component {
@@ -17,8 +18,8 @@ export default class BannerAdvertisement extends Component {
     }
 
     renderBanner = (data) => {
-        if (data && data.length == 0) {
-            return null;
+        if (_.isEmpty(data)) {
+            return <View />;
         }
         const element = data.map((item, index) => {
             return (

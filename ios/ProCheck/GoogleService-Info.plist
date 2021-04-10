@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>529847481591-est3ckdhra2vt1enour4ro7psjfnplj0.apps.googleusercontent.com</string>
+	<string>589588948398-f79v5qpd92lfaq36oc59ggp90gfpkd8j.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.529847481591-est3ckdhra2vt1enour4ro7psjfnplj0</string>
+	<string>com.googleusercontent.apps.589588948398-f79v5qpd92lfaq36oc59ggp90gfpkd8j</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBVvc-0hyNFKoPJYYYjHtiztU7f0j0LMWM</string>
+	<string>AIzaSyASZM9oeeGYYCfcGHgQ0Dzic7v6kOR6r2c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>529847481591</string>
+	<string>589588948398</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hisoft.base.app</string>
+	<string>com.vn.procheck</string>
 	<key>PROJECT_ID</key>
-	<string>baseproject-hisoft</string>
+	<string>procheck-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>baseproject-hisoft.appspot.com</string>
+	<string>procheck-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:529847481591:ios:6fc9ea6916656680384ff2</string>
-	<key>DATABASE_URL</key>
-	<string>https://baseproject-hisoft.firebaseio.com</string>
+	<string>1:589588948398:ios:fc3bf6d8ae14dafff9943f</string>
 </dict>
 </plist>

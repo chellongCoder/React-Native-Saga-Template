@@ -1,0 +1,1 @@
+cd .. && sed -ie "s/_currentFrame.CGImage;/_currentFrame.CGImage ;} else { [super displayLayer:layer];/" node_modules/react-native/Libraries/Image/RCTUIImageViewAnimated.m && cd scripts

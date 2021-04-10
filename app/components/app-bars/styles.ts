@@ -10,7 +10,6 @@ export const useStyleAppBars = () => {
     () =>
       StyleSheet.create({
         safeArea: {
-          paddingTop: insets.top,
           backgroundColor: colors.white,
           alignItems: 'center',
         },
@@ -26,6 +25,6 @@ export const useStyleAppBars = () => {
           height: Platform.SizeScale(15),
         },
       }),
-    [colors, insets],
+    [colors],
   );
 };

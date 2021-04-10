@@ -56,4 +56,29 @@ export const CommonStyle = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  spaceBetween: {
+    justifyContent: 'space-between',
+  },
+  paddingTop: {
+    paddingTop: getPercentageWidth(5),
+  },
+  smallIcon: {
+    width: getPercentageWidth(10),
+    height: getPercentageWidth(10),
+  },
+  normalIcon: {
+    width: getPercentageWidth(20),
+    height: getPercentageWidth(20),
+  },
+  largeIcon: {
+    width: getPercentageWidth(40),
+    height: getPercentageWidth(40),
+  },
+  paddingTop10: {
+    paddingTop: getPercentageWidth(10),
+  },
 });

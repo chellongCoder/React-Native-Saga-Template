@@ -1,11 +1,16 @@
-import React, { useRef } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { OutlinedTextField } from 'react-native-material-textfield';
-import { AppButton, GoogleButton } from '../../components';
+import { useDispatch } from 'react-redux';
+import { AppButton, FacebookButton, GoogleButton } from '../../components';
+import { authActionsCreator } from '../../redux/actions';
 
 const LoginScreen = withTheme(() => {
   const fieldRef: any = useRef();
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const onSubmit = () => {
     let { current: field } = fieldRef;
@@ -18,6 +23,17 @@ const LoginScreen = withTheme(() => {
     return text.replace(/[^+\d]/g, '');
   };
 
+  const onLogin = useCallback(() => {
+    dispatch(
+      authActionsCreator.loginRequest({
+        device_token: '',
+        device_type: Platform.OS === 'ios' ? 'IOS' : 'ANDROID',
+        email: 'thienthanchientranh1996@gmail.com',
+        password: '123456',
+        remember: 1,
+      }),
+    );
+  }, [dispatch]);
   return (
     <View>
       <OutlinedTextField
@@ -25,7 +41,7 @@ const LoginScreen = withTheme(() => {
         keyboardType="phone-pad"
         formatText={formatText}
         onSubmitEditing={onSubmit}
-        ref={fieldRef}
+        onChangeText={setUserName}
       />
       <OutlinedTextField
         label="Enter Password"
@@ -33,9 +49,11 @@ const LoginScreen = withTheme(() => {
         onSubmitEditing={onSubmit}
         ref={fieldRef}
         secureTextEntry
+        onChangeText={setPassword}
       />
-      <AppButton title="Submit" />
+      <AppButton title="Submit" onSubmit={onLogin} />
       <GoogleButton />
+      <FacebookButton />
     </View>
   );
 });

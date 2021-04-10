@@ -1,5 +1,5 @@
 import React, { memo, useMemo } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { COLORS, CommonStyle, Images } from '../../constants';
 import { Text } from '../text';
@@ -10,6 +10,7 @@ const AppBarsBase = ({
   hasBack = true,
   iconPressLeft = 'ARROW_LEFT',
   onPressLeft,
+  onPressRight,
   title,
   iconStyleLeft,
   isShadowBottom = true,
@@ -20,14 +21,14 @@ const AppBarsBase = ({
   const styles = useStyleAppBars();
   const renderLeft = useMemo(() => {
     return (
-      <View style={styles.imageContainer}>
+      <TouchableOpacity onPress={onPressLeft} style={styles.imageContainer}>
         <FastImage style={CommonStyle.image} resizeMode="contain" source={Images.back} />
-      </View>
+      </TouchableOpacity>
     );
-  }, [styles.imageContainer]);
+  }, [onPressLeft, styles.imageContainer]);
   const renderRight = useMemo(() => {
-    return <Text>right</Text>;
-  }, []);
+    return <TouchableOpacity onPress={onPressRight}>{hasRightIcons ? <Text>right</Text> : <></>}</TouchableOpacity>;
+  }, [hasRightIcons, onPressRight]);
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.WHITE} />

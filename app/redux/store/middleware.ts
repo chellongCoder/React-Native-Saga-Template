@@ -7,20 +7,7 @@ const apiService = ({ dispatch }: { dispatch: Dispatch }) => (next: any) => (act
   console.log(`🛠 LOG: 🚀 --> ---------------------------------------------------------------------------`);
   console.log(`🛠 LOG: 🚀 --> ~ file: middleware.ts ~ line 6 ~ apiService ~ action`, action);
   console.log(`🛠 LOG: 🚀 --> ---------------------------------------------------------------------------`);
-  const result = Array.isArray(action) ? action.filter(Boolean).map(dispatch) : next(action);
-  if (!action.meta) {
-    return result;
-  }
-
-  const { payload, apiEndPoint, callApi } = action.meta;
-  console.log('====================================');
-  console.log(payload, apiEndPoint);
-  console.log('====================================');
-  // fork(handleApi(callApi, payload));
-  return ApiSauce.getInstance()
-    .fetch('GET', payload, apiEndPoint)
-    .then((res: ApiResponse<unknown, unknown>) => handleResponse(res, action, next))
-    .catch((err: ApiResponse<unknown, unknown>) => handleErrors(err, action, next));
+  return next(action);
 };
 
 function* handleApi(callApi: (params: any) => void, payload: any) {
