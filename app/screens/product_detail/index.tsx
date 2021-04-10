@@ -13,6 +13,7 @@ import {
   ItemCompany,
   Rating,
   Slider,
+  SuggestProduct,
 } from '../../components';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
@@ -69,6 +70,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
         <AboutProduct {...{ productDetail }} />
         <Rating />
         <Comment />
+        <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
       </KeyboardAwareScrollView>
       <ButtonGroup />
     </View>
