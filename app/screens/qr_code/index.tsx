@@ -40,11 +40,11 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
   );
 
   const onBack = useCallback(() => {
-    navigation.goBack();
-    navigation.navigate(screens.home);
-    // navigation.navigate(screens.product_scan, {
-    //   params: { urlScan: 'https://sahatha.vn/a/G1409' },
-    // });
+    // navigation.goBack();
+    // navigation.navigate(screens.home);
+    navigation.navigate(screens.product_scan, {
+      params: { urlScan: 'https://sahatha.vn/a/G1409' },
+    });
   }, [navigation]);
 
   return (
