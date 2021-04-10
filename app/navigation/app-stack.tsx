@@ -3,6 +3,7 @@ import React from 'react';
 import { screens } from '../config';
 import Home from '../redux/connects/home.connect';
 import HomeDetail from '../redux/connects/HomeDetailContainer';
+import { ProductScreen } from '../screens';
 import HomeMore from '../screens/home-more/HomeMore';
 import TabMain from './bottom-tab-stack';
 
@@ -15,6 +16,7 @@ export default function MainNavigator() {
       <MainStack.Screen name={screens.home} component={Home} />
       <MainStack.Screen name={screens.homeDetail} component={HomeDetail} />
       <MainStack.Screen name={screens.homeMore} component={HomeMore} />
+      <MainStack.Screen name={screens.product} component={ProductScreen} />
     </MainStack.Navigator>
   );
 }

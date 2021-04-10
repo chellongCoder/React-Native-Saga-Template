@@ -1,3 +1,6 @@
+import { RouteProp } from '@react-navigation/core';
+import { ROUTES } from '../../config';
+
 export interface ProductProps {
   id: number;
   name: string;
@@ -58,4 +61,10 @@ export interface RelatedProduct {
     thumbnailImg: string;
     thumbnailoptimize: string;
   };
+}
+type ProductParamList = {
+  [ROUTES.product]: { categoryId: number; title: string };
+};
+export interface ProductProps {
+  route: RouteProp<ProductParamList, typeof ROUTES.product>;
 }

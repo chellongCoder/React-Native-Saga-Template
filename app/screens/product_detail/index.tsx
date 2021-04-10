@@ -58,15 +58,15 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
 
   return (
     <View style={styles.container}>
-      <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
+      <AppBars title={productDetail?.nameProduct || 'Chi tiết sản phẩm'} hasRightIcons={false} onPressLeft={onBack} />
       <KeyboardAwareScrollView>
-        {/* <Slider data={productDetail?.photosSlider} />
+        <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
           <ItemCompany />
           <ItemCompany />
         </View>
-        <AboutProduct {...{ productDetail }} /> */}
+        <AboutProduct {...{ productDetail }} />
         <Rating />
         <Comment />
       </KeyboardAwareScrollView>

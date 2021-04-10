@@ -1,15 +1,46 @@
-import React, { memo } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { COLORS } from '../../constants';
+import React, { memo, useMemo } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+import { COLORS, CommonStyle } from '../../constants';
+import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
+import { Rate } from '../rating';
 import { Text } from '../text';
 
 const _Comment = () => {
+  const comment = useMemo(() => {
+    return mocksData.comments[0];
+  }, []);
   return (
     <View>
       <View style={styles.topic}>
         <Text style={styles.txtRate}>Đánh giá sản phẩm (1)</Text>
         <Text>Xem tất cả </Text>
+      </View>
+      <View style={styles.container}>
+        <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.infoRateContainer]}>
+          <View style={[CommonStyle.row]}>
+            <View style={styles.avatar}>
+              <Image
+                resizeMode="contain"
+                style={CommonStyle.image}
+                source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+              />
+            </View>
+            <View style={styles.info}>
+              <Text style={styles.name}>{comment.name}</Text>
+              <Text style={styles.date}>{comment.createAt}</Text>
+            </View>
+          </View>
+        </View>
+        <View style={[CommonStyle.row, CommonStyle.paddingTop10]}>
+          <View style={styles.ratingContent}>
+            <Text style={styles.txtRatingContent}>{comment.rateContent}</Text>
+          </View>
+          <Rate percent={3} />
+        </View>
+        <View style={[CommonStyle.paddingTop10]}>
+          <Text>{comment.quote}</Text>
+        </View>
       </View>
     </View>
   );
@@ -18,6 +49,11 @@ const _Comment = () => {
 export const Comment = memo(_Comment);
 
 const styles = StyleSheet.create({
+  container: {
+    padding: Platform.SizeScale(15),
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: COLORS.GRAY,
+  },
   topic: {
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderTopWidth: StyleSheet.hairlineWidth,
@@ -29,7 +65,39 @@ const styles = StyleSheet.create({
   },
   txtRate: {
     fontSize: Platform.SizeScale(16),
-    color: COLORS.blue,
+    color: COLORS.darkBlue,
     textAlign: 'center',
+  },
+  avatar: {
+    width: Platform.SizeScale(50),
+    height: Platform.SizeScale(50),
+    borderRadius: Platform.SizeScale(25),
+    overflow: 'hidden',
+  },
+  infoRateContainer: {
+    alignItems: 'flex-start',
+  },
+  name: {
+    fontWeight: 'bold',
+  },
+  date: {
+    color: COLORS.BOLD_GRAY,
+  },
+  info: {
+    marginLeft: Platform.SizeScale(10),
+  },
+  amount: {
+    marginLeft: Platform.SizeScale(5),
+  },
+  ratingContent: {
+    borderWidth: 1,
+    borderColor: COLORS.lightBlue,
+    borderRadius: Platform.SizeScale(12),
+    paddingHorizontal: Platform.SizeScale(5),
+    paddingVertical: Platform.SizeScale(2),
+    marginRight: Platform.SizeScale(10),
+  },
+  txtRatingContent: {
+    color: COLORS.lightBlue,
   },
 });

@@ -4,7 +4,7 @@ import { Drawer } from '../components';
 import { screens } from '../config';
 import LoginScreen from '../screens/login';
 import RegisterScreen from '../screens/register';
-import { ProductScreen, ProductScanScreen } from '../screens';
+import { ProductScanScreen } from '../screens';
 import BottomTabStack from './bottom-tab-stack';
 
 const DrawerStack = createDrawerNavigator();
@@ -18,7 +18,6 @@ const DrawerNavigator = () => {
       <DrawerStack.Screen name={screens.bottomTabStack} component={BottomTabStack} />
       <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.login} component={LoginScreen} />
       <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.register} component={RegisterScreen} />
-      <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.product} component={ProductScreen} />
       <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.product_scan} component={ProductScanScreen} />
     </DrawerStack.Navigator>
   );
