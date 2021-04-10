@@ -4,6 +4,7 @@ import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoadingGlobal } from '../../../hooks';
 import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, LoadingGlobal, Slider } from '../../components';
+import SuggestProduct from '../../components/detail-product-company/SuggestProduct';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { qrActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
@@ -57,6 +58,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
           <ItemCompany />
           <ItemCompany />
           <AboutProduct {...{ productDetail }} />
+          <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
         </View>
       </ScrollView>
       <ButtonGroup />

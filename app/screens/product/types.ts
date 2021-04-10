@@ -43,3 +43,19 @@ export interface Action {
   };
   type: string;
 }
+
+export interface RelatedProduct {
+  id: number;
+  rating: number;
+  productDescription: {
+    featuredImg: string;
+    flashDealImg: string;
+    id: number;
+    language: string;
+    name: string;
+    photos: string[];
+    productId: number;
+    thumbnailImg: string;
+    thumbnailoptimize: string;
+  };
+}
