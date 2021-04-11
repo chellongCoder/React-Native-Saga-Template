@@ -5,7 +5,7 @@ import { mapRelatedProducts } from '../../helpers/product.helper';
 import { RelatedProduct } from '../../screens/product/types';
 import { Text } from '../text';
 import Row from '../../util/Row';
-import { FontFamily, theme } from '../../theme';
+import { FontFamily, Platform, theme } from '../../theme';
 import ItemSuggest from './ItemSuggest';
 const { colors } = theme;
 
@@ -17,18 +17,10 @@ interface Props {
 const SuggestProduct = (props: Props) => {
   const { data } = props;
 
-  const handlerGoToMore = () => {
-    // const { name, categoryId } = props;
-    // props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { categoryId, title: name } });
-  };
-
   return (
     <View style={styles.contain}>
       <Row>
         <Text style={styles.styLabel}>Sản phẩm liên quan</Text>
-        <TouchableOpacity onPress={handlerGoToMore}>
-          <Text style={styles.styTxtMore}>Xem thêm</Text>
-        </TouchableOpacity>
       </Row>
       <FlatList
         data={data || []}
@@ -54,17 +46,12 @@ export default SuggestProduct;
 
 const styles = StyleSheet.create({
   contain: {
-    marginVertical: 20,
+    marginVertical: Platform.SizeScale(20),
   },
   styLabel: {
     flex: 1,
     fontFamily: FontFamily.fontRegular,
-    fontSize: 16,
-    color: colors.gray,
-  },
-  styTxtMore: {
-    fontSize: 14,
-    fontFamily: FontFamily.fontRegular,
+    fontSize: Platform.SizeScale(16),
     color: colors.gray,
   },
 });

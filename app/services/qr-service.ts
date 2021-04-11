@@ -12,7 +12,18 @@ const getDataScanQR = (params: any) =>
     ...params,
   });
 
+// get data suggest
+interface ParamsSuggest {
+  product_id: number;
+}
+const getDataSuggest = (params: ParamsSuggest) =>
+  api.post(`api/related_products`, {
+    server_key: SERVER_KEY,
+    ...params,
+  });
+
 // let's return back our create method as the default.
 export const ApiQr = {
   getDataScanQR,
+  getDataSuggest,
 };

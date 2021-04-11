@@ -18,6 +18,7 @@ type PhotoSlider = {
   cover: string;
 };
 export interface DetailProductT {
+  id: number;
   nameProduct: string; // name
   cost: number; // unit_price
   grootCost: number; // purchase_price
