@@ -3,6 +3,7 @@ import { Action } from 'redux-actions';
 import { ApiResponse } from 'apisauce';
 import { homeActionsCreator } from '../actions';
 import { Api } from '../../services';
+import { PostCommentParamsT } from '../../screens/product_detail/types';
 import { callSafe } from './common.saga';
 
 function* getDataProducts({ payload }: Action<any>) {
@@ -59,9 +60,23 @@ function* getDataProductDetail({ payload }: Action<{ product_id: number; callbac
   }
 }
 
+function* postComment({ payload }: Action<PostCommentParamsT>) {
+  try {
+    const response: ApiResponse<any, any> = yield callSafe(Api.postComment, payload);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataProductDetailSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataProductDetailFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 export default function* () {
   yield takeEvery(homeActionsCreator.getDataRequest, getDataProducts);
   yield takeEvery(homeActionsCreator.getDataSlidersRequest, getDataSliders);
   yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
   yield takeEvery(homeActionsCreator.getDataMoreRequest, getDataProductsMore);
+  yield takeEvery(homeActionsCreator.postCommentRequest, postComment);
 }

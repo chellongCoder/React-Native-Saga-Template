@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoadingGlobal } from '../../../hooks';
+import { useLoadingGlobal } from '../../hooks';
 import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, Slider, SuggestProduct } from '../../components';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { qrActionsCreator } from '../../redux/actions';

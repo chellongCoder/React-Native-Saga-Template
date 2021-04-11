@@ -3,7 +3,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useLoadingGlobal } from '../../../hooks';
+import { useLoadingGlobal } from '../../hooks';
 import {
   AboutProduct,
   AppBars,
@@ -61,13 +61,13 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
     <View style={styles.container}>
       <AppBars title={productDetail?.nameProduct || 'Chi tiết sản phẩm'} hasRightIcons={false} onPressLeft={onBack} />
       <KeyboardAwareScrollView>
-        <Slider data={productDetail?.photosSlider} />
+        {/* <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
           <ItemCompany />
           <ItemCompany />
         </View>
-        <AboutProduct {...{ productDetail }} />
+        <AboutProduct {...{ productDetail }} /> */}
         <Rating />
         <Comment />
         <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
