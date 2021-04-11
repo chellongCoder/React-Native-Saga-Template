@@ -11,7 +11,7 @@ import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
 
 interface Props {
-  handlerGoToDetail: () => void;
+  handlerGoToDetail?: () => void;
   item: ProductProps;
   width: number;
 }

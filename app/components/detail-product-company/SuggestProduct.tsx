@@ -1,5 +1,5 @@
-import React from 'react';
-import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { memo, useCallback } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 import { View } from 'native-base';
 import { mapRelatedProducts } from '../../helpers/product.helper';
 import { RelatedProduct } from '../../screens/product/types';
@@ -14,35 +14,42 @@ interface Props {
   navigation: any;
 }
 
-const SuggestProduct = (props: Props) => {
+const _SuggestProduct = (props: Props) => {
   const { data } = props;
+
+  const renderItem = useCallback(
+    ({ item }: { item: RelatedProduct }) => {
+      item = mapRelatedProducts(item);
+      return (
+        <ItemSuggest
+          navigation={props.navigation}
+          productDescription={item.productDescription}
+          rating={item.rating}
+          id={item.id}
+        />
+      );
+    },
+    [props.navigation],
+  );
 
   return (
     <View style={styles.contain}>
-      <Row>
+      <Row style={styles.titleContainer}>
         <Text style={styles.styLabel}>Sản phẩm liên quan</Text>
       </Row>
       <FlatList
         data={data || []}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }: { item: RelatedProduct }) => {
-          item = mapRelatedProducts(item);
-          return (
-            <ItemSuggest
-              navigation={props.navigation}
-              productDescription={item.productDescription}
-              rating={item.rating}
-              id={item.id}
-            />
-          );
-        }}
+        {...{ renderItem }}
         horizontal={true}
+        style={styles.list}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
 };
 
-export default SuggestProduct;
+export const SuggestProduct = memo(_SuggestProduct);
 
 const styles = StyleSheet.create({
   contain: {
@@ -53,5 +60,11 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.fontRegular,
     fontSize: Platform.SizeScale(16),
     color: colors.gray,
+  },
+  titleContainer: {
+    paddingHorizontal: Platform.SizeScale(15),
+  },
+  list: {
+    paddingLeft: Platform.SizeScale(15),
   },
 });

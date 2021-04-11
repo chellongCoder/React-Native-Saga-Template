@@ -8,7 +8,7 @@ const _Banner = () => {
   return (
     <>
       <View style={styles.imageContainer}>
-        <FastImage style={CommonStyle.image} resizeMode="contain" source={Images.banner_product} />
+        <FastImage style={CommonStyle.image} resizeMode="cover" source={Images.banner_product} />
       </View>
     </>
   );

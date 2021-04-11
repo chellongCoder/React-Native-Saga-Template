@@ -33,7 +33,7 @@ export default class ListItem extends Component<Props, State> {
 
   handlerGoToMore = () => {
     const { name, categoryId } = this.props;
-    this.props.navigation.navigate(screens.appStack, { screen: screens.homeMore, params: { categoryId, title: name } });
+    this.props.navigation.navigate(screens.appStack, { screen: screens.product, params: { categoryId, title: name } });
   };
 
   renderItem = ({ item }: { item: ProductProps }) => {

@@ -44,13 +44,13 @@ export const CommonStyle = StyleSheet.create({
   shadow: {
     shadowColor: '#000',
     shadowOffset: {
-      width: 1,
-      height: -0,
+      width: 0,
+      height: 5,
     },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
 
-    elevation: 6,
+    elevation: 5,
   },
   image: {
     width: '100%',
@@ -77,5 +77,8 @@ export const CommonStyle = StyleSheet.create({
   largeIcon: {
     width: getPercentageWidth(40),
     height: getPercentageWidth(40),
+  },
+  paddingTop10: {
+    paddingTop: getPercentageWidth(10),
   },
 });

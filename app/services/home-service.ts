@@ -1,5 +1,6 @@
 import { API_CONFIG } from '../config';
 import AppConfig from '../config/app-config';
+import { PostCommentParamsT } from '../screens/product_detail/types';
 import ApiSauce from './ApiSauceHandler';
 
 const { API_URL, API_URL_DEV, SERVER_KEY } = AppConfig;
@@ -37,6 +38,12 @@ const getDataProductDetail = (params: any) =>
     ...params,
   });
 
+const postComment = (params: PostCommentParamsT) =>
+  api.post(API_CONFIG.ADD_COMMENT_PRODUCT, {
+    server_key: SERVER_KEY,
+    ...params,
+  });
+
 // let's return back our create method as the default.
 export const Api = {
   getDataProduct,
@@ -44,4 +51,5 @@ export const Api = {
   getDataSliders,
   getDataProductDetail,
   getDataProducts,
+  postComment,
 };

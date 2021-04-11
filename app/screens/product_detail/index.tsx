@@ -3,7 +3,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useLoadingGlobal } from '../../../hooks';
+import { useLoadingGlobal } from '../../hooks';
 import {
   AboutProduct,
   AppBars,
@@ -13,6 +13,7 @@ import {
   ItemCompany,
   Rating,
   Slider,
+  SuggestProduct,
 } from '../../components';
 import { mapDetailProduct } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
@@ -58,7 +59,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
 
   return (
     <View style={styles.container}>
-      <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
+      <AppBars title={productDetail?.nameProduct || 'Chi tiết sản phẩm'} hasRightIcons={false} onPressLeft={onBack} />
       <KeyboardAwareScrollView>
         {/* <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
@@ -69,6 +70,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
         <AboutProduct {...{ productDetail }} /> */}
         <Rating />
         <Comment />
+        <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
       </KeyboardAwareScrollView>
       <ButtonGroup />
     </View>
