@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { LoadingGlobal } from '../../app/components';
+import { LoadingGlobal } from '../../components';
 import { LoadingGlobalContext } from './context';
 import { LoadingGlobalContextValue, LoadingGlobalProps } from './types';
 

@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoadingGlobal } from '../../../hooks';
+import { useLoadingGlobal } from '../../hooks';
 import { AppBars, Banner, SearchBar, Text } from '../../components';
 import ElementItem from '../../components/home-component/ElementItem';
 import { mapListProduct } from '../../helpers/product.helper';

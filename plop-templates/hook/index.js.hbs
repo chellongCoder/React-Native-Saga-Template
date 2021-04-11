@@ -1,0 +1,22 @@
+import React, { useCallback, useMemo, useState } from 'react';
+import { {{pascalCase name}} } from '../../components';
+import { {{pascalCase name}}Context } from './context';
+import { {{pascalCase name}}ContextValue, {{pascalCase name}}Props } from './types';
+
+const {{pascalCase name}}Provider = ({ children }: {{pascalCase name}}Props) => {
+  
+  const contextValue = useMemo<{{pascalCase name}}ContextValue>(
+    () => ({
+      
+    }),
+    [],
+  );
+  return (
+    <>
+      <{{pascalCase name}}Context.Provider value={contextValue}>{children}</{{pascalCase name}}Context.Provider>
+      {<{{pascalCase name}} />}
+    </>
+  );
+};
+
+export default {{pascalCase name}}Provider;

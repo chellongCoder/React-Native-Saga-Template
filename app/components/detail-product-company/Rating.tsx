@@ -1,20 +1,30 @@
 import React, { memo, useCallback } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { COLORS, CommonStyle } from '../../constants';
+import { useBottomSheet } from '../../hooks/use-bottom.sheet';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
 import { AppButton } from '../button';
 import { Text } from '../text';
 import { TextField } from '../text-field';
+import { Stars } from './Stars';
 
 const _Rating = () => {
+  const bottomSheet = useBottomSheet();
+
+  const onShowChoiceImage = useCallback(() => {
+    bottomSheet.onShowActionSheet();
+  }, [bottomSheet]);
+
   const renderRightAccessory = useCallback(() => {
     return (
       <View style={styles.capture}>
-        <Image style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
+        <TouchableOpacity onPress={onShowChoiceImage}>
+          <Image style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
+        </TouchableOpacity>
       </View>
     );
-  }, []);
+  }, [onShowChoiceImage]);
   return (
     <View>
       <View style={styles.topic}>
@@ -31,12 +41,7 @@ const _Rating = () => {
                 </Text>
               </View>
               <View style={[CommonStyle.row]}>
-                {Array.from(Array(value.star).keys()).map(() => {
-                  return <Image style={styles.icon} source={{ uri: 'product_detail_2_03' }} />;
-                })}
-                {Array.from(Array(5 - value.star).keys()).map(() => {
-                  return <Image style={styles.icon} source={{ uri: 'product_detail_2_03-5' }} />;
-                })}
+                <Stars {...{ value }} />
               </View>
             </View>
           );
@@ -60,11 +65,6 @@ const _Rating = () => {
 export const Rating = memo(_Rating);
 
 const styles = StyleSheet.create({
-  icon: {
-    width: Platform.SizeScale(40),
-    height: Platform.SizeScale(40),
-    borderRadius: Platform.SizeScale(2),
-  },
   icon3: {
     width: Platform.SizeScale(10),
     height: Platform.SizeScale(10),

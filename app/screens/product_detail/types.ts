@@ -45,3 +45,18 @@ export interface RelatedProductT {
     thumbnailoptimize: string;
   };
 }
+
+export interface PostCommentParamsT {
+  product_id: number;
+  comment: string;
+  rating_1: number;
+  rating_2: number;
+  rating_3: number;
+  rating_4: number;
+  rating_5: number;
+  files: {
+    uri: string;
+    type: string;
+    name: string;
+  }[];
+}
