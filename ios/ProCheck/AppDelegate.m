@@ -12,7 +12,7 @@
 #import <AppCenterReactNativeAnalytics.h>
 #import <AppCenterReactNativeCrashes.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
+#import "RNSplashScreen.h"
 #if DEBUG
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -61,6 +61,7 @@ if ([FIRApp defaultApp] == nil) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [RNSplashScreen show];
   return YES;
 }
 

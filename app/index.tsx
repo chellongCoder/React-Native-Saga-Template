@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NavigationContainer } from '@react-navigation/native';
 import { Root } from 'native-base';
 import React, { Suspense, useEffect } from 'react';
@@ -22,11 +23,53 @@ enableScreens();
 
 const App = () => {
   useEffect(() => {
+    sync();
     console.disableYellowBox = true;
     if (Platform.OS == 'android') {
       SplashScreen.hide();
     }
   }, []);
+
+  const sync = () => {
+    codePush.sync({}, codePushStatusDidChange, codePushDownloadDidProgress);
+  };
+
+  const codePushStatusDidChange = (syncStatus: any) => {
+    switch (syncStatus) {
+      case codePush.SyncStatus.CHECKING_FOR_UPDATE:
+        console.log('Checking for update.');
+        break;
+      case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+        console.log('Downloading package.');
+        break;
+      case codePush.SyncStatus.AWAITING_USER_ACTION:
+        console.log('Awaiting user action.');
+        break;
+      case codePush.SyncStatus.INSTALLING_UPDATE:
+        console.log('Installing update.');
+        break;
+      case codePush.SyncStatus.UP_TO_DATE:
+        console.log('App up to date.');
+        break;
+      case codePush.SyncStatus.UPDATE_IGNORED:
+        console.log('Update cancelled by user.');
+        break;
+      case codePush.SyncStatus.UPDATE_INSTALLED:
+        console.log('Update installed and will be applied on restart.');
+        SplashScreen.hide();
+        break;
+      case codePush.SyncStatus.UNKNOWN_ERROR:
+        console.log('An unknown error occurred.');
+        break;
+      case 4:
+        SplashScreen.hide();
+        break;
+    }
+  };
+
+  const codePushDownloadDidProgress = (progress: any) => {
+    console.log('progress', progress);
+  };
 
   return (
     <SafeAreaProvider>
@@ -56,6 +99,7 @@ const App = () => {
 const codePushOptions = {
   updateDialog: true,
   installMode: codePush.InstallMode.IMMEDIATE,
+  checkFrequency: codePush.CheckFrequency.ON_APP_START,
 };
 
 export default codePush(codePushOptions)(App);

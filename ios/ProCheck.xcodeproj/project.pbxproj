@@ -72,6 +72,7 @@
 		BE43A258DAF84E2FAC8B2D25 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CEA46DFC7B74AECAFEB514F /* Foundation.ttf */; };
 		CB02423070A24E98927BB4B9 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0FF2D6C812F48A7ADDA7ED2 /* MaterialIcons.ttf */; };
 		D5D687BC062C43CC9D416FEF /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DA29D29E27436CB538134E /* SimpleLineIcons.ttf */; };
+		DB0F627726236594003F0971 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DB0F627626236594003F0971 /* logo.png */; };
 		E82086ECDCA44A60B060CDF7 /* RobotoMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F168B8350223405D8BB02719 /* RobotoMono-Light.ttf */; };
 		E8815CFAA019439DAD413715 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27782957102F4D81B93E3FB8 /* RobotoMono-Medium.ttf */; };
 		EFD6CDFD4FDB42768806B064 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E3F6B02E854911880EE829 /* FontAwesome.ttf */; };
@@ -176,6 +177,7 @@
 		C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		CCDC14E31E1943A8ABC3E7ED /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		CEABED6149B32DC804DD7A46 /* Pods-ProCheck-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOSTests/Pods-ProCheck-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		DB0F627626236594003F0971 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		DCEC9FAC379649C28D69074D /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		E41933CF72676C3C46F9D9BD /* Pods-ProCheck-ProCheckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-ProCheckTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests.release.xcconfig"; sourceTree = "<group>"; };
 		E57AB74041974984AB675524 /* RobotoMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-VariableFont_wght.ttf"; path = "../app/assets/Fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		13B07FAE1A68108700A75B9A /* ProCheck */ = {
 			isa = PBXGroup;
 			children = (
+				DB0F627526236584003F0971 /* SplashScreen */,
 				A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */,
 				04BCF4DE24786D3700D19063 /* ProCheck.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -379,6 +382,14 @@
 				2D02E4901E0B4A5D006451C7 /* ProCheck-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DB0F627526236584003F0971 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DB0F627626236594003F0971 /* logo.png */,
+			);
+			name = SplashScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +565,7 @@
 				15263CBF3DC14199A0D34E9F /* Feather.ttf in Resources */,
 				EFD6CDFD4FDB42768806B064 /* FontAwesome.ttf in Resources */,
 				AA229FF6C1634DB28AA6BE22 /* FontAwesome5_Brands.ttf in Resources */,
+				DB0F627726236594003F0971 /* logo.png in Resources */,
 				9BBB426DB87D47DF8F998B8F /* FontAwesome5_Regular.ttf in Resources */,
 				1991DAAEFB4846828C12CF09 /* FontAwesome5_Solid.ttf in Resources */,
 				10D36A17E8AB408384D8BD74 /* Fontisto.ttf in Resources */,
