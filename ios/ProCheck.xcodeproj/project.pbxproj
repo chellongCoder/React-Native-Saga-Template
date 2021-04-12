@@ -1031,7 +1031,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vn.procheck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.procheck;
 				PRODUCT_NAME = ProCheck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1060,7 +1060,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vn.procheck;
+				PRODUCT_BUNDLE_IDENTIFIER = com.procheck;
 				PRODUCT_NAME = ProCheck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
