@@ -28,7 +28,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.procheck</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(REVERSED_CLIENT_ID)</string>
@@ -38,7 +38,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.procheck</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(FacebookLoginProtocolScheme)</string>
