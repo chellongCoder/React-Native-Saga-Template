@@ -1,5 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
 import { ROUTES } from '../../config';
+import { UploadFileT } from '../../types';
 import { RelatedProduct } from '../product/types';
 
 type ProductDetailParamList = {
@@ -54,9 +55,11 @@ export interface PostCommentParamsT {
   rating_3: number;
   rating_4: number;
   rating_5: number;
-  files: {
-    uri: string;
-    type: string;
-    name: string;
-  }[];
+  files: UploadFileT[];
+  token?: string;
 }
+
+export type PushStarT = {
+  index: number;
+  value: number;
+};
