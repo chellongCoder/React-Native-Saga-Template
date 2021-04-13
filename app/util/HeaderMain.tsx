@@ -58,4 +58,4 @@ function RightComponent(props: any) {
   }
 }
 
-export default HeaderMain;
+export default React.memo(HeaderMain);

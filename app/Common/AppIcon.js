@@ -18,7 +18,11 @@ import IconHomeEvent from '../assets/icons/home_event.png';
 import IconHomeProd from '../assets/icons/home_prod.png';
 import IconHomeCode from '../assets/icons/home_code.png';
 import IconHomeMore from '../assets/icons/home_more.png';
-
+import HeaderAccount from '../assets/images/header_account.png';
+import IconSetting from '../assets/icons/icon_setting.png';
+import IconArrowRight from '../assets/icons/icon_arrow_right.png';
+import IconBarCode from '../assets/icons/icon_bar_code.png';
+import IconCompany from '../assets/icons/icon_company.png';
 export const AppIcon = {
   Icon1,
   Icon2,
@@ -40,4 +44,9 @@ export const AppIcon = {
   IconHomeProd,
   IconHomeCode,
   IconHomeMore,
+  HeaderAccount,
+  IconSetting,
+  IconArrowRight,
+  IconBarCode,
+  IconCompany,
 };

@@ -49,6 +49,7 @@ const App = () => {
         console.log('Installing update.');
         break;
       case codePush.SyncStatus.UP_TO_DATE:
+        SplashScreen.hide();
         console.log('App up to date.');
         break;
       case codePush.SyncStatus.UPDATE_IGNORED:
@@ -56,7 +57,6 @@ const App = () => {
         break;
       case codePush.SyncStatus.UPDATE_INSTALLED:
         console.log('Update installed and will be applied on restart.');
-        SplashScreen.hide();
         break;
       case codePush.SyncStatus.UNKNOWN_ERROR:
         console.log('An unknown error occurred.');
