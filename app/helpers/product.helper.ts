@@ -50,6 +50,7 @@ export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps
 
 export const mapDetailProduct = (data: any): DetailProductT => {
   return {
+    id: data.id,
     nameProduct: data.name,
     codeProduct: data.product_code,
     cost: data.unit_price,

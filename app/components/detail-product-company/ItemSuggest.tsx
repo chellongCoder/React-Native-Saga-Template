@@ -4,12 +4,11 @@ import Image from 'react-native-fast-image';
 import { Text } from '../index';
 import Row from '../../util/Row';
 import { screens } from '../../config';
-import { ProductProps } from '../../screens/product/types';
 import RippButton from '../../anim/RippleButtonAnim';
 import { AppIcon } from '../../Common/AppIcon';
 import { VNDCurrencyFormatting } from '../../Common/Common';
 import TextHelper from '../../Common/TextHelper';
-import { theme, FontFamily } from '../../theme';
+import { theme, FontFamily, Platform } from '../../theme';
 const { width } = Dimensions.get('window');
 const width_img_product = width / 1.9;
 const height_img_product = (width - 80) / 2;
@@ -35,10 +34,10 @@ interface Props {
 }
 
 const ItemSuggest = (props: Props) => {
-  const handlerGoToDetail = (item: ProductProps) => () => {
+  const handlerGoToDetail = () => {
     props.navigation.navigate(screens.product_detail, {
       screen: screens.homeDetail,
-      params: { productId: item.id },
+      params: { productId: props.id },
     });
   };
 
@@ -87,14 +86,14 @@ const renderStar = (rating: number) => {
 
 const styles = StyleSheet.create({
   contain: {
-    marginVertical: 5,
+    marginVertical: Platform.SizeScale(5),
   },
   styWrapElement: {
     width: width_img_product,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 20,
-    marginVertical: 10,
+    marginRight: Platform.SizeScale(20),
+    marginVertical: Platform.SizeScale(10),
     backgroundColor: colors.white,
     borderRadius: 10,
     shadowColor: colors.black,
@@ -115,15 +114,15 @@ const styles = StyleSheet.create({
   },
   styTxtName: {
     textTransform: 'capitalize',
-    marginTop: 10,
+    marginTop: Platform.SizeScale(10),
     fontFamily: FontFamily.fontRegular,
-    fontSize: 14,
+    fontSize: Platform.SizeScale(14),
   },
   styStar: {
-    width: 12,
-    height: 12,
-    marginHorizontal: 2,
-    marginVertical: 5,
+    width: Platform.SizeScale(12),
+    height: Platform.SizeScale(12),
+    marginHorizontal: Platform.SizeScale(2),
+    marginVertical: Platform.SizeScale(5),
   },
   styWrapStar: {
     flexDirection: 'row',
@@ -134,27 +133,27 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.fontRegular,
     color: '#2095a2',
     alignSelf: 'flex-start',
-    marginBottom: 5,
-    fontSize: 14,
+    marginBottom: Platform.SizeScale(5),
+    fontSize: Platform.SizeScale(14),
   },
   styTxtRate: {
     color: '#a7b1bf',
     fontFamily: FontFamily.fontRegular,
-    fontSize: 12,
-    marginHorizontal: 5,
+    fontSize: Platform.SizeScale(12),
+    marginHorizontal: Platform.SizeScale(5),
   },
   styImgVer: {
-    width: 15,
-    height: 15,
+    width: Platform.SizeScale(15),
+    height: Platform.SizeScale(15),
   },
   styTxtVerify: {
     color: '#019444',
-    fontSize: 12,
+    fontSize: Platform.SizeScale(12),
     fontFamily: FontFamily.fontRegular,
-    marginHorizontal: 5,
+    marginHorizontal: Platform.SizeScale(5),
   },
   styWrapInfo: {
-    padding: 5,
+    padding: Platform.SizeScale(5),
     alignSelf: 'flex-start',
   },
 });

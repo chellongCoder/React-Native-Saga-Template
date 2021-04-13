@@ -51,19 +51,22 @@ export default class ListItem extends Component<Props, State> {
     const { products, name } = this.props;
     const data = mapListProduct(products);
     return (
-      <View style={styles.contain}>
-        <Row>
-          <Text style={styles.styLabel}>{name}</Text>
-          <TouchableOpacity onPress={this.handlerGoToMore}>
-            <Text style={styles.styTxtMore}>Xem thêm</Text>
-          </TouchableOpacity>
-        </Row>
+      <View>
+        <View style={styles.contain}>
+          <Row>
+            <Text style={styles.styLabel}>{name}</Text>
+            <TouchableOpacity onPress={this.handlerGoToMore}>
+              <Text style={styles.styTxtMore}>Xem thêm</Text>
+            </TouchableOpacity>
+          </Row>
+        </View>
         <FlatList
           data={data}
           keyExtractor={(_item, index) => index.toString()}
           renderItem={this.renderItem}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 20 }}
         />
       </View>
     );
