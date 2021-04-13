@@ -4,9 +4,9 @@ import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoadingGlobal } from '../../hooks';
 import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, Slider, SuggestProduct } from '../../components';
-import { mapDetailProduct } from '../../helpers/product.helper';
 import { qrActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
+import { ApiQr } from '../../services/qr-service';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
 
@@ -19,16 +19,27 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const [productDetail, setProductDetail] = useState<DetailProductT>();
+  const [dataSuggest, setDataSuggest] = useState([]);
   const hookLoadingGlobal = useLoadingGlobal();
+
+  const getDataSuggest = useCallback(async (id) => {
+    const response = await ApiQr.getDataSuggest({ product_id: id });
+    if (response.status === 200) {
+      setDataSuggest(response.product.related_products);
+    }
+  }, []);
 
   const getDataScanRequest = useCallback(async () => {
     await dispatch(
       qrActionsCreator.getDataScanRequest({
         url_scan: urlScan,
-        callback: (response: any) => setProductDetail(mapDetailProduct(response.product)),
+        callback: (response: any) => {
+          setProductDetail(response);
+          getDataSuggest(response.id);
+        },
       }),
     );
-  }, [dispatch, urlScan]);
+  }, [dispatch, getDataSuggest, urlScan]);
 
   const onBack = useCallback(() => {
     navigation.goBack();
@@ -57,7 +68,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
           <ItemCompany />
           <AboutProduct {...{ productDetail }} />
         </View>
-        <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
+        <SuggestProduct data={dataSuggest || []} navigation={navigation} />
       </ScrollView>
       <ButtonGroup />
     </View>

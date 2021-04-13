@@ -9,6 +9,7 @@ import Swiper from 'react-native-swiper';
 import RippleButton from '../anim/RippleButtonAnim';
 import Image from 'react-native-fast-image';
 import _ from 'lodash';
+import { Platform } from '../theme';
 const { width, height } = Dimensions.get('window');
 
 export default class BannerAdvertisement extends Component {
@@ -25,8 +26,8 @@ export default class BannerAdvertisement extends Component {
             return (
                 <View style={[styles.wrapContain, { width }]} key={index}>
                     <RippleButton
-                        rippleSize={100}
-                        style={{ marginVertical: 5 }}
+                        rippleSize={Platform.SizeScale(100)}
+                        style={{ marginVertical: Platform.SizeScale(5) }}
                     >
                         <Image
                             source={{ uri: `https://sahatha.vn/` + item.photo }}
@@ -49,8 +50,8 @@ export default class BannerAdvertisement extends Component {
                     autoplay={true}
                     autoplayTimeout={1}
                     paginationStyle={styles.paginationStyle}
-                    dotStyle={{ backgroundColor: '#FFF', width: 6, height: 6 }}
-                    activeDotStyle={{ backgroundColor: '#999', width: 6, height: 6 }}
+                    dotStyle={styles.dotStyle}
+                    activeDotStyle={styles.activeDotStyle}
                 >
                     {this.renderBanner(data)}
                 </Swiper >
@@ -77,14 +78,24 @@ const styles = StyleSheet.create({
     paginationStyle: {
         justifyContent: 'flex-start',
         alignItems: 'flex-end',
-        top: -10,
-        left: 50,
+        top: Platform.SizeScale(-10),
+        left: Platform.SizeScale(50),
         width,
         height: ((width - 40) / 1030) * 328,
     },
     styWrapBanner: {
         height: ((width - 20) / 1030) * 328,
         overflow: 'hidden',
-        marginTop: 20
+        marginTop: Platform.SizeScale(20)
     },
+    dotStyle: {
+        backgroundColor: '#FFF',
+        width: Platform.SizeScale(6),
+        height: Platform.SizeScale(6),
+    },
+    activeDotStyle: {
+        backgroundColor: '#999',
+        width: Platform.SizeScale(6),
+        height: Platform.SizeScale(6),
+    }
 })
