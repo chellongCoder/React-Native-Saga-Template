@@ -28,7 +28,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.procheck</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(REVERSED_CLIENT_ID)</string>
@@ -38,7 +38,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.procheck</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(FacebookLoginProtocolScheme)</string>
@@ -78,9 +78,13 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
+	<string>ProCheck muốn sử dụng camera của bạn để chụp ảnh</string>
+	<key>NSCameraUsageDescription</key>
 	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ProCheck muốn truy cập thư viện để lấy ảnh</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
