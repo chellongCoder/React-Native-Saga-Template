@@ -44,6 +44,28 @@ export const mocksData = {
       name: 'Giới thiệu bạn bè'
     }
   ],
+  valueRating: [
+    {
+      index: 0,
+      value: 0,
+    },
+    {
+      index: 1,
+      value: 0,
+    },
+    {
+      index: 2,
+      value: 0,
+    },
+    {
+      index: 3,
+      value: 0,
+    },
+    {
+      index: 4,
+      value: 0,
+    },
+  ],
   comments: [
     {
       avatar: '',

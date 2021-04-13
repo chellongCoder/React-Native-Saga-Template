@@ -38,11 +38,14 @@ const getDataProductDetail = (params: any) =>
     ...params,
   });
 
-const postComment = (params: PostCommentParamsT) =>
-  api.post(API_CONFIG.ADD_COMMENT_PRODUCT, {
+const postComment = (params: PostCommentParamsT) => {
+  const { token } = params;
+  delete params.token;
+  return api.post(API_CONFIG.ADD_COMMENT_PRODUCT + `?token=${token}`, {
     server_key: SERVER_KEY,
     ...params,
   });
+};
 
 // let's return back our create method as the default.
 export const Api = {

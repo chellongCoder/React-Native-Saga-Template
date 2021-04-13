@@ -2,14 +2,23 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import FadeAnim from '../../anim/FadeAnim';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import { PushStarT } from '../../screens/product_detail/types';
 import { Platform } from '../../theme';
 
-const _Stars = ({ value }: { value: any }) => {
+const _Stars = ({ value, index, pushStars }: { value: any; index: number; pushStars: (rate: PushStarT) => void }) => {
   const [stars, setStars] = useState(0);
 
-  const setNewStars = useCallback((index: number, total: number) => {
-    setStars(total + index + 1);
-  }, []);
+  const setNewStars = useCallback(
+    (i: number, total: number) => {
+      const newStar = total + i + 1;
+      setStars(newStar);
+      pushStars({
+        index,
+        value: newStar,
+      });
+    },
+    [index, pushStars],
+  );
 
   useEffect(() => {
     setStars(value.star);
