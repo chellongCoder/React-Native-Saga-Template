@@ -20,7 +20,7 @@ const History = () => {
     return (
       <Row style={styles.styWrapElement}>
         <Image source={{ uri: item.image }} style={styles.styImage} />
-        <View>
+        <View style={{ flex: 1 }}>
           <Text>{item.title}</Text>
           <Row>
             <Image source={AppIcon.IconStarActive} style={styles.styImgStar} />
@@ -31,9 +31,11 @@ const History = () => {
           </Row>
           <Row>
             <Image source={AppIcon.IconVerify} style={styles.styImgStar} />
-            <Text style={styles.styVerify}>{`Xác thực bởi sahatha`}</Text>
+            <Text style={styles.styVerify} numberOfLines={1}>{`Xác thực bởi sahatha`}</Text>
             <Image source={AppIcon.IconCompany} style={styles.styImgStar} />
-            <Text style={styles.styCompany}>{item.company}</Text>
+            <Text style={styles.styCompany} numberOfLines={1}>
+              {item.company}
+            </Text>
           </Row>
         </View>
       </Row>

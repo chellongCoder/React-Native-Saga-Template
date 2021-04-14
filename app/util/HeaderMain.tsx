@@ -26,14 +26,14 @@ function SearchComponent(props: any) {
     case tabModel.home:
       return (
         <View style={styles.stySearch}>
-          <IconAntDesign name={'search1'} size={18} color={colors.gray} />
+          <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
           <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
         </View>
       );
     default:
       return (
         <View style={styles.stySearch}>
-          <IconAntDesign name={'search1'} size={18} color={colors.gray} />
+          <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
           <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
         </View>
       );
