@@ -3,7 +3,7 @@ const screens = {
   home: 'Home',
   homeDetail: 'HomeDetail',
   homeMore: 'HomeMore',
-  history: 'History',
+  notification: 'Notification',
   tabqrcode: 'TabQRCode',
   qrcode: 'QRCode',
   news: 'News',
@@ -18,6 +18,14 @@ const screens = {
   product: 'Product',
   product_detail: 'ProductDetail',
   product_scan: 'ProductScan',
+  settingMessageScreen: 'SettingMessageScreen',
+  buyHistoryScreen: 'BuyHistoryScreen',
+  ruleScreen: 'RuleScreen',
+  tutorialScreen: 'TutorialScreen',
+  contactScreen: 'ContactScreen',
+  requestCodeScreen: 'RequestCodeScreen',
+  managerRequestCodeScreen: 'ManagerRequestCodeScreen',
+  historyScanCode: 'HistoryScanCode',
 };
 
 enum ROUTES {
@@ -25,7 +33,7 @@ enum ROUTES {
   home = 'Home',
   homeDetail = 'HomeDetail',
   homeMore = 'HomeMore',
-  history = 'History',
+  notification = 'Notification',
   tabqrcode = 'TabQRCode',
   qrcode = 'QRCode',
   news = 'News',
@@ -39,6 +47,14 @@ enum ROUTES {
   TabMain = 'TabMain',
   product = 'Product',
   product_detail = 'ProductDetail',
+  settingMessageScreen = 'SettingMessageScreen',
+  buyHistoryScreen = 'BuyHistoryScreen',
+  ruleScreen = 'RuleScreen',
+  tutorialScreen = 'TutorialScreen',
+  contactScreen = 'ContactScreen',
+  requestCodeScreen = 'RequestCodeScreen',
+  managerRequestCodeScreen = 'ManagerRequestCodeScreen',
+  historyScanCode = 'HistoryScanCode',
 }
 
 export { screens, ROUTES };
