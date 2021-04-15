@@ -47,23 +47,23 @@ export const mocksData = {
   valueRating: [
     {
       index: 0,
-      value: 0,
+      value: 5,
     },
     {
       index: 1,
-      value: 0,
+      value: 5,
     },
     {
       index: 2,
-      value: 0,
+      value: 5,
     },
     {
       index: 3,
-      value: 0,
+      value: 5,
     },
     {
       index: 4,
-      value: 0,
+      value: 5,
     },
   ],
   comments: [

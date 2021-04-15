@@ -1,6 +1,7 @@
 import { call } from 'redux-saga/effects';
+import { API_STATUS } from '../../config';
 import { ResponseT } from '../../services/types';
-import { alertError } from '../../util';
+import { alertError, alertMessage } from '../../util';
 
 export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, ...args: Parameters<Fn>) {
   try {
@@ -12,8 +13,14 @@ export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, .
     console.log(
       `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------------`,
     );
-    if (result.status === 200) {
+    if (result.status === API_STATUS.OK) {
       return result as ResponseT<T>;
+    }
+    if (result.status === API_STATUS.UNAUTHEN) {
+      alertMessage('Lỗi', result.message, () => {
+        //logout
+      });
+      return;
     }
     throw result;
   } catch (error) {
