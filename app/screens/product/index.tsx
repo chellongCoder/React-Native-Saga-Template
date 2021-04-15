@@ -10,9 +10,9 @@ import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
 import { useProductStyle } from './styles';
-import { ProductProps } from './types';
+import { ProductPropsScreen } from './types';
 
-export const ProductScreen = ({ route }: ProductProps) => {
+export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const { categoryId, title } = route.params;
   const styles = useProductStyle();
   const navigation = useNavigation();

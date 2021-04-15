@@ -5,3 +5,8 @@ export const API_CONFIG = {
   NEWS_CATEGORY: 'api/news_category',
   ADD_COMMENT_PRODUCT: '/api/add_comment_product',
 };
+
+export const API_STATUS = {
+  OK: 200,
+  UNAUTHEN: 408,
+};

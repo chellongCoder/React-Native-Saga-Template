@@ -64,12 +64,12 @@ function* postComment({ payload }: Action<PostCommentParamsT>) {
   try {
     const response: ApiResponse<any, any> = yield callSafe(Api.postComment, payload);
     if (response.status === 200) {
-      yield put(homeActionsCreator.getDataProductDetailSuccess(response));
+      yield put(homeActionsCreator.postCommentSuccess(response));
     } else {
-      yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.originalError }));
+      yield put(homeActionsCreator.postCommentFailed({ error: response.originalError }));
     }
   } catch (err) {
-    yield put(homeActionsCreator.getDataProductDetailFaild({ error: err ? err : 'User Login Failed!' }));
+    yield put(homeActionsCreator.postCommentFailed({ error: err ? err : 'User Login Failed!' }));
   }
 }
 

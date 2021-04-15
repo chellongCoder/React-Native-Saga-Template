@@ -65,6 +65,6 @@ export interface RelatedProduct {
 type ProductParamList = {
   [ROUTES.product]: { categoryId: number; title: string };
 };
-export interface ProductProps {
+export interface ProductPropsScreen {
   route: RouteProp<ProductParamList, typeof ROUTES.product>;
 }

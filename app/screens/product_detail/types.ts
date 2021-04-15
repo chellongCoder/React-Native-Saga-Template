@@ -18,6 +18,16 @@ type PhotoSlider = {
   name: string;
   cover: string;
 };
+
+export type ProductRateT = {
+  id: number;
+  productId: number;
+  userId: number;
+  comment: string;
+  name: string;
+  createAt: string;
+  image: string[];
+};
 export interface DetailProductT {
   id: number;
   nameProduct: string; // name
@@ -30,6 +40,7 @@ export interface DetailProductT {
   description: string; //description
   photosSlider: PhotoSlider[];
   relatedProducts: RelatedProduct[];
+  productRate: ProductRateT[];
 }
 
 export interface RelatedProductT {

@@ -1,4 +1,4 @@
-import { ProductProps, ProductCategoryProps, RelatedProduct } from '../screens/product/types';
+import { ProductProps, ProductCategoryProps } from '../screens/product/types';
 import { DetailProductT } from '../screens/product_detail/types';
 
 export const mapListProduct = (productsApi: any[]): ProductProps[] => {
@@ -65,6 +65,17 @@ export const mapDetailProduct = (data: any): DetailProductT => {
         id: index,
         value,
         cover: value,
+      };
+    }),
+    productRate: data.product_rate.map((value: any) => {
+      return {
+        id: value.id,
+        productId: value.product_id,
+        userId: value.user_id,
+        comment: value.comment,
+        name: value.name,
+        createAt: value.create_at,
+        image: value.image,
       };
     }),
   };

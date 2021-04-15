@@ -69,7 +69,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
         </View>
         <AboutProduct {...{ productDetail }} /> */}
         <Rating />
-        <Comment />
+        <Comment {...{ productDetail }} />
         <SuggestProduct data={productDetail?.relatedProducts || []} navigation={navigation} />
       </KeyboardAwareScrollView>
       <ButtonGroup />
