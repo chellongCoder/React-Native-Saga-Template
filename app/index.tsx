@@ -18,6 +18,7 @@ import { theme } from './theme';
 import { store } from './redux/store/index';
 import navigationService from './navigation/navigation-service';
 import BottomSheetProvider from './tools/bottom-sheet';
+import ImageViewProvider from './tools/image-view';
 
 enableScreens();
 
@@ -78,15 +79,17 @@ const App = () => {
           <Root>
             <SafeAreaView style={styles.container}>
               <LoadingGlobalProvider>
-                <BottomSheetProvider>
-                  <PaperProvider>
-                    <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                      <AppNavigator />
-                      <PushNotification />
-                      <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-                    </NavigationContainer>
-                  </PaperProvider>
-                </BottomSheetProvider>
+                <ImageViewProvider>
+                  <BottomSheetProvider>
+                    <PaperProvider>
+                      <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                        <AppNavigator />
+                        <PushNotification />
+                        <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                      </NavigationContainer>
+                    </PaperProvider>
+                  </BottomSheetProvider>
+                </ImageViewProvider>
               </LoadingGlobalProvider>
             </SafeAreaView>
           </Root>

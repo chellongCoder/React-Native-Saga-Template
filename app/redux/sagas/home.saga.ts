@@ -65,6 +65,7 @@ function* postComment({ payload }: Action<PostCommentParamsT>) {
     const response: ApiResponse<any, any> = yield callSafe(Api.postComment, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.postCommentSuccess(response));
+      yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
     } else {
       yield put(homeActionsCreator.postCommentFailed({ error: response.originalError }));
     }

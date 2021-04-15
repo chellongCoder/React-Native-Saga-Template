@@ -20,6 +20,7 @@ export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, .
       alertMessage('Lỗi', result.message, () => {
         //logout
       });
+      return;
     }
     throw result;
   } catch (error) {

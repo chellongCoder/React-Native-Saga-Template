@@ -3,7 +3,7 @@ import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
 import { COLORS, CommonStyle } from '../../constants';
-import { useBottomSheet } from '../../hooks/use-bottom.sheet';
+import { useBottomSheet } from '../../hooks';
 import { homeActionsCreator } from '../../redux/actions';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';

@@ -1,13 +1,16 @@
 import React, { memo, useMemo } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { COLORS, CommonStyle } from '../../constants';
+import { useImageView } from '../../hooks';
 import { DetailProductT } from '../../screens/product_detail/types';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
+import { ProductRateT } from '../../types';
 import { Rate } from '../rating';
 import { Text } from '../text';
 
 const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
+  const imageViewer = useImageView();
   const comment = useMemo(() => {
     return mocksData.comments[0];
   }, []);
@@ -17,54 +20,56 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
         <Text style={styles.txtRate}>Đánh giá sản phẩm (1)</Text>
         <Text>Xem tất cả </Text>
       </View>
-      <View style={styles.container}>
-        <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.infoRateContainer]}>
-          <View style={[CommonStyle.row]}>
-            <View style={styles.avatar}>
-              <Image
-                resizeMode="contain"
-                style={CommonStyle.image}
-                source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
-              />
+      {productDetail?.productRate.map((value: ProductRateT, index: number) => {
+        return (
+          <View key={index} style={styles.container}>
+            <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.infoRateContainer]}>
+              <View style={[CommonStyle.row]}>
+                <View style={styles.avatar}>
+                  <Image
+                    resizeMode="contain"
+                    style={CommonStyle.image}
+                    source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+                  />
+                </View>
+                <View style={styles.info}>
+                  <Text style={styles.name}>{value.name}</Text>
+                  <Text style={styles.date}>{value.createAt}</Text>
+                </View>
+              </View>
             </View>
-            <View style={styles.info}>
-              <Text style={styles.name}>{comment.name}</Text>
-              <Text style={styles.date}>{comment.createAt}</Text>
+            <View style={[CommonStyle.row, CommonStyle.paddingTop10]}>
+              <View style={styles.ratingContent}>
+                <Text style={styles.txtRatingContent}>{comment.rateContent}</Text>
+              </View>
+              <Rate percent={3} />
+            </View>
+            <View style={[CommonStyle.paddingTop10]}>
+              <Text>{value.comment}</Text>
+            </View>
+            <View style={[styles.imageContainer, CommonStyle.row]}>
+              {value.image.map((value, index: number) => {
+                <TouchableOpacity
+                  onPress={() => {
+                    imageViewer.show([
+                      'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
+                    ]);
+                  }}
+                  style={styles.image}>
+                  <Image
+                    resizeMode="cover"
+                    style={[CommonStyle.image, { borderRadius: Platform.SizeScale(5) }]}
+                    source={{
+                      uri:
+                        'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
+                    }}
+                  />
+                </TouchableOpacity>;
+              })}
             </View>
           </View>
-        </View>
-        <View style={[CommonStyle.row, CommonStyle.paddingTop10]}>
-          <View style={styles.ratingContent}>
-            <Text style={styles.txtRatingContent}>{comment.rateContent}</Text>
-          </View>
-          <Rate percent={3} />
-        </View>
-        <View style={[CommonStyle.paddingTop10]}>
-          <Text>{comment.quote}</Text>
-        </View>
-        <View style={[styles.imageContainer, CommonStyle.row]}>
-          <View style={styles.image}>
-            <Image
-              resizeMode="cover"
-              style={[CommonStyle.image, { borderRadius: Platform.SizeScale(5) }]}
-              source={{
-                uri:
-                  'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
-              }}
-            />
-          </View>
-          <View style={styles.image}>
-            <Image
-              resizeMode="cover"
-              style={[CommonStyle.image, { borderRadius: Platform.SizeScale(5) }]}
-              source={{
-                uri:
-                  'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
-              }}
-            />
-          </View>
-        </View>
-      </View>
+        );
+      })}
     </View>
   );
 };

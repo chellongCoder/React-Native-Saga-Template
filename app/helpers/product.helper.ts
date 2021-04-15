@@ -74,7 +74,7 @@ export const mapDetailProduct = (data: any): DetailProductT => {
         userId: value.user_id,
         comment: value.comment,
         name: value.name,
-        createAt: value.create_at,
+        createAt: value.created_at,
         image: value.image,
       };
     }),
