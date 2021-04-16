@@ -44,6 +44,7 @@ function FacebookButton(props) {
             },
           };
           console.log('facebook action', data);
+          props.setUserFacebook(data);
           // dispatch(facebookLoginRequest(data));
           console.log('After action', data);
         }
@@ -62,20 +63,20 @@ function FacebookButton(props) {
           console.log('AccessToken');
           AccessToken.getCurrentAccessToken().then((result) => {
             getUserProfile(result.accessToken);
+            props.setTokenFacebook(result.accessToken);
           });
         }
       },
       function (error) {
         console.log('Login fail with error: ' + error);
-        alert('Login fail with error: ' + error);
       },
     );
   };
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <View style={styles.button}>
-        <Text style={{ color: colors.white }}>{i18('Component.continueWithFacebook')}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.container]}>
+      <View style={[styles.button, props.style]}>
+        <Text style={props.textButton}>{i18('Component.continueWithFacebook')}</Text>
       </View>
     </TouchableOpacity>
   );

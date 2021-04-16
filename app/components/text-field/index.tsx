@@ -1,9 +1,10 @@
 import React, { forwardRef, Ref, useMemo, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { useLayout } from '@react-native-community/hooks';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { Text } from '../text';
 import { Touchable } from '../touchable';
-import { theme } from '../../theme';
+import { Platform, theme } from '../../theme';
 import { useStylesTextField } from './styles';
 import { TextFiledProps } from './types';
 
@@ -41,7 +42,7 @@ export const TextField = forwardRef(
         }
         return (
           <Touchable onPress={showPassword}>
-            <Text>a</Text>
+            <Icon size={Platform.SizeScale(40)} name="ios-eye" />
           </Touchable>
         );
       }

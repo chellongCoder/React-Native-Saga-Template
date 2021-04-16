@@ -11,6 +11,10 @@ const account_unfocus = require('../assets/images/home_46.png');
 const qrcode = require('../assets/images/home_33.png');
 const back = require('../assets/images/product_detail_03.png');
 const banner_product = require('../assets/images/banner_product.png');
+const LOGO = require('../assets/images/login_step1_03.png');
+const icon_app = require('../assets/images/login_step2_03.png');
+const mail = require('../assets/images/login_step2_07.png');
+const lock = require('../assets/images/login_step2_10.png');
 const loading_global = require('../assets/images/eloading.gif');
 
 const Images = {
@@ -27,6 +31,10 @@ const Images = {
   qrcode,
   back,
   banner_product,
+  LOGO,
+  icon_app,
+  mail,
+  lock,
   loading_global,
 };
 

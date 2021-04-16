@@ -9,7 +9,6 @@ export type LOGIN_PARAMS = {
   email: string;
   password: string;
   remember: 0 | 1;
-  device_type: 'ANDROID' | 'IOS';
   device_token: string;
 };
 
