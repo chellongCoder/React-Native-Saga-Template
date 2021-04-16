@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { androidCameraPermissionOptions } from '../../Common/Common';
 import { Text } from '../../components';
 import { screens } from '../../config';
-import { qrActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 const { width, height } = Dimensions.get('window');
 function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
@@ -15,7 +14,6 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
   const { barcodeRead, onBarcodeRead, onBarcodeFinderLayoutChange } = useBarcodeRead(
     isbarcodeRead,
     async (data: string) => {
-      console.log('data', data);
       setbarcodeRead(false);
       if (data) {
         const supported = await Linking.canOpenURL(data);

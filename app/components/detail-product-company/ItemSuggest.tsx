@@ -73,11 +73,11 @@ export default ItemSuggest;
 const renderStar = (rating: number) => {
   return (
     <View style={styles.styWrapStar}>
-      {Array.from(Array(5).keys()).map((i) => {
+      {Array.from(Array(5).keys()).map((i, index) => {
         if (i < rating) {
-          return <Image source={AppIcon.IconStarActive} resizeMode={'contain'} style={styles.styStar} />;
+          return <Image key={index} source={AppIcon.IconStarActive} resizeMode={'contain'} style={styles.styStar} />;
         }
-        return <Image source={AppIcon.IconStar} resizeMode={'contain'} style={styles.styStar} />;
+        return <Image key={index} source={AppIcon.IconStar} resizeMode={'contain'} style={styles.styStar} />;
       })}
       <Text style={styles.styTxtRate}>9.0 (68)</Text>
     </View>

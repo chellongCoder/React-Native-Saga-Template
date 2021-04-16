@@ -52,9 +52,9 @@ const _Rating = () => {
     const files = selectedImage;
     Object.assign(data, files);
     Object.assign(data, { comment: text });
-    Object.assign(data, { token: userLogin.accessToken });
+    Object.assign(data, { token: userLogin?.accessToken });
     dispatch(homeActionsCreator.postCommentRequest(data));
-  }, [dispatch, selectedImage, stars, text, userLogin.accessToken]);
+  }, [dispatch, selectedImage, stars, text, userLogin?.accessToken]);
 
   const onChangeText = useCallback((value: string) => {
     setText(value);
