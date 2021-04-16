@@ -50,7 +50,13 @@ const _Rating = () => {
       }
     });
     const files = selectedImage;
-    Object.assign(data, files);
+    // files.forEach((value: UploadFileT, index: number) => {
+    //   const file: any = {};
+    //   file[`files[${index}]`] = value;
+    //   Object.assign(data, file);
+    // });
+    Object.assign(data, { files });
+
     Object.assign(data, { comment: text });
     Object.assign(data, { token: userLogin?.accessToken });
     dispatch(homeActionsCreator.postCommentRequest(data));

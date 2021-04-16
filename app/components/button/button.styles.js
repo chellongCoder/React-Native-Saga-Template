@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
+import { Platform, theme } from '../../theme';
 const { colors } = theme;
 
 const styles = StyleSheet.create({
-  label: { fontWeight: 'bold', fontSize: 16 },
+  label: { ...Platform.textBase },
   container: {
     borderRadius: 5,
     backgroundColor: colors.primary,

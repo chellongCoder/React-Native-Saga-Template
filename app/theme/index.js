@@ -10,3 +10,4 @@ console.log('colorScheme', colorScheme);
 console.log('====================================');
 export { theme, FontFamily };
 export * from './platform';
+export * from './font-family';

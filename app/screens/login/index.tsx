@@ -1,63 +1,100 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
-import { OutlinedTextField } from 'react-native-material-textfield';
-import { useDispatch } from 'react-redux';
-import { AppButton, FacebookButton, GoogleButton } from '../../components';
+import { useDispatch, useSelector } from 'react-redux';
+import FastImage from 'react-native-fast-image';
+import { useNavigation } from '@react-navigation/native';
+import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
+import { CommonStyle, Images } from '../../constants';
+import { Platform } from '../../theme';
+import { useLoadingGlobal } from '../../hooks';
+import { RootState } from '../../redux/reducers';
+import { useLoginStyle } from './styles';
 
 const LoginScreen = withTheme(() => {
+  const styles = useLoginStyle();
+  const { requesting } = useSelector((state: RootState) => state.AuthData);
+  const navigation = useNavigation();
+  const loading = useLoadingGlobal();
   const fieldRef: any = useRef();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [member, setMember] = useState(false);
   const dispatch = useDispatch();
 
-  const onSubmit = () => {
-    let { current: field } = fieldRef;
-    console.log('====================================');
-    console.log(field);
-    console.log('====================================');
-  };
+  const onChangeRemember = useCallback((bool: boolean) => {
+    setMember(bool);
+  }, []);
 
-  const formatText = (text: string) => {
-    return text.replace(/[^+\d]/g, '');
-  };
+  const renderLeftAccessoryMail = useCallback(() => {
+    return (
+      <View style={styles.logoInput}>
+        <Image resizeMode="contain" style={CommonStyle.image} source={Images.mail} />
+      </View>
+    );
+  }, [styles.logoInput]);
+
+  const renderLeftAccessoryPassword = useCallback(() => {
+    return (
+      <View style={styles.logoInput}>
+        <Image resizeMode="contain" style={CommonStyle.image} source={Images.lock} />
+      </View>
+    );
+  }, [styles.logoInput]);
 
   const onLogin = useCallback(() => {
     dispatch(
       authActionsCreator.loginRequest({
         device_token: '',
-        device_type: Platform.OS === 'ios' ? 'IOS' : 'ANDROID',
-        email: 'thienthanchientranh1996@gmail.com',
-        password: '123456',
-        remember: 1,
+        // email: 'thienthanchientranh1996@gmail.com',
+        // password: '123456',
+        email: userName,
+        password: password,
+        remember: member ? 1 : 0,
       }),
     );
-  }, [dispatch]);
+  }, [dispatch, member, password, userName]);
+
+  useEffect(() => {
+    if (requesting) {
+      loading.onShow();
+    } else {
+      loading.onHide();
+    }
+  }, [loading, requesting]);
+
   return (
-    <View>
-      <OutlinedTextField
-        label="Phone number"
-        keyboardType="phone-pad"
-        formatText={formatText}
-        onSubmitEditing={onSubmit}
-        onChangeText={setUserName}
-      />
-      <OutlinedTextField
-        label="Enter Password"
-        keyboardType="default"
-        onSubmitEditing={onSubmit}
-        ref={fieldRef}
-        secureTextEntry
-        onChangeText={setPassword}
-      />
-      <AppButton title="Submit" onSubmit={onLogin} />
-      <GoogleButton />
-      <FacebookButton />
+    <View style={styles.container}>
+      <View style={styles.logo}>
+        <FastImage resizeMode={'contain'} style={CommonStyle.image} source={Images.LOGO} />
+      </View>
+      <View style={styles.content}>
+        <TextField
+          onChangeText={setUserName}
+          renderLeftAccessory={renderLeftAccessoryMail}
+          style={styles.inpuRateStyle}
+          placeholder="Email"
+          inputStyle={styles.inputStyles}
+        />
+        <TextField
+          secureTextEntry
+          onChangeText={setPassword}
+          renderLeftAccessory={renderLeftAccessoryPassword}
+          style={styles.inpuRateStyle}
+          placeholder="Mật khẩu"
+          inputStyle={styles.inputStyles}
+        />
+        <View style={[styles.checkboxContainer, CommonStyle.row]}>
+          <Checkbox checked={member} onChangeValue={onChangeRemember} />
+          <Text style={styles.txtMember}>Ghi nhớ</Text>
+        </View>
+
+        <AppButton style={styles.buttonLogin} title="ĐĂNG NHẬP" onSubmit={onLogin} />
+        <FacebookButton textButton={styles.textButton} style={styles.buttonFacebook} />
+      </View>
     </View>
   );
 });
 
 export default LoginScreen;
-
-const styles = StyleSheet.create({});
