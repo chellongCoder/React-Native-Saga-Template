@@ -17,9 +17,13 @@ export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, .
       return result as ResponseT<T>;
     }
     if (result.status === API_STATUS.UNAUTHEN) {
-      alertMessage('Lỗi', result.message, () => {
-        //logout
-      });
+      alertMessage(
+        'Lỗi',
+        () => {
+          //logout
+        },
+        result.message,
+      );
       return;
     }
     throw result;

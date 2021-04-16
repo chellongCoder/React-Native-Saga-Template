@@ -54,7 +54,29 @@ export default class ApiSauce {
     for (const key in payload) {
       if (Object.prototype.hasOwnProperty.call(payload, key)) {
         const element = payload[key];
-        formdata.append(key, element);
+        console.log(
+          `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------------------`,
+        );
+        console.log(
+          `🛠 LOG: 🚀 --> ~ file: ApiSauceHandler.ts ~ line 57 ~ ApiSauce ~ handleResponse= ~ element`,
+          element,
+          key,
+        );
+        console.log(
+          `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------------------`,
+        );
+        if (key === 'files') {
+          element.forEach((e, index) => {
+            const file = {
+              uri: e.uri,
+              name: e.name,
+              type: e.type,
+            };
+            formdata.append(`files[${index}]`, file);
+          });
+        } else {
+          formdata.append(key, element);
+        }
       }
     }
     console.log('formdata', formdata);

@@ -5,6 +5,7 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
   REGISTER_ERROR,
+  LOGIN_ERROR,
 } from '../types';
 
 const initialState = {
@@ -27,12 +28,21 @@ export default function (state = initialState, action) {
     }
     case LOGIN_SUCCESS: {
       return {
+        ...state,
         requesting: false,
         data: payload.user,
       };
     }
+    case LOGIN_ERROR: {
+      return {
+        ...state,
+        requesting: false,
+        error: payload.error,
+      };
+    }
     case LOGOUT_ERROR: {
       return {
+        ...state,
         requesting: false,
         error: payload.error,
       };
@@ -47,12 +57,14 @@ export default function (state = initialState, action) {
     }
     case REGISTER_SUCCESS: {
       return {
+        ...state,
         requesting: false,
         data: payload.user,
       };
     }
     case REGISTER_ERROR: {
       return {
+        ...state,
         requesting: false,
         error: payload.error,
       };

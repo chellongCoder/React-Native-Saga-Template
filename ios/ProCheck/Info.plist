@@ -54,7 +54,7 @@
 	<key>FacebookDisplayName</key>
 	<string>$(AppName)</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -78,11 +78,9 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>ProCheck muốn sử dụng camera của bạn để chụp ảnh</string>
-	<key>NSCameraUsageDescription</key>
 	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>ProCheck muốn truy cập thư viện để lấy ảnh</string>
 	<key>UIAppFonts</key>
@@ -140,6 +138,16 @@
 		<string>RobotoMono-SemiBoldItalic.ttf</string>
 		<string>RobotoMono-Thin.ttf</string>
 		<string>RobotoMono-ThinItalic.ttf</string>
+		<string>MYRIADPRO-BOLD.OTF</string>
+		<string>MYRIADPRO-BOLDCOND.OTF</string>
+		<string>MYRIADPRO-BOLDCONDIT.OTF</string>
+		<string>MYRIADPRO-BOLDIT.OTF</string>
+		<string>MYRIADPRO-COND.OTF</string>
+		<string>MYRIADPRO-CONDIT.OTF</string>
+		<string>MyriadPro-Light.otf</string>
+		<string>MYRIADPRO-REGULAR.OTF</string>
+		<string>MYRIADPRO-SEMIBOLD.OTF</string>
+		<string>MYRIADPRO-SEMIBOLDIT.OTF</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
