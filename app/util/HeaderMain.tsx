@@ -13,6 +13,7 @@ const HeaderMain = (props: any) => {
       <SafeAreaView />
       <StatusBar barStyle={'dark-content'} />
       <Row style={styles.styWrapHeader}>
+        <LeftComponent {...props} />
         <SearchComponent {...props} />
         <RightComponent {...props} />
       </Row>
@@ -48,6 +49,24 @@ function RightComponent(props: any) {
         <React.Fragment>
           <RippleButtonAnim>
             <IconAntDesign name={'shoppingcart'} size={30} color={colors.white} />
+          </RippleButtonAnim>
+          <View style={{ width: 10 }} />
+        </React.Fragment>
+      );
+
+    default:
+      return null;
+  }
+}
+
+function LeftComponent(props: any) {
+  const { screen } = props;
+  switch (screen) {
+    case tabModel.home:
+      return (
+        <React.Fragment>
+          <RippleButtonAnim onPress={props.onPressLeft}>
+            <IconAntDesign name={'menuunfold'} size={30} color={colors.white} />
           </RippleButtonAnim>
           <View style={{ width: 10 }} />
         </React.Fragment>
