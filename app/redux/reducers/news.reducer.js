@@ -52,7 +52,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        news: payload.news_category,
+        news: payload.news,
       };
     }
     case NEW_CATEGORY_BY_FAILED: {

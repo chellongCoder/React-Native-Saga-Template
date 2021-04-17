@@ -28,7 +28,7 @@ const Text = ({ style, isViewHtml, children, isLongText, numberOfLines, ...other
             div: style,
           }}
           nodeComponentProps={{
-            // numberOfLines: isShowMore ? undefined : numberOfLines,
+            numberOfLines,
             selectable: true,
             allowFontScaling: false,
           }}

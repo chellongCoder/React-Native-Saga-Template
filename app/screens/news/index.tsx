@@ -7,16 +7,18 @@ import BannerAdvertisement from '../../util/BannerAdvertisement';
 import { COLORS } from '../../constants';
 import { ItemNews, SearchBar, Text } from '../../components';
 import { RootState } from '../../redux/reducers';
-import { mapperNewsCategory } from '../../helpers/news.helper';
+import { mapperNewsByCategory, mapperNewsCategory } from '../../helpers/news.helper';
+import { useLoadingGlobal } from '../../hooks';
 import { useNewsStyle } from './styles';
-import { dataContent } from './__mocks__/data';
 import { NewCategoryT } from './types';
 
 const _NewsScreen = () => {
-  const { isLoading, newCategories: _newCategories } = useSelector((state: RootState) => state.NewData);
+  const { isLoading, newCategories: _newCategories, news: _news } = useSelector((state: RootState) => state.NewData);
   const { sliders } = useSelector((state: RootState) => state.HomeData);
 
+  const loading = useLoadingGlobal();
   const newCategories = useMemo(() => mapperNewsCategory(_newCategories), [_newCategories]);
+  const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
 
   const styles = useNewsStyle();
   const dispatch = useDispatch();
@@ -29,6 +31,15 @@ const _NewsScreen = () => {
   useEffect(() => {
     dispatch(newsActionsCreator.getNewCategoryRequest());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoading) {
+      loading.onShow();
+    } else {
+      loading.onHide();
+    }
+  }, [isLoading, loading]);
+
   const renderItemTypeExeTitle = (item: NewCategoryT, index: number) => {
     return <ItemNews key={index} {...{ item, index, active, onChangeTab }} />;
   };
@@ -36,24 +47,23 @@ const _NewsScreen = () => {
     return (
       <TouchableOpacity style={[styles.viewItem, styles.viewItemShadow]} onPress={() => {}}>
         <View style={styles.viewImageWrapper}>
-          <Image
-            source={{ uri: 'https://cdn.tgdd.vn/2020/09/content/2-800x450-107.jpg' }}
-            style={{ resizeMode: 'cover', flex: 1 }}
-          />
+          <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
         </View>
 
         <View style={styles.viewRight}>
           <View style={styles.viewItemTitle}>
             <View style={styles.viewTextTitle}>
-              <Text numberOfLines={1} style={styles.textTitle}>
+              <Text isLongText numberOfLines={1} style={styles.textTitle}>
                 {item.title}
               </Text>
             </View>
-            <Text style={{ color: COLORS.GRAY }}>{item.time}</Text>
+            <Text style={{ color: COLORS.GRAY }}>
+              {new Date(item.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
+            </Text>
           </View>
           <View style={styles.viewTextContent}>
-            <Text numberOfLines={2} style={{ color: COLORS.darkBlue }}>
-              {item.content}
+            <Text isLongText numberOfLines={2} style={{ color: COLORS.darkBlue }}>
+              {item.description}
             </Text>
           </View>
         </View>
@@ -73,7 +83,7 @@ const _NewsScreen = () => {
       <FlatList
         style={styles.flatlistContent}
         showsVerticalScrollIndicator={false}
-        data={dataContent}
+        data={news}
         renderItem={renderItemContent}
         ListFooterComponent={renderFooter}
       />

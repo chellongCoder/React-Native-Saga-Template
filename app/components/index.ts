@@ -20,5 +20,5 @@ export * from './rating';
 export * from './bottom-sheet';
 export * from './image-view';
 export * from './checkbox';
-export * from './item-news';
+export * from './item-news-category';
 export * from './slider-item';
