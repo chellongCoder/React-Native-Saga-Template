@@ -17,10 +17,10 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
   return (
     <View>
       <View style={styles.topic}>
-        <Text style={styles.txtRate}>Đánh giá sản phẩm (1)</Text>
+        <Text style={styles.txtRate}>Đánh giá sản phẩm ({productDetail?.productRate.length})</Text>
         <Text>Xem tất cả </Text>
       </View>
-      {productDetail?.productRate.map((value: ProductRateT, index: number) => {
+      {productDetail?.productRate.slice(0, 1).map((value: ProductRateT, index: number) => {
         return (
           <View key={index} style={styles.container}>
             <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.infoRateContainer]}>
@@ -49,22 +49,22 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
             </View>
             <View style={[styles.imageContainer, CommonStyle.row]}>
               {value.image.map((value, index: number) => {
-                <TouchableOpacity
-                  onPress={() => {
-                    imageViewer.show([
-                      'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
-                    ]);
-                  }}
-                  style={styles.image}>
-                  <Image
-                    resizeMode="cover"
-                    style={[CommonStyle.image, { borderRadius: Platform.SizeScale(5) }]}
-                    source={{
-                      uri:
-                        'file:///Users/chellong/Library/Developer/CoreSimulator/Devices/B6267FA2-6B87-4372-8A6B-650E8755E031/data/Media/DCIM/100APPLE/IMG_0002.JPG',
+                return (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => {
+                      imageViewer.show([value]);
                     }}
-                  />
-                </TouchableOpacity>;
+                    style={styles.image}>
+                    <Image
+                      resizeMode="cover"
+                      style={[CommonStyle.image, { borderRadius: Platform.SizeScale(5) }]}
+                      source={{
+                        uri: value,
+                      }}
+                    />
+                  </TouchableOpacity>
+                );
               })}
             </View>
           </View>

@@ -1,21 +1,19 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
-import { useNavigation } from '@react-navigation/native';
 import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { CommonStyle, Images } from '../../constants';
-import { Platform } from '../../theme';
 import { useLoadingGlobal } from '../../hooks';
 import { RootState } from '../../redux/reducers';
+import { screens } from '../../config';
 import { useLoginStyle } from './styles';
 
-const LoginScreen = withTheme(() => {
+const LoginScreen = withTheme(({ navigation }: any) => {
   const styles = useLoginStyle();
-  const { requesting } = useSelector((state: RootState) => state.AuthData);
-  const navigation = useNavigation();
+  const { requesting, data } = useSelector((state: RootState) => state.AuthData);
   const loading = useLoadingGlobal();
   const fieldRef: any = useRef();
   const [userName, setUserName] = useState('');
@@ -63,6 +61,13 @@ const LoginScreen = withTheme(() => {
       loading.onHide();
     }
   }, [loading, requesting]);
+
+  useEffect(() => {
+    if (data) {
+      navigation.navigate(screens.bottomTabStack);
+      navigation.toggleDrawer();
+    }
+  }, [data, loading, navigation, requesting]);
 
   return (
     <View style={styles.container}>

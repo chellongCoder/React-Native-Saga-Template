@@ -35,7 +35,9 @@ const AppBarsBase = ({
       <View style={styles.safeArea}>
         <View style={[styles.container]}>
           {renderLeft}
-          <Text>{title}</Text>
+          <Text isLongText numberOfLines={1}>
+            {title}
+          </Text>
           {renderRight}
         </View>
       </View>

@@ -1,34 +1,36 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import { COLORS } from '../../constants';
-import { SearchBar, Text } from '../../components';
+import { ItemNews, SearchBar, Text } from '../../components';
 import { RootState } from '../../redux/reducers';
+import { mapperNewsCategory } from '../../helpers/news.helper';
 import { useNewsStyle } from './styles';
-import { dataCate, dataContent } from './__mocks__/data';
+import { dataContent } from './__mocks__/data';
+import { NewCategoryT } from './types';
 
 const _NewsScreen = () => {
+  const { isLoading, newCategories: _newCategories } = useSelector((state: RootState) => state.NewData);
   const { sliders } = useSelector((state: RootState) => state.HomeData);
+
+  const newCategories = useMemo(() => mapperNewsCategory(_newCategories), [_newCategories]);
 
   const styles = useNewsStyle();
   const dispatch = useDispatch();
   const [active, setActive] = useState(0);
+
+  const onChangeTab = useCallback((index: number) => {
+    setActive(index);
+  }, []);
+
   useEffect(() => {
     dispatch(newsActionsCreator.getNewCategoryRequest());
   }, [dispatch]);
-  const renderItemTypeExeTitle = (item: { title: any }, index: React.SetStateAction<number>) => {
-    const { title } = item;
-    return (
-      <TouchableOpacity
-        onPress={() => {
-          setActive(index);
-        }}>
-        <Text style={[styles.textShared, active === index ? styles.textFocused : styles.textUnFocused]}>{title}</Text>
-      </TouchableOpacity>
-    );
+  const renderItemTypeExeTitle = (item: NewCategoryT, index: number) => {
+    return <ItemNews key={index} {...{ item, index, active, onChangeTab }} />;
   };
   const renderItemContent = ({ item }: { item: any; index: number }) => {
     return (
@@ -67,7 +69,7 @@ const _NewsScreen = () => {
       <View style={styles.viewBanner}>
         <BannerAdvertisement data={sliders} />
       </View>
-      <View style={styles.viewCate}>{dataCate.map(renderItemTypeExeTitle)}</View>
+      <View style={styles.viewCate}>{newCategories.map(renderItemTypeExeTitle)}</View>
       <FlatList
         style={styles.flatlistContent}
         showsVerticalScrollIndicator={false}

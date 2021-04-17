@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { textStyle } from '../../constants';
-import { theme } from '../../theme';
+import { COLORS, textStyle } from '../../constants';
+import { Platform, theme } from '../../theme';
+import fontFamily from '../../theme/font-family';
 
 const { colors } = theme;
 
@@ -23,4 +24,13 @@ export default StyleSheet.create({
     ...textStyle.heading,
   },
   scrollViewContainer: { paddingTop: 30 },
+  userInfo: {
+    position: 'absolute',
+    bottom: 0,
+  },
+  txtUserInfo: {
+    color: COLORS.WHITE,
+    fontFamily: fontFamily.fontBold,
+    fontSize: Platform.SizeScale(20),
+  },
 });

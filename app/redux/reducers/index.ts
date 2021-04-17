@@ -5,6 +5,7 @@ import AuthData from './auth.reducer';
 import HomeData from './home.reducer';
 import QRData from './qr.reducer';
 import ProductData from './product.reducer';
+import NewData from './news.reducer';
 const authPersistConfig = {
   key: 'auth',
   storage: AsyncStorage,
@@ -16,6 +17,7 @@ const RootReducer = combineReducers({
   HomeData,
   QRData,
   ProductData,
+  NewData,
 });
 
 export default RootReducer;
