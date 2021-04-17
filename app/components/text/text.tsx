@@ -4,11 +4,19 @@ import HtmlView from 'react-native-htmlview';
 import { Platform } from '../../theme';
 import { ParsedTextProps } from './types';
 
-const Text = ({ style, isViewHtml, children, ...other }: ParsedTextProps) => {
+const Text = ({ style, isViewHtml, children, isLongText, numberOfLines, ...other }: ParsedTextProps) => {
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
     style = StyleSheet.flatten([Platform.textBase, style]);
+  }
+
+  if (isLongText) {
+    return (
+      <RCText allowFontScaling={false} numberOfLines={numberOfLines} style={style} {...other}>
+        {children}
+      </RCText>
+    );
   }
 
   if (isViewHtml) {
@@ -29,7 +37,7 @@ const Text = ({ style, isViewHtml, children, ...other }: ParsedTextProps) => {
     );
   }
   return (
-    <RCText selectable={true} {...other} style={style}>
+    <RCText allowFontScaling={false} selectable={true} {...other} style={style}>
       {children}
     </RCText>
   );

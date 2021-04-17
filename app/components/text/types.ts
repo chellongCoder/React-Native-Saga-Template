@@ -6,4 +6,5 @@ export type ParsedTextProps = ParsedTextPropsBase & {
   isViewHtml?: boolean;
   isLongText?: boolean;
   showMore?: boolean;
+  numberOfLines?: number;
 };
