@@ -14,3 +14,14 @@ export interface ItemNewProps {
   active: number;
   onChangeTab: (index: number) => void;
 }
+
+export interface NewsByCategoryT {
+  id: number;
+  categoryId: number;
+  userId: number;
+  title: string;
+  content: string;
+  image: string;
+  time: string;
+  description: string;
+}
