@@ -7,8 +7,11 @@ export const useStyleBanner = () => {
     () =>
       StyleSheet.create({
         imageContainer: {
-          width: Platform.baseScreenWith,
+          width: Platform.deviceWidth - Platform.SizeScale(20),
           height: Platform.SizeScale(100),
+          alignSelf: 'center',
+          borderRadius: Platform.SizeScale(10),
+          overflow: 'hidden',
         },
       }),
     [],

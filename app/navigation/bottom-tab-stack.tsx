@@ -1,14 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { screens } from '../config';
 import Home from '../redux/connects/home.connect';
-import History from '../screens/history';
-import News from '../screens/news';
+import Notification from '../screens/notification';
 import Account from '../screens/account';
 import { BottomTab } from '../components';
 import TabQrCode from '../screens/qr_code/TabQrCode';
-import { IconTabbar } from '../components/bottom-tab/index';
+import { NewsScreen } from '../screens';
 const BottomTabStack = createBottomTabNavigator();
 
 export const tabBar = (props: any) => <BottomTab {...props} />;
@@ -21,15 +19,13 @@ export default function TabNavigator() {
         component={Home}
         options={{
           tabBarLabel: 'Trang chủ',
-          tabBarIcon: ({ color, size }) => <IconTabbar />,
         }}
       />
       <BottomTabStack.Screen
-        name={screens.history}
-        component={History}
+        name={screens.news}
+        component={NewsScreen}
         options={{
-          tabBarLabel: 'Lịch sử',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="history" color={color} size={size} />,
+          tabBarLabel: 'Tin tức',
         }}
       />
       <BottomTabStack.Screen
@@ -37,15 +33,13 @@ export default function TabNavigator() {
         component={TabQrCode}
         options={{
           tabBarLabel: 'Quét mã',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="qrcode-scan" color={color} size={size} />,
         }}
       />
       <BottomTabStack.Screen
-        name={screens.news}
-        component={News}
+        name={screens.notification}
+        component={Notification}
         options={{
-          tabBarLabel: 'Tin tức',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="newspaper" color={color} size={size} />,
+          tabBarLabel: 'Thông báo',
         }}
       />
       <BottomTabStack.Screen
@@ -53,7 +47,6 @@ export default function TabNavigator() {
         component={Account}
         options={{
           tabBarLabel: 'tài khoản',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
         }}
       />
     </BottomTabStack.Navigator>

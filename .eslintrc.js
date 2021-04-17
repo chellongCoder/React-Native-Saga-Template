@@ -19,7 +19,7 @@ module.exports = {
       {
         ignoreDOMComponents: false,
         ignoreRefs: false,
-        allowArrowFunctions: false,
+        allowArrowFunctions: true,
         allowFunctions: false,
         allowBind: false,
       },
@@ -54,7 +54,9 @@ module.exports = {
     "no-empty": "off",
     "no-useless-escape": "off",
     "no-extra-boolean-cast": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "no-empty-interface": 0,
+    '@typescript-eslint/prefer-interface': 0
   },
   settings: {
     parserOptions: {

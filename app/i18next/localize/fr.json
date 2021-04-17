@@ -16,7 +16,8 @@
   "Drawer": {
     "changeLanguage": "Changer de langue",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "logout": "Logout"
   },
 
   "BottomTab": {

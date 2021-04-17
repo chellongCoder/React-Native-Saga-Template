@@ -30,8 +30,7 @@ class PlBase {
   readonly version = PlatformBase.Version;
   textBase: TextStyle = {
     fontSize: this.SizeScale(14),
-    fontFamily: 'RobotoMono-Light',
-    fontWeight: '300',
+    fontFamily: 'RobotoMono-Regular',
   };
 }
 

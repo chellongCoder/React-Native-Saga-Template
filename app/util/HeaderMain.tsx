@@ -3,15 +3,17 @@ import { View, SafeAreaView, TextInput, StatusBar } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { tabModel } from '../model/TabModel';
+import { theme } from '../theme';
 import Row from './Row';
 import styles from './StyleHeaderMain';
-
+const { colors } = theme;
 const HeaderMain = (props: any) => {
   return (
-    <View style={styles.contain}>
+    <View style={[styles.contain, { backgroundColor: props.bgColor || colors.white }]}>
       <SafeAreaView />
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'dark-content'} />
       <Row style={styles.styWrapHeader}>
+        <LeftComponent {...props} />
         <SearchComponent {...props} />
         <RightComponent {...props} />
       </Row>
@@ -25,12 +27,17 @@ function SearchComponent(props: any) {
     case tabModel.home:
       return (
         <View style={styles.stySearch}>
-          <IconAntDesign name={'search1'} size={18} color={'#828282'} />
-          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={'#828282'} style={styles.styInput} />
+          <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
+          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
         </View>
       );
     default:
-      return null;
+      return (
+        <View style={styles.stySearch}>
+          <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
+          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
+        </View>
+      );
   }
 }
 
@@ -41,12 +48,9 @@ function RightComponent(props: any) {
       return (
         <React.Fragment>
           <RippleButtonAnim>
-            <IconAntDesign name={'shoppingcart'} size={30} color={'#000'} />
+            <IconAntDesign name={'shoppingcart'} size={30} color={colors.white} />
           </RippleButtonAnim>
           <View style={{ width: 10 }} />
-          <RippleButtonAnim>
-            <IconAntDesign name={'bells'} size={28} color={'#000'} />
-          </RippleButtonAnim>
         </React.Fragment>
       );
 
@@ -55,4 +59,22 @@ function RightComponent(props: any) {
   }
 }
 
-export default HeaderMain;
+function LeftComponent(props: any) {
+  const { screen } = props;
+  switch (screen) {
+    case tabModel.home:
+      return (
+        <React.Fragment>
+          <RippleButtonAnim onPress={props.onPressLeft}>
+            <IconAntDesign name={'menuunfold'} size={30} color={colors.white} />
+          </RippleButtonAnim>
+          <View style={{ width: 10 }} />
+        </React.Fragment>
+      );
+
+    default:
+      return null;
+  }
+}
+
+export default React.memo(HeaderMain);

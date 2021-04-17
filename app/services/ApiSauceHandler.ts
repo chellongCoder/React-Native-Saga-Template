@@ -17,8 +17,8 @@ export default class ApiSauce {
     });
   }
 
-  public static getInstance = (): ApiSauce => {
-    if (ApiSauce.instance == null) ApiSauce.instance = new ApiSauce('');
+  public static getInstance = (baseURL: string): ApiSauce => {
+    if (ApiSauce.instance == null) ApiSauce.instance = new ApiSauce(baseURL);
     return ApiSauce.instance;
   };
 

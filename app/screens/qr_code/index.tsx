@@ -1,13 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, StyleSheet, Dimensions, Linking, Alert, TouchableOpacity } from 'react-native';
 import { useBarcodeRead, BarcodeMaskWithOuterLayout } from '@nartc/react-native-barcode-mask';
 import { RNCamera } from 'react-native-camera';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
+import { connect } from 'react-redux';
 import { androidCameraPermissionOptions } from '../../Common/Common';
 import { Text } from '../../components';
 import { screens } from '../../config';
+import { qrActionsCreator } from '../../redux/actions';
+import { Platform } from '../../theme';
 const { width, height } = Dimensions.get('window');
-export default function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
+function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [isbarcodeRead, setbarcodeRead] = useState(true);
   const { barcodeRead, onBarcodeRead, onBarcodeFinderLayoutChange } = useBarcodeRead(
     isbarcodeRead,
@@ -17,6 +20,12 @@ export default function QrCodeScreen({ navigation }: DrawerContentComponentProps
       if (data) {
         const supported = await Linking.canOpenURL(data);
         if (supported) {
+          if (data.indexOf('sahatha.vn') > 0) {
+            navigation.navigate(screens.product_scan, {
+              params: { urlScan: data },
+            });
+            return;
+          }
           await Linking.openURL(data);
           setbarcodeRead(true);
         } else {
@@ -34,6 +43,9 @@ export default function QrCodeScreen({ navigation }: DrawerContentComponentProps
   const onBack = useCallback(() => {
     navigation.goBack();
     navigation.navigate(screens.home);
+    // navigation.navigate(screens.product_scan, {
+    //   params: { urlScan: 'https://sahatha.vn/a/G1409' },
+    // });
   }, [navigation]);
 
   return (
@@ -55,8 +67,8 @@ export default function QrCodeScreen({ navigation }: DrawerContentComponentProps
         <BarcodeMaskWithOuterLayout
           barcodeTypes={barcodeRead ? [] : [RNCamera.Constants.BarCodeType.qr]}
           maskOpacity={0.35}
-          width={width - 100}
-          height={width - 100}
+          width={Platform.SizeScale(200)}
+          height={Platform.SizeScale(200)}
           onLayoutChange={onBarcodeFinderLayoutChange}
           edgeRadius={10}
         />
@@ -64,6 +76,18 @@ export default function QrCodeScreen({ navigation }: DrawerContentComponentProps
     </View>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    product: state.QRData.product,
+  };
+};
+
+const mapDispatchProps = (props) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchProps)(QrCodeScreen);
 
 const styles = StyleSheet.create({
   scanner: {
@@ -80,19 +104,19 @@ const styles = StyleSheet.create({
   },
   styTxtHeader: {
     position: 'absolute',
-    top: 100,
+    top: Platform.SizeScale(100),
     width: width - 60,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFF',
-    fontSize: 16,
+    fontSize: Platform.SizeScale(16),
   },
   backContainer: {
     position: 'absolute',
-    top: 10,
-    left: 10,
+    top: Platform.SizeScale(10),
+    left: Platform.SizeScale(10),
   },
   back: {
-    fontSize: 24,
+    fontSize: Platform.SizeScale(24),
   },
 });

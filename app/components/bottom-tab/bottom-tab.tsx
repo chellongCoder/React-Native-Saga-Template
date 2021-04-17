@@ -10,7 +10,7 @@ import { IconTabbar } from './icon-tabbar';
 
 const IconsTab = [ICONS.HOME_UNFOCUS, ICONS.NEW_UNFOCUS, ICONS.QRCODE, ICONS.ALERT_UNFOCUS, ICONS.ACOUNT_UNFOCUS];
 const IconsTabFocus = [ICONS.HOME_FOCUS, ICONS.NEW_FOCUS, ICONS.QRCODE, ICONS.ALERT_FOCUS, ICONS.ACOUNT_FOCUS];
-
+const NameTab = ['Trang chủ', 'Tin tức', '', 'Thông báo', 'Tài khoản'];
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomTabBarOptions>) => {
   const [t, i18n] = useTranslation();
   const { colors } = theme;
@@ -57,8 +57,11 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
           style={styles.tab}>
           {isFocused && <View style={styles.borderTab} />}
           {!isFocused ? <IconTabbar name={IconsTab[index]} /> : <IconTabbar name={IconsTabFocus[index]} />}
-          <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
+          {/* <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
             {i18(`BottomTab.${route.name}`)}
+          </Text> */}
+          <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
+            {i18(`${NameTab[index]}`)}
           </Text>
         </TouchableOpacity>
       );

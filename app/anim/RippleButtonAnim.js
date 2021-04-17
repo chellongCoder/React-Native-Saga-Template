@@ -8,7 +8,7 @@ const RippleButtonAnim = (props) => {
     const onPress = () => {
         Animated.timing(zoomAnim, {
             toValue: 2,
-            duration: 50,
+            duration: 200,
             useNativeDriver: false
         }).start(() => {
             props.onPress();

@@ -3,6 +3,11 @@ export const GET_DATA_PRODUCT_REQUEST = '@@redux/home/GET_DATA_PRODUCT_REQUEST';
 export const GET_DATA_PRODUCT_SUCCESS = '@@redux/home/GET_DATA_PRODUCT_SUCCESS';
 export const GET_DATA_PRODUCT_FAILD = '@@redux/home/GET_DATA_PRODUCT_FAILD';
 
+//product more
+export const GET_DATA_PRODUCT_MORE_REQUEST = '@@redux/home/GET_DATA_PRODUCT_MORE_REQUEST';
+export const GET_DATA_PRODUCT_MORE_SUCCESS = '@@redux/home/GET_DATA_PRODUCT_MORE_SUCCESS';
+export const GET_DATA_PRODUCT_MORE_FAILD = '@@redux/home/GET_DATA_PRODUCT_MORE_FAILD';
+
 export const GET_DATA_SLIDER_REQUEST = '@@redux/home/GET_DATA_SLIDER_REQUEST';
 export const GET_DATA_SLIDER_SUCCESS = '@@redux/home/GET_DATA_SLIDER_SUCCESS';
 export const GET_DATA_SLIDER_FAILD = '@@redux/home/GET_DATA_SLIDER_FAILD';
@@ -10,3 +15,7 @@ export const GET_DATA_SLIDER_FAILD = '@@redux/home/GET_DATA_SLIDER_FAILD';
 export const GET_DATA_PRODUCT_DETAIL_REQUEST = '@@redux/detail/GET_DATA_PRODUCT_DETAIL_REQUEST';
 export const GET_DATA_PRODUCT_DETAIL_SUCCESS = '@@redux/detail/GET_DATA_PRODUCT_DETAIL_SUCCESS';
 export const GET_DATA_PRODUCT_DETAIL_FAILD = '@@redux/detail/GET_DATA_PRODUCT_DETAIL_FAILD';
+
+export const POST_COMMENT_REQUEST = '@@redux/detail/POST_COMMENT_REQUEST';
+export const POST_COMMENT_SUCCESS = '@@redux/detail/POST_COMMENT_SUCCESS';
+export const POST_COMMENT_FAILED = '@@redux/detail/POST_COMMENT_FAILED';
