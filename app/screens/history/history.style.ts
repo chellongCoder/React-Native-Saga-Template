@@ -57,9 +57,11 @@ const styles = StyleSheet.create({
     color: colors.green,
     fontSize: 12,
     fontWeight: '400',
+    flex: 1,
   },
   styCompany: {
     fontSize: 12,
+    flex: 1,
   },
   styWrapElement: {
     backgroundColor: colors.white,
