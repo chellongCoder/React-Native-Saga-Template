@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-community/async-storage';
 import { useLoadingGlobal } from '../../hooks';
 import { AboutProduct, AppBars, ButtonGroup, InfoProduct, ItemCompany, Slider, SuggestProduct } from '../../components';
 import { qrActionsCreator } from '../../redux/actions';
@@ -30,9 +31,12 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   }, []);
 
   const getDataScanRequest = useCallback(async () => {
+    const device_id = await AsyncStorage.getItem('@fcm_token');
     await dispatch(
       qrActionsCreator.getDataScanRequest({
         url_scan: urlScan,
+        user_id: 0,
+        device_id,
         callback: (response: any) => {
           setProductDetail(response);
           getDataSuggest(response.id);
@@ -63,10 +67,10 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
       <ScrollView>
         <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
-          <InfoProduct {...{ productDetail }} />
+          <InfoProduct {...productDetail} />
           <ItemCompany />
           <ItemCompany />
-          <AboutProduct {...{ productDetail }} />
+          <AboutProduct {...productDetail} />
         </View>
         <SuggestProduct data={dataSuggest || []} navigation={navigation} />
       </ScrollView>

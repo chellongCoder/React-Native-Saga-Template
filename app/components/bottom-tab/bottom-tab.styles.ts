@@ -6,7 +6,6 @@ const { colors } = theme;
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: Platform.SizeScale(20),
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly',
