@@ -23,6 +23,7 @@ import IconSetting from '../assets/icons/icon_setting.png';
 import IconArrowRight from '../assets/icons/icon_arrow_right.png';
 import IconBarCode from '../assets/icons/icon_bar_code.png';
 import IconCompany from '../assets/icons/icon_company.png';
+import ImageEmpty from '../assets/images/img_empty.jpeg';
 export const AppIcon = {
   Icon1,
   Icon2,
@@ -49,4 +50,5 @@ export const AppIcon = {
   IconArrowRight,
   IconBarCode,
   IconCompany,
+  ImageEmpty,
 };

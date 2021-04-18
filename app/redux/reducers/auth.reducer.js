@@ -10,9 +10,9 @@ import {
 
 const initialState = {
   requesting: false,
-  error: null,
+  error: undefined,
   success: null,
-  data: null,
+  data: undefined,
 };
 
 export default function (state = initialState, action) {
@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         requesting: true,
-        error: null,
+        error: undefined,
         success: null,
       };
     }
@@ -51,7 +51,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         requesting: true,
-        error: null,
+        error: undefined,
         success: null,
       };
     }

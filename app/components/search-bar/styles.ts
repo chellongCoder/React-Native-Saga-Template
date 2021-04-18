@@ -19,6 +19,10 @@ export const useStyleSearch = () => {
           borderColor: 'transparent',
           ...CommonStyle.shadow,
         },
+        icon: {
+          width: Platform.SizeScale(20),
+          height: Platform.SizeScale(20),
+        },
       }),
     [],
   );

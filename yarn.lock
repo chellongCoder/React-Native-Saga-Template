@@ -6903,6 +6903,11 @@ react-native-screens@^2.5.0:
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-2.10.1.tgz#06d22fae87ef0ce51c616c34a199726db1403b95"
   integrity sha512-Z2kKSk4AwWRQNCBmTjViuBQK0/Lx0jc25TZptn/2gKYUCOuVRvCekoA26u0Tsb3BIQ8tWDsZW14OwDlFUXW1aw==
 
+react-native-shimmer-placeholder@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-shimmer-placeholder/-/react-native-shimmer-placeholder-2.0.7.tgz#7530937647e0b7991b55a167ca86d4d0d9d32637"
+  integrity sha512-fqqaqIEArcDqoh/wEOAypqAf28i91jBfAUdYVi8vUBFfbApqTjbWY+Np5lVvKYpDYUhlicNUou3q5/f9OCHnWQ==
+
 react-native-snap-carousel@^3.9.1:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-3.9.1.tgz#6fd9bd8839546c2c6043a41d2035afbc6fe0443e"
