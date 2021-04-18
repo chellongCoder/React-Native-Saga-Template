@@ -37,7 +37,7 @@ const Text = ({ style, isViewHtml, children, isLongText, numberOfLines, ...other
     );
   }
   return (
-    <RCText allowFontScaling={false} selectable={true} {...other} style={style}>
+    <RCText allowFontScaling={false} selectable={true} numberOfLines={numberOfLines} {...other} style={style}>
       {children}
     </RCText>
   );

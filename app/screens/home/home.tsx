@@ -1,20 +1,22 @@
 import React from 'react';
-import { View, StatusBar, FlatList, ScrollView } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
+import _ from 'lodash';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import ListItem from '../../components/home-component/ListItem';
 import { ProductCategoryProps } from '../product/types';
-import { mapListProductCategory } from '../../helpers/product.helper';
 import { theme } from '../../theme';
+import ListItemShimmer from '../../components/home-component/ElementShimmer';
+import BannerAdvertisementShimmer from '../../util/BannerAdvertisementShimmer';
 import MenuMain from './MenuMain';
 import styles from './home.styles';
-
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   sliders: object[];
   products: ProductCategoryProps[];
+  isLoading: boolean;
   navigation: any;
 }
 interface State {}
@@ -33,8 +35,7 @@ class Home extends React.Component<Props, State> {
   };
 
   render() {
-    const { sliders, products, navigation } = this.props;
-    const data = mapListProductCategory(products);
+    const { sliders, products, navigation, isLoading } = this.props;
     return (
       <View style={styles.container}>
         <HeaderMain
@@ -49,21 +50,31 @@ class Home extends React.Component<Props, State> {
           </View>
           <View style={{ flex: 1, backgroundColor: '#FFF', zIndex: -1 }}>
             <View style={{ height: 20 }} />
-            <BannerAdvertisement data={sliders} />
-            <FlatList
-              data={data}
-              keyExtractor={(item, index) => index.toString()}
-              renderItem={({ item }: { item: ProductCategoryProps }) => (
-                <ListItem
-                  navigation={navigation}
-                  products={item.products}
-                  name={item.name}
-                  categoryId={item.categoryId}
+            {isLoading ? (
+              <>
+                <BannerAdvertisementShimmer />
+                <ListItemShimmer />
+              </>
+            ) : (
+              <>
+                <BannerAdvertisement data={sliders} />
+                <FlatList
+                  data={products}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={({ item }: { item: ProductCategoryProps }) => (
+                    <ListItem
+                      navigation={navigation}
+                      products={item.products}
+                      name={item.name}
+                      categoryId={item.categoryId}
+                    />
+                  )}
                 />
-              )}
-            />
+              </>
+            )}
           </View>
         </ScrollView>
+        <View style={styles.styFooter} />
       </View>
     );
   }
