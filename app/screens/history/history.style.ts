@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { height, width } from '../../constants';
 import { Platform, theme } from '../../theme';
 
 const { colors } = theme;
@@ -78,6 +79,16 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
+  },
+  styWrapEmpty: {
+    flex: 1,
+    width: width,
+    height: height / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  styTxtEmpty: {
+    color: theme.colors.gray,
   },
 });
 

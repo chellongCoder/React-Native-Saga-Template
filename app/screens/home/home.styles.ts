@@ -89,6 +89,16 @@ const styles = StyleSheet.create({
     height: (height * 1) / 3,
     zIndex: -999,
   },
+  styWrapErr: {
+    flex: 1,
+    height: height / 2,
+    width,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  styTxtReload: {
+    textDecorationLine: 'underline',
+  },
 });
 
 export default styles;

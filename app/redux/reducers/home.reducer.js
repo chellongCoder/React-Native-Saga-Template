@@ -29,6 +29,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case GET_DATA_PRODUCT_SUCCESS:
       return {
@@ -46,6 +47,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case GET_DATA_SLIDER_SUCCESS:
       return {
@@ -63,6 +65,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case GET_DATA_PRODUCT_DETAIL_SUCCESS:
       return {
@@ -80,6 +83,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: true,
+        error: null,
       };
     case GET_DATA_PRODUCT_MORE_SUCCESS:
       return {

@@ -9,6 +9,7 @@ import Row from '../../util/Row';
 import { AppIcon } from '../../Common/AppIcon';
 import { ApiHistory } from '../../services';
 import { screens } from '../../config';
+import { useLoadingGlobal } from '../../hooks';
 import styles from './history.style';
 
 const title = 'Lịch sử quét';
@@ -19,18 +20,21 @@ const History = () => {
   const onBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
+  const hookLoadingGlobal = useLoadingGlobal();
 
-  const getData = async () => {
+  const getData = useCallback(async () => {
+    hookLoadingGlobal.onShow();
     const deviceId = await AsyncStorage.getItem('@fcm_token');
     const response = await ApiHistory.getDataHistoryScan({ user_id: deviceId });
+    hookLoadingGlobal.onHide();
     if (response?.status === 200) {
       setData(response.product);
     }
-  };
+  }, [hookLoadingGlobal]);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   const goToDetail = (productId: string) => () => {
     navigation.navigate(screens.product_detail, {
@@ -68,11 +72,22 @@ const History = () => {
     );
   };
 
+  const renderEmpty = () => (
+    <View style={styles.styWrapEmpty}>
+      <Text style={styles.styTxtEmpty}>Hiện tại chưa có lịch sử quét mã</Text>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
       <HeaderMain />
-      <FlatList data={data} keyExtractor={(i, index) => index.toString()} renderItem={renderItem} />
+      <FlatList
+        data={data}
+        keyExtractor={(i, index) => index.toString()}
+        renderItem={renderItem}
+        ListEmptyComponent={renderEmpty}
+      />
     </View>
   );
 };
