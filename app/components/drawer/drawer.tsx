@@ -1,21 +1,23 @@
 import React, { useCallback } from 'react';
-import { I18nManager, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { I18nManager, SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import FastImage from 'react-native-fast-image';
 import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { drawerIcons } from '../../helpers';
 import { Images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
 import { authActionsCreator } from '../../redux/actions';
+import { RootState } from '../../redux/reducers';
 import styles from './drawer.styles';
 
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
+  const { data: userInfo }: any = useSelector((state: RootState) => state.AuthData);
 
   const i18 = (key) => {
     return t(key);
@@ -60,7 +62,12 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
 
   return (
     <SafeAreaView style={styles.container}>
-      <FastImage source={Images.icon} style={styles.image} />
+      <View>
+        <FastImage source={Images.icon} style={styles.image} />
+        <View style={styles.userInfo}>
+          <Text style={styles.txtUserInfo}>name: {userInfo?.name}</Text>
+        </View>
+      </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         <TouchableOpacity style={styles.itemContainer} onPress={changeLanguageWithRTL}>
           {drawerIcons.language}

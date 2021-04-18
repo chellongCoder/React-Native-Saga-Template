@@ -49,7 +49,7 @@ export const useNewsStyle = () => {
           padding: 6,
           backgroundColor: COLORS.GREEEN,
           borderRadius: 4,
-          width: '50%',
+          width: '60%',
         },
         flatlistContent: { flex: 1, paddingHorizontal: Platform.SizeScale(20) },
         forwardScroll: {

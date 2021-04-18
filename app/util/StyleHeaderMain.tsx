@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { FontFamily, theme } from '../theme';
+import { FontFamily, Platform, theme } from '../theme';
 const { colors } = theme;
 const styles = StyleSheet.create({
   contain: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingVertical: Platform.OS === 'ios' ? 8 : 0,
     marginHorizontal: 10,
     borderColor: '#FFF',
     backgroundColor: '#FFF',

@@ -1,13 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
+import { screens } from '../../config';
 import { COLORS, CommonStyle } from '../../constants';
 import { useBottomSheet } from '../../hooks';
 import { homeActionsCreator } from '../../redux/actions';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
-import { UserLoginT } from '../../screens/login/types';
 import { PostCommentParamsT, PushStarT } from '../../screens/product_detail/types';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
@@ -19,48 +20,54 @@ import { Stars } from './Stars';
 
 const _Rating = () => {
   const { choicedImages } = useSelector((state: RootState) => state.ProductData);
-  const { data: userLogin }: { data: UserLoginT } = useSelector((state: RootState) => state.AuthData);
+  const { data: userLogin }: any = useSelector((state: RootState) => state.AuthData);
   const selectedImage: UploadFileT[] = useMemo(() => choicedImages, [choicedImages]);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const [stars, setStars] = useState<PushStarT[]>(mocksData.valueRating);
   const [text, setText] = useState('');
   const bottomSheet = useBottomSheet();
 
   const onComment = useCallback(() => {
-    const data: PostCommentParamsT | any = {};
-    stars.forEach((e) => {
-      switch (e.index) {
-        case 0:
-          Object.assign(data, { rating_1: e.value });
-          break;
-        case 1:
-          Object.assign(data, { rating_2: e.value });
-          break;
-        case 2:
-          Object.assign(data, { rating_3: e.value });
-          break;
-        case 3:
-          Object.assign(data, { rating_4: e.value });
-          break;
-        case 4:
-          Object.assign(data, { rating_5: e.value });
-          break;
-        default:
-          break;
+    try {
+      if (!userLogin) {
+        navigation.navigate(screens.login);
+        return;
       }
-    });
-    const files = selectedImage;
-    // files.forEach((value: UploadFileT, index: number) => {
-    //   const file: any = {};
-    //   file[`files[${index}]`] = value;
-    //   Object.assign(data, file);
-    // });
-    Object.assign(data, { files });
+      const data: PostCommentParamsT | any = {};
+      stars.forEach((e) => {
+        switch (e.index) {
+          case 0:
+            Object.assign(data, { rating_1: e.value });
+            break;
+          case 1:
+            Object.assign(data, { rating_2: e.value });
+            break;
+          case 2:
+            Object.assign(data, { rating_3: e.value });
+            break;
+          case 3:
+            Object.assign(data, { rating_4: e.value });
+            break;
+          case 4:
+            Object.assign(data, { rating_5: e.value });
+            break;
+          default:
+            break;
+        }
+      });
+      const files = selectedImage;
+      files.forEach((value: UploadFileT, index: number) => {
+        const file: any = {};
+        file[`files[${index}]`] = value;
+        Object.assign(data, file);
+      });
 
-    Object.assign(data, { comment: text });
-    Object.assign(data, { token: userLogin?.accessToken });
-    dispatch(homeActionsCreator.postCommentRequest(data));
-  }, [dispatch, selectedImage, stars, text, userLogin?.accessToken]);
+      Object.assign(data, { comment: text });
+      Object.assign(data, { token: userLogin?.accessToken });
+      dispatch(homeActionsCreator.postCommentRequest(data));
+    } catch (error) {}
+  }, [dispatch, navigation, selectedImage, stars, text, userLogin]);
 
   const onChangeText = useCallback((value: string) => {
     setText(value);

@@ -26,9 +26,9 @@ const App = () => {
   useEffect(() => {
     sync();
     console.disableYellowBox = true;
-    if (Platform.OS == 'android') {
-      SplashScreen.hide();
-    }
+    // if (Platform.OS == 'android') {
+    //   SplashScreen.hide();
+    // }
   }, []);
 
   const sync = () => {

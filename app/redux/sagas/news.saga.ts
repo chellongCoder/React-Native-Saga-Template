@@ -1,19 +1,14 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { ApiResponse } from 'apisauce';
+import { Action } from 'redux-actions';
 import { newsActionsCreator } from '../actions';
 import { NewsApi } from '../../services';
+import { CategoryByIdParamsT } from '../../screens/news/types';
 import { callSafe } from './common.saga';
 
 function* getDataNewsCategory() {
   try {
     const response: ApiResponse<any, any> = yield callSafe(NewsApi.getNewCategory, {});
-    console.log(
-      `🛠 LOG: 🚀 --> -------------------------------------------------------------------------------------------------`,
-    );
-    console.log(`🛠 LOG: 🚀 --> ~ file: news.saga.ts ~ line 10 ~ function*getDataNewsCategory ~ response`, response);
-    console.log(
-      `🛠 LOG: 🚀 --> -------------------------------------------------------------------------------------------------`,
-    );
     if (response.status === 200) {
       yield put(newsActionsCreator.getNewCategorySuccess(response));
     } else {
@@ -24,6 +19,20 @@ function* getDataNewsCategory() {
   }
 }
 
+function* getDataNewsByCategory({ payload }: Action<CategoryByIdParamsT>) {
+  try {
+    const response: ApiResponse<any, any> = yield callSafe(NewsApi.getNewByCategory, payload);
+    if (response.status === 200) {
+      yield put(newsActionsCreator.getNewByCategorySuccess(response));
+    } else {
+      yield put(newsActionsCreator.getNewByCategoryFailed({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(newsActionsCreator.getNewByCategoryFailed({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 export default function* () {
   yield takeEvery(newsActionsCreator.getNewCategoryRequest, getDataNewsCategory);
+  yield takeEvery(newsActionsCreator.getNewByCategoryRequest, getDataNewsByCategory);
 }

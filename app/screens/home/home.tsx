@@ -28,12 +28,21 @@ class Home extends React.Component<Props, State> {
     this.props.getDataSliders({ access_token: '', params: {} });
   }
 
+  onPressLeft = () => {
+    this.props.navigation.toggleDrawer();
+  };
+
   render() {
     const { sliders, products, navigation } = this.props;
     const data = mapListProductCategory(products);
     return (
       <View style={styles.container}>
-        <HeaderMain screen={tabModel.home} {...this.props} bgColor={theme.colors.green} />
+        <HeaderMain
+          onPressLeft={this.onPressLeft}
+          screen={tabModel.home}
+          {...this.props}
+          bgColor={theme.colors.green}
+        />
         <ScrollView style={{ flex: 1 }}>
           <View style={styles.styWrapHeader}>
             <MenuMain />
