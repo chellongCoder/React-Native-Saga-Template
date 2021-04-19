@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     products: state.HomeData.products,
     sliders: state.HomeData.sliders,
     isLoading: state.HomeData.isLoading,
+    error: state.HomeData.error,
   };
 };
 

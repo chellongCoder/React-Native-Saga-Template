@@ -9,6 +9,8 @@ import { ProductCategoryProps } from '../product/types';
 import { theme } from '../../theme';
 import ListItemShimmer from '../../components/home-component/ElementShimmer';
 import BannerAdvertisementShimmer from '../../util/BannerAdvertisementShimmer';
+import { Text } from '../../components';
+import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import MenuMain from './MenuMain';
 import styles from './home.styles';
 interface Props {
@@ -18,6 +20,7 @@ interface Props {
   products: ProductCategoryProps[];
   isLoading: boolean;
   navigation: any;
+  error: any;
 }
 interface State {}
 class Home extends React.Component<Props, State> {
@@ -26,16 +29,57 @@ class Home extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     this.props.getDataProduct({ access_token: '', params: {} });
     this.props.getDataSliders({ access_token: '', params: {} });
-  }
+  };
 
   onPressLeft = () => {
     this.props.navigation.toggleDrawer();
   };
 
+  changeComponent = () => {
+    const { sliders, products, navigation, isLoading, error } = this.props;
+    if (!_.isEmpty(error)) {
+      return (
+        <View style={styles.styWrapErr}>
+          <RippleButtonAnim onPress={this.getData}>
+            <Text style={styles.styTxtReload}>Tải lại</Text>
+          </RippleButtonAnim>
+        </View>
+      );
+    } else {
+      return isLoading ? (
+        <>
+          <BannerAdvertisementShimmer />
+          <ListItemShimmer />
+        </>
+      ) : (
+        <>
+          <BannerAdvertisement data={sliders} />
+          <FlatList
+            data={products}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }: { item: ProductCategoryProps }) => (
+              <ListItem
+                navigation={navigation}
+                products={item.products}
+                name={item.name}
+                categoryId={item.categoryId}
+              />
+            )}
+          />
+        </>
+      );
+    }
+  };
+
   render() {
-    const { sliders, products, navigation, isLoading } = this.props;
+    const { sliders, products, navigation, isLoading, error } = this.props;
+
     return (
       <View style={styles.container}>
         <HeaderMain
@@ -50,28 +94,7 @@ class Home extends React.Component<Props, State> {
           </View>
           <View style={{ flex: 1, backgroundColor: '#FFF', zIndex: -1 }}>
             <View style={{ height: 20 }} />
-            {isLoading ? (
-              <>
-                <BannerAdvertisementShimmer />
-                <ListItemShimmer />
-              </>
-            ) : (
-              <>
-                <BannerAdvertisement data={sliders} />
-                <FlatList
-                  data={products}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={({ item }: { item: ProductCategoryProps }) => (
-                    <ListItem
-                      navigation={navigation}
-                      products={item.products}
-                      name={item.name}
-                      categoryId={item.categoryId}
-                    />
-                  )}
-                />
-              </>
-            )}
+            {this.changeComponent()}
           </View>
         </ScrollView>
         <View style={styles.styFooter} />
