@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, FlatList, TouchableOpacity } from 'react-native';
-import Image from 'react-native-fast-image';
+import { View, FlatList, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { AppBars, Text } from '../../components';
@@ -10,6 +9,7 @@ import { AppIcon } from '../../Common/AppIcon';
 import { ApiHistory } from '../../services';
 import { screens } from '../../config';
 import { useLoadingGlobal } from '../../hooks';
+import { CommonStyle } from '../../constants';
 import styles from './history.style';
 
 const title = 'Lịch sử quét';
@@ -48,7 +48,9 @@ const History = () => {
     return (
       <TouchableOpacity onPress={goToDetail(id)}>
         <Row style={styles.styWrapElement}>
-          <Image source={{ uri: product_description.thumbnail_img }} style={styles.styImage} />
+          <View style={styles.styImage}>
+            <Image source={{ uri: product_description.thumbnail_img }} style={CommonStyle.image} />
+          </View>
           <View style={{ flex: 1 }}>
             <Text>{product_description.name}</Text>
             <Row>

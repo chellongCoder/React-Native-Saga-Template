@@ -5,6 +5,7 @@
   "scripts": {
     "android": "ENVFILE=.env.staging react-native run-android",
     "ios": "ENVFILE=.env.staging react-native run-ios",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
     "start": "react-native start",
     "clean:android": "cd android && ./gradlew cleanBuildCache && ./gradlew clean && cd ..",
     "setup:ios": "cd ios && pod install && cd ..",
@@ -107,6 +108,7 @@
     "@types/redux-actions": "^2.6.1",
     "@types/redux-logger": "^3.0.8",
     "babel-jest": "24.9.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "6.8.0",
     "eslint-config-react-native-wcandillon": "^3.4.0",
     "eslint-plugin-prettier": "^3.3.1",

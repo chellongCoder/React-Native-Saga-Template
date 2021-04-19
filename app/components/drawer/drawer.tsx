@@ -73,10 +73,12 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.changeLanguage')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
-          {drawerIcons.language}
-          <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
-        </TouchableOpacity>
+        {!userInfo && (
+          <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
+            {drawerIcons.language}
+            <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>

@@ -11,6 +11,9 @@ import {
   GET_DATA_PRODUCT_MORE_REQUEST,
   GET_DATA_PRODUCT_MORE_SUCCESS,
   GET_DATA_PRODUCT_MORE_FAILD,
+  POST_COMMENT_SUCCESS,
+  POST_COMMENT_REQUEST,
+  POST_COMMENT_FAILED,
 } from '../types/index';
 
 const initialState = {
@@ -96,6 +99,21 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         error: payload.error,
+      };
+    case POST_COMMENT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case POST_COMMENT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+      };
+    case POST_COMMENT_FAILED:
+      return {
+        ...state,
+        isLoading: false,
       };
     default:
       return state;

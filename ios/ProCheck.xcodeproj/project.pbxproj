@@ -12,7 +12,9 @@
 		047F6620EC4D437EA2978232 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD2C119886463AB8A73018 /* SFProDisplay-Regular.otf */; };
 		04BF00A52478F2F00033FA00 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */; };
 		06DE323906C04BB480A991CF /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEC9FAC379649C28D69074D /* AntDesign.ttf */; };
+		0742DAAA1B074721802AC7BD /* MYRIADPRO-SEMIBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B62BAC2F904D48009931F832 /* MYRIADPRO-SEMIBOLD.OTF */; };
 		094659D0525D4F6CAACAFC4E /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 430ABE673AD64C04AC2AC9F6 /* Octicons.ttf */; };
+		0FF6D1AB5EBA467DB12CED7B /* MYRIADPRO-COND.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 830A31FEF7EC41229ECECCE0 /* MYRIADPRO-COND.OTF */; };
 		106E7418ABD948D29D17CD9E /* RobotoMono-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 646CE5970C8D4B8889F20760 /* RobotoMono-BoldItalic.ttf */; };
 		10D36A17E8AB408384D8BD74 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3665FAFCE2424FA1BDD4B097 /* Fontisto.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -29,18 +31,23 @@
 		2DCD954D1E0B4F2C00145EB5 /* ProCheckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ProCheckTests.m */; };
 		2E412E7988AB42A797103545 /* RobotoMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FE890A675141F7954CC7D3 /* RobotoMono-LightItalic.ttf */; };
 		35754F6692B14A988D061A73 /* RobotoMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6519AD273E024348B4E2E0DD /* RobotoMono-SemiBold.ttf */; };
+		383EC62E4F8C4100AFEE4D31 /* MYRIADPRO-BOLDCONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 74A7AE889AA04A6EBF125B95 /* MYRIADPRO-BOLDCONDIT.OTF */; };
 		4145723D809443EF97020797 /* SFProDisplay-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 775B8516453E490CA47CD0BE /* SFProDisplay-SemiboldItalic.otf */; };
 		4A15318BAA2B4ADF9C13F8E5 /* SFProDisplay-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 992EE0FF0C374DF0940BA2C3 /* SFProDisplay-BlackItalic.otf */; };
 		4CA6AEEFCBCB49FC938C111F /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C204B8064D2845F3A3A13282 /* SFProDisplay-Thin.otf */; };
 		513E203F506147E4A9BE97AD /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87EA2A553717431B96B69697 /* MaterialCommunityIcons.ttf */; };
 		55CE565998014D77B0531225 /* SFProDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB7FBF1976C84C109140040E /* SFProDisplay-Ultralight.otf */; };
+		5670F4E9A22141DC94E675BD /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1740BCEBA97B4CA695543B03 /* MyriadPro-Light.otf */; };
 		5A41CE6D1CFD4D12BAD10129 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF7B606DF515443E91AFE835 /* Roboto.ttf */; };
 		6264462B68B448DCB2F43803 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 731B0E07BC8448F29F09BB81 /* SFProDisplay-Semibold.otf */; };
 		6310BCDA85284FCFB58837B4 /* SFProDisplay-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3C719C9E0AEE4800855B024C /* SFProDisplay-ThinItalic.otf */; };
+		646B42ADBA144226BE9B19D4 /* MYRIADPRO-BOLDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDB72E1B4F041FC9FC3BC6F /* MYRIADPRO-BOLDIT.OTF */; };
 		6ACACBBF37C744B78777825C /* RobotoMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3614AD29BA41B4A77E3413 /* RobotoMono-Thin.ttf */; };
+		6B033438B354465188FD03CA /* MYRIADPRO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = BD4A74117C8649CCB1DACE53 /* MYRIADPRO-REGULAR.OTF */; };
 		6BB9DC6C5668446E95EB1178 /* RobotoMono-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 802EA037F5014968849B202B /* RobotoMono-SemiBoldItalic.ttf */; };
 		6F7953C6673CC4DAA4C0A84D /* libPods-ProCheck-ProCheckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */; };
 		706BDB61F440443ABFFC34E9 /* SFProDisplay-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60021F385A14842B9BAADE6 /* SFProDisplay-MediumItalic.otf */; };
+		74DEE1E03ADA4B14BCB8B9C1 /* MYRIADPRO-CONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 5A89D3D362C24F7688F8CC0B /* MYRIADPRO-CONDIT.OTF */; };
 		7C615ACAF4F148409C19E79F /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847211548D3846BC935DA378 /* RobotoMono-Bold.ttf */; };
 		7C6D6DB4132546058BB7E656 /* SFProDisplay-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8568AB49CD72426B8D320B79 /* SFProDisplay-HeavyItalic.otf */; };
 		7E516813BB5545568E6CD628 /* SFProDisplay-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 137BD759EE934966BE9A597B /* SFProDisplay-BoldItalic.otf */; };
@@ -54,8 +61,11 @@
 		90FC6241617F449AA420C52B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5493F80DBB5B441683219706 /* Zocial.ttf */; };
 		96C72C9675074EB79BA3563A /* RobotoMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94A72E92CC3B437583521E29 /* RobotoMono-MediumItalic.ttf */; };
 		9BBB426DB87D47DF8F998B8F /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */; };
+		9C40569D69244FEBA4955245 /* MYRIADPRO-SEMIBOLDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = D2769FEEF205458491968165 /* MYRIADPRO-SEMIBOLDIT.OTF */; };
 		A41F6655E06DC53C6E207059 /* libPods-ProCheck-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4509E969860F335EA9817F27 /* libPods-ProCheck-tvOS.a */; };
 		A5650D74E1954889ACF40F71 /* RobotoMono-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90452BE0C33F470EADC993C5 /* RobotoMono-ThinItalic.ttf */; };
+		A871AF0B262D36A50029471C /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		A88F3A662A794180BD2B8E83 /* MYRIADPRO-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = CA5FACA507254C14B1E2D9D3 /* MYRIADPRO-BOLD.OTF */; };
 		A8C280EE25B5DF2C0054DFD2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C280ED25B5DF2C0054DFD2 /* File.swift */; };
 		A8C6545F24FEBC1000B1B784 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8C6545E24FEBC0F00B1B784 /* GoogleService-Info.plist */; };
 		AA229FF6C1634DB28AA6BE22 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80663627A0AF419BAC87B862 /* FontAwesome5_Brands.ttf */; };
@@ -71,6 +81,7 @@
 		B8FD3D5D7BCE4697A3E4EE41 /* SFProDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7FBE1B4450F462EBC2AA53D /* SFProDisplay-Heavy.otf */; };
 		BE43A258DAF84E2FAC8B2D25 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CEA46DFC7B74AECAFEB514F /* Foundation.ttf */; };
 		CB02423070A24E98927BB4B9 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0FF2D6C812F48A7ADDA7ED2 /* MaterialIcons.ttf */; };
+		D56A166CC08F43ECBDB111AC /* MYRIADPRO-BOLDCOND.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC8752A7C64AAEA6B50C40 /* MYRIADPRO-BOLDCOND.OTF */; };
 		D5D687BC062C43CC9D416FEF /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61DA29D29E27436CB538134E /* SimpleLineIcons.ttf */; };
 		DB0F627726236594003F0971 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DB0F627626236594003F0971 /* logo.png */; };
 		E82086ECDCA44A60B060CDF7 /* RobotoMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F168B8350223405D8BB02719 /* RobotoMono-Light.ttf */; };
@@ -81,16 +92,6 @@
 		F9F667746350421CA6A550C3 /* RobotoMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E57AB74041974984AB675524 /* RobotoMono-VariableFont_wght.ttf */; };
 		FC51EECD1B9A4259AD222D39 /* SFProDisplay-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3BA0965C52B4412B2B50C01 /* SFProDisplay-RegularItalic.otf */; };
 		FC5A4A67E7B2476AA2D3B9C3 /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 159B964B7FE741399BDA7635 /* RobotoMono-Italic.ttf */; };
-		A88F3A662A794180BD2B8E83 /* MYRIADPRO-BOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = CA5FACA507254C14B1E2D9D3 /* MYRIADPRO-BOLD.OTF */; };
-		D56A166CC08F43ECBDB111AC /* MYRIADPRO-BOLDCOND.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC8752A7C64AAEA6B50C40 /* MYRIADPRO-BOLDCOND.OTF */; };
-		383EC62E4F8C4100AFEE4D31 /* MYRIADPRO-BOLDCONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 74A7AE889AA04A6EBF125B95 /* MYRIADPRO-BOLDCONDIT.OTF */; };
-		646B42ADBA144226BE9B19D4 /* MYRIADPRO-BOLDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDB72E1B4F041FC9FC3BC6F /* MYRIADPRO-BOLDIT.OTF */; };
-		0FF6D1AB5EBA467DB12CED7B /* MYRIADPRO-COND.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 830A31FEF7EC41229ECECCE0 /* MYRIADPRO-COND.OTF */; };
-		74DEE1E03ADA4B14BCB8B9C1 /* MYRIADPRO-CONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 5A89D3D362C24F7688F8CC0B /* MYRIADPRO-CONDIT.OTF */; };
-		5670F4E9A22141DC94E675BD /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1740BCEBA97B4CA695543B03 /* MyriadPro-Light.otf */; };
-		6B033438B354465188FD03CA /* MYRIADPRO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = BD4A74117C8649CCB1DACE53 /* MYRIADPRO-REGULAR.OTF */; };
-		0742DAAA1B074721802AC7BD /* MYRIADPRO-SEMIBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B62BAC2F904D48009931F832 /* MYRIADPRO-SEMIBOLD.OTF */; };
-		9C40569D69244FEBA4955245 /* MYRIADPRO-SEMIBOLDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = D2769FEEF205458491968165 /* MYRIADPRO-SEMIBOLDIT.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		04BCF4DE24786D3700D19063 /* ProCheck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ProCheck.entitlements; path = ProCheck/ProCheck.entitlements; sourceTree = "<group>"; };
 		04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		0B7CC2B1A7EE49B0A9E166A0 /* RobotoMono-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-ExtraLightItalic.ttf"; path = "../app/assets/Fonts/RobotoMono-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		0BFC8752A7C64AAEA6B50C40 /* MYRIADPRO-BOLDCOND.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-BOLDCOND.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDCOND.OTF"; sourceTree = "<group>"; };
 		137BD759EE934966BE9A597B /* SFProDisplay-BoldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-BoldItalic.otf"; path = "../app/assets/Fonts/SFProDisplay-BoldItalic.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ProCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ProCheck/AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ProCheck/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ProCheck/main.m; sourceTree = "<group>"; };
 		159B964B7FE741399BDA7635 /* RobotoMono-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-Italic.ttf"; path = "../app/assets/Fonts/RobotoMono-Italic.ttf"; sourceTree = "<group>"; };
+		1740BCEBA97B4CA695543B03 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MyriadPro-Light.otf"; path = "../app/assets/Fonts/MyriadPro-Light.otf"; sourceTree = "<group>"; };
 		1CCD2C119886463AB8A73018 /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Regular.otf"; path = "../app/assets/Fonts/SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 		1CD2809C47744063B9F58702 /* SFProDisplay-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Black.otf"; path = "../app/assets/Fonts/SFProDisplay-Black.otf"; sourceTree = "<group>"; };
 		27782957102F4D81B93E3FB8 /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-Medium.ttf"; path = "../app/assets/Fonts/RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
@@ -151,6 +154,7 @@
 		505D0E83FB1B4183A38E1068 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		5195FE9121DC5FC7DD82326C /* Pods-ProCheck-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOS/Pods-ProCheck-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5493F80DBB5B441683219706 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		5A89D3D362C24F7688F8CC0B /* MYRIADPRO-CONDIT.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-CONDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-CONDIT.OTF"; sourceTree = "<group>"; };
 		5CDF15D48682B2D8C309B636 /* Pods-ProCheck-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOS/Pods-ProCheck-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		61DA29D29E27436CB538134E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		646CE5970C8D4B8889F20760 /* RobotoMono-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-BoldItalic.ttf"; path = "../app/assets/Fonts/RobotoMono-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -159,10 +163,12 @@
 		6F2F9BB0A8964985BE4C71DF /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-Regular.ttf"; path = "../app/assets/Fonts/RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		71E3F6B02E854911880EE829 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		731B0E07BC8448F29F09BB81 /* SFProDisplay-Semibold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Semibold.otf"; path = "../app/assets/Fonts/SFProDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		74A7AE889AA04A6EBF125B95 /* MYRIADPRO-BOLDCONDIT.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-BOLDCONDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDCONDIT.OTF"; sourceTree = "<group>"; };
 		775B8516453E490CA47CD0BE /* SFProDisplay-SemiboldItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-SemiboldItalic.otf"; path = "../app/assets/Fonts/SFProDisplay-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		7A85B6F09B634456A5C2EDC8 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		802EA037F5014968849B202B /* RobotoMono-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-SemiBoldItalic.ttf"; path = "../app/assets/Fonts/RobotoMono-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		80663627A0AF419BAC87B862 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		830A31FEF7EC41229ECECCE0 /* MYRIADPRO-COND.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-COND.OTF"; path = "../app/assets/Fonts/MYRIADPRO-COND.OTF"; sourceTree = "<group>"; };
 		840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ProCheck-ProCheckTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		847211548D3846BC935DA378 /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-Bold.ttf"; path = "../app/assets/Fonts/RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
 		8568AB49CD72426B8D320B79 /* SFProDisplay-HeavyItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-HeavyItalic.otf"; path = "../app/assets/Fonts/SFProDisplay-HeavyItalic.otf"; sourceTree = "<group>"; };
@@ -179,14 +185,19 @@
 		ADAE268824F937C500A83CF6 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		AF7B606DF515443E91AFE835 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
 		B60021F385A14842B9BAADE6 /* SFProDisplay-MediumItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-MediumItalic.otf"; path = "../app/assets/Fonts/SFProDisplay-MediumItalic.otf"; sourceTree = "<group>"; };
+		B62BAC2F904D48009931F832 /* MYRIADPRO-SEMIBOLD.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-SEMIBOLD.OTF"; path = "../app/assets/Fonts/MYRIADPRO-SEMIBOLD.OTF"; sourceTree = "<group>"; };
 		B791581BFAFD4F4B96CC425E /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		BB7FBF1976C84C109140040E /* SFProDisplay-Ultralight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Ultralight.otf"; path = "../app/assets/Fonts/SFProDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		BD4A74117C8649CCB1DACE53 /* MYRIADPRO-REGULAR.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-REGULAR.OTF"; path = "../app/assets/Fonts/MYRIADPRO-REGULAR.OTF"; sourceTree = "<group>"; };
 		BED56FE02FB749EEA3F127F6 /* RobotoMono-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-ExtraLight.ttf"; path = "../app/assets/Fonts/RobotoMono-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C0FF2D6C812F48A7ADDA7ED2 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		C204B8064D2845F3A3A13282 /* SFProDisplay-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-Thin.otf"; path = "../app/assets/Fonts/SFProDisplay-Thin.otf"; sourceTree = "<group>"; };
 		C4DC3062E7554D599184D6EB /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		CA5FACA507254C14B1E2D9D3 /* MYRIADPRO-BOLD.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-BOLD.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLD.OTF"; sourceTree = "<group>"; };
+		CCDB72E1B4F041FC9FC3BC6F /* MYRIADPRO-BOLDIT.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-BOLDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDIT.OTF"; sourceTree = "<group>"; };
 		CCDC14E31E1943A8ABC3E7ED /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		CEABED6149B32DC804DD7A46 /* Pods-ProCheck-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-tvOSTests/Pods-ProCheck-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2769FEEF205458491968165 /* MYRIADPRO-SEMIBOLDIT.OTF */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "MYRIADPRO-SEMIBOLDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-SEMIBOLDIT.OTF"; sourceTree = "<group>"; };
 		DB0F627626236594003F0971 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		DCEC9FAC379649C28D69074D /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/native-base/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		E41933CF72676C3C46F9D9BD /* Pods-ProCheck-ProCheckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProCheck-ProCheckTests.release.xcconfig"; path = "Target Support Files/Pods-ProCheck-ProCheckTests/Pods-ProCheck-ProCheckTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,16 +208,6 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F168B8350223405D8BB02719 /* RobotoMono-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RobotoMono-Light.ttf"; path = "../app/assets/Fonts/RobotoMono-Light.ttf"; sourceTree = "<group>"; };
 		F3BA0965C52B4412B2B50C01 /* SFProDisplay-RegularItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SFProDisplay-RegularItalic.otf"; path = "../app/assets/Fonts/SFProDisplay-RegularItalic.otf"; sourceTree = "<group>"; };
-		CA5FACA507254C14B1E2D9D3 /* MYRIADPRO-BOLD.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-BOLD.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLD.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0BFC8752A7C64AAEA6B50C40 /* MYRIADPRO-BOLDCOND.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-BOLDCOND.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDCOND.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		74A7AE889AA04A6EBF125B95 /* MYRIADPRO-BOLDCONDIT.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-BOLDCONDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDCONDIT.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CCDB72E1B4F041FC9FC3BC6F /* MYRIADPRO-BOLDIT.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-BOLDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-BOLDIT.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		830A31FEF7EC41229ECECCE0 /* MYRIADPRO-COND.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-COND.OTF"; path = "../app/assets/Fonts/MYRIADPRO-COND.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5A89D3D362C24F7688F8CC0B /* MYRIADPRO-CONDIT.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-CONDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-CONDIT.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		1740BCEBA97B4CA695543B03 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; name = "MyriadPro-Light.otf"; path = "../app/assets/Fonts/MyriadPro-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BD4A74117C8649CCB1DACE53 /* MYRIADPRO-REGULAR.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-REGULAR.OTF"; path = "../app/assets/Fonts/MYRIADPRO-REGULAR.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B62BAC2F904D48009931F832 /* MYRIADPRO-SEMIBOLD.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-SEMIBOLD.OTF"; path = "../app/assets/Fonts/MYRIADPRO-SEMIBOLD.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D2769FEEF205458491968165 /* MYRIADPRO-SEMIBOLDIT.OTF */ = {isa = PBXFileReference; name = "MYRIADPRO-SEMIBOLDIT.OTF"; path = "../app/assets/Fonts/MYRIADPRO-SEMIBOLDIT.OTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -568,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A871AF0B262D36A50029471C /* main.jsbundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				04BF00A52478F2F00033FA00 /* AppCenter-Config.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
@@ -1064,7 +1066,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProCheck/ProCheck.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = FQ4PQN7KW5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1098,7 +1100,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProCheck/ProCheck.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = FQ4PQN7KW5;
 				INFOPLIST_FILE = ProCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
