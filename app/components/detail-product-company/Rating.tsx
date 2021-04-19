@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
 import { screens } from '../../config';
 import { COLORS, CommonStyle } from '../../constants';
-import { useBottomSheet } from '../../hooks';
+import { useBottomSheet, useLoadingGlobal } from '../../hooks';
 import { homeActionsCreator } from '../../redux/actions';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
@@ -20,6 +20,7 @@ import { Stars } from './Stars';
 
 const _Rating = () => {
   const { choicedImages } = useSelector((state: RootState) => state.ProductData);
+  const { isLoading } = useSelector((state: RootState) => state.HomeData);
   const { data: userLogin }: any = useSelector((state: RootState) => state.AuthData);
   const selectedImage: UploadFileT[] = useMemo(() => choicedImages, [choicedImages]);
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const _Rating = () => {
   const [stars, setStars] = useState<PushStarT[]>(mocksData.valueRating);
   const [text, setText] = useState('');
   const bottomSheet = useBottomSheet();
+  const loading = useLoadingGlobal();
 
   const onComment = useCallback(() => {
     try {
@@ -98,6 +100,14 @@ const _Rating = () => {
       dispatch(productActionsCreator.setChoicedImages({ images: [] }));
     };
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoading) {
+      loading.onShow();
+    } else {
+      loading.onHide();
+    }
+  });
 
   const renderRightAccessory = useCallback(() => {
     return (

@@ -9,8 +9,9 @@ import { ItemNews, SearchBar, Text } from '../../components';
 import { RootState } from '../../redux/reducers';
 import { mapperNewsByCategory, mapperNewsCategory } from '../../helpers/news.helper';
 import { useLoadingGlobal } from '../../hooks';
+import { convertTimeToAMPM } from '../../util';
 import { useNewsStyle } from './styles';
-import { NewCategoryT } from './types';
+import { NewCategoryT, NewsByCategoryT } from './types';
 
 const _NewsScreen = () => {
   const { isLoading, newCategories: _newCategories, news: _news } = useSelector((state: RootState) => state.NewData);
@@ -43,7 +44,7 @@ const _NewsScreen = () => {
   const renderItemTypeExeTitle = (item: NewCategoryT, index: number) => {
     return <ItemNews key={index} {...{ item, index, active, onChangeTab }} />;
   };
-  const renderItemContent = ({ item }: { item: any; index: number }) => {
+  const renderItemContent = ({ item }: { item: NewsByCategoryT; index: number }) => {
     return (
       <TouchableOpacity style={[styles.viewItem, styles.viewItemShadow]} onPress={() => {}}>
         <View style={styles.viewImageWrapper}>
@@ -57,9 +58,7 @@ const _NewsScreen = () => {
                 {item.title}
               </Text>
             </View>
-            <Text style={{ color: COLORS.GRAY }}>
-              {new Date(item.time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
-            </Text>
+            <Text style={{ color: COLORS.GRAY }}>{convertTimeToAMPM(item.time.split(' ')[1])}</Text>
           </View>
           <View style={styles.viewTextContent}>
             <Text isLongText numberOfLines={2} style={{ color: COLORS.darkBlue }}>

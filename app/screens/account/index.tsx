@@ -57,12 +57,12 @@ const MENU = [
   {
     id: 'SettingMessage',
     name: 'Cài đặt nhận tin nhắn',
-    screen: screens.settingMessageScreen,
+    screen: screens.historyScanCode,
   },
   {
     id: 'BuyHistory',
     name: 'Lịch sử mua hàng',
-    screen: screens.buyHistoryScreen,
+    screen: screens.historyScanCode,
   },
   {
     id: 'HistoryScanCode',
@@ -72,7 +72,7 @@ const MENU = [
   {
     id: 'Rules',
     name: 'Điều khoản',
-    screen: screens.ruleScreen,
+    screen: screens.historyScanCode,
   },
   {
     id: 'Tutorial',
@@ -82,16 +82,16 @@ const MENU = [
   {
     id: 'Contact',
     name: 'Liên hệ',
-    screen: screens.contactScreen,
+    screen: screens.historyScanCode,
   },
   {
     id: 'RequestCode',
     name: 'Request tạo mã (đại lý)',
-    screen: screens.requestCodeScreen,
+    screen: screens.historyScanCode,
   },
   {
     id: 'ManagerRequestCode',
     name: 'Quản lý tạo mã (báo cáo QR)',
-    screen: screens.managerRequestCodeScreen,
+    screen: screens.historyScanCode,
   },
 ];

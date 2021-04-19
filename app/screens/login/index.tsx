@@ -3,6 +3,7 @@ import { Image, View } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { CommonStyle, Images } from '../../constants';
@@ -65,7 +66,6 @@ const LoginScreen = withTheme(({ navigation }: any) => {
   useEffect(() => {
     if (data) {
       navigation.navigate(screens.bottomTabStack);
-      navigation.toggleDrawer();
     }
   }, [data, loading, navigation, requesting]);
 
@@ -74,30 +74,32 @@ const LoginScreen = withTheme(({ navigation }: any) => {
       <View style={styles.logo}>
         <FastImage resizeMode={'contain'} style={CommonStyle.image} source={Images.LOGO} />
       </View>
-      <View style={styles.content}>
-        <TextField
-          onChangeText={setUserName}
-          renderLeftAccessory={renderLeftAccessoryMail}
-          style={styles.inpuRateStyle}
-          placeholder="Email"
-          inputStyle={styles.inputStyles}
-        />
-        <TextField
-          secureTextEntry
-          onChangeText={setPassword}
-          renderLeftAccessory={renderLeftAccessoryPassword}
-          style={styles.inpuRateStyle}
-          placeholder="Mật khẩu"
-          inputStyle={styles.inputStyles}
-        />
-        <View style={[styles.checkboxContainer, CommonStyle.row]}>
-          <Checkbox checked={member} onChangeValue={onChangeRemember} />
-          <Text style={styles.txtMember}>Ghi nhớ</Text>
-        </View>
+      <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
+        <View style={styles.content}>
+          <TextField
+            onChangeText={setUserName}
+            renderLeftAccessory={renderLeftAccessoryMail}
+            style={styles.inpuRateStyle}
+            placeholder="Email"
+            inputStyle={styles.inputStyles}
+          />
+          <TextField
+            secureTextEntry
+            onChangeText={setPassword}
+            renderLeftAccessory={renderLeftAccessoryPassword}
+            style={styles.inpuRateStyle}
+            placeholder="Mật khẩu"
+            inputStyle={styles.inputStyles}
+          />
+          <View style={[styles.checkboxContainer, CommonStyle.row]}>
+            <Checkbox checked={member} onChangeValue={onChangeRemember} />
+            <Text style={styles.txtMember}>Ghi nhớ</Text>
+          </View>
 
-        <AppButton style={styles.buttonLogin} title="ĐĂNG NHẬP" onSubmit={onLogin} />
-        <FacebookButton textButton={styles.textButton} style={styles.buttonFacebook} />
-      </View>
+          <AppButton style={styles.buttonLogin} title="ĐĂNG NHẬP" onSubmit={onLogin} />
+          <FacebookButton textButton={styles.textButton} style={styles.buttonFacebook} />
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 });

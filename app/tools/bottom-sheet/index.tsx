@@ -41,12 +41,16 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
           case 1:
             ImageCropPicker.openPicker({
               writeTempFile: true,
+              multiple: true,
             })
-              .then((image: any) => {
-                console.log('image', 'name', image);
+              .then((images: ImageOrVideo[]) => {
+                console.log('image', 'name', images);
+                const choicedImgs = images.map((image: ImageOrVideo) => {
+                  return { name: image.filename, type: image.mime, uri: image.sourceURL };
+                });
                 dispatch(
                   productActionsCreator.setChoicedImages({
-                    images: [...selectedImage, { name: image.filename, type: image.mime, uri: image.sourceURL }],
+                    images: [...selectedImage, ...choicedImgs],
                   }),
                 );
               })
