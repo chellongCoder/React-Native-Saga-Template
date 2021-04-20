@@ -57,8 +57,8 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest());
-  }, [dispatch]);
+    dispatch(authActionsCreator.logoutRequest({ token: userInfo?.accessToken }));
+  }, [dispatch, userInfo?.accessToken]);
 
   return (
     <SafeAreaView style={styles.container}>

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Image, View } from 'react-native';
-import { withTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -12,11 +11,10 @@ import { RootState } from '../../redux/reducers';
 import { screens } from '../../config';
 import { useLoginStyle } from './styles';
 
-const LoginScreen = withTheme(({ navigation }: any) => {
+const LoginScreen = ({ navigation }: any) => {
   const styles = useLoginStyle();
   const { requesting, data } = useSelector((state: RootState) => state.AuthData);
   const loading = useLoadingGlobal();
-  const fieldRef: any = useRef();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [member, setMember] = useState(false);
@@ -102,6 +100,6 @@ const LoginScreen = withTheme(({ navigation }: any) => {
       </KeyboardAwareScrollView>
     </View>
   );
-});
+};
 
-export default LoginScreen;
+export default React.memo(LoginScreen);

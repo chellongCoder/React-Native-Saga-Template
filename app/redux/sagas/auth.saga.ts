@@ -3,7 +3,7 @@ import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
 import { mapUserLogin } from '../../helpers/auth.helper';
 import { UserLoginT } from '../../screens/login/types';
 import { AuthAPI } from '../../services';
-import { LOGIN_PARAMS, ResponseT } from '../../services/types';
+import { LOGIN_PARAMS, LOGOUT_PARAMS, ResponseT } from '../../services/types';
 import { authActionsCreator } from '../actions';
 import { login, signUp } from '../api';
 import { REGISTER_REQUEST } from '../types';
@@ -27,14 +27,13 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   }
 }
 
-function* logoutSaga() {
+function* logoutSaga(action: Effect<string, LOGOUT_PARAMS>) {
   try {
-    const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.logout, {});
-    const mapperData = mapUserLogin(response.data);
+    const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.logout, action.payload);
+
     if (response.status === 200) {
-      AsyncStorage.setItem('@token', mapperData.accessToken);
-      const user = mapperData;
-      yield put(authActionsCreator.loginSuccess({ user }));
+      AsyncStorage.removeItem('@token');
+      yield put(authActionsCreator.logoutSuccess());
     }
   } catch (err) {
     yield put(
@@ -74,8 +73,8 @@ function* watchLogin() {
 
 function* watchLogout() {
   while (true) {
-    yield take(authActionsCreator.logoutRequest);
-    yield* logoutSaga();
+    const action: Effect = yield take(authActionsCreator.logoutRequest);
+    yield* logoutSaga(action);
   }
 }
 
