@@ -2,6 +2,10 @@ import { CommonActions } from '@react-navigation/native';
 
 let _navigator: any;
 
+function getTopLevelNavigator() {
+  return _navigator;
+}
+
 function setTopLevelNavigator(navigatorRef: any) {
   _navigator = navigatorRef;
 }
@@ -25,4 +29,6 @@ export default {
   navigate,
   goBack,
   setTopLevelNavigator,
+  _navigator,
+  getTopLevelNavigator,
 };

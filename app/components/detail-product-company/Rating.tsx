@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
 import { screens } from '../../config';
@@ -237,9 +237,9 @@ const styles = StyleSheet.create({
     fontSize: Platform.SizeScale(14),
   },
   choicedImage: {
-    width: Platform.SizeScale(50),
-    height: Platform.SizeScale(50),
-    marginHorizontal: Platform.SizeScale(10),
+    width: Platform.SizeScale(45),
+    height: Platform.SizeScale(45),
+    marginHorizontal: Platform.SizeScale(5),
   },
   deleteImage: {
     backgroundColor: COLORS.BOLD_GRAY,

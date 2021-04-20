@@ -22,3 +22,4 @@ export * from './image-view';
 export * from './checkbox';
 export * from './item-news-category';
 export * from './slider-item';
+export * from './toast-info';

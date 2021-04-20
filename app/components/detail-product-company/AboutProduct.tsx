@@ -29,5 +29,7 @@ const styles = StyleSheet.create({
   },
   content: {
     marginTop: Platform.SizeScale(10),
+    width: Platform.deviceWidth - Platform.SizeScale(20),
+    alignSelf: 'center',
   },
 });
