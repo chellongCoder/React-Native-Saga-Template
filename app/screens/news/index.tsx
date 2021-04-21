@@ -10,6 +10,7 @@ import { RootState } from '../../redux/reducers';
 import { mapperNewsByCategory, mapperNewsCategory } from '../../helpers/news.helper';
 import { useLoadingGlobal } from '../../hooks';
 import { convertTimeToAMPM } from '../../util';
+import navigationService from '../../navigation/navigation-service';
 import { useNewsStyle } from './styles';
 import { NewCategoryT, NewsByCategoryT } from './types';
 
@@ -46,7 +47,11 @@ const _NewsScreen = () => {
   };
   const renderItemContent = ({ item }: { item: NewsByCategoryT; index: number }) => {
     return (
-      <TouchableOpacity style={[styles.viewItem, styles.viewItemShadow]} onPress={() => {}}>
+      <TouchableOpacity
+        style={[styles.viewItem, styles.viewItemShadow]}
+        onPress={() => {
+          navigationService.navigate('NewsDetail', {});
+        }}>
         <View style={styles.viewImageWrapper}>
           <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
         </View>

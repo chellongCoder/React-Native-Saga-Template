@@ -7,6 +7,7 @@ const screens = {
   tabqrcode: 'TabQRCode',
   qrcode: 'QRCode',
   news: 'News',
+  newsDetail: 'NewsDetail',
   profile: 'Profile',
   authStack: 'AuthStack',
   appStack: 'AppStack',
