@@ -133,7 +133,7 @@ android {
 
     defaultConfig {
         missingDimensionStrategy 'react-native-camera', 'mlkit' 
-        applicationId "com.procheck"
+        applicationId "com.vn.procheck"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         multiDexEnabled true

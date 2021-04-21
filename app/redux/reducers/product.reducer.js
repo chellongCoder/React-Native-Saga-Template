@@ -2,10 +2,12 @@ import {
   PRODUCT_GET_DATA_PRODUCT_FAILD,
   PRODUCT_GET_DATA_PRODUCT_REQUEST,
   PRODUCT_GET_DATA_PRODUCT_SUCCESS,
+  SET_CHOICED_IMAGE,
 } from '../types/product.type';
 
 const initialState = {
   products: null,
+  choicedImages: [],
 };
 
 export default function (state = initialState, action) {
@@ -27,6 +29,11 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         error: payload.error,
+      };
+    case SET_CHOICED_IMAGE:
+      return {
+        ...state,
+        choicedImages: payload.images,
       };
     default:
       return state;

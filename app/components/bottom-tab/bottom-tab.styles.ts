@@ -6,17 +6,20 @@ const { colors } = theme;
 
 export default StyleSheet.create({
   container: {
-    paddingHorizontal: Platform.SizeScale(20),
     flexDirection: 'row',
     width: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     height: Platform.SizeScale(60),
     backgroundColor: colors.white,
     zIndex: 999,
     ...CommonStyle.shadow,
   },
-  tab: { justifyContent: 'center', alignItems: 'center' },
+  tab: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: Platform.deviceWidth / 5,
+  },
   tabText: { color: colors.gray, fontSize: Platform.SizeScale(10), paddingTop: Platform.SizeScale(3) },
   borderTab: {
     width: Platform.SizeScale(32),

@@ -28,7 +28,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.hisoft.base.app</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(REVERSED_CLIENT_ID)</string>
@@ -38,7 +38,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.hisoft.base.app</string>
+			<string>com.vn.procheck</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>$(FacebookLoginProtocolScheme)</string>
@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<string>10</string>
 	<key>CodePushDeploymentKey</key>
 	<string>$(CodePushDeploymentKey_iOS)</string>
 	<key>FacebookAppID</key>
@@ -81,6 +81,8 @@
 	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ProCheck muốn truy cập thư viện để lấy ảnh</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -136,6 +138,16 @@
 		<string>RobotoMono-SemiBoldItalic.ttf</string>
 		<string>RobotoMono-Thin.ttf</string>
 		<string>RobotoMono-ThinItalic.ttf</string>
+		<string>MYRIADPRO-BOLD.OTF</string>
+		<string>MYRIADPRO-BOLDCOND.OTF</string>
+		<string>MYRIADPRO-BOLDCONDIT.OTF</string>
+		<string>MYRIADPRO-BOLDIT.OTF</string>
+		<string>MYRIADPRO-COND.OTF</string>
+		<string>MYRIADPRO-CONDIT.OTF</string>
+		<string>MyriadPro-Light.otf</string>
+		<string>MYRIADPRO-REGULAR.OTF</string>
+		<string>MYRIADPRO-SEMIBOLD.OTF</string>
+		<string>MYRIADPRO-SEMIBOLDIT.OTF</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
@@ -153,6 +165,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

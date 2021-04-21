@@ -6,7 +6,7 @@ export default class FadeAnim extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			fadeAnim: new Animated.Value(0),
+			fadeAnim: new Animated.Value(this.props.hiden ? 1 : 0),
 		};
 	}
 
@@ -14,7 +14,7 @@ export default class FadeAnim extends Component {
 		Animated.timing(
 			this.state.fadeAnim,
 			{
-				toValue: 1,
+				toValue: this.props.hiden ? 0 : 1,
 				duration: this.props.duration ? this.props.duration : 600,
 				useNativeDriver: false
 			}
