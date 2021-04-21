@@ -1,28 +1,23 @@
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 import { COLORS } from '../../constants';
-import { FontFamily, Platform } from '../../theme';
+import { Platform } from '../../theme';
 
 export const useNewsStyle = () => {
   return useMemo(
     () =>
       StyleSheet.create({
         container: { flex: 1, backgroundColor: '#FFF' },
-        textShared: {
-          fontSize: Platform.SizeScale(12),
-          // marginRight: Platform.SizeScale(20),
-          color: COLORS.darkBlue,
+        bottom: {
+          backgroundColor: COLORS.GREEEN,
+          borderTopLeftRadius: Platform.SizeScale(16),
+          borderTopRightRadius: Platform.SizeScale(16),
         },
-        viewItemShadow: {
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 6,
-          },
-          shadowOpacity: 0.1,
-          shadowRadius: 8,
+        imageBackground: {
+          height: '50%',
+          width: '100%',
 
-          elevation: 5,
+          backgroundColor: 'red',
         },
         viewItem: {
           flexDirection: 'row',
@@ -31,61 +26,71 @@ export const useNewsStyle = () => {
           marginTop: 10,
           backgroundColor: COLORS.WHITE,
         },
-        viewImageWrapper: {
-          width: Platform.deviceWidth * 0.25,
-          overflow: 'hidden',
-          borderTopLeftRadius: Platform.SizeScale(8),
-          borderBottomLeftRadius: Platform.SizeScale(8),
-        },
-        viewRight: { flex: 1, paddingLeft: 15, paddingRight: 12, paddingVertical: 8 },
-        viewItemTitle: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-        textFocused: {
-          fontWeight: 'bold',
-          borderBottomWidth: 1,
-          borderBottomColor: 'blue',
-        },
-        textUnFocused: {},
-        viewTextTitle: {
-          padding: 6,
-          backgroundColor: COLORS.GREEEN,
-          borderRadius: 4,
-          width: '50%',
-        },
-        flatlistContent: { flex: 1, paddingHorizontal: Platform.SizeScale(20) },
-        forwardScroll: {
-          right: 0,
-        },
-        textTitle: {
-          color: COLORS.WHITE,
-          fontSize: Platform.SizeScale(12),
-        },
-        viewTextContent: { paddingTop: 4, marginRight: Platform.SizeScale(10) },
-        viewCate: {
-          flexDirection: 'row',
-          paddingVertical: 15,
-          paddingHorizontal: Platform.SizeScale(20),
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        },
-        viewSearchBar: { paddingBottom: 0, marginVertical: 10 },
-        viewBanner: { backgroundColor: '#FFF', marginTop: 0 },
-        arrowShared: {
-          backgroundColor: 'rgba(3, 15, 252,0.5)',
-          alignSelf: 'center',
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-          zIndex: 99,
+        viewImageWrapper: { flex: 1 },
+        viewHeader: { flexDirection: 'row', justifyContent: 'space-between' },
+        btnHeader: { margin: Platform.SizeScale(16) },
+        viewUnder: {
           position: 'absolute',
+          bottom: 0,
+          // backgroundColor: 'red',
+          alignSelf: 'center',
+          alignItems: 'center',
+          paddingHorizontal: Platform.SizeScale(10),
         },
-        styInput: {
-          color: '#000',
-          marginHorizontal: 5,
-          fontFamily: FontFamily.fontRegular,
+        viewIcon: { flexDirection: 'row' },
+        share: {
+          backgroundColor: COLORS.WHITE,
+          padding: Platform.SizeScale(8),
+          borderRadius: 100,
+          marginHorizontal: Platform.SizeScale(4),
         },
-        styWrapHeader: {
-          justifyContent: 'space-between',
-          marginTop: 15,
+        textUnder: {
+          color: COLORS.WHITE,
+          fontSize: Platform.SizeScale(18),
+          textAlign: 'center',
+          marginTop: Platform.SizeScale(8),
         },
+        timeUnder: {
+          color: COLORS.GRAY1,
+          fontSize: Platform.SizeScale(13),
+          textAlign: 'center',
+          marginVertical: Platform.SizeScale(16),
+        },
+        viewTextWrapper: {
+          paddingHorizontal: Platform.SizeScale(16),
+          paddingVertical: Platform.SizeScale(18),
+        },
+        textNews: {
+          fontSize: Platform.SizeScale(16),
+          color: COLORS.WHITE,
+          fontWeight: 'bold',
+        },
+        viewSliderWrapper: {
+          width: Platform.SizeScale(100),
+          height: Platform.SizeScale(12),
+          borderRadius: 100,
+          backgroundColor: 'rgba(255,255,255,0.3)',
+          alignSelf: 'center',
+        },
+        dotSlider: {
+          position: 'absolute',
+
+          borderRadius: 100,
+          backgroundColor: COLORS.WHITE,
+          height: '100%',
+        },
+        itemWrapper: { width: Platform.SizeScale(90) },
+        itemViewImage: {
+          height: Platform.SizeScale(70),
+          borderRadius: Platform.SizeScale(12),
+          borderWidth: 1,
+          borderColor: COLORS.WHITE,
+          overflow: 'hidden',
+          marginRight: Platform.SizeScale(12),
+          marginVertical: Platform.SizeScale(14),
+        },
+        itemImage: { flex: 1, resizeMode: 'stretch' },
+        itemText: { color: COLORS.WHITE, fontSize: Platform.SizeScale(12) },
         stySearch: {
           borderWidth: 1,
           borderRadius: 5,
