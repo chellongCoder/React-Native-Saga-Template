@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { View, FlatList } from 'react-native';
 import Image from 'react-native-fast-image';
 import { useNavigation } from '@react-navigation/native';
+import _ from 'lodash';
 import { AppIcon } from '../../Common/AppIcon';
 import { Text } from '../../components';
 import Row from '../../util/Row';
 import { theme } from '../../theme';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import { screens } from '../../config';
+import { RootState } from '../../redux/reducers';
 import styles from './account.styles';
 const { colors } = theme;
 type menu = {
@@ -18,6 +21,8 @@ type menu = {
 
 const Account = () => {
   const navigation = useNavigation();
+
+  const { userInfo }: any = useSelector((state: RootState) => state.AuthData);
 
   const goToDetail = (item: menu) => () => {
     navigation.navigate(screens.appStack, { screen: item.screen, params: {} });
@@ -39,7 +44,18 @@ const Account = () => {
     <View style={styles.contain}>
       <Image source={AppIcon.HeaderAccount} style={styles.wrapHeader} />
       <View style={styles.styWrapContent}>
-        <Text style={styles.styTxtHeader}>Tài khoản</Text>
+        {_.isEmpty(userInfo) ? (
+          <Text style={styles.styTxtHeader}>Tài khoản</Text>
+        ) : (
+          <Row style={{ paddingLeft: 20 }}>
+            <Image
+              resizeMode="contain"
+              style={styles.styAvatar}
+              source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+            />
+            <Text style={styles.styTxtHeader}>{userInfo.name}</Text>
+          </Row>
+        )}
         <FlatList
           data={MENU}
           keyExtractor={(i, index) => index.toString()}

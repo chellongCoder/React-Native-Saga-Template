@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList, ScrollView } from 'react-native';
 import _ from 'lodash';
+import AsyncStorage from '@react-native-community/async-storage';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
@@ -11,11 +12,14 @@ import ListItemShimmer from '../../components/home-component/ElementShimmer';
 import BannerAdvertisementShimmer from '../../util/BannerAdvertisementShimmer';
 import { Text } from '../../components';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import { getToken } from '../../Common/Common';
+import { alertMessage } from '../../util';
 import MenuMain from './MenuMain';
 import styles from './home.styles';
 interface Props {
   getDataProduct: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
   getDataSliders: ({ access_token, params }: { access_token: '' | undefined; params: object }) => void;
+  getDataInfo: ({ token }: { token: string | null }) => void;
   sliders: object[];
   products: ProductCategoryProps[];
   isLoading: boolean;
@@ -29,12 +33,18 @@ class Home extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.getData();
+    setTimeout(this.getData, 1000);
   }
 
   getData = () => {
     this.props.getDataProduct({ access_token: '', params: {} });
     this.props.getDataSliders({ access_token: '', params: {} });
+    this.getUserInfo();
+  };
+
+  getUserInfo = async () => {
+    const { token } = await getToken();
+    this.props.getDataInfo({ token });
   };
 
   onPressLeft = () => {

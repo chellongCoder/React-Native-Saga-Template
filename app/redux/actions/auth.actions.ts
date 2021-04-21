@@ -15,8 +15,11 @@ import {
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS,
   LOGOUT_ERROR,
+  USER_INFO_REQUEST,
+  USER_INFO_SUCCESS,
+  USER_INFO_ERROR,
 } from '../types';
-import { LOGIN_PARAMS } from '../../services/types';
+import { LOGIN_PARAMS, USER_INFO_PARAMS } from '../../services/types';
 
 export const authActionsCreator = {
   loginRequest: createAction<LOGIN_PARAMS>(LOGIN_REQUEST),
@@ -38,4 +41,8 @@ export const authActionsCreator = {
   facebookLoginRequest: createAction(FACEBOOK_LOGIN_REQUEST),
   facebookLoginSuccess: createAction(FACEBOOK_LOGIN_SUCCESS),
   facebookLoginError: createAction(FACEBOOK_LOGIN_ERROR),
+
+  userInfoRequest: createAction<USER_INFO_PARAMS>(USER_INFO_REQUEST),
+  userInfoSuccess: createAction(USER_INFO_SUCCESS),
+  userInfoError: createAction(USER_INFO_ERROR),
 };

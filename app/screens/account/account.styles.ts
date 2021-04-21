@@ -57,6 +57,11 @@ const styles = StyleSheet.create({
 
     elevation: 4,
   },
+  styAvatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 60,
+  },
 });
 
 export default styles;

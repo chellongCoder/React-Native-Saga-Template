@@ -6,6 +6,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
   LOGIN_ERROR,
+  USER_INFO_SUCCESS,
+  USER_INFO_ERROR,
 } from '../types';
 
 const initialState = {
@@ -13,6 +15,7 @@ const initialState = {
   error: undefined,
   success: null,
   data: undefined,
+  userInfo: undefined,
 };
 
 export default function (state = initialState, action) {
@@ -69,7 +72,16 @@ export default function (state = initialState, action) {
         error: payload.error,
       };
     }
-
+    case USER_INFO_SUCCESS:
+      return {
+        ...state,
+        userInfo: payload.user,
+      };
+    case USER_INFO_ERROR:
+      return {
+        ...state,
+        error: payload.error,
+      };
     default:
       return state;
   }

@@ -19,7 +19,14 @@ const logout = (params: any) =>
     server_key: SERVER_KEY,
   });
 
+const getUserInfo = (params: any) =>
+  api.post(API_CONFIG.USER_INFO, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
 export const AuthAPI = {
   login,
   logout,
+  getUserInfo,
 };

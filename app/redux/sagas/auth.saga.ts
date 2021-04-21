@@ -3,10 +3,10 @@ import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
 import { mapUserLogin } from '../../helpers/auth.helper';
 import { UserLoginT } from '../../screens/login/types';
 import { AuthAPI } from '../../services';
-import { LOGIN_PARAMS, ResponseT } from '../../services/types';
+import { LOGIN_PARAMS, ResponseT, USER_INFO_PARAMS } from '../../services/types';
 import { authActionsCreator } from '../actions';
 import { login, signUp } from '../api';
-import { REGISTER_REQUEST } from '../types';
+import { REGISTER_REQUEST, USER_INFO_REQUEST } from '../types';
 import { callSafe } from './common.saga';
 
 function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
@@ -65,6 +65,21 @@ function* signupSaga({ payload }) {
   }
 }
 
+function* userInfoSaga(action: Effect<string, USER_INFO_PARAMS>) {
+  try {
+    const response: ResponseT<any> = yield callSafe(AuthAPI.getUserInfo, action.payload);
+    if (response.status === 200) {
+      yield put(authActionsCreator.userInfoSuccess(response));
+    }
+  } catch (error) {
+    yield put(
+      authActionsCreator.userInfoError({
+        error: error ? error : 'User Login Failed!',
+      }),
+    );
+  }
+}
+
 function* watchLogin() {
   while (true) {
     const action: Effect = yield take(authActionsCreator.loginRequest);
@@ -81,11 +96,18 @@ function* watchLogout() {
 
 function* watchSignup() {
   while (true) {
-    const action = yield take(REGISTER_REQUEST);
+    const action: Effect = yield take(REGISTER_REQUEST);
     yield* signupSaga(action);
   }
 }
 
+function* watchUserInfo() {
+  while (true) {
+    const action: Effect = yield take(USER_INFO_REQUEST);
+    yield* userInfoSaga(action);
+  }
+}
+
 export default function* () {
-  yield all([fork(watchLogin), fork(watchLogout), fork(watchSignup)]);
+  yield all([fork(watchLogin), fork(watchLogout), fork(watchSignup), fork(watchUserInfo)]);
 }

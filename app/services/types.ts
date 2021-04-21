@@ -17,3 +17,8 @@ export interface ResponseT<T> {
   message: string;
   status: number;
 }
+
+export type USER_INFO_PARAMS = {
+  server_key?: string;
+  token: string;
+};

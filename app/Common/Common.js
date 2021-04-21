@@ -1,5 +1,7 @@
 import { checkMultiple, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { Platform, Linking, Alert } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import _ from 'lodash';
 export const checkPermissionCamera = (handler) => {
   checkMultiple(
     Platform.select({
@@ -65,8 +67,22 @@ export const androidCameraPermissionOptions = {
   buttonNegative: 'cancel',
 };
 
+export const getToken = async () => {
+  try {
+    const value = await AsyncStorage.getItem('@token');
+    if (_.isEmpty(value)) {
+      return { token: '' };
+    } else {
+      return { token: value };
+    }
+  } catch (error) {
+    return { token: '' };
+  }
+};
+
 module.exports = {
   checkPermissionCamera,
   androidCameraPermissionOptions,
   VNDCurrencyFormatting,
+  getToken,
 };
