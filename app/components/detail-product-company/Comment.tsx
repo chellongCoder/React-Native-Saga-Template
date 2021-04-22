@@ -33,7 +33,9 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
                   />
                 </View>
                 <View style={styles.info}>
-                  <Text style={styles.name}>{value.name}</Text>
+                  <Text fontType="fontBold" style={styles.name}>
+                    {value.name}
+                  </Text>
                   <Text style={styles.date}>{value.createAt}</Text>
                 </View>
               </View>
@@ -105,9 +107,7 @@ const styles = StyleSheet.create({
   infoRateContainer: {
     alignItems: 'flex-start',
   },
-  name: {
-    fontWeight: 'bold',
-  },
+  name: {},
   date: {
     color: COLORS.BOLD_GRAY,
   },

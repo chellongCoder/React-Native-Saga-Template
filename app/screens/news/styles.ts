@@ -40,7 +40,6 @@ export const useNewsStyle = () => {
         viewRight: { flex: 1, paddingLeft: 15, paddingRight: 12, paddingVertical: 8 },
         viewItemTitle: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
         textFocused: {
-          fontWeight: 'bold',
           borderBottomWidth: 1,
           borderBottomColor: 'blue',
         },

@@ -1,10 +1,19 @@
-import React, { memo } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import React, { memo, useCallback } from 'react';
+import { Image, Linking, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { COLORS, CommonStyle } from '../../constants';
+import { ShopT } from '../../screens/product_detail/types';
 import { Platform } from '../../theme';
 import { Text } from '../text';
 
-const _ItemCompany = () => {
+const _ItemCompany = ({ shop }: { shop?: ShopT }) => {
+  const openMail = useCallback(() => {
+    Linking.openURL(`mailto:${shop?.mail}`);
+  }, [shop?.mail]);
+
+  const openURL = useCallback(() => {
+    Linking.openURL(`${shop?.website}`);
+  }, [shop?.website]);
+
   return (
     <>
       <View style={styles.container}>
@@ -12,8 +21,12 @@ const _ItemCompany = () => {
           <View style={[CommonStyle.row]}>
             <Image style={styles.icon} source={{ uri: 'product_detail_28' }} />
             <View style={styles.info}>
-              <Text style={styles.txtInfo}>Công ty TNHH VIBAN</Text>
-              <Text style={styles.txtRole}>CHỦ SỞ HỮU</Text>
+              <Text fontType="fontBold" isLongText numberOfLines={1} style={styles.txtInfo}>
+                {shop?.name}
+              </Text>
+              <Text isLongText numberOfLines={1} style={styles.txtRole}>
+                {shop?.subTitle}
+              </Text>
             </View>
           </View>
           <View style={styles.iconContainer}>
@@ -23,27 +36,30 @@ const _ItemCompany = () => {
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop]}>
         <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
-        <Text style={styles.txtNumberPhone}>+84868177610</Text>
+        <Text style={styles.txtNumberPhone}>{shop?.phone}</Text>
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop]}>
         <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
-        <Text style={styles.txtAddress}>Place du Port 1 1110 Morges 1</Text>
+        <Text style={styles.txtAddress}>{shop?.address}</Text>
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop]}>
         <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
         <Text style={styles.txtAddress}>
-          Mã số thuế: <Text style={styles.txtTax}>Đang cập nhật</Text>
+          Mã số thuế:{' '}
+          <Text fontType="fontItalic" style={styles.txtTax}>
+            {shop?.taxNumber ? shop.taxNumber : `Đang cập nhật`}
+          </Text>
         </Text>
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop, styles.mailContainer]}>
-        <View style={[CommonStyle.row, styles.mail]}>
+        <TouchableOpacity onPress={openMail} style={[CommonStyle.row, styles.mail]}>
           <Image style={styles.iconMail} source={{ uri: 'product_detail_43' }} />
           <Text style={styles.txtMail}>Mail</Text>
-        </View>
-        <View style={[CommonStyle.row, styles.mail]}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={openURL} style={[CommonStyle.row, styles.mail]}>
           <Image style={styles.iconMail} source={{ uri: 'product_detail_40' }} />
           <Text style={styles.txtMail}>Website</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </>
   );
@@ -84,8 +100,8 @@ const styles = StyleSheet.create({
     height: Platform.SizeScale(20),
   },
   txtInfo: {
-    fontWeight: 'bold',
     color: COLORS.WHITE,
+    maxWidth: Platform.SizeScale(250),
   },
   txtRole: {
     color: COLORS.WHITE,
@@ -101,7 +117,6 @@ const styles = StyleSheet.create({
   },
   txtTax: {
     color: COLORS.GRAY,
-    fontStyle: 'italic',
     fontSize: Platform.SizeScale(14),
   },
   mailContainer: {

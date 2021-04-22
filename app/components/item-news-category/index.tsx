@@ -1,8 +1,9 @@
 import React, { memo, useCallback, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { newsActionsCreator } from '../../redux/actions';
 import { ItemNewProps } from '../../screens/news/types';
+import { Text } from '../text';
 import { useItemNewsStyle } from './styles';
 
 const _ItemNews = ({ item, index, active, onChangeTab }: ItemNewProps) => {
@@ -25,7 +26,9 @@ const _ItemNews = ({ item, index, active, onChangeTab }: ItemNewProps) => {
   }, [active, dispatch, index, item.id]);
   return (
     <TouchableOpacity onPress={onPress}>
-      <Text style={[styles.textShared, active === index ? styles.textFocused : styles.textUnFocused]}>
+      <Text
+        fontType={active === index ? 'fontBold' : 'fontRegular'}
+        style={[styles.textShared, active === index ? styles.textFocused : styles.textUnFocused]}>
         {item.title}
       </Text>
     </TouchableOpacity>

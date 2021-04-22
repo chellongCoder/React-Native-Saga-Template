@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BottomSheet } from '../../components';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
+import { Platform } from '../../theme';
 import { BottomSheetContext } from './context';
 import { BottomSheetContextValue, BottomSheetProps } from './types';
 
@@ -30,7 +31,14 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
                 console.log('image', 'name', image, selectedImage);
                 dispatch(
                   productActionsCreator.setChoicedImages({
-                    images: [...selectedImage, { name: image.filename, type: image.mime, uri: image.sourceURL }],
+                    images: [
+                      ...selectedImage,
+                      {
+                        name: image.filename,
+                        type: image.mime,
+                        uri: Platform.OS === 'android' ? image.path : image.sourceURL,
+                      },
+                    ],
                   }),
                 );
               })
@@ -46,7 +54,11 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
               .then((images: ImageOrVideo[]) => {
                 console.log('image', 'name', images);
                 const choicedImgs = images.map((image: ImageOrVideo) => {
-                  return { name: image.filename, type: image.mime, uri: image.sourceURL };
+                  return {
+                    name: image.filename,
+                    type: image.mime,
+                    uri: Platform.OS === 'android' ? image.path : image.sourceURL,
+                  };
                 });
                 dispatch(
                   productActionsCreator.setChoicedImages({

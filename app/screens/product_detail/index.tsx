@@ -64,8 +64,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
         <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
-          <ItemCompany />
-          <ItemCompany />
+          <ItemCompany shop={productDetail?.shop} />
         </View>
         <AboutProduct {...{ productDetail }} />
         <Rating />
