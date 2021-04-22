@@ -13,10 +13,14 @@ const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => 
       <Text>{productDetail?.nameProduct}</Text>
       <View style={[CommonStyle.row, CommonStyle.spaceBetween, CommonStyle.paddingTop]}>
         <Text style={styles.txtCost}>{productDetail?.cost}</Text>
-        <View style={CommonStyle.row}>
-          <Image style={styles.icon} source={{ uri: 'home_22' }} />
-          <Text style={styles.txtVerify}>{productDetail?.verify ? 'xác thực bởi sahatha' : ''}</Text>
-        </View>
+        {productDetail?.verify ? (
+          <View style={CommonStyle.row}>
+            <Image style={styles.icon} source={{ uri: 'home_22' }} />
+            <Text style={styles.txtVerify}>{'xác thực bởi sahatha'}</Text>
+          </View>
+        ) : (
+          <></>
+        )}
       </View>
       <View style={[CommonStyle.row, CommonStyle.spaceBetween, CommonStyle.paddingTop]}>
         <View style={[CommonStyle.row]}>

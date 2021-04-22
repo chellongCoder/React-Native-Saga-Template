@@ -2,6 +2,7 @@ import { RouteProp } from '@react-navigation/native';
 import { ROUTES } from '../../config';
 import { ProductRateT } from '../../types';
 import { RelatedProduct } from '../product/types';
+import { ShopT } from '../product_detail/types';
 
 type ProductDetailParamList = {
   [ROUTES.product_detail]: {
@@ -32,4 +33,5 @@ export interface DetailProductT {
   photosSlider: PhotoSlider[];
   relatedProducts: RelatedProduct[];
   productRate: ProductRateT[];
+  shop?: ShopT;
 }

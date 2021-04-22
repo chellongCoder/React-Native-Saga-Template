@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
 import { Dimensions, PixelRatio, Platform as PlatformBase, TextStyle } from 'react-native';
+import { FontFamily } from '.';
 
 const { width, height } = Dimensions.get('window');
 
@@ -30,7 +31,7 @@ class PlBase {
   readonly version = PlatformBase.Version;
   textBase: TextStyle = {
     fontSize: this.SizeScale(14),
-    fontFamily: 'RobotoMono-Regular',
+    fontFamily: FontFamily.fontRegular,
   };
 }
 

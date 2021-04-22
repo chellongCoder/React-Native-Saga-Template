@@ -12,7 +12,7 @@ import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import LoadingGlobalProvider from './tools/loading-global';
-import { DropDownHolder, PushNotification } from './components';
+import { DropDownHolder } from './components';
 import AppNavigator from './navigation/root-stack';
 import { theme } from './theme';
 import { store } from './redux/store/index';
@@ -20,6 +20,7 @@ import navigationService from './navigation/navigation-service';
 import BottomSheetProvider from './tools/bottom-sheet';
 import ImageViewProvider from './tools/image-view';
 import ToastInfoProvider from './tools/toast-info';
+import NetworkProvider from './tools/network';
 
 enableScreens();
 
@@ -80,19 +81,20 @@ const App = () => {
           <Root>
             <SafeAreaView style={styles.container}>
               <LoadingGlobalProvider>
-                <ToastInfoProvider>
-                  <ImageViewProvider>
-                    <BottomSheetProvider>
-                      <PaperProvider>
-                        <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                          <AppNavigator />
-                          <PushNotification />
-                          <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-                        </NavigationContainer>
-                      </PaperProvider>
-                    </BottomSheetProvider>
-                  </ImageViewProvider>
-                </ToastInfoProvider>
+                <NetworkProvider>
+                  <ToastInfoProvider>
+                    <ImageViewProvider>
+                      <BottomSheetProvider>
+                        <PaperProvider>
+                          <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                            <AppNavigator />
+                            <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                          </NavigationContainer>
+                        </PaperProvider>
+                      </BottomSheetProvider>
+                    </ImageViewProvider>
+                  </ToastInfoProvider>
+                </NetworkProvider>
               </LoadingGlobalProvider>
             </SafeAreaView>
           </Root>

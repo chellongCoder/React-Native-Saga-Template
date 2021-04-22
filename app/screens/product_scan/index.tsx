@@ -78,8 +78,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
         <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
-          <ItemCompany />
-          <ItemCompany />
+          <ItemCompany shop={productDetail?.shop} />
           <AboutProduct {...{ productDetail }} />
         </View>
         <Rating />

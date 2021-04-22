@@ -78,6 +78,17 @@ export const mapDetailProduct = (data: any): DetailProductT => {
         image: value.image,
       };
     }),
+    shop: data.shop
+      ? {
+          address: data.shop.address,
+          mail: data.shop.email,
+          name: data.shop.name,
+          phone: data.shop.phone,
+          subTitle: data.shop.meta_title,
+          taxNumber: data.shop.ma_so_thue,
+          website: data.shop.web_site,
+        }
+      : undefined,
   };
 };
 

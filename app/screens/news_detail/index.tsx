@@ -89,7 +89,9 @@ const _NewsScreenDetail = () => {
       </ScrollView>
       <View style={styles.bottom}>
         <View style={styles.viewTextWrapper}>
-          <Text style={styles.textNews}>Các tin tức liên quan</Text>
+          <Text fontType="fontBold" style={styles.textNews}>
+            Các tin tức liên quan
+          </Text>
         </View>
         <FlatList
           showsHorizontalScrollIndicator={false}
