@@ -74,6 +74,7 @@
     "react-native-material-textfield": "./plugins/react-native-material-textfield",
     "react-native-modal": "^11.10.0",
     "react-native-paper": "^3.8.0",
+    "react-native-parsed-text": "^0.0.22",
     "react-native-permissions": "2.2.2",
     "react-native-push-notification-popup": "^1.4.0",
     "react-native-reanimated": "^2.1.0",

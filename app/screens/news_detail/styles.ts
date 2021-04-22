@@ -63,7 +63,6 @@ export const useNewsStyle = () => {
         textNews: {
           fontSize: Platform.SizeScale(16),
           color: COLORS.WHITE,
-          fontWeight: 'bold',
         },
         viewSliderWrapper: {
           width: Platform.SizeScale(100),

@@ -113,7 +113,7 @@ const _Rating = () => {
     return (
       <View style={[styles.capture]}>
         <TouchableOpacity onPress={onShowChoiceImage}>
-          <Image style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
+          <Image resizeMode="contain" style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
         </TouchableOpacity>
         {selectedImage.map((value, key) => {
           return (
@@ -216,6 +216,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     height: Platform.SizeScale(100),
     paddingTop: Platform.SizeScale(10),
+    textAlignVertical: 'top',
   },
   capture: {
     width: Platform.deviceWidth - Platform.SizeScale(50),
