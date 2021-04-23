@@ -31,6 +31,7 @@ interface Props {
   productDescription: productDescription;
   rating: number;
   id: number;
+  scrollToTop: () => void;
 }
 
 const ItemSuggest = (props: Props) => {
@@ -39,6 +40,7 @@ const ItemSuggest = (props: Props) => {
       screen: screens.homeDetail,
       params: { productId: props.id },
     });
+    props.scrollToTop();
   };
 
   const { productDescription, rating } = props;

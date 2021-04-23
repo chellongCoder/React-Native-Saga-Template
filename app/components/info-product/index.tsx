@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import React, { memo, useCallback } from 'react';
+import { Image, StyleSheet, View, Share, TouchableOpacity } from 'react-native';
 import { CommonStyle } from '../../constants';
 import { Platform } from '../../theme';
 import { Text } from '../text';
@@ -8,6 +8,14 @@ import { DetailProductT } from '../../screens/product_detail/types';
 import { Rate } from '../rating';
 
 const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => {
+  const onShare = useCallback(async () => {
+    try {
+      await Share.share({
+        message: `${productDetail?.gotoUrl}`,
+      });
+    } catch (error) {}
+  }, [productDetail?.gotoUrl]);
+
   return (
     <View style={styles.container}>
       <Text>{productDetail?.nameProduct}</Text>
@@ -33,9 +41,9 @@ const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => 
           <View style={styles.iconContainer}>
             <Image style={styles.icon2} source={{ uri: 'product_detail_10' }} />
           </View>
-          <View style={styles.iconContainer}>
+          <TouchableOpacity onPress={onShare} style={styles.iconContainer}>
             <Image style={styles.icon2} source={{ uri: 'product_detail_07' }} />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={[CommonStyle.row, CommonStyle.spaceBetween, CommonStyle.paddingTop]}>

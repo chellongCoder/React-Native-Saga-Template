@@ -3,6 +3,7 @@ import { Image, Linking, StyleSheet, TouchableOpacity, View } from 'react-native
 import { COLORS, CommonStyle } from '../../constants';
 import { ShopT } from '../../screens/product_detail/types';
 import { Platform } from '../../theme';
+import { openCall } from '../../util';
 import { Text } from '../text';
 
 const _ItemCompany = ({ shop }: { shop?: ShopT }) => {
@@ -11,7 +12,7 @@ const _ItemCompany = ({ shop }: { shop?: ShopT }) => {
   }, [shop?.mail]);
 
   const openURL = useCallback(() => {
-    Linking.openURL(`${shop?.website}`);
+    Linking.openURL(shop?.website ? `${shop?.website}` : '');
   }, [shop?.website]);
 
   return (
@@ -36,7 +37,9 @@ const _ItemCompany = ({ shop }: { shop?: ShopT }) => {
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop]}>
         <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
-        <Text style={styles.txtNumberPhone}>{shop?.phone}</Text>
+        <Text onPress={() => openCall(shop?.phone)} style={styles.txtNumberPhone}>
+          {shop?.phone}
+        </Text>
       </View>
       <View style={[CommonStyle.row, CommonStyle.paddingTop]}>
         <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />

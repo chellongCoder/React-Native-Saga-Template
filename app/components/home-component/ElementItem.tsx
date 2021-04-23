@@ -11,7 +11,7 @@ import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
 
 interface Props {
-  handlerGoToDetail?: () => void;
+  handlerGoToDetail?: (item: ProductProps) => void;
   item: ProductProps;
   width: number;
 }
@@ -19,7 +19,7 @@ interface Props {
 const ElementItem = (props: Props) => {
   const { featuredImg, name, rating, unitPrice } = props.item;
   return (
-    <RippButton onPress={props.handlerGoToDetail}>
+    <RippButton onPress={() => props.handlerGoToDetail?.(props?.item)}>
       <View style={[styles.styWrapElement, { width: props.width }]}>
         <Image source={{ uri: featuredImg }} resizeMode={'stretch'} style={[styles.styImage, { width: props.width }]} />
         <View style={styles.styWrapInfo}>

@@ -43,7 +43,6 @@ export const useRegisterStyle = () => {
         buttonLogin: {
           backgroundColor: COLORS.GREEEN,
           borderRadius: Platform.SizeScale(40),
-          marginTop: Platform.SizeScale(40),
           paddingVertical: Platform.SizeScale(5),
         },
         buttonFacebook: {

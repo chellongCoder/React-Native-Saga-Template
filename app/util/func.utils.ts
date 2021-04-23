@@ -1,3 +1,5 @@
+import { Linking } from 'react-native';
+
 export const convertTimeToAMPM = (time: any) => {
   // Check correct time format and split into components
   var timeString = time;
@@ -7,4 +9,8 @@ export const convertTimeToAMPM = (time: any) => {
   var ampm = H < 12 || H === 24 ? 'AM' : 'PM';
   timeString = h + timeString.substr(hourEnd, 3) + ampm;
   return timeString;
+};
+
+export const openCall = (phoneNumber?: string) => {
+  Linking.openURL(`tel:${phoneNumber}`);
 };
