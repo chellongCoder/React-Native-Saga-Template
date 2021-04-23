@@ -1,10 +1,31 @@
 import React from 'react';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { theme } from '../theme';
+import { Image } from 'react-native';
+import { Images } from '../constants';
+import { Platform, theme } from '../theme';
 const { colors } = theme;
 
 const drawerIcons = {
-  language: <FontAwesome name="language" color={colors.primary} size={25} />,
+  login: (
+    <Image
+      source={Images.user}
+      resizeMode={'contain'}
+      style={{ width: Platform.SizeScale(30), height: Platform.SizeScale(30) }}
+    />
+  ),
+  register: (
+    <Image
+      source={Images.add_user}
+      resizeMode={'contain'}
+      style={{ width: Platform.SizeScale(30), height: Platform.SizeScale(30) }}
+    />
+  ),
+  logout: (
+    <Image
+      source={Images.logout}
+      resizeMode={'contain'}
+      style={{ width: Platform.SizeScale(30), height: Platform.SizeScale(30) }}
+    />
+  ),
 };
 
 export { drawerIcons };

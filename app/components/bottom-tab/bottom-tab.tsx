@@ -57,9 +57,6 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
           style={styles.tab}>
           {isFocused && <View style={styles.borderTab} />}
           {!isFocused ? <IconTabbar name={IconsTab[index]} /> : <IconTabbar name={IconsTabFocus[index]} />}
-          {/* <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
-            {i18(`BottomTab.${route.name}`)}
-          </Text> */}
           <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
             {i18(`${NameTab[index]}`)}
           </Text>

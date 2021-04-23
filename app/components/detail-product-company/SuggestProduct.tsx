@@ -12,6 +12,7 @@ const { colors } = theme;
 interface Props {
   data: RelatedProduct[] | [];
   navigation: any;
+  scrollToTop: () => void;
 }
 
 const _SuggestProduct = (props: Props) => {
@@ -26,10 +27,11 @@ const _SuggestProduct = (props: Props) => {
           productDescription={item.productDescription}
           rating={item.rating}
           id={item.id}
+          {...{ scrollToTop: props.scrollToTop }}
         />
       );
     },
-    [props.navigation],
+    [props.navigation, props.scrollToTop],
   );
 
   return (

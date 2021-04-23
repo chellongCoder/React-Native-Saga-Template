@@ -14,7 +14,7 @@ export interface ProductDetailProps {
   route: RouteProp<ProductDetailParamList, typeof ROUTES.product_detail>;
 }
 
-type PhotoSlider = {
+export type PhotoSlider = {
   id: number;
   name: string;
   cover: string;
@@ -34,4 +34,5 @@ export interface DetailProductT {
   relatedProducts: RelatedProduct[];
   productRate: ProductRateT[];
   shop?: ShopT;
+  gotoUrl: string;
 }

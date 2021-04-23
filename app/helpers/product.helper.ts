@@ -89,6 +89,7 @@ export const mapDetailProduct = (data: any): DetailProductT => {
           website: data.shop.web_site,
         }
       : undefined,
+    gotoUrl: data.goto_url,
   };
 };
 
