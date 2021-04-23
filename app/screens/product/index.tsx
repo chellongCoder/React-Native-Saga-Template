@@ -9,6 +9,7 @@ import { mapListProduct } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
+import { screens } from '../../config';
 import { useProductStyle } from './styles';
 import { ProductProps, ProductPropsScreen } from './types';
 
@@ -24,6 +25,15 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const onBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
+
+  const handlerGoToDetail = useCallback(
+    (item: ProductProps) => {
+      navigation.navigate(screens.product_detail, {
+        params: { productId: item.id },
+      });
+    },
+    [navigation],
+  );
 
   const renderEmpty = useCallback(() => {
     return (
@@ -64,7 +74,11 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }: { item: ProductProps }) => (
-          <ElementItem item={item} width={Platform.deviceWidth / 2 - Platform.SizeScale(20)} />
+          <ElementItem
+            {...{ handlerGoToDetail }}
+            item={item}
+            width={Platform.deviceWidth / 2 - Platform.SizeScale(20)}
+          />
         )}
         numColumns={2}
         contentContainerStyle={{ marginHorizontal: Platform.SizeScale(10) }}

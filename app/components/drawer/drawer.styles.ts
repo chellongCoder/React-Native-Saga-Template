@@ -6,10 +6,11 @@ import fontFamily from '../../theme/font-family';
 const { colors } = theme;
 
 export default StyleSheet.create({
-  container: { height: '100%', backgroundColor: 'white' },
+  container: { height: '100%', backgroundColor: COLORS.WHITE },
   image: {
-    width: '100%',
-    height: 200,
+    width: Platform.SizeScale(100),
+    height: Platform.SizeScale(100),
+    borderRadius: Platform.SizeScale(50),
   },
   itemContainer: {
     flexDirection: 'row',
@@ -23,13 +24,16 @@ export default StyleSheet.create({
     paddingLeft: 10,
   },
   scrollViewContainer: { paddingTop: 30 },
-  userInfo: {
-    position: 'absolute',
-    bottom: 0,
-  },
+  userInfo: {},
   txtUserInfo: {
     color: COLORS.WHITE,
     fontFamily: fontFamily.fontBold,
     fontSize: Platform.SizeScale(20),
+  },
+  avatarContainer: {
+    backgroundColor: COLORS.GREEEN,
+    height: Platform.SizeScale(200),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
