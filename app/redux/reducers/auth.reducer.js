@@ -14,6 +14,7 @@ const initialState = {
   error: undefined,
   success: null,
   data: undefined,
+  tempData: undefined,
 };
 
 export default function (state = initialState, action) {
@@ -28,11 +29,18 @@ export default function (state = initialState, action) {
       };
     }
     case LOGIN_SUCCESS: {
-      return {
-        ...state,
-        requesting: false,
-        data: payload.user,
-      };
+      return payload.remember
+        ? {
+            ...state,
+            requesting: false,
+            data: payload.user,
+            tempData: payload.user,
+          }
+        : {
+            ...state,
+            requesting: false,
+            tempData: payload.user,
+          };
     }
     case LOGIN_ERROR: {
       return {

@@ -13,7 +13,7 @@ import { useLoginStyle } from './styles';
 
 const LoginScreen = ({ navigation }: any) => {
   const styles = useLoginStyle();
-  const { requesting, data } = useSelector((state: RootState) => state.AuthData);
+  const { requesting, data, tempData } = useSelector((state: RootState) => state.AuthData);
   const loading = useLoadingGlobal();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -62,10 +62,10 @@ const LoginScreen = ({ navigation }: any) => {
   }, [loading, requesting]);
 
   useEffect(() => {
-    if (data) {
+    if (data || tempData) {
       navigation.navigate(screens.bottomTabStack);
     }
-  }, [data, loading, navigation, requesting]);
+  }, [data, loading, navigation, requesting, tempData]);
 
   return (
     <View style={styles.container}>

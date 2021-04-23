@@ -21,7 +21,6 @@ export default StyleSheet.create({
   itemText: {
     color: colors.primary,
     paddingLeft: 10,
-    ...textStyle.heading,
   },
   scrollViewContainer: { paddingTop: 30 },
   userInfo: {

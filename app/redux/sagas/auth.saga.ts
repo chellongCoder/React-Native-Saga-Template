@@ -16,7 +16,7 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
     if (response.status === 200) {
       AsyncStorage.setItem('@token', mapperData.accessToken);
       const user = mapperData;
-      yield put(authActionsCreator.loginSuccess({ user }));
+      yield put(authActionsCreator.loginSuccess({ user, remember: action.payload.remember }));
     }
   } catch (err) {
     yield put(
