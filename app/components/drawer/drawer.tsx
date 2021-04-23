@@ -17,7 +17,7 @@ import styles from './drawer.styles';
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
-  const { data: userInfo }: any = useSelector((state: RootState) => state.AuthData);
+  const { data: userInfo, tempData }: any = useSelector((state: RootState) => state.AuthData);
 
   const i18 = (key) => {
     return t(key);
@@ -57,15 +57,15 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest({ token: userInfo?.accessToken }));
-  }, [dispatch, userInfo?.accessToken]);
+    dispatch(authActionsCreator.logoutRequest({ token: tempData?.accessToken || userInfo?.accessToken }));
+  }, [dispatch, tempData?.accessToken, userInfo?.accessToken]);
 
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <FastImage source={Images.icon} style={styles.image} />
         <View style={styles.userInfo}>
-          <Text style={styles.txtUserInfo}>name: {userInfo?.name}</Text>
+          <Text style={styles.txtUserInfo}>name: {tempData?.name || userInfo?.name}</Text>
         </View>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
