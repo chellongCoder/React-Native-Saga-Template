@@ -66,7 +66,7 @@ const LoginScreen = ({ navigation }: any) => {
 
   useEffect(() => {
     if (data || tempData) {
-      navigation.navigate(screens.bottomTabStack);
+      navigation.goBack();
     }
   }, [data, loading, navigation, requesting, tempData]);
 

@@ -60,12 +60,12 @@ function* getDataSliders({ payload }: Action<any>) {
   }
 }
 
-function* getDataProductDetail({ payload }: Action<{ product_id: number; callback: any }>) {
+function* getDataProductDetail({ payload }: Action<{ product_id: number; callback?: any }>) {
   try {
     const response: ApiResponse<any, any> = yield callSafe(Api.getDataProductDetail, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataProductDetailSuccess(response));
-      payload.callback(response);
+      payload?.callback?.(response);
     } else {
       yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.originalError }));
     }
@@ -79,7 +79,6 @@ function* postComment({ payload }: Action<PostCommentParamsT>) {
     const response: ApiResponse<any, any> = yield callSafe(Api.postComment, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.postCommentSuccess(response));
-      yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
     } else {
       yield put(homeActionsCreator.postCommentFailed({ error: response.originalError }));
     }

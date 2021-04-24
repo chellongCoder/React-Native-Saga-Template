@@ -72,7 +72,7 @@ const _ProductDetail = ({ route }: ProductDetailProps) => {
           <ItemCompany shop={productDetail?.shop} />
         </View>
         <AboutProduct {...{ productDetail }} />
-        <Rating />
+        <Rating {...{ productDetail, setProductDetail }} />
         <Comment {...{ productDetail }} />
         <SuggestProduct {...{ scrollToTop }} data={productDetail?.relatedProducts || []} navigation={navigation} />
       </KeyboardAwareScrollView>

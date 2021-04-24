@@ -84,10 +84,12 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
           {drawerIcons.register}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
-          {drawerIcons.logout}
-          <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
-        </TouchableOpacity>
+        {(userInfo || tempData) && (
+          <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
+            {drawerIcons.logout}
+            <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
+          </TouchableOpacity>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
