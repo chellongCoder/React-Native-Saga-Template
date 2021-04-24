@@ -26,6 +26,32 @@ export const mapListProduct = (productsApi: any[]): ProductProps[] => {
   });
 };
 
+export const mapListProductMore = (productsApi: any[]): ProductProps[] => {
+  return productsApi.map((product) => {
+    const { product_description: value } = product;
+    return {
+      id: product.id,
+      name: value.name,
+      rate: value.rate,
+      countRate: value.countRate,
+      point: value.point,
+      price: value.price,
+      featuredImg: value.featured_img,
+      rating: value.rating,
+      unitPrice: value.unit_price,
+      photos: value.photos,
+      thumbnailImg: value.thumbnail_img,
+      unit: value.unit,
+      videoProvider: value.video_provider,
+      videoLink: value.video_link,
+      quantity: value.quantity,
+      description: value.description,
+      createdAt: value.created_at,
+      addedBy: value.added_by,
+    };
+  });
+};
+
 export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps[] => {
   return productsApi
     ? productsApi.map((value) => {

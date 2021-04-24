@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { StyleSheet, Text as RCText } from 'react-native';
+import { Linking, StyleSheet, Text as RCText } from 'react-native';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import ParsedText from 'react-native-parsed-text';
 import { FontFamily, Platform } from '../../theme';
@@ -14,6 +14,16 @@ const Text = ({
   fontType = 'fontRegular',
   ...other
 }: ParsedTextProps) => {
+  const onShouldStartLoadWithRequest = useCallback((req) => {
+    // open the link in native browser
+    if (req.url.includes('http') || req.url.includes('tel')) {
+      Linking.openURL(req.url);
+      return false;
+    }
+    // returning false prevents WebView to navigate to new URL
+    return true;
+  }, []);
+
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
@@ -51,6 +61,7 @@ const Text = ({
                   }
               `}
           source={{ html: `<div>${children ? children : ''}</div>` }}
+          {...{ onShouldStartLoadWithRequest }}
         />
       </>
     );

@@ -14,6 +14,9 @@ import {
   POST_COMMENT_SUCCESS,
   POST_COMMENT_REQUEST,
   POST_COMMENT_FAILED,
+  GET_DATA_PRODUCT_MORE_LOADMORE_REQUEST,
+  GET_DATA_PRODUCT_MORE_LOADMORE_SUCCESS,
+  GET_DATA_PRODUCT_MORE_LOADMORE_FAILD,
 } from '../types/index';
 
 const initialState = {
@@ -95,6 +98,24 @@ export default function (state = initialState, action) {
         productsMore: payload.product,
       };
     case GET_DATA_PRODUCT_MORE_FAILD:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    case GET_DATA_PRODUCT_MORE_LOADMORE_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+      };
+    case GET_DATA_PRODUCT_MORE_LOADMORE_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        productsMore: [...state.productsMore, ...payload.product],
+      };
+    case GET_DATA_PRODUCT_MORE_LOADMORE_FAILD:
       return {
         ...state,
         isLoading: false,
