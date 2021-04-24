@@ -52,11 +52,11 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
       access_token: '',
       params: {
         category_id: categoryId,
-        page,
+        page: 1,
       },
     };
     dispatch(homeActionsCreator.getDataMoreRequest(payload));
-  }, [categoryId, dispatch, page]);
+  }, [categoryId, dispatch]);
 
   const renderEmpty = useCallback(() => {
     return (
