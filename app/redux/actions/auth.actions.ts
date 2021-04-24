@@ -19,7 +19,7 @@ import {
   USER_INFO_SUCCESS,
   USER_INFO_ERROR,
 } from '../types';
-import { LOGIN_PARAMS, USER_INFO_PARAMS, LOGOUT_PARAMS } from '../../services/types';
+import { LOGIN_PARAMS, USER_INFO_PARAMS, LOGOUT_PARAMS, SIGNUP_PARAMS } from '../../services/types';
 
 export const authActionsCreator = {
   loginRequest: createAction<LOGIN_PARAMS>(LOGIN_REQUEST),
@@ -30,7 +30,7 @@ export const authActionsCreator = {
   logoutSuccess: createAction(LOGOUT_SUCCESS),
   logoutError: createAction(LOGOUT_ERROR),
 
-  registerRequest: createAction(REGISTER_REQUEST),
+  registerRequest: createAction<SIGNUP_PARAMS>(REGISTER_REQUEST),
   registerSuccess: createAction(REGISTER_SUCCESS),
   registerError: createAction(REGISTER_ERROR),
 

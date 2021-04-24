@@ -9,7 +9,7 @@ import NewData from './news.reducer';
 const authPersistConfig = {
   key: 'auth',
   storage: AsyncStorage,
-  blacklist: ['requesting'],
+  blacklist: ['requesting', 'tempData'],
 };
 
 const RootReducer = combineReducers({

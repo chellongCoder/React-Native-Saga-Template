@@ -1,15 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
 import { screens } from '../../config';
 import { COLORS, CommonStyle } from '../../constants';
-import { useBottomSheet, useLoadingGlobal } from '../../hooks';
+import { mapDetailProduct } from '../../helpers/product.helper';
+import { useBottomSheet, useLoadingGlobal, useToastInfo } from '../../hooks';
 import { homeActionsCreator } from '../../redux/actions';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
-import { PostCommentParamsT, PushStarT } from '../../screens/product_detail/types';
+import { DetailProductT, PostCommentParamsT, PushStarT } from '../../screens/product_detail/types';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
 import { UploadFileT } from '../../types';
@@ -18,10 +19,10 @@ import { Text } from '../text';
 import { TextField } from '../text-field';
 import { Stars } from './Stars';
 
-const _Rating = () => {
+const _Rating = ({ productDetail, setProductDetail }: { productDetail?: DetailProductT; setProductDetail: any }) => {
   const { choicedImages } = useSelector((state: RootState) => state.ProductData);
-  const { isLoading } = useSelector((state: RootState) => state.HomeData);
-  const { data: userLogin }: any = useSelector((state: RootState) => state.AuthData);
+  const { isLoading, success } = useSelector((state: RootState) => state.HomeData);
+  const { data: userLogin, tempData }: any = useSelector((state: RootState) => state.AuthData);
   const selectedImage: UploadFileT[] = useMemo(() => choicedImages, [choicedImages]);
   const dispatch = useDispatch();
   const navigation = useNavigation();
@@ -29,10 +30,19 @@ const _Rating = () => {
   const [text, setText] = useState('');
   const bottomSheet = useBottomSheet();
   const loading = useLoadingGlobal();
+  const toast = useToastInfo();
+
+  const isLogin = useMemo(() => {
+    return !!userLogin || !!tempData;
+  }, [tempData, userLogin]);
+
+  const accessToken = useMemo(() => {
+    return userLogin?.accessToken || tempData?.accessToken;
+  }, [tempData?.accessToken, userLogin?.accessToken]);
 
   const onComment = useCallback(() => {
     try {
-      if (!userLogin) {
+      if (!isLogin) {
         navigation.navigate(screens.login);
         return;
       }
@@ -66,10 +76,10 @@ const _Rating = () => {
       });
 
       Object.assign(data, { comment: text });
-      Object.assign(data, { token: userLogin?.accessToken });
+      Object.assign(data, { token: accessToken });
       dispatch(homeActionsCreator.postCommentRequest(data));
     } catch (error) {}
-  }, [dispatch, navigation, selectedImage, stars, text, userLogin]);
+  }, [accessToken, dispatch, isLogin, navigation, selectedImage, stars, text]);
 
   const onChangeText = useCallback((value: string) => {
     setText(value);
@@ -109,11 +119,25 @@ const _Rating = () => {
     }
   });
 
+  useEffect(() => {
+    if (success) {
+      toast.showSucess('Đã thêm bình luận của bạn.');
+      dispatch(
+        homeActionsCreator.getDataProductDetailRequest({
+          product_id: productDetail?.id,
+          isLoading: false,
+          callback: (response: any) => setProductDetail(mapDetailProduct(response.product)),
+        }),
+      );
+      dispatch(productActionsCreator.setChoicedImages({ images: [] }));
+    }
+  }, [dispatch, productDetail?.id, setProductDetail, success, toast]);
+
   const renderRightAccessory = useCallback(() => {
     return (
       <View style={[styles.capture]}>
         <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={onShowChoiceImage}>
-          <Image style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
+          <Image resizeMode="contain" style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
         </TouchableOpacity>
         {selectedImage.map((value, key) => {
           return (
@@ -216,6 +240,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     height: Platform.SizeScale(100),
     paddingTop: Platform.SizeScale(10),
+    textAlignVertical: 'top',
   },
   capture: {
     width: Platform.deviceWidth - Platform.SizeScale(50),

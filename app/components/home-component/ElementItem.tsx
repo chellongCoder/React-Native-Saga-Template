@@ -1,6 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import Image from 'react-native-fast-image';
+import { View, Image } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { Text } from '../index';
 import Row from '../../util/Row';
 import { AppIcon } from '../../Common/AppIcon';
@@ -11,22 +11,26 @@ import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
 
 interface Props {
-  handlerGoToDetail?: () => void;
+  handlerGoToDetail?: (item: ProductProps) => void;
   item: ProductProps;
   width: number;
 }
 
 const ElementItem = (props: Props) => {
-  const { featuredImg, name, rating, unitPrice } = props.item;
+  const { featuredImg, name, rating, unitPrice, quantity } = props.item;
   return (
-    <RippButton onPress={props.handlerGoToDetail}>
+    <RippButton onPress={() => props.handlerGoToDetail?.(props?.item)}>
       <View style={[styles.styWrapElement, { width: props.width }]}>
-        <Image source={{ uri: featuredImg }} resizeMode={'stretch'} style={[styles.styImage, { width: props.width }]} />
+        <FastImage
+          source={{ uri: featuredImg }}
+          resizeMode={'stretch'}
+          style={[styles.styImage, { width: props.width }]}
+        />
         <View style={styles.styWrapInfo}>
           <Text style={styles.styTxtName} numberOfLines={1}>
             {name}
           </Text>
-          {renderStar(rating)}
+          {renderStar(rating, quantity)}
           <Text style={styles.styTxtAmount}>{VNDCurrencyFormatting(unitPrice)}</Text>
           <Row>
             <Image source={AppIcon.IconVerify} resizeMode={'contain'} style={styles.styImgVer} />
@@ -38,7 +42,7 @@ const ElementItem = (props: Props) => {
   );
 };
 
-const renderStar = (rating: number) => {
+const renderStar = (rating: number, quantity: number) => {
   return (
     <View style={styles.styWrapStar}>
       {Array.from(Array(5).keys()).map((i, index) => {
@@ -47,7 +51,9 @@ const renderStar = (rating: number) => {
         }
         return <Image key={index} source={AppIcon.IconStar} resizeMode={'contain'} style={styles.styStar} />;
       })}
-      <Text style={styles.styTxtRate}>9.0 (68)</Text>
+      <Text style={styles.styTxtRate}>
+        {rating} ({quantity})
+      </Text>
     </View>
   );
 };

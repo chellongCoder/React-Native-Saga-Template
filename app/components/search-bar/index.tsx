@@ -5,7 +5,7 @@ import { theme } from '../../theme';
 import { TextField } from '../text-field';
 import { useStyleSearch } from './styles';
 
-export const SearchBar = ({ style }: { style: ViewStyle }) => {
+export const SearchBar = ({ style }: { style?: ViewStyle }) => {
   const { colors } = theme;
   const styles = useStyleSearch();
   const refInput = useRef<TextInput>(null);

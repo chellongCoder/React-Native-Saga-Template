@@ -7,10 +7,6 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 5,
     backgroundColor: colors.primary,
-    marginVertical: 10,
-    fontWeight: 'bold',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

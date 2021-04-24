@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: Platform.SizeScale(10),
   },
   button: {
     width: Platform.SizeScale(160),

@@ -1,57 +1,46 @@
 import React, { useCallback } from 'react';
-import { StyleSheet, Text as RCText, Image, View } from 'react-native';
-import HtmlView from 'react-native-htmlview';
+import { Linking, StyleSheet, Text as RCText } from 'react-native';
 import AutoHeightWebView from 'react-native-autoheight-webview';
-import { Platform } from '../../theme';
-import { CommonStyle } from '../../constants';
+import ParsedText from 'react-native-parsed-text';
+import { FontFamily, Platform } from '../../theme';
 import { ParsedTextProps } from './types';
 
-const Text = ({ style, isViewHtml, children, isLongText, numberOfLines, ...other }: ParsedTextProps) => {
-  const renderNode = useCallback((node, index, siblings, parent, defaultRenderer) => {
-    if (node.name === 'img') {
-      const data = node.attribs;
-      return (
-        <View
-          style={{
-            height: Platform.SizeScale(220),
-            width: Platform.deviceWidth,
-            paddingRight: Platform.SizeScale(20),
-          }}>
-          <Image key={index} source={{ uri: data.src }} resizeMode="contain" style={CommonStyle.image} />
-        </View>
-      );
+const Text = ({
+  style,
+  isViewHtml,
+  children,
+  isLongText,
+  numberOfLines,
+  fontType = 'fontRegular',
+  ...other
+}: ParsedTextProps) => {
+  const onShouldStartLoadWithRequest = useCallback((req) => {
+    // open the link in native browser
+    if (req.url.includes('http') || req.url.includes('tel')) {
+      Linking.openURL(req.url);
+      return false;
     }
+    // returning false prevents WebView to navigate to new URL
+    return true;
   }, []);
 
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
-    style = StyleSheet.flatten([Platform.textBase, style]);
+    style = StyleSheet.flatten([Platform.textBase, style, { fontFamily: FontFamily[fontType] }]);
   }
 
   if (isLongText) {
     return (
-      <RCText allowFontScaling={false} numberOfLines={numberOfLines} style={style} {...other}>
+      <ParsedText allowFontScaling={false} numberOfLines={numberOfLines} style={style} {...other}>
         {children}
-      </RCText>
+      </ParsedText>
     );
   }
 
   if (isViewHtml) {
     return (
       <>
-        {/* <HtmlView
-          value={`<div>${children}</div>`}
-          stylesheet={{
-            div: style,
-          }}
-          {...{ renderNode }}
-          nodeComponentProps={{
-            numberOfLines,
-            selectable: true,
-            allowFontScaling: false,
-          }}
-        /> */}
         <AutoHeightWebView
           scrollEnabled={false}
           scrollEnabledWithZoomedin={true}
@@ -71,15 +60,16 @@ const Text = ({ style, isViewHtml, children, isLongText, numberOfLines, ...other
 
                   }
               `}
-          source={{ html: children }}
+          source={{ html: `<div>${children ? children : ''}</div>` }}
+          {...{ onShouldStartLoadWithRequest }}
         />
       </>
     );
   }
   return (
-    <RCText allowFontScaling={false} selectable={true} numberOfLines={numberOfLines} {...other} style={style}>
+    <ParsedText allowFontScaling={false} selectable={true} numberOfLines={numberOfLines} {...other} style={style}>
       {children}
-    </RCText>
+    </ParsedText>
   );
 };
 

@@ -3,11 +3,11 @@ import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { CommonStyle } from '../../constants/common-styles';
 
-const Card = ({ item }: { item: any }) => {
+const Card = ({ item, onPress }: { item: any; onPress: () => void }) => {
   console.log(`🛠 LOG: 🚀 --> -------------------------------------------------------------`);
   console.log(`🛠 LOG: 🚀 --> ~ file: Card.tsx ~ line 10 ~ Card ~ item`, item);
   console.log(`🛠 LOG: 🚀 --> -------------------------------------------------------------`);
-  const onPress = useCallback(() => {}, []);
+
   return (
     <TouchableWithoutFeedback {...{ onPress }}>
       <View style={styles.container}>

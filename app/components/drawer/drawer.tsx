@@ -7,7 +7,6 @@ import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { useDispatch, useSelector } from 'react-redux';
 import { drawerIcons } from '../../helpers';
-import { Images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
 import { authActionsCreator } from '../../redux/actions';
@@ -17,7 +16,7 @@ import styles from './drawer.styles';
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
-  const { data: userInfo }: any = useSelector((state: RootState) => state.AuthData);
+  const { data: userInfo, tempData }: any = useSelector((state: RootState) => state.AuthData);
 
   const i18 = (key) => {
     return t(key);
@@ -57,25 +56,24 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest({ token: userInfo?.accessToken }));
-  }, [dispatch, userInfo?.accessToken]);
+    dispatch(authActionsCreator.logoutRequest({ token: tempData?.accessToken || userInfo?.accessToken }));
+  }, [dispatch, tempData?.accessToken, userInfo?.accessToken]);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <FastImage source={Images.icon} style={styles.image} />
+      <View style={styles.avatarContainer}>
+        <FastImage
+          resizeMode="contain"
+          source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+          style={styles.image}
+        />
         <View style={styles.userInfo}>
-          <Text style={styles.txtUserInfo}>name: {userInfo?.name}</Text>
+          <Text fontType="fontBold" style={styles.txtUserInfo}>
+            name: {tempData?.name || userInfo?.name}
+          </Text>
         </View>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <TouchableOpacity
-          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
-          style={styles.itemContainer}
-          onPress={changeLanguageWithRTL}>
-          {drawerIcons.language}
-          <Text style={styles.itemText}>{i18('Drawer.changeLanguage')}</Text>
-        </TouchableOpacity>
         {!userInfo && (
           <TouchableOpacity
             hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}

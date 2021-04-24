@@ -17,6 +17,15 @@ export type LOGOUT_PARAMS = {
   token: string;
 };
 
+export type SIGNUP_PARAMS = {
+  server_key?: string;
+  device_token: string;
+  email: string;
+  phone: string;
+  name: string;
+  device_type?: string;
+};
+
 export interface ResponseT<T> {
   data: T;
   message: string;

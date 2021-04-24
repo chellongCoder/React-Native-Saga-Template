@@ -18,7 +18,7 @@ const _LoadingGlobal = ({}) => {
   }, [opacity]);
   const styles = useLoadingGlobalStyle();
   return (
-    <Animated.View style={[styles.container, { opacity: opacity }]}>
+    <Animated.View style={[styles.container, { opacity }]}>
       <View style={styles.imageContainer}>
         <Image source={Images.loading_global} resizeMode={'contain'} style={CommonStyle.image} />
       </View>

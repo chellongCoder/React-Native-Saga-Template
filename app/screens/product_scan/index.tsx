@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { memo, useCallback, useEffect, useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useLoadingGlobal } from '../../hooks';
 import {
   AboutProduct,
@@ -34,6 +35,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const [productDetail, setProductDetail] = useState<DetailProductT>();
   const [dataSuggest, setDataSuggest] = useState([]);
   const hookLoadingGlobal = useLoadingGlobal();
+  const scrollRef: any = useRef();
 
   const getDataSuggest = useCallback(async (id) => {
     const response = await ApiQr.getDataSuggest({ product_id: id });
@@ -69,6 +71,10 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     navigation.goBack();
   }, [navigation]);
 
+  const scrollToTop = useCallback(() => {
+    scrollRef.current.scrollToPosition(0, 0);
+  }, []);
+
   useEffect(() => {
     if (isLoading) {
       hookLoadingGlobal.onShow();
@@ -84,18 +90,17 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   return (
     <View style={styles.container}>
       <AppBars title="Chi tiết sản phẩm" hasRightIcons={false} onPressLeft={onBack} />
-      <ScrollView>
+      <KeyboardAwareScrollView ref={scrollRef}>
         <Slider data={productDetail?.photosSlider} />
         <View style={styles.content}>
           <InfoProduct {...{ productDetail }} />
-          <ItemCompany />
-          <ItemCompany />
+          <ItemCompany shop={productDetail?.shop} />
           <AboutProduct {...{ productDetail }} />
         </View>
-        <Rating />
+        <Rating {...{ productDetail, setProductDetail }} />
         <Comment {...{ productDetail }} />
-        <SuggestProduct data={dataSuggest || []} navigation={navigation} />
-      </ScrollView>
+        <SuggestProduct {...{ scrollToTop }} data={dataSuggest || []} navigation={navigation} />
+      </KeyboardAwareScrollView>
       <ButtonGroup />
     </View>
   );

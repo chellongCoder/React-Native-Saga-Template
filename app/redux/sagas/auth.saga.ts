@@ -3,7 +3,7 @@ import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
 import { mapUserLogin } from '../../helpers/auth.helper';
 import { UserLoginT } from '../../screens/login/types';
 import { AuthAPI } from '../../services';
-import { LOGIN_PARAMS, ResponseT, USER_INFO_PARAMS, LOGOUT_PARAMS } from '../../services/types';
+import { LOGIN_PARAMS, ResponseT, USER_INFO_PARAMS, LOGOUT_PARAMS, SIGNUP_PARAMS } from '../../services/types';
 import { authActionsCreator } from '../actions';
 import { login, signUp } from '../api';
 import { REGISTER_REQUEST, USER_INFO_REQUEST } from '../types';
@@ -16,7 +16,7 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
     if (response.status === 200) {
       AsyncStorage.setItem('@token', mapperData.accessToken);
       const user = mapperData;
-      yield put(authActionsCreator.loginSuccess({ user }));
+      yield put(authActionsCreator.loginSuccess({ user, remember: action.payload.remember }));
     }
   } catch (err) {
     yield put(
@@ -44,16 +44,13 @@ function* logoutSaga(action: Effect<string, LOGOUT_PARAMS>) {
   }
 }
 
-function* signupSaga({ payload }) {
+function* signupSaga(action: Effect<string, SIGNUP_PARAMS>) {
   try {
-    const response = yield call(signUp, payload);
-    if (response.success) {
-      AsyncStorage.setItem('@token', response.success.token);
-      const user = {
-        ...response.success.user,
-        token: response.success.token,
-      };
-      yield put(authActionsCreator.registerSuccess({ user }));
+    const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.signup, action.payload);
+    if (response.status === 200) {
+      // AsyncStorage.setItem('@token', mapperData.accessToken);
+      // const user = mapperData;
+      // yield put(authActionsCreator.signupSuccess({ user }));
     }
   } catch (error) {
     yield put(
@@ -95,7 +92,7 @@ function* watchLogout() {
 
 function* watchSignup() {
   while (true) {
-    const action: Effect = yield take(REGISTER_REQUEST);
+    const action: Effect = yield take(authActionsCreator.registerRequest);
     yield* signupSaga(action);
   }
 }

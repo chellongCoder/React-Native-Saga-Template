@@ -1,4 +1,6 @@
 export default {
-  fontRegular: 'RobotoMono-Regular',
-  fontBold: 'RobotoMono-Bold',
+  fontRegular: 'SFProDisplay-Regular',
+  fontBold: 'SFProDisplay-Bold',
+  fontLight: 'SFProDisplay-Light',
+  fontItalic: 'SFProDisplay-LightItalic',
 };

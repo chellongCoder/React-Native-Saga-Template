@@ -20,10 +20,19 @@ const ToastInfoProvider = ({ children }: ToastInfoProps) => {
       duration: 2000,
     });
   };
+  const showSucess = (text: string) => {
+    Toast.show({
+      text,
+      buttonText: '',
+      type: 'success',
+      duration: 2000,
+    });
+  };
   const contextValue = useMemo<ToastInfoContextValue>(
     () => ({
       showInfo,
       showError,
+      showSucess,
     }),
     [],
   );

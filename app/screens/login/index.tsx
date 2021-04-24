@@ -3,6 +3,7 @@ import { Image, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import AsyncStorage from '@react-native-community/async-storage';
 import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { CommonStyle, Images } from '../../constants';
@@ -13,7 +14,7 @@ import { useLoginStyle } from './styles';
 
 const LoginScreen = ({ navigation }: any) => {
   const styles = useLoginStyle();
-  const { requesting, data } = useSelector((state: RootState) => state.AuthData);
+  const { requesting, data, tempData } = useSelector((state: RootState) => state.AuthData);
   const loading = useLoadingGlobal();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -40,10 +41,12 @@ const LoginScreen = ({ navigation }: any) => {
     );
   }, [styles.logoInput]);
 
-  const onLogin = useCallback(() => {
+  const onLogin = useCallback(async () => {
+    const fcmToken = await AsyncStorage.getItem('@fcm_token');
+
     dispatch(
       authActionsCreator.loginRequest({
-        device_token: '',
+        device_token: fcmToken || '',
         // email: 'thienthanchientranh1996@gmail.com',
         // password: '123456',
         email: userName,
@@ -62,10 +65,10 @@ const LoginScreen = ({ navigation }: any) => {
   }, [loading, requesting]);
 
   useEffect(() => {
-    if (data) {
-      navigation.navigate(screens.bottomTabStack);
+    if (data || tempData) {
+      navigation.goBack();
     }
-  }, [data, loading, navigation, requesting]);
+  }, [data, loading, navigation, requesting, tempData]);
 
   return (
     <View style={styles.container}>

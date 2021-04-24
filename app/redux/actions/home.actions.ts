@@ -16,6 +16,9 @@ import {
   POST_COMMENT_REQUEST,
   POST_COMMENT_SUCCESS,
   POST_COMMENT_FAILED,
+  GET_DATA_PRODUCT_MORE_LOADMORE_REQUEST,
+  GET_DATA_PRODUCT_MORE_LOADMORE_SUCCESS,
+  GET_DATA_PRODUCT_MORE_LOADMORE_FAILD,
 } from '../types';
 
 export const homeActionsCreator = {
@@ -23,10 +26,16 @@ export const homeActionsCreator = {
   getDataRequest: createAction(GET_DATA_PRODUCT_REQUEST),
   getDataSuccess: createAction(GET_DATA_PRODUCT_SUCCESS),
   getDataFaild: createAction(GET_DATA_PRODUCT_FAILD),
+
   // action list products more home
   getDataMoreRequest: createAction(GET_DATA_PRODUCT_MORE_REQUEST),
   getDataMoreSuccess: createAction(GET_DATA_PRODUCT_MORE_SUCCESS),
   getDataMoreFaild: createAction(GET_DATA_PRODUCT_MORE_FAILD),
+
+  // action list products more loadmore home
+  getDataMoreLoadMoreRequest: createAction(GET_DATA_PRODUCT_MORE_LOADMORE_REQUEST),
+  getDataMoreLoadMoreSuccess: createAction(GET_DATA_PRODUCT_MORE_LOADMORE_SUCCESS),
+  getDataMoreLoadMoreFaild: createAction(GET_DATA_PRODUCT_MORE_LOADMORE_FAILD),
 
   // action sliders home
   getDataSlidersRequest: createAction(GET_DATA_SLIDER_REQUEST),

@@ -13,7 +13,13 @@ export default StyleSheet.create({
     height: Platform.SizeScale(60),
     backgroundColor: colors.white,
     zIndex: 999,
-    ...CommonStyle.shadow,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
   },
   tab: {
     justifyContent: 'center',

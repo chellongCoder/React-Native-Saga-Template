@@ -7,4 +7,5 @@ export interface ToastInfoProps {
 export interface ToastInfoContextValue {
   showInfo: (text: string) => void;
   showError: (text: string) => void;
+  showSucess: (text: string) => void;
 }

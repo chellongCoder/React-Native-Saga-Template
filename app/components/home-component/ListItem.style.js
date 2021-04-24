@@ -8,7 +8,7 @@ const { colors } = theme;
 const styles = StyleSheet.create({
   contain: {
     paddingHorizontal: Platform.SizeScale(20),
-    paddingTop: Platform.SizeScale(10),
+    paddingVertical: Platform.SizeScale(10),
   },
   styLabel: {
     flex: 1,
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   styTxtMore: {
-    fontSize: Platform.SizeScale(14),
+    fontSize: Platform.SizeScale(16),
     fontFamily: FontFamily.fontRegular,
     color: colors.gray,
   },
