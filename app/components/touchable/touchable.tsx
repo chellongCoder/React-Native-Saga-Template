@@ -9,6 +9,7 @@ export const Touchable = forwardRef(
 
       return (
         <TouchableNativeFeedback
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
           useForeground={canUseForground ? true : false}
           background={TouchableNativeFeedback.SelectableBackground()}
           onPress={handleSubmit || onPress}
@@ -21,7 +22,12 @@ export const Touchable = forwardRef(
     }
 
     return (
-      <TouchableOpacity ref={ref} style={style} onPress={handleSubmit || onPress} {...props}>
+      <TouchableOpacity
+        hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+        ref={ref}
+        style={style}
+        onPress={handleSubmit || onPress}
+        {...props}>
         {children}
       </TouchableOpacity>
     );

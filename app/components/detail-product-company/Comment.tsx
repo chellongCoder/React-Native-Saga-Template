@@ -52,6 +52,7 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
                 return (
                   <TouchableOpacity
                     key={index}
+                    hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
                     onPress={() => {
                       imageViewer.show([value]);
                     }}

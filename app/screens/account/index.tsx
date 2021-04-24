@@ -11,6 +11,7 @@ import { theme } from '../../theme';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import { screens } from '../../config';
 import { RootState } from '../../redux/reducers';
+import { alertMessage } from '../../util';
 import styles from './account.styles';
 const { colors } = theme;
 type menu = {
@@ -22,10 +23,53 @@ type menu = {
 const Account = () => {
   const navigation = useNavigation();
 
-  const { userInfo }: any = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, data }: any = useSelector((state: RootState) => state.AuthData);
 
   const goToDetail = (item: menu) => () => {
-    navigation.navigate(screens.appStack, { screen: item.screen, params: {} });
+    switch (item.id) {
+      case 'SettingMessage':
+        break;
+      case 'BuyHistory':
+        handleBuyHistory();
+        break;
+      case 'HistoryScanCode':
+        navigation.navigate(screens.appStack, { screen: item.screen, params: {} });
+        break;
+      case 'Rules':
+        break;
+      case 'Tutorial':
+        break;
+      case 'Contact':
+        break;
+      case 'RequestCode':
+        break;
+      case 'ManagerRequestCode':
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleBuyHistory = () => {
+    if (checkLogin()) {
+      alertMessage('da login');
+    }
+  };
+
+  const checkLogin = () => {
+    if (_.isEmpty(data)) {
+      alertMessage('Thông báo', goToLogin, 'Bạn vui lòng đăng nhập để sử dụng tính năng này!');
+      return false;
+    }
+    return true;
+  };
+
+  const goToLogin = () => {
+    navigation.navigate(screens.login);
+  };
+
+  const goToChangeInfo = () => {
+    navigation.navigate(screens.changeInfo);
   };
 
   const renderItem = ({ item }: { item: menu }) => {
@@ -47,14 +91,16 @@ const Account = () => {
         {_.isEmpty(userInfo) ? (
           <Text style={styles.styTxtHeader}>Tài khoản</Text>
         ) : (
-          <Row style={{ paddingLeft: 20 }}>
-            <Image
-              resizeMode="contain"
-              style={styles.styAvatar}
-              source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
-            />
-            <Text style={styles.styTxtHeader}>{userInfo.name}</Text>
-          </Row>
+          <RippleButtonAnim onPress={goToChangeInfo}>
+            <Row style={{ paddingLeft: 20 }}>
+              <Image
+                resizeMode="contain"
+                style={styles.styAvatar}
+                source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+              />
+              <Text style={styles.styTxtHeaderName}>{userInfo.name}</Text>
+            </Row>
+          </RippleButtonAnim>
         )}
         <FlatList
           data={MENU}

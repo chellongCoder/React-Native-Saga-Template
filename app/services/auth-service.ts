@@ -1,7 +1,7 @@
 import { API_CONFIG } from '../config';
 import AppConfig from '../config/app-config';
 import ApiSauce from './ApiSauceHandler';
-import { LOGIN_PARAMS } from './types';
+import { LOGIN_PARAMS, LOGOUT_PARAMS } from './types';
 
 const { API_URL_DEV, SERVER_KEY } = AppConfig;
 const api_url = API_URL_DEV;
@@ -13,9 +13,8 @@ const login = (params: LOGIN_PARAMS) =>
     server_key: params.server_key || SERVER_KEY,
   });
 
-const logout = (params: any) =>
-  api.post(API_CONFIG.SAHATHA_LOGOUT, {
-    ...params,
+const logout = (params: LOGOUT_PARAMS) =>
+  api.post(API_CONFIG.SAHATHA_LOGOUT + `?token=${params.token}`, {
     server_key: SERVER_KEY,
   });
 

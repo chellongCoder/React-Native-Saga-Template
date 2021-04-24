@@ -7,7 +7,8 @@ const api = new ApiSauce(api_url);
 
 // get data history scan
 interface ParamsHistory {
-  user_id: string | null;
+  user_id: number | string | null;
+  device_id: string | null;
 }
 const getDataHistoryScan = (params: ParamsHistory) =>
   api.post(`api/products_history`, {

@@ -57,8 +57,8 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest());
-  }, [dispatch]);
+    dispatch(authActionsCreator.logoutRequest({ token: userInfo?.accessToken }));
+  }, [dispatch, userInfo?.accessToken]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -69,21 +69,33 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
         </View>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <TouchableOpacity style={styles.itemContainer} onPress={changeLanguageWithRTL}>
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          style={styles.itemContainer}
+          onPress={changeLanguageWithRTL}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.changeLanguage')}</Text>
         </TouchableOpacity>
         {!userInfo && (
-          <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
+          <TouchableOpacity
+            hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+            style={styles.itemContainer}
+            onPress={navigateToLogin}>
             {drawerIcons.language}
             <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          style={styles.itemContainer}
+          onPress={navigateToRegister}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          onPress={onLogout}
+          style={styles.itemContainer}>
           {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
         </TouchableOpacity>

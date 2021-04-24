@@ -46,7 +46,10 @@ const _NewsScreen = () => {
   };
   const renderItemContent = ({ item }: { item: NewsByCategoryT; index: number }) => {
     return (
-      <TouchableOpacity style={[styles.viewItem, styles.viewItemShadow]} onPress={() => {}}>
+      <TouchableOpacity
+        hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+        style={[styles.viewItem, styles.viewItemShadow]}
+        onPress={() => {}}>
         <View style={styles.viewImageWrapper}>
           <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
         </View>

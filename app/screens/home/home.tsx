@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, FlatList, ScrollView } from 'react-native';
+import { View, FlatList, ScrollView, RefreshControl } from 'react-native';
 import _ from 'lodash';
-import AsyncStorage from '@react-native-community/async-storage';
 import HeaderMain from '../../util/HeaderMain';
 import { tabModel } from '../../model/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
@@ -13,7 +12,6 @@ import BannerAdvertisementShimmer from '../../util/BannerAdvertisementShimmer';
 import { Text } from '../../components';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import { getToken } from '../../Common/Common';
-import { alertMessage } from '../../util';
 import MenuMain from './MenuMain';
 import styles from './home.styles';
 interface Props {
@@ -25,11 +23,19 @@ interface Props {
   isLoading: boolean;
   navigation: any;
   error: any;
+  user: any;
 }
-interface State {}
+interface State {
+  refreshing: boolean;
+  textSearch: string;
+}
 class Home extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = {
+      refreshing: false,
+      textSearch: '',
+    };
   }
 
   componentDidMount() {
@@ -39,7 +45,10 @@ class Home extends React.Component<Props, State> {
   getData = () => {
     this.props.getDataProduct({ access_token: '', params: {} });
     this.props.getDataSliders({ access_token: '', params: {} });
-    this.getUserInfo();
+    const { user } = this.props;
+    if (!_.isEmpty(user)) {
+      this.getUserInfo();
+    }
   };
 
   getUserInfo = async () => {
@@ -49,6 +58,10 @@ class Home extends React.Component<Props, State> {
 
   onPressLeft = () => {
     this.props.navigation.toggleDrawer();
+  };
+
+  onChangeText = (value: string) => {
+    this.setState({ textSearch: value });
   };
 
   changeComponent = () => {
@@ -88,17 +101,21 @@ class Home extends React.Component<Props, State> {
   };
 
   render() {
-    const { sliders, products, navigation, isLoading, error } = this.props;
-
+    const { isLoading } = this.props;
+    const { textSearch } = this.state;
     return (
       <View style={styles.container}>
         <HeaderMain
+          onChangeText={this.onChangeText}
           onPressLeft={this.onPressLeft}
           screen={tabModel.home}
+          value={textSearch}
           {...this.props}
           bgColor={theme.colors.green}
         />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView
+          style={{ flex: 1 }}
+          refreshControl={<RefreshControl refreshing={isLoading} onRefresh={this.getData} />}>
           <View style={styles.styWrapHeader}>
             <MenuMain />
           </View>

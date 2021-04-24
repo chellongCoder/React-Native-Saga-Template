@@ -17,4 +17,5 @@ export type AppBarsProps = {
   colorIcon?: string;
   renderButtonRight?: () => JSX.Element;
   btnRightDisable?: boolean;
+  backgroundColor?: string;
 };

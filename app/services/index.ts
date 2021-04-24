@@ -3,3 +3,4 @@ export * from './qr-service';
 export * from './auth-service';
 export * from './news-service';
 export * from './history-service';
+export * from './account-service';

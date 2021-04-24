@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, FlatList, TouchableOpacity, Image, RefreshControl } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { useSelector } from 'react-redux';
+import _ from 'lodash';
 import { AppBars, Text } from '../../components';
 import HeaderMain from '../../util/HeaderMain';
 import Row from '../../util/Row';
@@ -10,6 +11,9 @@ import { ApiHistory } from '../../services';
 import { screens } from '../../config';
 import { useLoadingGlobal } from '../../hooks';
 import { CommonStyle } from '../../constants';
+import { text01 } from '../../Common/TextHelper';
+import { getDeviceToken } from '../../Common/Common';
+import { RootState } from '../../redux/reducers';
 import styles from './history.style';
 
 const title = 'Lịch sử quét';
@@ -17,20 +21,28 @@ const title = 'Lịch sử quét';
 const History = () => {
   const navigation = useNavigation();
   const [data, setData] = useState([]);
+  const [dataSearch, setDataSearch] = useState([]);
+  const [textSearch, setTextSearch] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
+  const { userInfo }: any = useSelector((state: RootState) => state.AuthData);
   const onBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
   const hookLoadingGlobal = useLoadingGlobal();
 
   const getData = useCallback(async () => {
+    setRefreshing(true);
     hookLoadingGlobal.onShow();
-    const deviceId = await AsyncStorage.getItem('@fcm_token');
-    const response = await ApiHistory.getDataHistoryScan({ user_id: deviceId });
+    const { deviceToken } = await getDeviceToken();
+    const user_id = userInfo.id || 0;
+    const response = await ApiHistory.getDataHistoryScan({ user_id, device_id: deviceToken });
     hookLoadingGlobal.onHide();
     if (response?.status === 200) {
       setData(response.product);
+      setDataSearch(response.product);
     }
-  }, [hookLoadingGlobal]);
+    setRefreshing(false);
+  }, [hookLoadingGlobal, userInfo.id]);
 
   useEffect(() => {
     getData();
@@ -43,10 +55,25 @@ const History = () => {
     });
   };
 
+  const onChangeText = useCallback(
+    (value: string) => {
+      setTextSearch(value);
+      if (_.isEmpty(data)) {
+        return;
+      }
+      const dataSearchTemp = data.filter((item) => {
+        const { product_description } = item;
+        return product_description?.name?.toLocaleUpperCase().includes(value.toLocaleUpperCase());
+      });
+      setDataSearch(dataSearchTemp);
+    },
+    [data],
+  );
+
   const renderItem = ({ item }: { item: any }) => {
     const { product_description, id } = item;
     return (
-      <TouchableOpacity onPress={goToDetail(id)}>
+      <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={goToDetail(id)}>
         <Row style={styles.styWrapElement}>
           <View style={styles.styImage}>
             <Image source={{ uri: product_description.thumbnail_img }} style={CommonStyle.image} />
@@ -62,7 +89,9 @@ const History = () => {
             </Row>
             <Row>
               <Image source={AppIcon.IconVerify} style={styles.styImgStar} />
-              <Text style={styles.styVerify} numberOfLines={1}>{`Xác thực bởi sahatha`}</Text>
+              <Text style={styles.styVerify} numberOfLines={1}>
+                {text01}
+              </Text>
               <Image source={AppIcon.IconCompany} style={styles.styImgStar} />
               <Text style={styles.styCompany} numberOfLines={1}>
                 {product_description.tags}
@@ -83,12 +112,13 @@ const History = () => {
   return (
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
-      <HeaderMain />
+      <HeaderMain value={textSearch} onChangeText={onChangeText} />
       <FlatList
-        data={data}
+        data={dataSearch}
         keyExtractor={(i, index) => index.toString()}
         renderItem={renderItem}
         ListEmptyComponent={renderEmpty}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={getData} />}
       />
     </View>
   );

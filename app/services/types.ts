@@ -12,6 +12,11 @@ export type LOGIN_PARAMS = {
   device_token: string;
 };
 
+export type LOGOUT_PARAMS = {
+  server_key?: string;
+  token: string;
+};
+
 export interface ResponseT<T> {
   data: T;
   message: string;
@@ -22,3 +27,11 @@ export type USER_INFO_PARAMS = {
   server_key?: string;
   token: string;
 };
+
+export interface ResponseProvinceT {
+  results: {
+    province_id: number;
+    province_name: string;
+    province_type: string;
+  }[];
+}

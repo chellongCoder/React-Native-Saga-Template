@@ -6,4 +6,5 @@ export default {
   HOST_NAME: 'tacoto.vn',
   SERVER_KEY: 'YM7VJJYgKisvyNVnKBeym4ePjZDp4b_ugHaaucBLf',
   APP_NAME: app.displayName,
+  HOST_PROVINCE: 'https://vapi.vnappmob.com/',
 };

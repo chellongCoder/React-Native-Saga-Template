@@ -8,6 +8,7 @@ import {
   LOGIN_ERROR,
   USER_INFO_SUCCESS,
   USER_INFO_ERROR,
+  LOGOUT_SUCCESS,
 } from '../types';
 
 const initialState = {
@@ -41,6 +42,13 @@ export default function (state = initialState, action) {
         ...state,
         requesting: false,
         error: payload.error,
+      };
+    }
+    case LOGOUT_SUCCESS: {
+      return {
+        ...state,
+        data: undefined,
+        error: undefined,
       };
     }
     case LOGOUT_ERROR: {
