@@ -6,6 +6,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
   LOGIN_ERROR,
+  USER_INFO_SUCCESS,
+  USER_INFO_ERROR,
   LOGOUT_SUCCESS,
 } from '../types';
 
@@ -14,6 +16,7 @@ const initialState = {
   error: undefined,
   success: null,
   data: undefined,
+  userInfo: undefined,
   tempData: undefined,
 };
 
@@ -90,7 +93,16 @@ export default function (state = initialState, action) {
         success: null,
       };
     }
-
+    case USER_INFO_SUCCESS:
+      return {
+        ...state,
+        userInfo: payload.user,
+      };
+    case USER_INFO_ERROR:
+      return {
+        ...state,
+        error: payload.error,
+      };
     default:
       return state;
   }

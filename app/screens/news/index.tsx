@@ -49,6 +49,7 @@ const _NewsScreen = () => {
     return (
       <TouchableOpacity
         style={[styles.viewItem, styles.viewItemShadow]}
+        hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
         onPress={() => {
           navigationService.navigate('NewsDetail', {});
         }}>

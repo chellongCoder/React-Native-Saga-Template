@@ -75,21 +75,28 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {!userInfo && (
-          <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
-            {drawerIcons.login}
+          <TouchableOpacity
+            hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+            style={styles.itemContainer}
+            onPress={navigateToLogin}>
+            {drawerIcons.language}
             <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
-          {drawerIcons.register}
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          style={styles.itemContainer}
+          onPress={navigateToRegister}>
+          {drawerIcons.language}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
-        {(userInfo || tempData) && (
-          <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
-            {drawerIcons.logout}
-            <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          onPress={onLogout}
+          style={styles.itemContainer}>
+          {drawerIcons.language}
+          <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

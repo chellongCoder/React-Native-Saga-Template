@@ -33,3 +33,16 @@ export interface ResponseT<T> {
   message: string;
   status: number;
 }
+
+export type USER_INFO_PARAMS = {
+  server_key?: string;
+  token: string;
+};
+
+export interface ResponseProvinceT {
+  results: {
+    province_id: number;
+    province_name: string;
+    province_type: string;
+  }[];
+}

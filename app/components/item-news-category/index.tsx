@@ -25,7 +25,7 @@ const _ItemNews = ({ item, index, active, onChangeTab }: ItemNewProps) => {
     }
   }, [active, dispatch, index, item.id]);
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}>
       <Text
         fontType={active === index ? 'fontBold' : 'fontRegular'}
         style={[styles.textShared, active === index ? styles.textFocused : styles.textUnFocused]}>

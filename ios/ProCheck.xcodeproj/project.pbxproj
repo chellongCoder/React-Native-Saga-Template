@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ProCheckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ProCheckTests.m */; };
 		01C85149CB834D10967596B3 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 505D0E83FB1B4183A38E1068 /* Ionicons.ttf */; };
-		047F6620EC4D437EA2978232 /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD2C119886463AB8A73018 /* SFProDisplay-Regular.otf */; };
 		04BF00A52478F2F00033FA00 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04BF00A42478F2F00033FA00 /* AppCenter-Config.plist */; };
 		06DE323906C04BB480A991CF /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCEC9FAC379649C28D69074D /* AntDesign.ttf */; };
 		0742DAAA1B074721802AC7BD /* MYRIADPRO-SEMIBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = B62BAC2F904D48009931F832 /* MYRIADPRO-SEMIBOLD.OTF */; };
@@ -32,31 +31,18 @@
 		2E412E7988AB42A797103545 /* RobotoMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8FE890A675141F7954CC7D3 /* RobotoMono-LightItalic.ttf */; };
 		35754F6692B14A988D061A73 /* RobotoMono-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6519AD273E024348B4E2E0DD /* RobotoMono-SemiBold.ttf */; };
 		383EC62E4F8C4100AFEE4D31 /* MYRIADPRO-BOLDCONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 74A7AE889AA04A6EBF125B95 /* MYRIADPRO-BOLDCONDIT.OTF */; };
-		4145723D809443EF97020797 /* SFProDisplay-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 775B8516453E490CA47CD0BE /* SFProDisplay-SemiboldItalic.otf */; };
-		4A15318BAA2B4ADF9C13F8E5 /* SFProDisplay-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 992EE0FF0C374DF0940BA2C3 /* SFProDisplay-BlackItalic.otf */; };
-		4CA6AEEFCBCB49FC938C111F /* SFProDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C204B8064D2845F3A3A13282 /* SFProDisplay-Thin.otf */; };
 		513E203F506147E4A9BE97AD /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 87EA2A553717431B96B69697 /* MaterialCommunityIcons.ttf */; };
-		55CE565998014D77B0531225 /* SFProDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB7FBF1976C84C109140040E /* SFProDisplay-Ultralight.otf */; };
 		5670F4E9A22141DC94E675BD /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1740BCEBA97B4CA695543B03 /* MyriadPro-Light.otf */; };
 		5A41CE6D1CFD4D12BAD10129 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF7B606DF515443E91AFE835 /* Roboto.ttf */; };
-		6264462B68B448DCB2F43803 /* SFProDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 731B0E07BC8448F29F09BB81 /* SFProDisplay-Semibold.otf */; };
-		6310BCDA85284FCFB58837B4 /* SFProDisplay-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3C719C9E0AEE4800855B024C /* SFProDisplay-ThinItalic.otf */; };
 		646B42ADBA144226BE9B19D4 /* MYRIADPRO-BOLDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = CCDB72E1B4F041FC9FC3BC6F /* MYRIADPRO-BOLDIT.OTF */; };
 		6ACACBBF37C744B78777825C /* RobotoMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD3614AD29BA41B4A77E3413 /* RobotoMono-Thin.ttf */; };
 		6B033438B354465188FD03CA /* MYRIADPRO-REGULAR.OTF in Resources */ = {isa = PBXBuildFile; fileRef = BD4A74117C8649CCB1DACE53 /* MYRIADPRO-REGULAR.OTF */; };
 		6BB9DC6C5668446E95EB1178 /* RobotoMono-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 802EA037F5014968849B202B /* RobotoMono-SemiBoldItalic.ttf */; };
 		6F7953C6673CC4DAA4C0A84D /* libPods-ProCheck-ProCheckTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 840A4B350397AEB81F4721DB /* libPods-ProCheck-ProCheckTests.a */; };
-		706BDB61F440443ABFFC34E9 /* SFProDisplay-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B60021F385A14842B9BAADE6 /* SFProDisplay-MediumItalic.otf */; };
 		74DEE1E03ADA4B14BCB8B9C1 /* MYRIADPRO-CONDIT.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 5A89D3D362C24F7688F8CC0B /* MYRIADPRO-CONDIT.OTF */; };
 		7C615ACAF4F148409C19E79F /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 847211548D3846BC935DA378 /* RobotoMono-Bold.ttf */; };
-		7C6D6DB4132546058BB7E656 /* SFProDisplay-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8568AB49CD72426B8D320B79 /* SFProDisplay-HeavyItalic.otf */; };
-		7E516813BB5545568E6CD628 /* SFProDisplay-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 137BD759EE934966BE9A597B /* SFProDisplay-BoldItalic.otf */; };
 		82122D0B7B5042E6850A39E9 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32A1ECC699024B41AA87C462 /* Entypo.ttf */; };
 		8582B1837B554EF8898E8A3F /* RobotoMono-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B7CC2B1A7EE49B0A9E166A0 /* RobotoMono-ExtraLightItalic.ttf */; };
-		87A725B32EFB489EAEA21116 /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3C415DD9E7F54176A45EB0B9 /* SFProDisplay-Medium.otf */; };
-		8C746C1D01B543D995F09284 /* SFProDisplay-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3B94444836094F8382F9E3BD /* SFProDisplay-UltralightItalic.otf */; };
-		8D88C2A4C06C4D4BBA3B68F3 /* SFProDisplay-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8ED2331C6D134B5F9E9E32BB /* SFProDisplay-LightItalic.otf */; };
-		8EA3EEDBA59F483EA6275C5A /* SFProDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CD2809C47744063B9F58702 /* SFProDisplay-Black.otf */; };
 		8FE3E5F9B33442A1B2E5F38D /* RobotoMono-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BED56FE02FB749EEA3F127F6 /* RobotoMono-ExtraLight.ttf */; };
 		90FC6241617F449AA420C52B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5493F80DBB5B441683219706 /* Zocial.ttf */; };
 		96C72C9675074EB79BA3563A /* RobotoMono-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94A72E92CC3B437583521E29 /* RobotoMono-MediumItalic.ttf */; };
@@ -73,12 +59,10 @@
 		ADAE268A24F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
 		ADAE268B24F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
 		ADAE268C24F937C500A83CF6 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ADAE268824F937C500A83CF6 /* Config.xcconfig */; };
-		B3AF75F3E5DE4CDA87FC7C3A /* SFProDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD5D184CEF4B66942DC424 /* SFProDisplay-Light.otf */; };
 		B440B99C67814253901AB15A /* libPods-ProCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BA00B87CABC4BFADB28B7E5 /* libPods-ProCheck.a */; };
 		B44C03127FDB455497465C0A /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6F2F9BB0A8964985BE4C71DF /* RobotoMono-Regular.ttf */; };
 		B5AAC9836149434494C25B6F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A55B84551B24BF1BC0B3DCD /* Roboto_medium.ttf */; };
 		B79DF86C345B4BF29ED50512 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B791581BFAFD4F4B96CC425E /* rubicon-icon-font.ttf */; };
-		B8FD3D5D7BCE4697A3E4EE41 /* SFProDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7FBE1B4450F462EBC2AA53D /* SFProDisplay-Heavy.otf */; };
 		BE43A258DAF84E2FAC8B2D25 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CEA46DFC7B74AECAFEB514F /* Foundation.ttf */; };
 		CB02423070A24E98927BB4B9 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0FF2D6C812F48A7ADDA7ED2 /* MaterialIcons.ttf */; };
 		D56A166CC08F43ECBDB111AC /* MYRIADPRO-BOLDCOND.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC8752A7C64AAEA6B50C40 /* MYRIADPRO-BOLDCOND.OTF */; };
@@ -88,9 +72,7 @@
 		E8815CFAA019439DAD413715 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27782957102F4D81B93E3FB8 /* RobotoMono-Medium.ttf */; };
 		EFD6CDFD4FDB42768806B064 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71E3F6B02E854911880EE829 /* FontAwesome.ttf */; };
 		F260FB79B1B94CE295F3A224 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F4604FBCD504F088EDD6F21 /* EvilIcons.ttf */; };
-		F800E648D16A4881995D13EC /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6DFA0D6669F74EE28BEE1F68 /* SFProDisplay-Bold.otf */; };
 		F9F667746350421CA6A550C3 /* RobotoMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E57AB74041974984AB675524 /* RobotoMono-VariableFont_wght.ttf */; };
-		FC51EECD1B9A4259AD222D39 /* SFProDisplay-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F3BA0965C52B4412B2B50C01 /* SFProDisplay-RegularItalic.otf */; };
 		FC5A4A67E7B2476AA2D3B9C3 /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 159B964B7FE741399BDA7635 /* RobotoMono-Italic.ttf */; };
 /* End PBXBuildFile section */
 
@@ -573,24 +555,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				04BF00A52478F2F00033FA00 /* AppCenter-Config.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				8EA3EEDBA59F483EA6275C5A /* SFProDisplay-Black.otf in Resources */,
-				4A15318BAA2B4ADF9C13F8E5 /* SFProDisplay-BlackItalic.otf in Resources */,
-				F800E648D16A4881995D13EC /* SFProDisplay-Bold.otf in Resources */,
-				7E516813BB5545568E6CD628 /* SFProDisplay-BoldItalic.otf in Resources */,
-				B8FD3D5D7BCE4697A3E4EE41 /* SFProDisplay-Heavy.otf in Resources */,
-				7C6D6DB4132546058BB7E656 /* SFProDisplay-HeavyItalic.otf in Resources */,
-				B3AF75F3E5DE4CDA87FC7C3A /* SFProDisplay-Light.otf in Resources */,
-				8D88C2A4C06C4D4BBA3B68F3 /* SFProDisplay-LightItalic.otf in Resources */,
-				87A725B32EFB489EAEA21116 /* SFProDisplay-Medium.otf in Resources */,
-				706BDB61F440443ABFFC34E9 /* SFProDisplay-MediumItalic.otf in Resources */,
-				047F6620EC4D437EA2978232 /* SFProDisplay-Regular.otf in Resources */,
-				FC51EECD1B9A4259AD222D39 /* SFProDisplay-RegularItalic.otf in Resources */,
-				6264462B68B448DCB2F43803 /* SFProDisplay-Semibold.otf in Resources */,
-				4145723D809443EF97020797 /* SFProDisplay-SemiboldItalic.otf in Resources */,
-				4CA6AEEFCBCB49FC938C111F /* SFProDisplay-Thin.otf in Resources */,
-				6310BCDA85284FCFB58837B4 /* SFProDisplay-ThinItalic.otf in Resources */,
-				55CE565998014D77B0531225 /* SFProDisplay-Ultralight.otf in Resources */,
-				8C746C1D01B543D995F09284 /* SFProDisplay-UltralightItalic.otf in Resources */,
 				06DE323906C04BB480A991CF /* AntDesign.ttf in Resources */,
 				82122D0B7B5042E6850A39E9 /* Entypo.ttf in Resources */,
 				F260FB79B1B94CE295F3A224 /* EvilIcons.ttf in Resources */,

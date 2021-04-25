@@ -18,6 +18,12 @@ const logout = (params: LOGOUT_PARAMS) =>
     server_key: SERVER_KEY,
   });
 
+const getUserInfo = (params: any) =>
+  api.post(API_CONFIG.USER_INFO, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
 const signup = (params: SIGNUP_PARAMS) =>
   api.post(API_CONFIG.SAHATHA_SIGNUP, {
     server_key: SERVER_KEY,
@@ -27,5 +33,6 @@ const signup = (params: SIGNUP_PARAMS) =>
 export const AuthAPI = {
   login,
   logout,
+  getUserInfo,
   signup,
 };

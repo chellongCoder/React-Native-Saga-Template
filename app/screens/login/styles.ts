@@ -27,6 +27,7 @@ export const useLoginStyle = () => {
         },
         inputStyles: {
           fontSize: Platform.SizeScale(12),
+          color: COLORS.BLACK,
         },
         logoInput: {
           width: Platform.SizeScale(30),

@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     width: Platform.SizeScale(10),
     height: Platform.SizeScale(10),
     marginHorizontal: Platform.SizeScale(3),
+    marginBottom: 8,
   },
   styCouCmt: {
     color: colors.gray,

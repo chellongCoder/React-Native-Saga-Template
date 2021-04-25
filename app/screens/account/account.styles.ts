@@ -21,6 +21,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: Platform.SizeScale(20),
     marginBottom: Platform.SizeScale(10),
   },
+  styTxtHeaderName: {
+    fontSize: Platform.SizeScale(16),
+    fontWeight: 'bold',
+    color: colors.white,
+    paddingHorizontal: Platform.SizeScale(10),
+  },
   styWrapContent: {
     paddingVertical: Platform.SizeScale(50),
     flex: 1,
@@ -56,6 +62,11 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
 
     elevation: 4,
+  },
+  styAvatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 60,
   },
 });
 

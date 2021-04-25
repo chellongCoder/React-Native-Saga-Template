@@ -19,12 +19,6 @@ const getDataProductMore = (access_token: string, params: any) =>
     ...params,
   });
 
-const getDataProducts = (params: any) => {
-  console.log(`🛠 LOG: 🚀 --> -----------------------------------------------------------------------------------`);
-  console.log(`🛠 LOG: 🚀 --> ~ file: home-service.ts ~ line 15 ~ getDataProducts ~ params`, params);
-  console.log(`🛠 LOG: 🚀 --> -----------------------------------------------------------------------------------`);
-};
-
 //get data sliders home screen
 const getDataSliders = (access_token: string, params: any) =>
   api.post(`api/sliders?access_token=${access_token}`, {
@@ -53,6 +47,5 @@ export const Api = {
   getDataProductMore,
   getDataSliders,
   getDataProductDetail,
-  getDataProducts,
   postComment,
 };

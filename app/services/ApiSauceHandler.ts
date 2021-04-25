@@ -1,6 +1,13 @@
 import apisauce, { ApiResponse, ApisauceInstance } from 'apisauce';
 import { Method } from 'axios';
 import { Alert, Platform } from 'react-native';
+import jwtDecode from 'jwt-decode';
+import { getToken, saveToken } from '../Common/Common';
+import { isExpried } from '../util/AuthCommon';
+import AppConfig from '../config/app-config';
+import { alertMessage } from '../util';
+const { API_URL_DEV, SERVER_KEY } = AppConfig;
+const api_url = API_URL_DEV;
 
 const messageError: any = {
   NETWORK_ERROR: 'Không thể kết nối đến máy chủ. Vui lòng thử lại!',
@@ -58,6 +65,9 @@ export default class ApiSauce {
       }
     }
     console.log('formdata', formdata);
+    // trước khi thực hiện 1 request cần kiểm tra Expired Token.
+    await this.handlerExpiredToken();
+
     const res = await apiRequest(params.url, formdata);
     console.log(
       '%cHANDLE_RESPONSE',
@@ -74,5 +84,32 @@ export default class ApiSauce {
       return res;
     }
     return res.data;
+  };
+
+  handlerExpiredToken = async () => {
+    const { token } = await getToken();
+    if (token == null) {
+      // người dùng chưa đăng nhập.
+      return false;
+    }
+    const curTime = Math.floor(Date.now() / 1000);
+    const { iat, exp } = jwtDecode(token);
+    if (isExpried(exp, curTime) === true) {
+      // token hết hạn. thực hiện refresh token.
+      const response = fetch(`${api_url}api/refresh_token?token=${token}`, {
+        method: 'POST',
+      });
+      if (response.status === 200) {
+        const { access_token } = response.data;
+        const res = await saveToken(`${access_token}`);
+        return res === 'THANH_CONG';
+      }
+      // Alert.alert('Lỗi!', response.message);
+      return false;
+    } else {
+      // token còn hạn sử dụng.
+      console.log('token còn hạn sử dụng.');
+      return false;
+    }
   };
 }

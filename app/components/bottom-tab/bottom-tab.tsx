@@ -41,7 +41,10 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
         return (
           <Fragment key={index.toString()}>
             <View style={styles.qrCodeContainer}>
-              <TouchableOpacity {...{ onPress }} style={styles.qrcodeButton}>
+              <TouchableOpacity
+                {...{ onPress }}
+                hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+                style={styles.qrcodeButton}>
                 <IconTabbar styleImageContainer={styles.buttonQrcode} name={IconsTab[2]} />
               </TouchableOpacity>
             </View>
@@ -52,6 +55,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
       return (
         <TouchableOpacity
           key={index}
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
           accessibilityState={isFocused ? { selected: true } : {}}
           {...{ onPress }}
           style={styles.tab}>

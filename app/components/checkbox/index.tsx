@@ -25,7 +25,7 @@ const _Checkbox = ({ checked, onChangeValue }: CheckBoxProps) => {
     );
   }
   return (
-    <TouchableOpacity onPress={onCheck}>
+    <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={onCheck}>
       <View style={styles.checkboxContainer} />
     </TouchableOpacity>
   );
