@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppBars, Banner, ListFullOption, SearchBar, Text } from '../../components';
 import ElementItem from '../../components/home-component/ElementItem';
@@ -20,6 +20,18 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const { productsMore, isLoading } = useSelector((state: RootState) => state.HomeData);
   const data = useMemo(() => mapListProductMore(productsMore), [productsMore]);
   const [page, setPage] = useState(1);
+
+  const listFooterComponent = useMemo(() => {
+    return (
+      <View
+        style={{
+          height: Platform.SizeScale(30),
+          width: Platform.deviceWidth,
+        }}>
+        <ActivityIndicator />
+      </View>
+    );
+  }, []);
 
   const onBack = useCallback(() => {
     navigation.goBack();
@@ -93,7 +105,13 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
         style={{ marginHorizontal: Platform.SizeScale(10) }}
         ListEmptyComponent={renderEmpty}
         onRefreshEvent={getDataMoreRequest}
-        {...{ refreshing: isLoading, onLoadMore, loadMore: true }}
+        {...{
+          refreshing: isLoading,
+          onLoadMore,
+          loadMore: true,
+          listFooterComponent,
+        }}
+
         // {...{ ListHeaderComponent }}
       />
     </View>

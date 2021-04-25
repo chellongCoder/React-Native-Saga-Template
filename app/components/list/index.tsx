@@ -81,7 +81,7 @@ const renderItemMultiSelect = ({ item, index, favorites, setFavorite, renderSubI
   );
 };
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }: any) => {
-  const paddingToBottom = 20;
+  const paddingToBottom = 100;
   return layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
 };
 export const ListFullOption = forwardRef(

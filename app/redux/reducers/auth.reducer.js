@@ -47,6 +47,7 @@ export default function (state = initialState, action) {
         ...state,
         requesting: false,
         error: payload.error,
+        success: null,
       };
     }
     case LOGOUT_SUCCESS: {
@@ -55,6 +56,7 @@ export default function (state = initialState, action) {
         data: undefined,
         tempData: undefined,
         error: undefined,
+        success: payload,
       };
     }
     case LOGOUT_ERROR: {
@@ -62,6 +64,7 @@ export default function (state = initialState, action) {
         ...state,
         requesting: false,
         error: payload.error,
+        success: null,
       };
     }
     case REGISTER_REQUEST: {
@@ -76,7 +79,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         requesting: false,
-        data: payload.user,
+        success: payload.user,
       };
     }
     case REGISTER_ERROR: {
@@ -84,6 +87,7 @@ export default function (state = initialState, action) {
         ...state,
         requesting: false,
         error: payload.error,
+        success: null,
       };
     }
 
