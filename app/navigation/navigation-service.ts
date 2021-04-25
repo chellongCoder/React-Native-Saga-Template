@@ -1,5 +1,4 @@
-import { CommonActions } from '@react-navigation/native';
-
+import { CommonActions, NavigationContainerRef, StackActions } from '@react-navigation/native';
 let _navigator: any;
 
 function getTopLevelNavigator() {
@@ -23,6 +22,10 @@ function goBack() {
   _navigator.dispatch(CommonActions.goBack());
 }
 
+function replace(routeName: string, params: { [key: string]: any }) {
+  _navigator?.dispatch(StackActions.replace(routeName, params));
+}
+
 // add other navigation functions that you need and export them
 
 export default {
@@ -31,4 +34,5 @@ export default {
   setTopLevelNavigator,
   _navigator,
   getTopLevelNavigator,
+  replace,
 };

@@ -10,11 +10,15 @@ import { callSafe } from './common.saga';
 function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   try {
     const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.login, action.payload);
-    const mapperData = mapUserLogin(response.data);
     if (response.status === 200) {
+      const mapperData = mapUserLogin(response.data);
       AsyncStorage.setItem('@token', mapperData.accessToken);
       const user = mapperData;
       yield put(authActionsCreator.loginSuccess({ user, remember: action.payload.remember }));
+    } else {
+      authActionsCreator.loginError({
+        error: response,
+      });
     }
   } catch (err) {
     yield put(
@@ -46,9 +50,14 @@ function* signupSaga(action: Effect<string, SIGNUP_PARAMS>) {
   try {
     const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.signup, action.payload);
     if (response.status === 200) {
-      // AsyncStorage.setItem('@token', mapperData.accessToken);
-      // const user = mapperData;
-      // yield put(authActionsCreator.signupSuccess({ user }));
+      const mapperData = mapUserLogin(response.data);
+      AsyncStorage.setItem('@token', mapperData.accessToken);
+      const user = mapperData;
+      yield put(authActionsCreator.registerSuccess({ user }));
+    } else {
+      authActionsCreator.loginError({
+        error: response,
+      });
     }
   } catch (error) {
     yield put(
