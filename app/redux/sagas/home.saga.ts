@@ -33,6 +33,19 @@ function* getDataProductsMore({ payload }: Action<any>) {
   }
 }
 
+function* getDataProductsMoreLoadMore({ payload }: Action<any>) {
+  try {
+    const response: ApiResponse<any, any> = yield Api.getDataProductMore(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataMoreLoadMoreSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 function* getDataSliders({ payload }: Action<any>) {
   try {
     const response: ApiResponse<any, any> = yield Api.getDataSliders(payload.access_token, payload.params);
@@ -47,12 +60,12 @@ function* getDataSliders({ payload }: Action<any>) {
   }
 }
 
-function* getDataProductDetail({ payload }: Action<{ product_id: number; callback: any }>) {
+function* getDataProductDetail({ payload }: Action<{ product_id: number; callback?: any }>) {
   try {
     const response: ApiResponse<any, any> = yield callSafe(Api.getDataProductDetail, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataProductDetailSuccess(response));
-      payload.callback(response);
+      payload?.callback?.(response);
     } else {
       yield put(homeActionsCreator.getDataProductDetailFaild({ error: response.originalError }));
     }
@@ -66,7 +79,6 @@ function* postComment({ payload }: Action<PostCommentParamsT>) {
     const response: ApiResponse<any, any> = yield callSafe(Api.postComment, payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.postCommentSuccess(response));
-      yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
     } else {
       yield put(homeActionsCreator.postCommentFailed({ error: response.originalError }));
     }
@@ -80,5 +92,6 @@ export default function* () {
   yield takeEvery(homeActionsCreator.getDataSlidersRequest, getDataSliders);
   yield takeEvery(homeActionsCreator.getDataProductDetailRequest, getDataProductDetail);
   yield takeEvery(homeActionsCreator.getDataMoreRequest, getDataProductsMore);
+  yield takeEvery(homeActionsCreator.getDataMoreLoadMoreRequest, getDataProductsMoreLoadMore);
   yield takeEvery(homeActionsCreator.postCommentRequest, postComment);
 }

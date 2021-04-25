@@ -21,8 +21,8 @@ export const useStyleAppBars = () => {
           justifyContent: 'space-between',
         },
         imageContainer: {
-          width: Platform.SizeScale(15),
-          height: Platform.SizeScale(15),
+          width: Platform.SizeScale(30),
+          height: Platform.SizeScale(20),
         },
       }),
     [colors],

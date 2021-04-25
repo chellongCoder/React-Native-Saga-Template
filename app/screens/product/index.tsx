@@ -1,11 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useEffect, useMemo } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoadingGlobal } from '../../hooks';
-import { AppBars, Banner, SearchBar, Text } from '../../components';
+import { AppBars, Banner, ListFullOption, SearchBar, Text } from '../../components';
 import ElementItem from '../../components/home-component/ElementItem';
-import { mapListProduct } from '../../helpers/product.helper';
+import { mapListProductMore } from '../../helpers/product.helper';
 import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
@@ -19,8 +18,20 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const { productsMore, isLoading } = useSelector((state: RootState) => state.HomeData);
-  const data = useMemo(() => mapListProduct(productsMore), [productsMore]);
-  const hookLoadingGlobal = useLoadingGlobal();
+  const data = useMemo(() => mapListProductMore(productsMore), [productsMore]);
+  const [page, setPage] = useState(1);
+
+  const listFooterComponent = useMemo(() => {
+    return (
+      <View
+        style={{
+          height: Platform.SizeScale(30),
+          width: Platform.deviceWidth,
+        }}>
+        <ActivityIndicator />
+      </View>
+    );
+  }, []);
 
   const onBack = useCallback(() => {
     navigation.goBack();
@@ -35,6 +46,30 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
     [navigation],
   );
 
+  const onLoadMore = useCallback(() => {
+    const paging = page + 1;
+    const payload = {
+      access_token: '',
+      params: {
+        category_id: categoryId,
+        page: paging,
+      },
+    };
+    dispatch(homeActionsCreator.getDataMoreLoadMoreRequest(payload));
+    setPage(paging);
+  }, [categoryId, dispatch, page]);
+
+  const getDataMoreRequest = useCallback(() => {
+    const payload = {
+      access_token: '',
+      params: {
+        category_id: categoryId,
+        page: 1,
+      },
+    };
+    dispatch(homeActionsCreator.getDataMoreRequest(payload));
+  }, [categoryId, dispatch]);
+
   const renderEmpty = useCallback(() => {
     return (
       <View style={styles.styWrapEmpty}>
@@ -48,32 +83,18 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   }, []);
 
   useEffect(() => {
-    const payload = {
-      access_token: '',
-      params: {
-        category_id: categoryId,
-      },
-    };
-    dispatch(homeActionsCreator.getDataMoreRequest(payload));
-  }, [categoryId, dispatch]);
-
-  useEffect(() => {
-    if (isLoading) {
-      hookLoadingGlobal.onShow();
-    } else {
-      hookLoadingGlobal.onHide();
-    }
-  }, [hookLoadingGlobal, isLoading]);
+    getDataMoreRequest();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
       <SearchBar />
 
-      <FlatList
+      <ListFullOption
         data={data}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }: { item: ProductProps }) => (
+        renderSubItem={(item: ProductProps) => (
           <ElementItem
             {...{ handlerGoToDetail }}
             item={item}
@@ -81,9 +102,17 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
           />
         )}
         numColumns={2}
-        contentContainerStyle={{ marginHorizontal: Platform.SizeScale(10) }}
+        style={{ marginHorizontal: Platform.SizeScale(10) }}
         ListEmptyComponent={renderEmpty}
-        {...{ ListHeaderComponent }}
+        onRefreshEvent={getDataMoreRequest}
+        {...{
+          refreshing: isLoading,
+          onLoadMore,
+          loadMore: true,
+          listFooterComponent,
+        }}
+
+        // {...{ ListHeaderComponent }}
       />
     </View>
   );
