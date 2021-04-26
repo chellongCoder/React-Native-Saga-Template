@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
-import { View, ImageBackground, FlatList, Image, ListRenderItem } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { View, ImageBackground, FlatList, Image, ListRenderItem, ScrollView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useDispatch } from 'react-redux';
@@ -45,46 +45,55 @@ const _NewsScreenDetail = () => {
   };
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.container}>
-        <ImageBackground
-          resizeMode={'stretch'}
-          imageStyle={{
-            flex: 1,
-            height: undefined,
-            width: undefined,
-          }}
-          style={styles.imageBackground}
-          source={{ uri: 'https://genk.mediacdn.vn/2019/1/23/airpower-15482435649941225284688.jpg' }}>
-          <View style={styles.viewImageWrapper}>
-            <View style={styles.viewHeader}>
-              <TouchableOpacity onPress={onBack} style={styles.btnHeader}>
-                <Icon name={'arrow-back'} size={Platform.SizeScale(36)} color={COLORS.WHITE} />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.btnHeader}>
-                <FontAwesome name={'home'} size={Platform.SizeScale(36)} color={COLORS.WHITE} />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.viewUnder}>
-              <View style={styles.viewIcon}>
-                <View style={styles.share}>
-                  <FontAwesome name={'share-square-o'} size={Platform.SizeScale(18)} color={COLORS.BLACK} />
-                </View>
-                <View style={styles.share}>
-                  <FontAwesome name={'heart-o'} size={Platform.SizeScale(18)} color={COLORS.RED} />
-                </View>
-              </View>
-              <Text style={styles.textUnder}>Apple có kế hoạch mang nhiều tính năng IOS hơn cho Mac</Text>
-              <Text style={styles.timeUnder}>02:21 PM</Text>
-            </View>
+      <ImageBackground
+        resizeMode={'stretch'}
+        imageStyle={{
+          // flex: 1,
+          height: undefined,
+          width: undefined,
+        }}
+        style={styles.imageBackground}
+        source={{ uri: 'https://genk.mediacdn.vn/2019/1/23/airpower-15482435649941225284688.jpg' }}>
+        <View style={styles.viewImageWrapper}>
+          <View style={styles.viewHeader}>
+            <TouchableOpacity onPress={onBack} style={styles.btnHeader}>
+              <Icon name={'arrow-back'} size={Platform.SizeScale(36)} color={COLORS.WHITE} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.btnHeader}>
+              <FontAwesome name={'home'} size={Platform.SizeScale(36)} color={COLORS.WHITE} />
+            </TouchableOpacity>
           </View>
-        </ImageBackground>
+          <View style={styles.viewUnder}>
+            <View style={styles.viewIcon}>
+              <View style={styles.share}>
+                <FontAwesome name={'share-square-o'} size={Platform.SizeScale(18)} color={COLORS.BLACK} />
+              </View>
+              <View style={styles.share}>
+                <FontAwesome name={'heart-o'} size={Platform.SizeScale(18)} color={COLORS.RED} />
+              </View>
+            </View>
+            <Text style={styles.textUnder}>Apple có kế hoạch mang nhiều tính năng IOS hơn cho Mac</Text>
+            <Text style={styles.timeUnder}>02:21 PM</Text>
+          </View>
+        </View>
+      </ImageBackground>
+      <ScrollView style={{ flex: 1, marginTop: Platform.SizeScale(8), paddingHorizontal: Platform.SizeScale(12) }}>
         <Text>
-          ÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCIUASBC
+          ÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
+          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
+          ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
+          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
+          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG
+          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
+          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBC
         </Text>
       </ScrollView>
       <View style={styles.bottom}>
