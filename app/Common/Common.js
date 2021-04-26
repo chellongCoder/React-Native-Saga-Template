@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { gender } from './TextHelper';
 import { AppIcon } from './AppIcon';
 import 'intl';
+import 'intl/locale-data/jsonp/en';
 export const checkPermissionCamera = (handler) => {
   checkMultiple(
     Platform.select({
@@ -61,7 +62,7 @@ export const checkStatusPermission = (name, permission, status, handler) => {
 };
 
 export const VNDCurrencyFormatting = (unit_price) => {
-  return '';
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(unit_price);
 };
 
 export const androidCameraPermissionOptions = {
