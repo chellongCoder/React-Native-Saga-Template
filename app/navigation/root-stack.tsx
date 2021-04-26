@@ -15,7 +15,6 @@ const AppNavigator = () => {
   return (
     <RootStack.Navigator headerMode="none">
       <RootStack.Screen name={screens.drawerStack} component={DrawerStack} />
-      <RootStack.Screen name={screens.authStack} component={AuthStack} />
       <RootStack.Screen name={screens.appStack} component={AppStack} />
       <RootStack.Screen name={screens.qrcode} component={QrCodeScreen} />
       <RootStack.Screen name={screens.product_detail} component={ProductDetailScreen} />
