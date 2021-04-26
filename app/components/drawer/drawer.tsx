@@ -79,7 +79,7 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
             hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
             style={styles.itemContainer}
             onPress={navigateToLogin}>
-            {drawerIcons.language}
+            {drawerIcons.login}
             <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
           </TouchableOpacity>
         )}
@@ -87,14 +87,14 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
           hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
           style={styles.itemContainer}
           onPress={navigateToRegister}>
-          {drawerIcons.language}
+          {drawerIcons.register}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
           onPress={onLogout}
           style={styles.itemContainer}>
-          {drawerIcons.language}
+          {drawerIcons.logout}
           <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
         </TouchableOpacity>
       </ScrollView>
