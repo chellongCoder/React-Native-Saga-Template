@@ -34,7 +34,7 @@ const History = () => {
     setRefreshing(true);
     hookLoadingGlobal.onShow();
     const { deviceToken } = await getDeviceToken();
-    const user_id = userInfo.id || 0;
+    const user_id = userInfo?.id || 0;
     const response = await ApiHistory.getDataHistoryScan({ user_id, device_id: deviceToken });
     hookLoadingGlobal.onHide();
     if (response?.status === 200) {
@@ -42,7 +42,7 @@ const History = () => {
       setDataSearch(response.product);
     }
     setRefreshing(false);
-  }, [hookLoadingGlobal, userInfo.id]);
+  }, [hookLoadingGlobal, userInfo?.id]);
 
   useEffect(() => {
     getData();
@@ -89,7 +89,7 @@ const History = () => {
             </Row>
             <Row>
               <Image source={AppIcon.IconVerify} style={styles.styImgStar} />
-              <Text style={styles.styVerify} numberOfLines={1}>
+              <Text style={styles.styVerify} numberOfLines={1} fontType={'fontBold'}>
                 {text01}
               </Text>
               <Image source={AppIcon.IconCompany} style={styles.styImgStar} />

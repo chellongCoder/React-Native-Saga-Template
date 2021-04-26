@@ -46,14 +46,17 @@ class Home extends React.Component<Props, State> {
     this.props.getDataProduct({ access_token: '', params: {} });
     this.props.getDataSliders({ access_token: '', params: {} });
     const { user } = this.props;
+    console.log('🚀 ~ file: home.tsx ~ line 49 ~ Home ~ user', user);
     if (!_.isEmpty(user)) {
       this.getUserInfo();
     }
+    this.getUserInfo();
   };
 
   getUserInfo = async () => {
     const { token } = await getToken();
-    this.props.getDataInfo({ token });
+    console.log('🚀 ~ file: home.tsx ~ line 58 ~ Home ~ getUserInfo= ~ token', token);
+    // this.props.getDataInfo({ token });
   };
 
   onPressLeft = () => {

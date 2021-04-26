@@ -28,6 +28,7 @@ const screens = {
   managerRequestCodeScreen: 'ManagerRequestCodeScreen',
   historyScanCode: 'HistoryScanCode',
   changeInfo: 'ChangeInfo',
+  rules: 'Rules',
 };
 
 enum ROUTES {
@@ -58,6 +59,7 @@ enum ROUTES {
   managerRequestCodeScreen = 'ManagerRequestCodeScreen',
   historyScanCode = 'HistoryScanCode',
   changeInfo = 'ChangeInfo',
+  rules = 'Rules',
 }
 
 export { screens, ROUTES };

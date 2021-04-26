@@ -44,3 +44,13 @@ export interface ResponseProvinceT {
     province_type: string;
   }[];
 }
+
+export type UPDATE_INFO_PARAMS = {
+  token: string | null;
+  name: string;
+  address: string;
+  birth_date: string;
+  phone: string;
+  email: string;
+  avatar: any;
+};

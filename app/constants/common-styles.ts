@@ -53,8 +53,8 @@ export const CommonStyle = StyleSheet.create({
     elevation: 5,
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: '80%',
+    height: '80%',
   },
   row: {
     flexDirection: 'row',

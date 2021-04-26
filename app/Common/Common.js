@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import _ from 'lodash';
 import { gender } from './TextHelper';
 import { AppIcon } from './AppIcon';
+import 'intl';
 export const checkPermissionCamera = (handler) => {
   checkMultiple(
     Platform.select({

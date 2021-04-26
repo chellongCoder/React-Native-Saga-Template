@@ -14,3 +14,16 @@ export function alertMessage(message: string, onPress?: any, content = '') {
     ]);
   }, 0);
 }
+
+export const showConfirm = (title = 'Xác nhận', message = '', onPositive = () => {}, onNegative = () => {}) => {
+  Alert.alert(title, message, [
+    {
+      text: 'OK',
+      onPress: onPositive,
+    },
+    {
+      text: 'Huỷ',
+      onPress: onNegative,
+    },
+  ]);
+};
