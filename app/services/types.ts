@@ -23,6 +23,8 @@ export type SIGNUP_PARAMS = {
   email: string;
   phone: string;
   name: string;
+  password: string;
+  re_password: string;
   device_type?: string;
 };
 
