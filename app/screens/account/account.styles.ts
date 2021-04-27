@@ -16,14 +16,12 @@ const styles = StyleSheet.create({
   },
   styTxtHeader: {
     fontSize: Platform.SizeScale(16),
-    fontWeight: 'bold',
     color: colors.white,
     paddingHorizontal: Platform.SizeScale(20),
     marginBottom: Platform.SizeScale(10),
   },
   styTxtHeaderName: {
     fontSize: Platform.SizeScale(16),
-    fontWeight: 'bold',
     color: colors.white,
     paddingHorizontal: Platform.SizeScale(10),
   },
@@ -46,7 +44,6 @@ const styles = StyleSheet.create({
   styTxtName: {
     flex: 1,
     color: colors.black,
-    fontWeight: 'bold',
   },
   styWrapElement: {
     backgroundColor: '#FFF',

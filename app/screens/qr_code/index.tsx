@@ -52,7 +52,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
       <View style={styles.backContainer}>
         <AppBars onPressLeft={onBack} />
       </View>
-      <Text style={styles.styTxtHeader}>
+      <Text style={styles.styTxtHeader} fontType={'fontBold'}>
         Quét mã vạch, QR code, Tem chống giả để kiểm tra thông tin sản phẩm và phát hiện hàng giả
       </Text>
 
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.SizeScale(100),
     width: width - 60,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFF',
     fontSize: Platform.SizeScale(16),

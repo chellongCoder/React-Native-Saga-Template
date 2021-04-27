@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
   styVerify: {
     color: colors.green,
     fontSize: 12,
-    fontWeight: '400',
     flex: 1,
   },
   styCompany: {

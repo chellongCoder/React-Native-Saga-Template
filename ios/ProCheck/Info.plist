@@ -148,6 +148,18 @@
 		<string>MYRIADPRO-REGULAR.OTF</string>
 		<string>MYRIADPRO-SEMIBOLD.OTF</string>
 		<string>MYRIADPRO-SEMIBOLDIT.OTF</string>
+		<string>SFProDisplay-Black.ttf</string>
+		<string>SFProDisplay-BlackItalic.ttf</string>
+		<string>SFProDisplay-Bold.ttf</string>
+		<string>SFProDisplay-BoldItalic.ttf</string>
+		<string>SFProDisplay-ExtraLight.ttf</string>
+		<string>SFProDisplay-ExtraLightItalic.ttf</string>
+		<string>SFProDisplay-Italic.ttf</string>
+		<string>SFProDisplay-Light.ttf</string>
+		<string>SFProDisplay-LightItalic.ttf</string>
+		<string>SFProDisplay-Regular.ttf</string>
+		<string>SFProDisplay-SemiBold.ttf</string>
+		<string>SFProDisplay-SemiBoldItalic.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

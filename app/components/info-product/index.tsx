@@ -6,6 +6,7 @@ import { Text } from '../text';
 import { COLORS } from '../../constants/colors';
 import { DetailProductT } from '../../screens/product_detail/types';
 import { Rate } from '../rating';
+import { VNDCurrencyFormatting } from '../../Common/Common';
 
 const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => {
   const onShare = useCallback(async () => {
@@ -20,7 +21,7 @@ const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => 
     <View style={styles.container}>
       <Text>{productDetail?.nameProduct}</Text>
       <View style={[CommonStyle.row, CommonStyle.spaceBetween, CommonStyle.paddingTop]}>
-        <Text style={styles.txtCost}>{productDetail?.cost}</Text>
+        <Text style={styles.txtCost}>{VNDCurrencyFormatting(productDetail?.cost)}</Text>
         {productDetail?.verify ? (
           <View style={CommonStyle.row}>
             <Image style={styles.icon} source={{ uri: 'home_22' }} />

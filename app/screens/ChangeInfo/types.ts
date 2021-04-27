@@ -14,3 +14,11 @@ export type checkboxGender = {
   name: string | undefined;
   id: number | undefined;
 };
+
+export interface UserInfo {
+  name: string;
+  birth_date: string;
+  phone: string;
+  address: string;
+  email: string;
+}

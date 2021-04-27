@@ -24,7 +24,9 @@ const CheckBoxIcon = ({ gender, handlerSelect, selectedValue }: Props) => {
     <TouchableOpacity onPress={onSelect}>
       <Row style={isCheck ? styles.containActive : styles.contain}>
         <Image source={icon} style={isCheck ? styles.styIconActive : styles.styIcon} />
-        <Text style={isCheck ? styles.styNameActive : styles.styName}>{name}</Text>
+        <Text style={isCheck ? styles.styNameActive : styles.styName} fontType={'fontBold'}>
+          {name}
+        </Text>
       </Row>
     </TouchableOpacity>
   );
@@ -69,14 +71,12 @@ const styles = StyleSheet.create({
   },
   styName: {
     color: COLORS.GRAY,
-    fontWeight: '500',
     fontSize: Platform.SizeScale(12),
     marginTop: 4,
     lineHeight: 13,
   },
   styNameActive: {
     color: COLORS.WHITE,
-    fontWeight: '500',
     fontSize: Platform.SizeScale(12),
     marginTop: 4,
     lineHeight: 13,
