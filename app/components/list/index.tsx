@@ -21,8 +21,8 @@ interface ListProps {
   noLoading?: any;
   noRefresh?: any;
   contentStyle?: any;
-  numColumns: number;
-  refreshing: boolean;
+  numColumns?: number;
+  refreshing?: boolean;
 }
 function keyExtractor(item: any, index: any) {
   return item + index;

@@ -5,7 +5,6 @@ import { UserLoginT } from '../../screens/login/types';
 import { AuthAPI } from '../../services';
 import { LOGIN_PARAMS, ResponseT, USER_INFO_PARAMS, LOGOUT_PARAMS, SIGNUP_PARAMS } from '../../services/types';
 import { authActionsCreator } from '../actions';
-import { login, signUp } from '../api';
 import { REGISTER_REQUEST, USER_INFO_REQUEST } from '../types';
 import { callSafe } from './common.saga';
 
@@ -14,7 +13,9 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
     const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.login, action.payload);
     if (response.status === 200) {
       const mapperData = mapUserLogin(response.data);
-      AsyncStorage.setItem('@token', mapperData.accessToken);
+      if (action.payload.remember) {
+        AsyncStorage.setItem('@token', mapperData.accessToken);
+      }
       const user = mapperData;
       yield put(authActionsCreator.loginSuccess({ user, remember: action.payload.remember }));
     } else {

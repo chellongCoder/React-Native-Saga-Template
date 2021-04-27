@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppBars, Banner, ListFullOption, SearchBar, Text } from '../../components';
 import ElementItem from '../../components/home-component/ElementItem';
@@ -9,6 +9,7 @@ import { homeActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
 import { screens } from '../../config';
+import { useLoadingGlobal } from '../../hooks';
 import { useProductStyle } from './styles';
 import { ProductProps, ProductPropsScreen } from './types';
 
@@ -20,18 +21,7 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const { productsMore, isLoading } = useSelector((state: RootState) => state.HomeData);
   const data = useMemo(() => mapListProductMore(productsMore), [productsMore]);
   const [page, setPage] = useState(1);
-
-  const listFooterComponent = useMemo(() => {
-    return (
-      <View
-        style={{
-          height: Platform.SizeScale(30),
-          width: Platform.deviceWidth,
-        }}>
-        <ActivityIndicator />
-      </View>
-    );
-  }, []);
+  const loading = useLoadingGlobal();
 
   const onBack = useCallback(() => {
     navigation.goBack();
@@ -87,6 +77,14 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (isLoading) {
+      loading.onShow();
+    } else {
+      loading.onHide();
+    }
+  }, [isLoading, loading]);
+
   return (
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
@@ -106,10 +104,9 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
         ListEmptyComponent={renderEmpty}
         onRefreshEvent={getDataMoreRequest}
         {...{
-          refreshing: isLoading,
           onLoadMore,
           loadMore: true,
-          listFooterComponent,
+          refreshing: isLoading,
         }}
 
         // {...{ ListHeaderComponent }}
@@ -117,5 +114,3 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
