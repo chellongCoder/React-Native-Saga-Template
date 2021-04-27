@@ -5,7 +5,7 @@ import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import { COLORS } from '../../constants';
-import { ItemNews, SearchBar, Text } from '../../components';
+import { ItemNews, ListFullOption, SearchBar, Text } from '../../components';
 import { RootState } from '../../redux/reducers';
 import { mapperNewsByCategory, mapperNewsCategory } from '../../helpers/news.helper';
 import { useLoadingGlobal } from '../../hooks';
@@ -30,9 +30,13 @@ const _NewsScreen = () => {
     setActive(index);
   }, []);
 
-  useEffect(() => {
+  const getNewCategoryRequest = useCallback(() => {
     dispatch(newsActionsCreator.getNewCategoryRequest());
   }, [dispatch]);
+
+  useEffect(() => {
+    getNewCategoryRequest();
+  }, [dispatch, getNewCategoryRequest]);
 
   useEffect(() => {
     if (isLoading) {
@@ -45,7 +49,7 @@ const _NewsScreen = () => {
   const renderItemTypeExeTitle = (item: NewCategoryT, index: number) => {
     return <ItemNews key={index} {...{ item, index, active, onChangeTab }} />;
   };
-  const renderItemContent = ({ item }: { item: NewsByCategoryT; index: number }) => {
+  const renderItemContent = (item: NewsByCategoryT) => {
     return (
       <TouchableOpacity
         style={[styles.viewItem, styles.viewItemShadow]}
@@ -75,9 +79,7 @@ const _NewsScreen = () => {
       </TouchableOpacity>
     );
   };
-  const renderFooter = () => {
-    return <View style={{ height: Platform.SizeScale(25) }} />;
-  };
+
   return (
     <View style={styles.container}>
       <SearchBar style={styles.viewSearchBar} />
@@ -85,12 +87,21 @@ const _NewsScreen = () => {
         <BannerAdvertisement data={sliders} />
       </View>
       <View style={styles.viewCate}>{newCategories.map(renderItemTypeExeTitle)}</View>
-      <FlatList
-        style={styles.flatlistContent}
-        showsVerticalScrollIndicator={false}
+
+      <ListFullOption
         data={news}
-        renderItem={renderItemContent}
-        ListFooterComponent={renderFooter}
+        renderSubItem={renderItemContent}
+        style={{ marginHorizontal: Platform.SizeScale(10) }}
+        // ListEmptyComponent={renderEmpty}
+        onRefreshEvent={getNewCategoryRequest}
+        listFooterComponent={<View style={{ height: Platform.SizeScale(25) }} />}
+        {...{
+          // onLoadMore,
+          loadMore: true,
+          refreshing: isLoading,
+        }}
+
+        // {...{ ListHeaderComponent }}
       />
     </View>
   );
