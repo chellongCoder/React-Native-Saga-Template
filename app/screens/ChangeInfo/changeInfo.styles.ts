@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
   },
   styTxtLabel: {
     color: colors.gray,
-    fontWeight: '500',
     fontSize: Platform.SizeScale(14),
     flex: 1,
   },
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     backgroundColor: COLORS.GREEEN,
-    marginTop: 50,
   },
 });
 

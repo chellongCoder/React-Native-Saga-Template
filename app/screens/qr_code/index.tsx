@@ -17,6 +17,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
     async (data: string) => {
       setbarcodeRead(false);
       if (data) {
+        console.log('🚀 ~ file: index.tsx ~ line 20 ~ data', data);
         const supported = await Linking.canOpenURL(data);
         if (supported) {
           if (data.indexOf('sahatha.vn') > 0) {
@@ -52,7 +53,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
       <View style={styles.backContainer}>
         <AppBars onPressLeft={onBack} />
       </View>
-      <Text style={styles.styTxtHeader}>
+      <Text style={styles.styTxtHeader} fontType={'fontBold'}>
         Quét mã vạch, QR code, Tem chống giả để kiểm tra thông tin sản phẩm và phát hiện hàng giả
       </Text>
 
@@ -105,7 +106,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.SizeScale(100),
     width: width - 60,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFF',
     fontSize: Platform.SizeScale(16),

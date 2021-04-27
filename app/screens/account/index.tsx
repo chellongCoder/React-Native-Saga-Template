@@ -23,11 +23,12 @@ type menu = {
 const Account = () => {
   const navigation = useNavigation();
 
-  const { userInfo, data }: any = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, tempData } = useSelector((state: RootState) => state.AuthData);
 
   const goToDetail = (item: menu) => () => {
     switch (item.id) {
       case 'SettingMessage':
+        handleSettingMessage();
         break;
       case 'BuyHistory':
         handleBuyHistory();
@@ -36,17 +37,28 @@ const Account = () => {
         navigation.navigate(screens.appStack, { screen: item.screen, params: {} });
         break;
       case 'Rules':
+        navigation.navigate(screens.rules, { title: 'Điều khoản', type: 'terms' });
         break;
       case 'Tutorial':
+        navigation.navigate(screens.rules, { title: 'Hướng dẫn', type: 'support_policy' });
         break;
       case 'Contact':
+        navigation.navigate(screens.rules, { title: 'Liên hệ', type: 'privacy_policy' });
         break;
       case 'RequestCode':
+        handleRequestCode();
         break;
       case 'ManagerRequestCode':
+        handleManagerRequestCode();
         break;
       default:
         break;
+    }
+  };
+
+  const handleSettingMessage = () => {
+    if (checkLogin()) {
+      alertMessage('da login');
     }
   };
 
@@ -56,8 +68,20 @@ const Account = () => {
     }
   };
 
+  const handleRequestCode = () => {
+    if (checkLogin()) {
+      alertMessage('da login');
+    }
+  };
+
+  const handleManagerRequestCode = () => {
+    if (checkLogin()) {
+      alertMessage('da login');
+    }
+  };
+
   const checkLogin = () => {
-    if (_.isEmpty(data)) {
+    if (_.isEmpty(tempData)) {
       alertMessage('Thông báo', goToLogin, 'Bạn vui lòng đăng nhập để sử dụng tính năng này!');
       return false;
     }
@@ -77,7 +101,9 @@ const Account = () => {
       <RippleButtonAnim onPress={goToDetail(item)}>
         <Row style={styles.styWrapElement}>
           <Image source={AppIcon.IconSetting} style={styles.styIconSetting} />
-          <Text style={styles.styTxtName}>{item.name}</Text>
+          <Text style={styles.styTxtName} fontType={'fontBold'}>
+            {item.name}
+          </Text>
           <Image source={AppIcon.IconArrowRight} style={styles.styIconRow} tintColor={colors.gray} />
         </Row>
       </RippleButtonAnim>
@@ -88,17 +114,21 @@ const Account = () => {
     <View style={styles.contain}>
       <Image source={AppIcon.HeaderAccount} style={styles.wrapHeader} />
       <View style={styles.styWrapContent}>
-        {_.isEmpty(userInfo) ? (
-          <Text style={styles.styTxtHeader}>Tài khoản</Text>
+        {_.isEmpty(tempData) ? (
+          <Text style={styles.styTxtHeader} fontType={'fontBold'}>
+            Tài khoản
+          </Text>
         ) : (
           <RippleButtonAnim onPress={goToChangeInfo}>
             <Row style={{ paddingLeft: 20 }}>
               <Image
                 resizeMode="contain"
                 style={styles.styAvatar}
-                source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+                source={{ uri: userInfo?.avatar || 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
               />
-              <Text style={styles.styTxtHeaderName}>{userInfo.name}</Text>
+              <Text style={styles.styTxtHeaderName} fontType={'fontBold'}>
+                {userInfo?.name}
+              </Text>
             </Row>
           </RippleButtonAnim>
         )}

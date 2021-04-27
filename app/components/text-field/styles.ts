@@ -22,6 +22,7 @@ export const useStylesTextField = () => {
           flexGrow: 1,
           padding: Platform.SizeScale(6),
           ...Platform.textBase,
+          color: colors.black,
         },
         vLabel: {
           position: 'absolute',

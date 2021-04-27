@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
 import { drawerIcons } from '../../helpers';
 import { screens } from '../../config';
 import { Text } from '../text';
@@ -16,7 +17,7 @@ import styles from './drawer.styles';
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
-  const { data: userInfo, tempData }: any = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, tempData }: any = useSelector((state: RootState) => state.AuthData);
 
   const i18 = (key) => {
     return t(key);
@@ -64,14 +65,16 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
       <View style={styles.avatarContainer}>
         <FastImage
           resizeMode="contain"
-          source={{ uri: 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+          source={{ uri: userInfo?.avatar || 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
           style={styles.image}
         />
-        <View style={styles.userInfo}>
-          <Text fontType="fontBold" style={styles.txtUserInfo}>
-            name: {tempData?.name || userInfo?.name}
-          </Text>
-        </View>
+        {!_.isEmpty(tempData) && (
+          <View style={styles.userInfo}>
+            <Text fontType="fontBold" style={styles.txtUserInfo}>
+              name: {tempData?.name || userInfo?.name}
+            </Text>
+          </View>
+        )}
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {!userInfo && (

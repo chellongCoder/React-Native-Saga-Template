@@ -7,6 +7,8 @@ export const API_CONFIG = {
   NEWS_BY_CATEGORY: 'api/news_by_category_id',
   ADD_COMMENT_PRODUCT: '/api/add_comment_product',
   USER_INFO: 'api/user_info',
+  UPDATE_INFO: 'api/update_user',
+  POLICY: 'api/policy',
 };
 
 export const API_STATUS = {

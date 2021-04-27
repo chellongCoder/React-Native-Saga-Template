@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput, Image } from 'react-native';
+import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { Text } from '../components';
 import { COLORS } from '../constants';
 import { Platform } from '../theme';
@@ -8,25 +9,37 @@ import { KeyboardTypeOptions } from './types';
 
 const TextInputInfo = ({
   label,
+  value,
   placeholder,
   icon,
   keyboardType,
+  onPressIcon,
+  onChangeText,
 }: {
   label: string;
+  value: string;
   placeholder: string;
   icon?: any;
   keyboardType?: KeyboardTypeOptions;
+  onPressIcon?: () => void;
+  onChangeText?: (value: string) => void;
 }) => {
   return (
     <Row style={styles.contain}>
-      <Text style={styles.styTxt}>{label}</Text>
+      <Text style={styles.styTxt} fontType={'fontBold'}>
+        {label}
+      </Text>
       <TextInput
+        value={value}
         placeholder={placeholder}
         style={styles.styTxtInput}
         placeholderTextColor={COLORS.GRAY}
         keyboardType={keyboardType}
+        onChangeText={onChangeText}
       />
-      <Image source={icon} style={styles.styIcon} />
+      <RippleButtonAnim onPress={onPressIcon}>
+        <Image source={icon} style={styles.styIcon} />
+      </RippleButtonAnim>
     </Row>
   );
 };
@@ -39,17 +52,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: COLORS.GRAY,
     padding: 10,
-    marginTop: 10,
+    marginVertical: 10,
   },
   styTxt: {
     color: COLORS.GRAY,
-    fontWeight: '500',
     flex: 1,
   },
   styTxtInput: {
     flex: 3,
-    fontSize: Platform.SizeScale(14),
     color: COLORS.BLACK,
+    letterSpacing: 1,
     ...Platform.textBase,
   },
   styIcon: {

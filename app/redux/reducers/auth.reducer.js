@@ -9,6 +9,9 @@ import {
   USER_INFO_SUCCESS,
   USER_INFO_ERROR,
   LOGOUT_SUCCESS,
+  UPDATE_INFO_SUCCESS,
+  UPDATE_INFO_ERROR,
+  UPDATE_INFO_REQUEST,
 } from '../types';
 
 const initialState = {
@@ -18,6 +21,8 @@ const initialState = {
   data: undefined,
   userInfo: undefined,
   tempData: undefined,
+  isLoading: false,
+  isErrUpdateInfo: false,
 };
 
 export default function (state = initialState, action) {
@@ -96,12 +101,32 @@ export default function (state = initialState, action) {
     case USER_INFO_SUCCESS:
       return {
         ...state,
-        userInfo: payload.user,
+        userInfo: { ...payload.user, access_token: state.tempData?.access_token },
       };
     case USER_INFO_ERROR:
       return {
         ...state,
         error: payload.error,
+      };
+    case UPDATE_INFO_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isErrUpdateInfo: false,
+      };
+    case UPDATE_INFO_SUCCESS:
+      return {
+        ...state,
+        userInfo: payload.user,
+        isLoading: false,
+        isErrUpdateInfo: false,
+      };
+    case UPDATE_INFO_ERROR:
+      return {
+        ...state,
+        error: payload.error,
+        isLoading: false,
+        isErrUpdateInfo: true,
       };
     default:
       return state;

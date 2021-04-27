@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     marginTop: Platform.SizeScale(10),
     fontFamily: FontFamily.fontRegular,
     fontSize: Platform.SizeScale(14),
+    minHeight: 35,
   },
   styStar: {
     width: Platform.SizeScale(12),

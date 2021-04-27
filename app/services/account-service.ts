@@ -1,9 +1,9 @@
-// import { API_CONFIG } from '../config';
+import { API_CONFIG } from '../config';
 import AppConfig from '../config/app-config';
-// import ApiSauce from './ApiSauceHandler';
+import ApiSauce from './ApiSauceHandler';
 const { API_URL_DEV, SERVER_KEY, HOST_PROVINCE } = AppConfig;
-// const api_url = API_URL_DEV;
-// const api = ApiSauce.getInstance(api_url);
+const api_url = API_URL_DEV;
+const api = ApiSauce.getInstance(api_url);
 
 // const getUserInfo = (params: any) =>
 //   api.post(API_CONFIG.USER_INFO, {
@@ -29,7 +29,21 @@ const getListDistrict = (province_id: string) =>
     },
   }).then((res) => res.json());
 
+const updateInfo = (params: any) =>
+  api.post(`${api_url}${API_CONFIG.UPDATE_INFO}?token=${params.token}`, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
+const getDataPolicy = (params: any) =>
+  api.post(`${api_url}${API_CONFIG.POLICY}`, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
 export const AccountAPI = {
   getListProvince,
   getListDistrict,
+  updateInfo,
+  getDataPolicy,
 };

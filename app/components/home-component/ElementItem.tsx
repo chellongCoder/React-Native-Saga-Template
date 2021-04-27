@@ -23,11 +23,11 @@ const ElementItem = (props: Props) => {
       <View style={[styles.styWrapElement, { width: props.width }]}>
         <FastImage
           source={{ uri: featuredImg }}
-          resizeMode={'stretch'}
+          resizeMode={'contain'}
           style={[styles.styImage, { width: props.width }]}
         />
         <View style={styles.styWrapInfo}>
-          <Text style={styles.styTxtName} numberOfLines={1}>
+          <Text style={styles.styTxtName} numberOfLines={2}>
             {name}
           </Text>
           {renderStar(rating, quantity)}

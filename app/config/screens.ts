@@ -2,7 +2,6 @@ const screens = {
   walkthrough: 'WalkThrough',
   home: 'Home',
   homeDetail: 'HomeDetail',
-  homeMore: 'HomeMore',
   notification: 'Notification',
   tabqrcode: 'TabQRCode',
   qrcode: 'QRCode',
@@ -28,13 +27,13 @@ const screens = {
   managerRequestCodeScreen: 'ManagerRequestCodeScreen',
   historyScanCode: 'HistoryScanCode',
   changeInfo: 'ChangeInfo',
+  rules: 'Rules',
 };
 
 enum ROUTES {
   walkthrough = 'WalkThrough',
   home = 'Home',
   homeDetail = 'HomeDetail',
-  homeMore = 'HomeMore',
   notification = 'Notification',
   tabqrcode = 'TabQRCode',
   qrcode = 'QRCode',
@@ -58,6 +57,7 @@ enum ROUTES {
   managerRequestCodeScreen = 'ManagerRequestCodeScreen',
   historyScanCode = 'HistoryScanCode',
   changeInfo = 'ChangeInfo',
+  rules = 'Rules',
 }
 
 export { screens, ROUTES };

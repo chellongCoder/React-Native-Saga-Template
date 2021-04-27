@@ -20,6 +20,7 @@ import { qrActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { ApiQr } from '../../services/qr-service';
 import { getDeviceToken } from '../../Common/Common';
+import { alertMessage } from '../../util';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
 
@@ -27,7 +28,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const {
     params: { urlScan },
   } = route.params;
-  const { isLoading } = useSelector((state: RootState) => state.QRData);
+  const { isLoading, error } = useSelector((state: RootState) => state.QRData);
   const { userInfo } = useSelector((state: RootState) => state.AuthData);
   const styles = useProductDetailStyle();
   const navigation = useNavigation();
@@ -81,7 +82,10 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     } else {
       hookLoadingGlobal.onHide();
     }
-  }, [hookLoadingGlobal, isLoading]);
+    if (!_.isEmpty(error)) {
+      alertMessage('Cảnh báo', () => navigation.goBack(), error);
+    }
+  }, [error, hookLoadingGlobal, isLoading, navigation]);
 
   useEffect(() => {
     getDataScanRequest();
