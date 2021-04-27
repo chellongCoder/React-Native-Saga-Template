@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     sliders: state.HomeData.sliders,
     isLoading: state.HomeData.isLoading,
     error: state.HomeData.error,
-    user: state.AuthData.data,
+    user: state.AuthData.tempData,
   };
 };
 

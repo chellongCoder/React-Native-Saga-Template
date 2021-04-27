@@ -39,21 +39,12 @@ class Home extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    setTimeout(this.getData, 1000);
+    setTimeout(this.getData, 350);
   }
 
   getData = () => {
     this.props.getDataProduct({ access_token: '', params: {} });
     this.props.getDataSliders({ access_token: '', params: {} });
-    const { user } = this.props;
-    if (!_.isEmpty(user)) {
-      this.getUserInfo();
-    }
-  };
-
-  getUserInfo = async () => {
-    const { token } = await getToken();
-    this.props.getDataInfo({ token });
   };
 
   onPressLeft = () => {

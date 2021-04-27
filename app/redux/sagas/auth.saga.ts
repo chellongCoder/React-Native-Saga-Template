@@ -13,8 +13,10 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
     const response: ResponseT<UserLoginT> = yield callSafe(AuthAPI.login, action.payload);
     if (response.status === 200) {
       const mapperData = mapUserLogin(response.data);
+      const { accessToken } = mapperData;
+      yield put(authActionsCreator.userInfoRequest({ token: accessToken }));
       if (action.payload.remember) {
-        AsyncStorage.setItem('@token', mapperData.accessToken);
+        AsyncStorage.setItem('@token', accessToken);
       }
       const user = mapperData;
       yield put(authActionsCreator.loginSuccess({ user, remember: action.payload.remember }));

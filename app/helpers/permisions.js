@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import { check, PERMISSIONS, RESULTS } from './node_modules/react-native-permissions';
+import { check, PERMISSIONS, RESULTS } from 'react-native-permissions';
 
 const os = Platform.OS;
 

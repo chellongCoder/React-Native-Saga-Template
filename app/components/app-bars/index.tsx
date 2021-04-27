@@ -27,7 +27,12 @@ const AppBarsBase = ({
         onPress={onPressLeft}
         style={styles.imageContainer}
         hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}>
-        <FastImage style={CommonStyle.image} resizeMode="contain" source={Images.back} tintColor={colorIcon} />
+        <FastImage
+          style={[CommonStyle.image, { width: '80%', height: '80%' }]}
+          resizeMode="contain"
+          source={Images.back}
+          tintColor={colorIcon}
+        />
       </TouchableOpacity>
     );
   }, [colorIcon, onPressLeft, styles.imageContainer]);
