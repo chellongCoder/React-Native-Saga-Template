@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, TextInput, StatusBar } from 'react-native';
+import { View, SafeAreaView, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { tabModel } from '../model/TabModel';
@@ -32,10 +32,13 @@ const HeaderMain = (props: Props) => {
 
 function SearchComponent(props: Props) {
   const { screen } = props;
+  const navigateSearchPropduct = () => {
+    // navigationService.navigate(screens.product, {});
+  };
   switch (screen) {
     case tabModel.home:
       return (
-        <View style={styles.stySearch}>
+        <TouchableOpacity onPress={navigateSearchPropduct} activeOpacity={1} style={styles.stySearch}>
           <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
           <TextInput
             value={props.value}
@@ -44,7 +47,7 @@ function SearchComponent(props: Props) {
             style={styles.styInput}
             onChangeText={(text) => props.onChangeText(text)}
           />
-        </View>
+        </TouchableOpacity>
       );
     default:
       return (

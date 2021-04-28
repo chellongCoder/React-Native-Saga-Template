@@ -173,7 +173,7 @@ export const ListFullOption = forwardRef(
         showsHorizontalScrollIndicator={showsHorizontalScrollIndicator}
         showsVerticalScrollIndicator={showsVerticalScrollIndicator}
         horizontal={horizontal}
-        refreshControl={!noRefresh ? <RefreshControl refreshing={refreshing} onRefresh={onRefresh} /> : <></>}
+        refreshControl={!noRefresh ? <RefreshControl refreshing={!!refreshing} onRefresh={onRefresh} /> : <></>}
         scrollEventThrottle={16}
         onScroll={onScroll}
         ref={flatList}

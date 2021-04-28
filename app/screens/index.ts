@@ -8,3 +8,4 @@ export * from './product';
 export * from './product_detail';
 export * from './product_scan';
 export * from './register';
+export * from './comment';

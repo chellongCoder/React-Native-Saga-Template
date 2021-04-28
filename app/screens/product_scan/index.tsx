@@ -8,6 +8,7 @@ import { useLoadingGlobal } from '../../hooks';
 import {
   AboutProduct,
   AppBars,
+  AppButton,
   ButtonGroup,
   Comment,
   InfoProduct,
@@ -105,7 +106,11 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
         <Comment {...{ productDetail }} />
         <SuggestProduct {...{ scrollToTop }} data={dataSuggest || []} navigation={navigation} />
       </KeyboardAwareScrollView>
-      <ButtonGroup />
+      <AppButton
+        // labelStyles={styles.labelStyles}
+        // style={[styles.button, { backgroundColor: COLORS.blue }]}
+        title="Mua tại nhà sx"
+      />
     </View>
   );
 };
