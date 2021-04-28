@@ -23,7 +23,7 @@ type menu = {
 const Account = () => {
   const navigation = useNavigation();
 
-  const { userInfo, data }: any = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, tempData } = useSelector((state: RootState) => state.AuthData);
 
   const goToDetail = (item: menu) => () => {
     switch (item.id) {
@@ -81,7 +81,7 @@ const Account = () => {
   };
 
   const checkLogin = () => {
-    if (_.isEmpty(data)) {
+    if (_.isEmpty(tempData)) {
       alertMessage('Thông báo', goToLogin, 'Bạn vui lòng đăng nhập để sử dụng tính năng này!');
       return false;
     }
@@ -114,7 +114,7 @@ const Account = () => {
     <View style={styles.contain}>
       <Image source={AppIcon.HeaderAccount} style={styles.wrapHeader} />
       <View style={styles.styWrapContent}>
-        {_.isEmpty(userInfo) ? (
+        {_.isEmpty(tempData) ? (
           <Text style={styles.styTxtHeader} fontType={'fontBold'}>
             Tài khoản
           </Text>

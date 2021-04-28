@@ -22,6 +22,8 @@ function* getDataScanQr({
     if (response.status === 200) {
       yield put(qrActionsCreator.getDataScanSuccess(response));
       payload.callback(mapDetailProduct(response.product));
+    } else if (response.status === 201) {
+      yield put(qrActionsCreator.getDataScanFaild({ error: response.message }));
     } else {
       yield put(qrActionsCreator.getDataScanFaild({ error: response.originalError || 'User Login Failed!' }));
     }

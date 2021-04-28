@@ -18,12 +18,13 @@ export const useStyleSearch = () => {
         input: {
           borderColor: 'transparent',
           ...CommonStyle.shadow,
+          color: colors.black,
         },
         icon: {
           width: Platform.SizeScale(20),
           height: Platform.SizeScale(20),
         },
       }),
-    [],
+    [colors.black],
   );
 };

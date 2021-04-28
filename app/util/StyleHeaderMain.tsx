@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: Platform.OS === 'ios' ? 8 : 0,
     marginHorizontal: 10,
-    borderColor: '#FFF',
-    backgroundColor: '#FFF',
+    borderColor: colors.white,
+    backgroundColor: colors.white,
     flex: 1,
     flexDirection: 'row',
-    shadowColor: '#000',
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   styInput: {
-    color: '#000',
+    color: colors.black,
     marginHorizontal: 5,
     fontFamily: FontFamily.fontRegular,
   },

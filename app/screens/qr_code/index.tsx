@@ -17,6 +17,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
     async (data: string) => {
       setbarcodeRead(false);
       if (data) {
+        console.log('🚀 ~ file: index.tsx ~ line 20 ~ data', data);
         const supported = await Linking.canOpenURL(data);
         if (supported) {
           if (data.indexOf('sahatha.vn') > 0) {

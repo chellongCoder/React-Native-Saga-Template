@@ -62,11 +62,13 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
 
   const renderEmpty = useCallback(() => {
     return (
-      <View style={styles.styWrapEmpty}>
-        <Text>Không có dữ liệu :(</Text>
-      </View>
+      !isLoading && (
+        <View style={styles.styWrapEmpty}>
+          <Text>Không có dữ liệu :(</Text>
+        </View>
+      )
     );
-  }, [styles.styWrapEmpty]);
+  }, [isLoading, styles.styWrapEmpty]);
 
   const ListHeaderComponent = useCallback(() => {
     return <Banner />;
@@ -108,7 +110,6 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
           loadMore: true,
           refreshing: isLoading,
         }}
-
         // {...{ ListHeaderComponent }}
       />
     </View>

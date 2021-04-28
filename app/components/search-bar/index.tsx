@@ -24,7 +24,7 @@ export const SearchBar = ({ style }: { style?: ViewStyle }) => {
       <TextField
         style={styles.input}
         placeholder={'Nhập nội dung tìm kiếm'}
-        placeholderTextColor={colors.black}
+        placeholderTextColor={colors.gray}
         onChangeText={onChangeTextSearch}
         ref={refInput}
         {...{ renderLeftAccessory }}

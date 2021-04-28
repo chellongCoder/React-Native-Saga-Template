@@ -25,7 +25,7 @@ interface Props {}
 
 const ChangeInfo = (props: Props) => {
   const navigation = useNavigation();
-  const { userInfo, error, isLoading, isErrUpdateInfo } = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, error, isLoading, isErrUpdateInfo, tempData } = useSelector((state: RootState) => state.AuthData);
   const dispatch = useDispatch();
   const [genderValue, setGenderValue] = useState({ name: '' || undefined, id: 0 || undefined });
   const [isDateTimePickerVisible, setisDateTimePickerVisible] = useState(false);
@@ -101,20 +101,20 @@ const ChangeInfo = (props: Props) => {
   }, [error, hookLoadingGlobal, isErrUpdateInfo, isLoading, navigation]);
 
   const handleUpdateInfo = useCallback(async () => {
-    const { token } = await getToken();
+    const { accessToken } = tempData;
     const params = {
-      token,
+      token: accessToken,
       name,
       address,
       birth_date: date,
       phone,
       email,
     };
-    if (avatarTemp) {
+    if (!_.isEmpty(avatarTemp)) {
       params.avatar = avatarTemp;
     }
     dispatch(accountActionsCreator.updateInfoRequest(params));
-  }, [address, avatarTemp, date, dispatch, email, name, phone]);
+  }, [address, avatarTemp, date, dispatch, email, name, phone, tempData]);
 
   const cropPickerAvatar = () => {
     ImagePickerCrop.openPicker({
@@ -202,7 +202,16 @@ const ChangeInfo = (props: Props) => {
           </RippleButtonAnim>
         </ScrollView>
       </View>
-      <DateTimePicker isVisible={isDateTimePickerVisible} onConfirm={handleDatePicked} onCancel={hideDateTimePicker} />
+      <DateTimePicker
+        isVisible={isDateTimePickerVisible}
+        onConfirm={handleDatePicked}
+        onCancel={hideDateTimePicker}
+        isDarkModeEnabled={true}
+        headerTextIOS={'Chọn ngày sinh'}
+        cancelTextIOS={'Quay lại'}
+        confirmTextIOS={'Xác nhận'}
+        locale={'vi-VN'}
+      />
     </View>
   );
 };

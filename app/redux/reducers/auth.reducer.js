@@ -101,7 +101,7 @@ export default function (state = initialState, action) {
     case USER_INFO_SUCCESS:
       return {
         ...state,
-        userInfo: payload.user,
+        userInfo: { ...payload.user, access_token: state.tempData?.access_token },
       };
     case USER_INFO_ERROR:
       return {
