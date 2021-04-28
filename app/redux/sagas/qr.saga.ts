@@ -4,6 +4,7 @@ import { ApiResponse } from 'apisauce';
 import { qrActionsCreator } from '../actions';
 import { ApiQr } from '../../services';
 import { mapDetailProduct } from '../../helpers/product.helper';
+import { callSafe } from './common.saga';
 
 function* getDataScanQr({
   payload,
@@ -14,7 +15,7 @@ function* getDataScanQr({
   device_id: string | null;
 }>) {
   try {
-    const response: ApiResponse<any, any> = yield ApiQr.getDataScanQR({
+    const response: ApiResponse<any, any> = yield callSafe(ApiQr.getDataScanQR, {
       url_scan: payload.url_scan,
       user_id: payload.user_id,
       device_id: payload.device_id,
@@ -26,7 +27,6 @@ function* getDataScanQr({
       yield put(qrActionsCreator.getDataScanFaild({ error: response.message }));
     }
   } catch (err) {
-    console.log('🚀 ~ file: qr.saga.ts ~ line 31 ~ err', err);
     yield put(qrActionsCreator.getDataScanFaild({ error: err ? err : 'User Login Failed!' }));
   }
 }

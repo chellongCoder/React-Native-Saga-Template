@@ -14,10 +14,8 @@ export const useNewsStyle = () => {
           borderTopRightRadius: Platform.SizeScale(16),
         },
         imageBackground: {
-          height: '50%',
+          height: '35%',
           width: '100%',
-
-          backgroundColor: 'red',
         },
         viewItem: {
           flexDirection: 'row',
@@ -26,6 +24,7 @@ export const useNewsStyle = () => {
           marginTop: 10,
           backgroundColor: COLORS.WHITE,
         },
+
         viewImageWrapper: { flex: 1 },
         viewHeader: { flexDirection: 'row', justifyContent: 'space-between' },
         btnHeader: { margin: Platform.SizeScale(16) },
@@ -48,7 +47,7 @@ export const useNewsStyle = () => {
           color: COLORS.WHITE,
           fontSize: Platform.SizeScale(18),
           textAlign: 'center',
-          marginTop: Platform.SizeScale(8),
+          marginVertical: Platform.SizeScale(8),
         },
         timeUnder: {
           color: COLORS.GRAY1,
@@ -58,7 +57,7 @@ export const useNewsStyle = () => {
         },
         viewTextWrapper: {
           paddingHorizontal: Platform.SizeScale(16),
-          paddingVertical: Platform.SizeScale(18),
+          paddingVertical: Platform.SizeScale(10),
         },
         textNews: {
           fontSize: Platform.SizeScale(16),
@@ -86,7 +85,7 @@ export const useNewsStyle = () => {
           borderColor: COLORS.WHITE,
           overflow: 'hidden',
           marginRight: Platform.SizeScale(12),
-          marginVertical: Platform.SizeScale(14),
+          marginVertical: Platform.SizeScale(2),
         },
         itemImage: { flex: 1, resizeMode: 'stretch' },
         itemText: { color: COLORS.WHITE, fontSize: Platform.SizeScale(12) },

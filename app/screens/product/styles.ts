@@ -14,6 +14,9 @@ export const useProductStyle = () => {
           justifyContent: 'center',
           alignItems: 'center',
         },
+        viewBanner: {
+          marginTop: 0,
+        },
       }),
     [],
   );

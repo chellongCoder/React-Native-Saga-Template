@@ -1,7 +1,10 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import { screens } from '../../config';
 import { COLORS, CommonStyle } from '../../constants';
 import { useImageView } from '../../hooks';
+import navigationService from '../../navigation/navigation-service';
 import { DetailProductT } from '../../screens/product_detail/types';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
@@ -14,11 +17,18 @@ const _Comment = ({ productDetail }: { productDetail?: DetailProductT }) => {
   const comment = useMemo(() => {
     return mocksData.comments[0];
   }, []);
+
+  const onNavigateComments = useCallback(() => {
+    navigationService.navigate(screens.comment, { productDetail });
+  }, [productDetail]);
+
   return (
     <View>
       <View style={styles.topic}>
         <Text style={styles.txtRate}>Đánh giá sản phẩm ({productDetail?.productRate.length})</Text>
-        <Text>Xem tất cả </Text>
+        <RippleButtonAnim onPress={onNavigateComments}>
+          <Text>Xem tất cả </Text>
+        </RippleButtonAnim>
       </View>
       {productDetail?.productRate.slice(0, 1).map((value: ProductRateT, index: number) => {
         return (

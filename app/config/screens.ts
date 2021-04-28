@@ -17,6 +17,7 @@ const screens = {
   TabMain: 'TabMain',
   product: 'Product',
   product_detail: 'ProductDetail',
+  comment: 'Comment',
   product_scan: 'ProductScan',
   settingMessageScreen: 'SettingMessageScreen',
   buyHistoryScreen: 'BuyHistoryScreen',

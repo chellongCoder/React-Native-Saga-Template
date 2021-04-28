@@ -107,6 +107,7 @@ export const mapDetailProduct = (data: any): DetailProductT => {
             name: value.name,
             createAt: value.created_at,
             image: value.image,
+            avatar: value.avatar,
           };
         })
       : [],
