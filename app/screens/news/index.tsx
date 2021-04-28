@@ -85,6 +85,7 @@ const _NewsScreen = () => {
       </View>
       <View style={styles.viewCate}>{newCategories.map(renderItemTypeExeTitle)}</View>
       <FlatList
+        contentContainerStyle={{ paddingHorizontal: Platform.SizeScale(20) }}
         style={styles.flatlistContent}
         showsVerticalScrollIndicator={false}
         data={news}
