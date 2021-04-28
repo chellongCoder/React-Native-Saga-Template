@@ -4,6 +4,8 @@ import { screens } from '../config';
 import ChangeInfo from '../screens/ChangeInfo/index';
 import Account from '../screens/account';
 import Rules from '../screens/rules';
+import CreateQR from '../screens/CreateQR';
+
 const AccountStack = createStackNavigator();
 
 export default function AccountNavigator() {
@@ -12,6 +14,7 @@ export default function AccountNavigator() {
       <AccountStack.Screen name={screens.profile} component={Account} />
       <AccountStack.Screen name={screens.changeInfo} component={ChangeInfo} />
       <AccountStack.Screen name={screens.rules} component={Rules} />
+      <AccountStack.Screen name={screens.createQR} component={CreateQR} />
     </AccountStack.Navigator>
   );
 }

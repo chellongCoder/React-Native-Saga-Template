@@ -28,6 +28,7 @@ const screens = {
   historyScanCode: 'HistoryScanCode',
   changeInfo: 'ChangeInfo',
   rules: 'Rules',
+  createQR: 'createQR',
 };
 
 enum ROUTES {
@@ -58,6 +59,7 @@ enum ROUTES {
   historyScanCode = 'HistoryScanCode',
   changeInfo = 'ChangeInfo',
   rules = 'Rules',
+  createQR = 'createQR',
 }
 
 export { screens, ROUTES };

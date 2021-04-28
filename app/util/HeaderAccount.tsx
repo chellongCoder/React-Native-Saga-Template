@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   styTitle: {
     position: 'absolute',
     top: 15,
-    left: 70,
+    left: 60,
     color: COLORS.WHITE,
     ...Platform.textBase,
     fontSize: Platform.SizeScale(15),

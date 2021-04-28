@@ -41,9 +41,16 @@ const getDataPolicy = (params: any) =>
     server_key: SERVER_KEY,
   });
 
+const createRequestQr = (params: any) =>
+  api.post(`${api_url}api/create_number_request?token=${params.token}`, {
+    server_key: SERVER_KEY,
+    ...params,
+  });
+
 export const AccountAPI = {
   getListProvince,
   getListDistrict,
   updateInfo,
   getDataPolicy,
+  createRequestQr,
 };

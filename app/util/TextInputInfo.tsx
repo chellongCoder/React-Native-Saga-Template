@@ -15,6 +15,7 @@ const TextInputInfo = ({
   keyboardType,
   onPressIcon,
   onChangeText,
+  multiline,
 }: {
   label: string;
   value: string;
@@ -23,6 +24,7 @@ const TextInputInfo = ({
   keyboardType?: KeyboardTypeOptions;
   onPressIcon?: () => void;
   onChangeText?: (value: string) => void;
+  multiline?: boolean;
 }) => {
   return (
     <Row style={styles.contain}>
@@ -36,6 +38,7 @@ const TextInputInfo = ({
         placeholderTextColor={COLORS.GRAY}
         keyboardType={keyboardType}
         onChangeText={onChangeText}
+        multiline={multiline}
       />
       <RippleButtonAnim onPress={onPressIcon}>
         <Image source={icon} style={styles.styIcon} />
@@ -63,6 +66,7 @@ const styles = StyleSheet.create({
     color: COLORS.BLACK,
     letterSpacing: 1,
     ...Platform.textBase,
+    maxHeight: 100,
   },
   styIcon: {
     width: 20,
