@@ -90,8 +90,9 @@ const _NewsScreen = () => {
 
       <ListFullOption
         data={news}
+        showsVerticalScrollIndicator={false}
         renderSubItem={renderItemContent}
-        style={{ marginHorizontal: Platform.SizeScale(10) }}
+        style={{ paddingHorizontal: Platform.SizeScale(20) }}
         // ListEmptyComponent={renderEmpty}
         onRefreshEvent={getNewCategoryRequest}
         listFooterComponent={<View style={{ height: Platform.SizeScale(25) }} />}

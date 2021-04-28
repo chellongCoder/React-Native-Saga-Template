@@ -10,6 +10,8 @@ import { callSafe } from './common.saga';
 function* getDataProducts({ payload }: Action<any>) {
   try {
     const response: ApiResponse<any, any> = yield Api.getDataProduct(payload.access_token, payload.params);
+    console.log('response', response);
+
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataSuccess({ data: mapListProductCategory(response.data) }));
     } else {

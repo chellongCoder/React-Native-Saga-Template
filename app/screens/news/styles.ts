@@ -50,7 +50,7 @@ export const useNewsStyle = () => {
           borderRadius: 4,
           width: '60%',
         },
-        flatlistContent: { flex: 1, paddingHorizontal: Platform.SizeScale(20) },
+        flatlistContent: { flex: 1 },
         forwardScroll: {
           right: 0,
         },
