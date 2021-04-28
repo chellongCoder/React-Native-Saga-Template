@@ -10,6 +10,7 @@ import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
 import { screens } from '../../config';
 import { useLoadingGlobal } from '../../hooks';
+import BannerAdvertisement from '../../util/BannerAdvertisement';
 import { useProductStyle } from './styles';
 import { ProductProps, ProductPropsScreen } from './types';
 
@@ -18,7 +19,7 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const styles = useProductStyle();
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const { productsMore, isLoading } = useSelector((state: RootState) => state.HomeData);
+  const { productsMore, isLoading, sliders } = useSelector((state: RootState) => state.HomeData);
   const data = useMemo(() => mapListProductMore(productsMore), [productsMore]);
   const [page, setPage] = useState(1);
   const loading = useLoadingGlobal();
@@ -91,6 +92,7 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
       <SearchBar />
+      <BannerAdvertisement style={styles.viewBanner} data={sliders} />
 
       <ListFullOption
         data={data}
