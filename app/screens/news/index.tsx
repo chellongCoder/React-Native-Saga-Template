@@ -21,6 +21,7 @@ const _NewsScreen = () => {
   const loading = useLoadingGlobal();
   const newCategories = useMemo(() => mapperNewsCategory(_newCategories), [_newCategories]);
   const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
+  console.log('news', news, newCategories);
 
   const styles = useNewsStyle();
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ const _NewsScreen = () => {
         style={[styles.viewItem, styles.viewItemShadow]}
         hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
         onPress={() => {
-          navigationService.navigate('NewsDetail', {});
+          navigationService.navigate('NewsDetail', { item });
         }}>
         <View style={styles.viewImageWrapper}>
           <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
