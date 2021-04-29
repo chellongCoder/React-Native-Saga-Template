@@ -21,6 +21,7 @@ const _NewsScreen = () => {
   const loading = useLoadingGlobal();
   const newCategories = useMemo(() => mapperNewsCategory(_newCategories), [_newCategories]);
   const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
+  console.log('news', news, newCategories);
 
   const styles = useNewsStyle();
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ const _NewsScreen = () => {
       <TouchableOpacity
         style={[styles.viewItem, styles.viewItemShadow]}
         onPress={() => {
-          navigationService.navigate('NewsDetail', {});
+          navigationService.navigate('NewsDetail', { item });
         }}>
         <View style={styles.viewImageWrapper}>
           <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
