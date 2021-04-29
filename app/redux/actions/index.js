@@ -3,4 +3,5 @@ export * from './auth.actions';
 export * from './navigation.actions';
 export * from './home.actions';
 export * from './news.actions';
+export * from './newsDetail.actions';
 export * from './qr.action';

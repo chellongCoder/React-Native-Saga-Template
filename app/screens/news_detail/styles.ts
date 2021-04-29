@@ -42,6 +42,8 @@ export const useNewsStyle = () => {
           padding: Platform.SizeScale(8),
           borderRadius: 100,
           marginHorizontal: Platform.SizeScale(4),
+          borderWidth: 0.5,
+          borderColor: 'rgba(0,0,0,0.5)',
         },
         textUnder: {
           color: COLORS.WHITE,
@@ -87,7 +89,7 @@ export const useNewsStyle = () => {
           marginRight: Platform.SizeScale(12),
           marginVertical: Platform.SizeScale(2),
         },
-        itemImage: { flex: 1, resizeMode: 'stretch' },
+        itemImage: { flex: 1, resizeMode: 'cover' },
         itemText: { color: COLORS.WHITE, fontSize: Platform.SizeScale(12) },
         stySearch: {
           borderWidth: 1,
