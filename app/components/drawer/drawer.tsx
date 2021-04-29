@@ -65,7 +65,7 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
       <View style={styles.avatarContainer}>
         <FastImage
           resizeMode="contain"
-          source={{ uri: userInfo?.avatar || 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+          source={{ uri: tempData?.avatar || 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
           style={styles.image}
         />
         {!_.isEmpty(tempData) && (
@@ -77,7 +77,7 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
         )}
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        {!userInfo && (
+        {!tempData && (
           <TouchableOpacity
             hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
             style={styles.itemContainer}

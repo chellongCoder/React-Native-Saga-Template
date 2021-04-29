@@ -16,7 +16,6 @@ const Rules = (props: any) => {
   const getDataRules = useCallback(async () => {
     hookLoadingGlobal.onShow();
     const response = await AccountAPI.getDataPolicy({ type });
-    console.log('🚀 ~ file: index.tsx ~ line 19 ~ getDataRules ~ response', response);
     if (response.status === 200) {
       const { content } = response.policy;
       setContenPolicyt(content);

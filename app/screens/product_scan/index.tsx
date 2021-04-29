@@ -84,7 +84,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
       hookLoadingGlobal.onHide();
     }
     if (!_.isEmpty(error)) {
-      alertMessage('Cảnh báo', () => navigation.goBack(), error);
+      alertMessage('Cảnh báo', () => navigation.goBack(), 'Không tìm thấy sản phẩm liên quan.');
     }
   }, [error, hookLoadingGlobal, isLoading, navigation]);
 

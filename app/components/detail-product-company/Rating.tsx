@@ -169,7 +169,7 @@ const _Rating = ({ productDetail, setProductDetail }: { productDetail?: DetailPr
       <View style={styles.starContainer}>
         {mocksData.ratings.map((value, index) => {
           return (
-            <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.stars]}>
+            <View key={index} style={[CommonStyle.row, CommonStyle.spaceBetween, styles.stars]}>
               <View style={[CommonStyle.row, styles.startLeft]}>
                 <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
                 <Text numberOfLines={1} style={styles.txtStar}>

@@ -39,9 +39,14 @@ export const Slider = ({ data }: { data?: PhotoSlider[] }) => {
         {data &&
           data.map((value, index) => {
             return index === activeSlide ? (
-              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_active_paging' }} />
+              <Image
+                key={index}
+                resizeMode="contain"
+                style={styles.dot}
+                source={{ uri: 'product_detail_active_paging' }}
+              />
             ) : (
-              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
+              <Image key={index} resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
             );
           })}
       </View>

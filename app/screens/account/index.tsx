@@ -70,7 +70,7 @@ const Account = () => {
 
   const handleRequestCode = () => {
     if (checkLogin()) {
-      alertMessage('da login');
+      navigation.navigate(screens.createQR, { title: 'Request tạo mã' });
     }
   };
 
