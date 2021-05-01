@@ -1,16 +1,13 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { View, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
-import { COLORS } from '../../constants';
-import { ItemNews, ListFullOption, SearchBar, Text } from '../../components';
+import { ItemNew, ItemNewCategory, ListFullOption, SearchBar, Text } from '../../components';
 import { RootState } from '../../redux/reducers';
 import { mapperNewsByCategory, mapperNewsCategory } from '../../helpers/news.helper';
 import { useLoadingGlobal } from '../../hooks';
-import { convertTimeToAMPM } from '../../util';
-import navigationService from '../../navigation/navigation-service';
 import { useNewsStyle } from './styles';
 import { NewCategoryT, NewsByCategoryT } from './types';
 
@@ -21,6 +18,7 @@ const _NewsScreen = () => {
   const loading = useLoadingGlobal();
   const newCategories = useMemo(() => mapperNewsCategory(_newCategories), [_newCategories]);
   const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
+  console.log('news', news, newCategories);
 
   const styles = useNewsStyle();
   const dispatch = useDispatch();
@@ -47,37 +45,10 @@ const _NewsScreen = () => {
   }, [isLoading, loading]);
 
   const renderItemTypeExeTitle = (item: NewCategoryT, index: number) => {
-    return <ItemNews key={index} {...{ item, index, active, onChangeTab }} />;
+    return <ItemNewCategory key={index} {...{ item, index, active, onChangeTab }} />;
   };
   const renderItemContent = (item: NewsByCategoryT) => {
-    return (
-      <TouchableOpacity
-        style={[styles.viewItem, styles.viewItemShadow]}
-        hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
-        onPress={() => {
-          navigationService.navigate('NewsDetail', {});
-        }}>
-        <View style={styles.viewImageWrapper}>
-          <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
-        </View>
-
-        <View style={styles.viewRight}>
-          <View style={styles.viewItemTitle}>
-            <View style={styles.viewTextTitle}>
-              <Text isLongText numberOfLines={1} style={styles.textTitle}>
-                {item.title}
-              </Text>
-            </View>
-            <Text style={{ color: COLORS.GRAY }}>{convertTimeToAMPM(item.time.split(' ')[1])}</Text>
-          </View>
-          <View style={styles.viewTextContent}>
-            <Text isLongText numberOfLines={2} style={{ color: COLORS.darkBlue }}>
-              {item.description}
-            </Text>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
+    return <ItemNew {...{ item }} />;
   };
 
   return (

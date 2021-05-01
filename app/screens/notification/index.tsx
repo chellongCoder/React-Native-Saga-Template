@@ -1,155 +1,45 @@
-import React from 'react';
-import { View, Dimensions, StyleSheet } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  useAnimatedGestureHandler,
-  useDerivedValue,
-  withSpring,
-} from 'react-native-reanimated';
-import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
+import React, { memo, useMemo } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { ItemNew, ListFullOption, SearchBar } from '../../components';
+import { mapperNewsByCategory } from '../../helpers/news.helper';
+import { RootState } from '../../redux/reducers';
+import { Platform } from '../../theme';
+import { NewsByCategoryT } from '../news/types';
+import { useNotficationStyle } from './styles';
 
-const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
+const _NotificationScreen = () => {
+  const { news: _news } = useSelector((state: RootState) => state.NewData);
 
-function ChatHeads({ children }: React.PropsWithChildren<Record<never, never>>) {
-  const transX = useSharedValue(0);
-  const transY = useSharedValue(0);
+  const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
 
-  type AnimatedGHContext = {
-    startX: number;
-    startY: number;
+  const styles = useNotficationStyle();
+
+  const renderItemContent = (item: NewsByCategoryT) => {
+    return <ItemNew {...{ item }} />;
   };
-  const gestureHandler = useAnimatedGestureHandler<PanGestureHandlerGestureEvent, AnimatedGHContext>({
-    onStart: (_, ctx) => {
-      ctx.startX = transX.value;
-      ctx.startY = transY.value;
-    },
-    onActive: (event, ctx) => {
-      transX.value = ctx.startX + event.translationX;
-      transY.value = ctx.startY + event.translationY;
-    },
-    onEnd: (event) => {
-      const width = windowWidth - 100 - 40; // minus margins & width
-      const height = windowHeight - 100 - 40; // minus margins & height
-      const toss = 0.2;
-      function clamp(value: number, min: number, max: number) {
-        return Math.min(Math.max(value, min), max);
-      }
-      const targetX = clamp(transX.value + toss * event.velocityX, 0, width);
-      const targetY = clamp(transY.value + toss * event.velocityY, 0, height);
-      // return;
-
-      const top = targetY;
-      const bottom = height - targetY;
-      const left = targetX;
-      const right = width - targetX;
-      const minDistance = Math.min(top, bottom, left, right);
-      let snapX = targetX;
-      let snapY = targetY;
-      switch (minDistance) {
-        case top:
-          snapY = 0;
-          break;
-        case bottom:
-          snapY = height;
-          break;
-        case left:
-          snapX = 0;
-          break;
-        case right:
-          snapX = width;
-          break;
-      }
-      transX.value = withSpring(snapX, {
-        velocity: event.velocityX,
-      });
-      transY.value = withSpring(snapY, {
-        velocity: event.velocityY,
-      });
-    },
-  });
-
-  const stylez = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateX: transX.value,
-        },
-        {
-          translateY: transY.value,
-        },
-      ],
-    };
-  });
-
-  const childrenArray = React.Children.toArray(children);
 
   return (
-    <>
-      {childrenArray.length > 1 && <Followers children={childrenArray.slice(1)} transX={transX} transY={transY} />}
-      <PanGestureHandler onGestureEvent={gestureHandler}>
-        <Animated.View style={[styles.headContainer, stylez]}>{childrenArray[0]}</Animated.View>
-      </PanGestureHandler>
-    </>
-  );
-}
+    <View style={styles.container}>
+      <SearchBar style={styles.viewSearchBar} />
+      <ListFullOption
+        data={news}
+        showsVerticalScrollIndicator={false}
+        renderSubItem={renderItemContent}
+        style={{ paddingHorizontal: Platform.SizeScale(20) }}
+        // ListEmptyComponent={renderEmpty}
+        // onRefreshEvent={getNewCategoryRequest}
+        listFooterComponent={<View style={{ height: Platform.SizeScale(25) }} />}
+        {...{
+          // onLoadMore,
+          loadMore: true,
+          // refreshing: isLoading,
+        }}
 
-const Notification = () => {
-  return (
-    <View style={{ flex: 1, margin: 50 }}>
-      <ChatHeads>
-        <View style={[styles.head, { backgroundColor: 'black' }]} />
-        <View style={[styles.head, { backgroundColor: 'blue' }]} />
-        <View style={[styles.head, { backgroundColor: 'green' }]} />
-        <View style={[styles.head, { backgroundColor: 'yellow' }]} />
-      </ChatHeads>
+        // {...{ ListHeaderComponent }}
+      />
     </View>
   );
 };
 
-type FollowersProps = {
-  readonly transX: Animated.SharedValue<number>;
-  readonly transY: Animated.SharedValue<number>;
-};
-function Followers({ transX, transY, children }: React.PropsWithChildren<FollowersProps>) {
-  const myTransX = useDerivedValue(() => {
-    return withSpring(transX.value);
-  });
-  const myTransY = useDerivedValue(() => {
-    return withSpring(transY.value);
-  });
-
-  const stylez = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateX: myTransX.value,
-        },
-        {
-          translateY: myTransY.value,
-        },
-      ],
-    };
-  });
-
-  const childrenArray = React.Children.toArray(children);
-
-  return (
-    <>
-      {childrenArray.length > 1 && <Followers children={childrenArray.slice(1)} transX={myTransX} transY={myTransY} />}
-      <Animated.View style={[styles.headContainer, stylez]}>{childrenArray[0]}</Animated.View>
-    </>
-  );
-}
-
-const styles = StyleSheet.create({
-  head: {
-    width: 40,
-    height: 40,
-  },
-  headContainer: {
-    position: 'absolute',
-  },
-});
-
-export default Notification;
+export const NotificationScreen = memo(_NotificationScreen);

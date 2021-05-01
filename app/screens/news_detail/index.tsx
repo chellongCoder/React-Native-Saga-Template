@@ -1,29 +1,37 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 import { View, ImageBackground, FlatList, Image, ListRenderItem, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { COLORS } from '../../constants';
 import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 import { Text } from '../../components';
 import navigationService from '../../navigation/navigation-service';
+import { mapperNewsByCategory } from '../../helpers/news.helper';
+import { RootState } from '../../redux/reducers';
+import { useImageView } from '../../hooks';
 import { useNewsStyle } from './styles';
-import { dataCate } from './__mocks__/data';
+// import { dataCate } from './__mocks__/data';
 
-const _NewsScreenDetail = () => {
+const _NewsScreenDetail = ({ route }) => {
+  const dataRoute = route.params.item;
   const scrollElementHeightPercent = 20;
   const styles = useNewsStyle();
   const dispatch = useDispatch();
+  const { news: _news } = useSelector((state: RootState) => state.NewData);
+  const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
+
   const [contentOffset, setContentOffset] = useState({ x: 0, y: 0 });
   const [contentSize, setContentSize] = useState(0);
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
 
   const scrollPerc = (contentOffset.x / (contentSize - scrollViewHeight)) * (100 - scrollElementHeightPercent);
   useEffect(() => {
-    dispatch(newsActionsCreator.getNewCategoryRequest());
+    dispatch(newsActionsCreator.getNewsDetailNotificationRequest());
   }, [dispatch]);
+  const imageViewer = useImageView();
   const renderItemHorizontal: ListRenderItem<{
     id: number;
     title: string;
@@ -31,9 +39,13 @@ const _NewsScreenDetail = () => {
   }> = ({ item }) => {
     return (
       <View style={styles.itemWrapper}>
-        <View style={styles.itemViewImage}>
+        <TouchableOpacity
+          onPress={() => {
+            imageViewer.show([item.image]);
+          }}
+          style={styles.itemViewImage}>
           <Image style={styles.itemImage} source={{ uri: item.image }} />
-        </View>
+        </TouchableOpacity>
         <Text style={styles.itemText} numberOfLines={3}>
           {item.title}
         </Text>
@@ -53,7 +65,7 @@ const _NewsScreenDetail = () => {
           width: undefined,
         }}
         style={styles.imageBackground}
-        source={{ uri: 'https://genk.mediacdn.vn/2019/1/23/airpower-15482435649941225284688.jpg' }}>
+        source={{ uri: dataRoute.image }}>
         <View style={styles.viewImageWrapper}>
           <View style={styles.viewHeader}>
             <TouchableOpacity onPress={onBack} style={styles.btnHeader}>
@@ -78,23 +90,7 @@ const _NewsScreenDetail = () => {
         </View>
       </ImageBackground>
       <ScrollView style={{ flex: 1, marginTop: Platform.SizeScale(8), paddingHorizontal: Platform.SizeScale(12) }}>
-        <Text>
-          ÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUSBCÁICGUAISUG
-          ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBCSBCÁICGUAISUG ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG
-          ÁOASBCÁICGUAISUG ÁOASBCIUASBCÁICGUAISUG ÁOASBC
-        </Text>
+        <Text isViewHtml>{dataRoute.content}</Text>
       </ScrollView>
       <View style={styles.bottom}>
         <View style={styles.viewTextWrapper}>
@@ -103,6 +99,8 @@ const _NewsScreenDetail = () => {
           </Text>
         </View>
         <FlatList
+          style={{ marginHorizontal: Platform.SizeScale(20) }}
+          bounces={false}
           showsHorizontalScrollIndicator={false}
           onLayout={(e) => {
             setScrollViewHeight(e.nativeEvent.layout.width);
@@ -116,7 +114,7 @@ const _NewsScreenDetail = () => {
           horizontal
           keyExtractor={(item) => item.title + item.id}
           renderItem={renderItemHorizontal}
-          data={dataCate}
+          data={news}
         />
         <View style={styles.viewSliderWrapper}>
           <View

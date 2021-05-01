@@ -24,3 +24,4 @@ export * from './item-news-category';
 export * from './slider-item';
 export * from './toast-info';
 export * from './list';
+export * from './item-new';

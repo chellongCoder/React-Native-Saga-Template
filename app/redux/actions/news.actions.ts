@@ -8,6 +8,11 @@ import {
   NEW_CATEGORY_REQUEST,
   NEW_CATEGORY_SUCCESS,
 } from '../types/news.type';
+import {
+  NEWS_NOTIFICATION_FAILED,
+  NEWS_NOTIFICATION_REQUEST,
+  NEWS_NOTIFICATION_SUCCESS,
+} from '../types/newsDetail.type';
 
 export const newsActionsCreator = {
   // action getNewCategory
@@ -19,4 +24,8 @@ export const newsActionsCreator = {
   getNewByCategoryRequest: createAction<CategoryByIdParamsT>(NEW_CATEGORY_BY_REQUEST),
   getNewByCategorySuccess: createAction(NEW_CATEGORY_BY_SUCCESS),
   getNewByCategoryFailed: createAction(NEW_CATEGORY_BY_FAILED),
+
+  getNewsDetailNotificationRequest: createAction(NEWS_NOTIFICATION_REQUEST),
+  getNewsDetailNotificationSuccess: createAction(NEWS_NOTIFICATION_SUCCESS),
+  getNewsDetailNotificationFailed: createAction(NEWS_NOTIFICATION_FAILED),
 };
