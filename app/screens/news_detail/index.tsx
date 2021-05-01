@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useDispatch, useSelector } from 'react-redux';
 import { COLORS } from '../../constants';
-import { newsDetailActionsCreator } from '../../redux/actions';
+import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
 import { Text } from '../../components';
 import navigationService from '../../navigation/navigation-service';
@@ -29,7 +29,7 @@ const _NewsScreenDetail = ({ route }) => {
 
   const scrollPerc = (contentOffset.x / (contentSize - scrollViewHeight)) * (100 - scrollElementHeightPercent);
   useEffect(() => {
-    dispatch(newsDetailActionsCreator.getNewsDetailNotificationRequest());
+    dispatch(newsActionsCreator.getNewsDetailNotificationRequest());
   }, [dispatch]);
   const imageViewer = useImageView();
   const renderItemHorizontal: ListRenderItem<{

@@ -19,7 +19,14 @@ const getNewByCategory = (params: CategoryByIdParamsT) =>
     server_key: SERVER_KEY,
   });
 
+const getNewsNotification = (params: any) =>
+  api.post(API_CONFIG.NEWS_NOTIFICATION_DETAIL, {
+    ...params,
+    server_key: SERVER_KEY,
+  });
+
 export const NewsApi = {
   getNewCategory,
   getNewByCategory,
+  getNewsNotification,
 };

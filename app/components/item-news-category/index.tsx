@@ -35,4 +35,4 @@ const _ItemNews = ({ item, index, active, onChangeTab }: ItemNewProps) => {
   );
 };
 
-export const ItemNews = memo(_ItemNews);
+export const ItemNewCategory = memo(_ItemNews);

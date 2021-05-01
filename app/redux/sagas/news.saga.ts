@@ -32,7 +32,21 @@ function* getDataNewsByCategory({ payload }: Action<CategoryByIdParamsT>) {
   }
 }
 
+function* getDataNewsDetailNotification() {
+  try {
+    const response: ApiResponse<any, any> = yield callSafe(NewsApi.getNewsNotification, {});
+    if (response.status === 200) {
+      yield put(newsActionsCreator.getNewsDetailNotificationSuccess(response));
+    } else {
+      yield put(newsActionsCreator.getNewsDetailNotificationFailed({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(newsActionsCreator.getNewsDetailNotificationFailed({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 export default function* () {
   yield takeEvery(newsActionsCreator.getNewCategoryRequest, getDataNewsCategory);
   yield takeEvery(newsActionsCreator.getNewByCategoryRequest, getDataNewsByCategory);
+  yield takeEvery(newsActionsCreator.getNewsDetailNotificationRequest, getDataNewsDetailNotification);
 }
