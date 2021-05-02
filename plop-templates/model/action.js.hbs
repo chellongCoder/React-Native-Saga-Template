@@ -1,0 +1,9 @@
+import { createAction } from 'redux-actions';
+import { {{constantCase name}}_REQUEST, {{constantCase name}}_SUCCESS , {{constantCase name}}_FAILED } from '../types';
+
+export const {{name}}ActionsCreator = {
+  // action get scan api
+  get{{pascalCase name}}Request: createAction({{constantCase name}}_REQUEST),
+  get{{pascalCase name}}Success: createAction({{constantCase name}}_SUCCESS),
+  get{{pascalCase name}}Failed: createAction({{constantCase name}}_FAILED),
+};

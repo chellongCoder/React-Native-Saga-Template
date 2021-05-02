@@ -1,0 +1,25 @@
+import { put, takeEvery } from 'redux-saga/effects';
+import { ApiResponse } from 'apisauce';
+import { Action } from 'redux-actions';
+import { {{name}}ActionsCreator } from '../actions';
+import { callSafe } from './common.saga';
+import { {{pascalCase name}}Api } from '../../services';
+
+function* get{{pascalCase name}}s() {
+  try {
+    const response: ApiResponse<any, any> = yield callSafe({{pascalCase name}}Api.getData{{pascalCase name}}, {});
+    if (response.status === 200) {
+      yield put({{name}}ActionsCreator.get{{pascalCase name}}Success(response));
+    } else {
+      yield put({{name}}ActionsCreator.get{{pascalCase name}}Failed({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put({{name}}ActionsCreator.get{{pascalCase name}}Failed({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
+
+
+export default function* () {
+  yield takeEvery({{name}}ActionsCreator.get{{pascalCase name}}Request, get{{pascalCase name}}s);
+}

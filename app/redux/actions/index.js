@@ -5,3 +5,4 @@ export * from './home.actions';
 export * from './news.actions';
 export * from './qr.action';
 export * from './account.action';
+export * from './notification.action';

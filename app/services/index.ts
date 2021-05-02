@@ -5,3 +5,4 @@ export * from './news-service';
 export * from './newsDetail-service';
 export * from './history-service';
 export * from './account-service';
+export * from './notification-service';
