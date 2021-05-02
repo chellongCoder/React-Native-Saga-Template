@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import FadeZoomAnim from '../../anim/FadeZoomAnim';
 import { screens } from '../../config';
 import { COLORS, CommonStyle } from '../../constants';
-import { useBottomSheet } from '../../hooks';
+import { mapDetailProduct } from '../../helpers/product.helper';
+import { useBottomSheet, useLoadingGlobal, useToastInfo } from '../../hooks';
 import { homeActionsCreator } from '../../redux/actions';
 import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
-import { PostCommentParamsT, PushStarT } from '../../screens/product_detail/types';
+import { DetailProductT, PostCommentParamsT, PushStarT } from '../../screens/product_detail/types';
 import { mocksData } from '../../screens/product_detail/__mocks__/data';
 import { Platform } from '../../theme';
 import { UploadFileT } from '../../types';
@@ -18,19 +19,30 @@ import { Text } from '../text';
 import { TextField } from '../text-field';
 import { Stars } from './Stars';
 
-const _Rating = () => {
+const _Rating = ({ productDetail, setProductDetail }: { productDetail?: DetailProductT; setProductDetail: any }) => {
   const { choicedImages } = useSelector((state: RootState) => state.ProductData);
-  const { data: userLogin }: any = useSelector((state: RootState) => state.AuthData);
+  const { isLoading, success } = useSelector((state: RootState) => state.HomeData);
+  const { data: userLogin, tempData }: any = useSelector((state: RootState) => state.AuthData);
   const selectedImage: UploadFileT[] = useMemo(() => choicedImages, [choicedImages]);
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [stars, setStars] = useState<PushStarT[]>(mocksData.valueRating);
   const [text, setText] = useState('');
   const bottomSheet = useBottomSheet();
+  const loading = useLoadingGlobal();
+  const toast = useToastInfo();
+
+  const isLogin = useMemo(() => {
+    return !!userLogin || !!tempData;
+  }, [tempData, userLogin]);
+
+  const accessToken = useMemo(() => {
+    return userLogin?.accessToken || tempData?.accessToken;
+  }, [tempData?.accessToken, userLogin?.accessToken]);
 
   const onComment = useCallback(() => {
     try {
-      if (!userLogin) {
+      if (!isLogin) {
         navigation.navigate(screens.login);
         return;
       }
@@ -64,10 +76,10 @@ const _Rating = () => {
       });
 
       Object.assign(data, { comment: text });
-      Object.assign(data, { token: userLogin?.accessToken });
+      Object.assign(data, { token: accessToken });
       dispatch(homeActionsCreator.postCommentRequest(data));
     } catch (error) {}
-  }, [dispatch, navigation, selectedImage, stars, text, userLogin]);
+  }, [accessToken, dispatch, isLogin, navigation, selectedImage, stars, text]);
 
   const onChangeText = useCallback((value: string) => {
     setText(value);
@@ -99,11 +111,33 @@ const _Rating = () => {
     };
   }, [dispatch]);
 
+  useEffect(() => {
+    if (isLoading) {
+      loading.onShow();
+    } else {
+      loading.onHide();
+    }
+  });
+
+  useEffect(() => {
+    if (success) {
+      toast.showSucess('Đã thêm bình luận của bạn.');
+      dispatch(
+        homeActionsCreator.getDataProductDetailRequest({
+          product_id: productDetail?.id,
+          isLoading: false,
+          callback: (response: any) => setProductDetail(mapDetailProduct(response.product)),
+        }),
+      );
+      dispatch(productActionsCreator.setChoicedImages({ images: [] }));
+    }
+  }, [dispatch, productDetail?.id, setProductDetail, success, toast]);
+
   const renderRightAccessory = useCallback(() => {
     return (
       <View style={[styles.capture]}>
-        <TouchableOpacity onPress={onShowChoiceImage}>
-          <Image style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
+        <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={onShowChoiceImage}>
+          <Image resizeMode="contain" style={CommonStyle.normalIcon} source={{ uri: 'product_detail_2_10' }} />
         </TouchableOpacity>
         {selectedImage.map((value, key) => {
           return (
@@ -135,7 +169,7 @@ const _Rating = () => {
       <View style={styles.starContainer}>
         {mocksData.ratings.map((value, index) => {
           return (
-            <View style={[CommonStyle.row, CommonStyle.spaceBetween, styles.stars]}>
+            <View key={index} style={[CommonStyle.row, CommonStyle.spaceBetween, styles.stars]}>
               <View style={[CommonStyle.row, styles.startLeft]}>
                 <Image style={styles.icon3} source={{ uri: 'product_detail_36' }} />
                 <Text numberOfLines={1} style={styles.txtStar}>
@@ -206,6 +240,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     height: Platform.SizeScale(100),
     paddingTop: Platform.SizeScale(10),
+    textAlignVertical: 'top',
   },
   capture: {
     width: Platform.deviceWidth - Platform.SizeScale(50),
@@ -227,9 +262,9 @@ const styles = StyleSheet.create({
     fontSize: Platform.SizeScale(14),
   },
   choicedImage: {
-    width: Platform.SizeScale(50),
-    height: Platform.SizeScale(50),
-    marginHorizontal: Platform.SizeScale(10),
+    width: Platform.SizeScale(45),
+    height: Platform.SizeScale(45),
+    marginHorizontal: Platform.SizeScale(5),
   },
   deleteImage: {
     backgroundColor: COLORS.BOLD_GRAY,

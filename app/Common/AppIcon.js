@@ -23,6 +23,15 @@ import IconSetting from '../assets/icons/icon_setting.png';
 import IconArrowRight from '../assets/icons/icon_arrow_right.png';
 import IconBarCode from '../assets/icons/icon_bar_code.png';
 import IconCompany from '../assets/icons/icon_company.png';
+import ImageEmpty from '../assets/images/img_empty.jpeg';
+import edit_ava from '../assets/icons/edit_ava.png';
+import Icon_Male from '../assets/icons/male.png';
+import Icon_Female from '../assets/icons/female.png';
+import Icon_Other from '../assets/icons/other.png';
+import IconCheck from '../assets/icons/icon_check.png';
+import IconDate from '../assets/icons/icon_date.png';
+import IconDown from '../assets/icons/icon_down.png';
+
 export const AppIcon = {
   Icon1,
   Icon2,
@@ -49,4 +58,12 @@ export const AppIcon = {
   IconArrowRight,
   IconBarCode,
   IconCompany,
+  ImageEmpty,
+  edit_ava,
+  Icon_Male,
+  Icon_Female,
+  Icon_Other,
+  IconCheck,
+  IconDate,
+  IconDown,
 };

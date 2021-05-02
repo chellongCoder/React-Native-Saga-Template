@@ -1,5 +1,11 @@
 import { checkMultiple, request, PERMISSIONS, RESULTS } from 'react-native-permissions';
 import { Platform, Linking, Alert } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import _ from 'lodash';
+import { gender } from './TextHelper';
+import { AppIcon } from './AppIcon';
+import 'intl';
+import 'intl/locale-data/jsonp/en';
 export const checkPermissionCamera = (handler) => {
   checkMultiple(
     Platform.select({
@@ -55,8 +61,9 @@ export const checkStatusPermission = (name, permission, status, handler) => {
   }
 };
 
-export const VNDCurrencyFormatting = (unit_price) =>
-  new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(unit_price);
+export const VNDCurrencyFormatting = (unit_price) => {
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(unit_price || 0);
+};
 
 export const androidCameraPermissionOptions = {
   title: 'permissionCamera',
@@ -65,8 +72,72 @@ export const androidCameraPermissionOptions = {
   buttonNegative: 'cancel',
 };
 
+export const getToken = async () => {
+  try {
+    const token = await AsyncStorage.getItem('@token');
+    if (_.isEmpty(token)) {
+      return { token: null };
+    } else {
+      return { token };
+    }
+  } catch (error) {
+    return { token: null };
+  }
+};
+
+export const getDeviceToken = async () => {
+  try {
+    const deviceToken = await AsyncStorage.getItem('@fcm_token');
+    if (_.isEmpty(deviceToken)) {
+      return { deviceToken: null };
+    } else {
+      return { deviceToken };
+    }
+  } catch (error) {
+    return { deviceToken: null };
+  }
+};
+
+export const saveToken = async (token) => {
+  try {
+    await AsyncStorage.setItem('@token', token);
+    return 'THANH_CONG';
+  } catch (e) {
+    return e;
+  }
+};
+
+export const getGender = (value) => {
+  switch (value) {
+    case gender.male:
+      return {
+        id: 0,
+        name: 'Nam',
+        icon: AppIcon.Icon_Male,
+      };
+    case gender.female:
+      return {
+        id: 1,
+        name: 'Nữ',
+        icon: AppIcon.Icon_Female,
+      };
+    case gender.other:
+      return {
+        id: 2,
+        name: 'Khác',
+        icon: AppIcon.Icon_Other,
+      };
+    default:
+      return {};
+  }
+};
+
 module.exports = {
   checkPermissionCamera,
   androidCameraPermissionOptions,
   VNDCurrencyFormatting,
+  getToken,
+  getDeviceToken,
+  saveToken,
+  getGender,
 };

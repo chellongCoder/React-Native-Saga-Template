@@ -2,28 +2,58 @@ import { ProductProps, ProductCategoryProps } from '../screens/product/types';
 import { DetailProductT } from '../screens/product_detail/types';
 
 export const mapListProduct = (productsApi: any[]): ProductProps[] => {
-  return productsApi.map((value) => {
-    return {
-      id: value.id,
-      name: value.name,
-      rate: value.rate,
-      countRate: value.countRate,
-      point: value.point,
-      price: value.price,
-      featuredImg: value.featured_img,
-      rating: value.rating,
-      unitPrice: value.unit_price,
-      photos: value.photos,
-      thumbnailImg: value.thumbnail_img,
-      unit: value.unit,
-      videoProvider: value.video_provider,
-      videoLink: value.video_link,
-      quantity: value.quantity,
-      description: value.description,
-      createdAt: value.created_at,
-      addedBy: value.added_by,
-    };
-  });
+  return productsApi
+    ? productsApi.map((value) => {
+        return {
+          id: value.id,
+          name: value.name,
+          rate: value.rate,
+          countRate: value.countRate,
+          point: value.point,
+          price: value.price,
+          featuredImg: value.featured_img,
+          rating: value.rating,
+          unitPrice: value.unit_price,
+          photos: value.photos,
+          thumbnailImg: value.thumbnail_img,
+          unit: value.unit,
+          videoProvider: value.video_provider,
+          videoLink: value.video_link,
+          quantity: value.quantity,
+          description: value.description,
+          createdAt: value.created_at,
+          addedBy: value.added_by,
+        };
+      })
+    : [];
+};
+
+export const mapListProductMore = (productsApi: any[]): ProductProps[] => {
+  return productsApi
+    ? productsApi.map((product) => {
+        const { product_description: value } = product;
+        return {
+          id: product.id,
+          name: value.name,
+          rate: value.rate,
+          countRate: value.countRate,
+          point: value.point,
+          price: value.price,
+          featuredImg: value.featured_img,
+          rating: value.rating,
+          unitPrice: value.unit_price,
+          photos: value.photos,
+          thumbnailImg: value.thumbnail_img,
+          unit: value.unit,
+          videoProvider: value.video_provider,
+          videoLink: value.video_link,
+          quantity: value.quantity,
+          description: value.description,
+          createdAt: value.created_at,
+          addedBy: value.added_by,
+        };
+      })
+    : [];
 };
 
 export const mapListProductCategory = (productsApi: any[]): ProductCategoryProps[] => {
@@ -67,17 +97,32 @@ export const mapDetailProduct = (data: any): DetailProductT => {
         cover: value,
       };
     }),
-    productRate: data.product_rate.map((value: any) => {
-      return {
-        id: value.id,
-        productId: value.product_id,
-        userId: value.user_id,
-        comment: value.comment,
-        name: value.name,
-        createAt: value.created_at,
-        image: value.image,
-      };
-    }),
+    productRate: data.product_rate
+      ? data.product_rate.map((value: any) => {
+          return {
+            id: value.id,
+            productId: value.product_id,
+            userId: value.user_id,
+            comment: value.comment,
+            name: value.name,
+            createAt: value.created_at,
+            image: value.image,
+            avatar: value.avatar,
+          };
+        })
+      : [],
+    shop: data.shop
+      ? {
+          address: data.shop.address,
+          mail: data.shop.email,
+          name: data.shop.name,
+          phone: data.shop.phone,
+          subTitle: data.shop.meta_title,
+          taxNumber: data.shop.ma_so_thue,
+          website: data.shop.web_site,
+        }
+      : undefined,
+    gotoUrl: data.goto_url,
   };
 };
 

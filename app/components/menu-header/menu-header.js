@@ -9,7 +9,7 @@ function MenuHeader(props) {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={'white'} />
-      <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
+      <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={() => props.navigation.toggleDrawer()}>
         <MaterialIcons name="menu" size={22} color="white" />
       </TouchableOpacity>
       <Text style={[textStyle.heading, { color: 'white' }]}>{props.title}</Text>

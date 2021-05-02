@@ -7,4 +7,5 @@ export type ParsedTextProps = ParsedTextPropsBase & {
   isLongText?: boolean;
   showMore?: boolean;
   numberOfLines?: number;
+  fontType?: 'fontRegular' | 'fontBold' | 'fontItalic' | 'fontLight';
 };

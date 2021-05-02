@@ -5,7 +5,7 @@ import { theme } from '../../theme';
 import { TextField } from '../text-field';
 import { useStyleSearch } from './styles';
 
-export const SearchBar = ({ style }: { style: ViewStyle }) => {
+export const SearchBar = ({ style }: { style?: ViewStyle }) => {
   const { colors } = theme;
   const styles = useStyleSearch();
   const refInput = useRef<TextInput>(null);
@@ -24,7 +24,7 @@ export const SearchBar = ({ style }: { style: ViewStyle }) => {
       <TextField
         style={styles.input}
         placeholder={'Nhập nội dung tìm kiếm'}
-        placeholderTextColor={colors.black}
+        placeholderTextColor={colors.gray}
         onChangeText={onChangeTextSearch}
         ref={refInput}
         {...{ renderLeftAccessory }}

@@ -27,7 +27,10 @@ platform :ios do
     desc 'Ship to Testflight.'
     lane :beta do
         build
-        pilot
+        upload_to_testflight(
+          username: "benglish.vn@gmail.com",
+          app_identifier: 'com.vn.procheck'
+        )
         commit_version_bump(message: 'Bump build', xcodeproj: './ios/PatientApp.xcodeproj')
         push_to_git_remote
     end

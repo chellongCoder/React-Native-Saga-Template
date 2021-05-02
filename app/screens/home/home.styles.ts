@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { Platform, theme } from '../../theme';
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const { colors } = theme;
 
 const styles = StyleSheet.create({
@@ -80,6 +80,24 @@ const styles = StyleSheet.create({
     backgroundColor: colors.green,
     flex: 1,
     borderBottomRightRadius: Platform.SizeScale(20),
+  },
+  styFooter: {
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: '#FFF',
+    width,
+    height: (height * 1) / 3,
+    zIndex: -999,
+  },
+  styWrapErr: {
+    flex: 1,
+    height: height / 2,
+    width,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  styTxtReload: {
+    textDecorationLine: 'underline',
   },
 });
 

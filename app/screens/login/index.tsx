@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Image, View } from 'react-native';
-import { withTheme } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import AsyncStorage from '@react-native-community/async-storage';
 import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { CommonStyle, Images } from '../../constants';
@@ -11,11 +12,10 @@ import { RootState } from '../../redux/reducers';
 import { screens } from '../../config';
 import { useLoginStyle } from './styles';
 
-const LoginScreen = withTheme(({ navigation }: any) => {
+const LoginScreen = ({ navigation }: any) => {
   const styles = useLoginStyle();
-  const { requesting, data } = useSelector((state: RootState) => state.AuthData);
+  const { requesting, data, tempData } = useSelector((state: RootState) => state.AuthData);
   const loading = useLoadingGlobal();
-  const fieldRef: any = useRef();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [member, setMember] = useState(false);
@@ -41,10 +41,12 @@ const LoginScreen = withTheme(({ navigation }: any) => {
     );
   }, [styles.logoInput]);
 
-  const onLogin = useCallback(() => {
+  const onLogin = useCallback(async () => {
+    const fcmToken = await AsyncStorage.getItem('@fcm_token');
+
     dispatch(
       authActionsCreator.loginRequest({
-        device_token: '',
+        device_token: fcmToken || '',
         // email: 'thienthanchientranh1996@gmail.com',
         // password: '123456',
         email: userName,
@@ -63,43 +65,44 @@ const LoginScreen = withTheme(({ navigation }: any) => {
   }, [loading, requesting]);
 
   useEffect(() => {
-    if (data) {
-      navigation.navigate(screens.bottomTabStack);
-      navigation.toggleDrawer();
+    if (data || tempData) {
+      navigation.goBack();
     }
-  }, [data, loading, navigation, requesting]);
+  }, [data, loading, navigation, requesting, tempData]);
 
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
         <FastImage resizeMode={'contain'} style={CommonStyle.image} source={Images.LOGO} />
       </View>
-      <View style={styles.content}>
-        <TextField
-          onChangeText={setUserName}
-          renderLeftAccessory={renderLeftAccessoryMail}
-          style={styles.inpuRateStyle}
-          placeholder="Email"
-          inputStyle={styles.inputStyles}
-        />
-        <TextField
-          secureTextEntry
-          onChangeText={setPassword}
-          renderLeftAccessory={renderLeftAccessoryPassword}
-          style={styles.inpuRateStyle}
-          placeholder="Mật khẩu"
-          inputStyle={styles.inputStyles}
-        />
-        <View style={[styles.checkboxContainer, CommonStyle.row]}>
-          <Checkbox checked={member} onChangeValue={onChangeRemember} />
-          <Text style={styles.txtMember}>Ghi nhớ</Text>
-        </View>
+      <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
+        <View style={styles.content}>
+          <TextField
+            onChangeText={setUserName}
+            renderLeftAccessory={renderLeftAccessoryMail}
+            style={styles.inpuRateStyle}
+            placeholder="Email"
+            inputStyle={styles.inputStyles}
+          />
+          <TextField
+            secureTextEntry
+            onChangeText={setPassword}
+            renderLeftAccessory={renderLeftAccessoryPassword}
+            style={styles.inpuRateStyle}
+            placeholder="Mật khẩu"
+            inputStyle={styles.inputStyles}
+          />
+          <View style={[styles.checkboxContainer, CommonStyle.row]}>
+            <Checkbox checked={member} onChangeValue={onChangeRemember} />
+            <Text style={styles.txtMember}>Ghi nhớ</Text>
+          </View>
 
-        <AppButton style={styles.buttonLogin} title="ĐĂNG NHẬP" onSubmit={onLogin} />
-        <FacebookButton textButton={styles.textButton} style={styles.buttonFacebook} />
-      </View>
+          <AppButton style={styles.buttonLogin} title="ĐĂNG NHẬP" onSubmit={onLogin} />
+          <FacebookButton textButton={styles.textButton} style={styles.buttonFacebook} />
+        </View>
+      </KeyboardAwareScrollView>
     </View>
   );
-});
+};
 
-export default LoginScreen;
+export default React.memo(LoginScreen);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { AccessToken, GraphRequest, GraphRequestManager, LoginManager } from 'react-native-fbsdk';
+import { AccessToken, GraphRequest, GraphRequestManager, LoginManager, LoginResult } from 'react-native-fbsdk';
 import { withTheme } from 'react-native-paper';
 import styles from './facebook.styles';
 
@@ -13,7 +13,7 @@ function FacebookButton(props) {
     return t(key);
   };
 
-  const getUserProfile = (token) => {
+  const getUserProfile = (token: string) => {
     const infoRequest = new GraphRequest(
       '/me',
       {
@@ -29,14 +29,14 @@ function FacebookButton(props) {
           },
         },
       },
-      (error, result) => {
+      (error: any, result: any) => {
         if (error) {
           console.log('Error fetching data: ', error);
         } else {
           console.log('facebook result', result);
           var data = {
             user: {
-              name: result.name,
+              name: result?.name,
               provider: 'fb',
               email: result.email,
               token: token,
@@ -44,7 +44,7 @@ function FacebookButton(props) {
             },
           };
           console.log('facebook action', data);
-          props.setUserFacebook(data);
+          // props.setUserFacebook(data);
           // dispatch(facebookLoginRequest(data));
           console.log('After action', data);
         }
@@ -55,7 +55,7 @@ function FacebookButton(props) {
 
   const onPress = () => {
     LoginManager.logInWithPermissions(['public_profile', 'email']).then(
-      function (result) {
+      function (result: any) {
         console.log('in function', result);
         if (result.isCancelled) {
           console.log('Login cancelled');
@@ -76,7 +76,7 @@ function FacebookButton(props) {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container]}>
       <View style={[styles.button, props.style]}>
-        <Text style={props.textButton}>{i18('Component.continueWithFacebook')}</Text>
+        <Text style={props.textButton}>{i18('Component.continueWithFacebook').toUpperCase()}</Text>
       </View>
     </TouchableOpacity>
   );

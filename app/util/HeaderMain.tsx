@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, SafeAreaView, TextInput, StatusBar } from 'react-native';
+import { View, SafeAreaView, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { tabModel } from '../model/TabModel';
@@ -7,7 +7,16 @@ import { theme } from '../theme';
 import Row from './Row';
 import styles from './StyleHeaderMain';
 const { colors } = theme;
-const HeaderMain = (props: any) => {
+
+interface Props {
+  value?: string | undefined;
+  screen?: number | string;
+  bgColor?: string;
+  onPressLeft?: () => void;
+  onChangeText: (value: string) => void;
+}
+
+const HeaderMain = (props: Props) => {
   return (
     <View style={[styles.contain, { backgroundColor: props.bgColor || colors.white }]}>
       <SafeAreaView />
@@ -21,27 +30,42 @@ const HeaderMain = (props: any) => {
   );
 };
 
-function SearchComponent(props: any) {
+function SearchComponent(props: Props) {
   const { screen } = props;
+  const navigateSearchPropduct = () => {
+    // navigationService.navigate(screens.product, {});
+  };
   switch (screen) {
     case tabModel.home:
       return (
-        <View style={styles.stySearch}>
+        <TouchableOpacity onPress={navigateSearchPropduct} activeOpacity={1} style={styles.stySearch}>
           <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
-          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
-        </View>
+          <TextInput
+            value={props.value}
+            placeholder="Nhập nội dung tìm kiếm"
+            placeholderTextColor={colors.gray}
+            style={styles.styInput}
+            onChangeText={(text) => props.onChangeText(text)}
+          />
+        </TouchableOpacity>
       );
     default:
       return (
         <View style={styles.stySearch}>
           <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
-          <TextInput placeholder="Nhập nội dung tìm kiếm" placeholderTextColor={colors.gray} style={styles.styInput} />
+          <TextInput
+            value={props.value}
+            placeholder="Nhập nội dung tìm kiếm"
+            placeholderTextColor={colors.gray}
+            style={styles.styInput}
+            onChangeText={(text) => props.onChangeText(text)}
+          />
         </View>
       );
   }
 }
 
-function RightComponent(props: any) {
+function RightComponent(props: Props) {
   const { screen } = props;
   switch (screen) {
     case tabModel.home:
@@ -59,7 +83,7 @@ function RightComponent(props: any) {
   }
 }
 
-function LeftComponent(props: any) {
+function LeftComponent(props: Props) {
   const { screen } = props;
   switch (screen) {
     case tabModel.home:

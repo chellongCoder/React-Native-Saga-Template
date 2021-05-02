@@ -6,8 +6,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import RNRestart from 'react-native-restart';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
 import { drawerIcons } from '../../helpers';
-import { Images } from '../../constants';
 import { screens } from '../../config';
 import { Text } from '../text';
 import { authActionsCreator } from '../../redux/actions';
@@ -17,7 +17,7 @@ import styles from './drawer.styles';
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
-  const { data: userInfo }: any = useSelector((state: RootState) => state.AuthData);
+  const { userInfo, tempData }: any = useSelector((state: RootState) => state.AuthData);
 
   const i18 = (key) => {
     return t(key);
@@ -57,32 +57,47 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest());
-  }, [dispatch]);
+    dispatch(authActionsCreator.logoutRequest({ token: tempData?.accessToken || userInfo?.accessToken }));
+  }, [dispatch, tempData?.accessToken, userInfo?.accessToken]);
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <FastImage source={Images.icon} style={styles.image} />
-        <View style={styles.userInfo}>
-          <Text style={styles.txtUserInfo}>name: {userInfo?.name}</Text>
-        </View>
+      <View style={styles.avatarContainer}>
+        <FastImage
+          resizeMode="contain"
+          source={{ uri: tempData?.avatar || 'https://iupac.org/wp-content/uploads/2018/05/default-avatar.png' }}
+          style={styles.image}
+        />
+        {!_.isEmpty(tempData) && (
+          <View style={styles.userInfo}>
+            <Text fontType="fontBold" style={styles.txtUserInfo}>
+              name: {tempData?.name || userInfo?.name}
+            </Text>
+          </View>
+        )}
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        <TouchableOpacity style={styles.itemContainer} onPress={changeLanguageWithRTL}>
-          {drawerIcons.language}
-          <Text style={styles.itemText}>{i18('Drawer.changeLanguage')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.itemContainer} onPress={navigateToLogin}>
-          {drawerIcons.language}
-          <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.itemContainer} onPress={navigateToRegister}>
-          {drawerIcons.language}
+        {!tempData && (
+          <TouchableOpacity
+            hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+            style={styles.itemContainer}
+            onPress={navigateToLogin}>
+            {drawerIcons.login}
+            <Text style={styles.itemText}>{i18('Drawer.login')}</Text>
+          </TouchableOpacity>
+        )}
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          style={styles.itemContainer}
+          onPress={navigateToRegister}>
+          {drawerIcons.register}
           <Text style={styles.itemText}>{i18('Drawer.register')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={onLogout} style={styles.itemContainer}>
-          {drawerIcons.language}
+        <TouchableOpacity
+          hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
+          onPress={onLogout}
+          style={styles.itemContainer}>
+          {drawerIcons.logout}
           <Text style={styles.itemText}>{i18('Drawer.logout')}</Text>
         </TouchableOpacity>
       </ScrollView>

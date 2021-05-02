@@ -12,4 +12,5 @@ export type ProductRateT = {
   name: string;
   createAt: string;
   image: string[];
+  avatar: string;
 };

@@ -1,6 +1,12 @@
 import apisauce, { ApiResponse, ApisauceInstance } from 'apisauce';
 import { Method } from 'axios';
 import { Alert, Platform } from 'react-native';
+import jwtDecode from 'jwt-decode';
+import { getToken, saveToken } from '../Common/Common';
+import { isExpried } from '../util/AuthCommon';
+import AppConfig from '../config/app-config';
+const { API_URL_DEV, SERVER_KEY } = AppConfig;
+const api_url = API_URL_DEV;
 
 const messageError: any = {
   NETWORK_ERROR: 'Không thể kết nối đến máy chủ. Vui lòng thử lại!',
@@ -51,13 +57,37 @@ export default class ApiSauce {
     let formdata = new FormData();
     const { payload } = params;
     formdata.append('device_type', Platform.OS);
-    for (const key in payload) {
-      if (Object.prototype.hasOwnProperty.call(payload, key)) {
-        const element = payload[key];
-        formdata.append(key, element);
+    // for (const key in payload) {
+    //   if (Object.prototype.hasOwnProperty.call(payload, key)) {
+    //     const element = payload[key];
+    //     if (element === 'avatar') {
+    //       const image = payload[element];
+    //       formdata.append(element, {
+    //         uri: image.path,
+    //         type: image.mime,
+    //         name: image.filename,
+    //       });
+    //     } else {
+    //       formdata.append(key, element);
+    //     }
+    //   }
+    // }
+
+    Object.keys(payload).forEach((value) => {
+      if (value === 'avatar') {
+        const image = payload[value];
+        formdata.append(value, {
+          uri: image.path,
+          type: image.mime,
+          name: image.filename,
+        });
+      } else {
+        formdata.append(value, payload[value]);
       }
-    }
+    });
     console.log('formdata', formdata);
+    // trước khi thực hiện 1 request cần kiểm tra Expired Token.
+    await this.handlerExpiredToken();
     const res = await apiRequest(params.url, formdata);
     console.log(
       '%cHANDLE_RESPONSE',
@@ -74,5 +104,39 @@ export default class ApiSauce {
       return res;
     }
     return res.data;
+  };
+
+  handlerExpiredToken = async () => {
+    const { token } = await getToken();
+    if (token == null) {
+      // người dùng chưa đăng nhập.
+      return 'NON_LOGIN';
+    }
+    const curTime = Math.floor(Date.now() / 1000);
+    const { iat, exp } = jwtDecode(token);
+    if (isExpried(exp, curTime)) {
+      // token hết hạn. thực hiện refresh token.
+      const response = await fetch(`${api_url}api/refresh_token?token=${token}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({ server_key: SERVER_KEY }),
+      });
+      let responseJson = await response.json();
+      if (responseJson.status === 200) {
+        const { access_token } = responseJson.data;
+        const res = await saveToken(`${access_token}`);
+        // return res === 'THANH_CONG';
+        return res;
+      }
+      // Alert.alert('Lỗi!', response.message);
+      return false;
+    } else {
+      // token còn hạn sử dụng.
+      console.log('token còn hạn sử dụng.');
+      return false;
+    }
   };
 }

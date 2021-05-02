@@ -5,19 +5,19 @@ import { RNCamera } from 'react-native-camera';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { connect } from 'react-redux';
 import { androidCameraPermissionOptions } from '../../Common/Common';
-import { Text } from '../../components';
+import { AppBars, Text } from '../../components';
 import { screens } from '../../config';
-import { qrActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
+import HeaderMain from '../../util/HeaderMain';
 const { width, height } = Dimensions.get('window');
 function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const [isbarcodeRead, setbarcodeRead] = useState(true);
   const { barcodeRead, onBarcodeRead, onBarcodeFinderLayoutChange } = useBarcodeRead(
     isbarcodeRead,
     async (data: string) => {
-      console.log('data', data);
       setbarcodeRead(false);
       if (data) {
+        console.log('🚀 ~ file: index.tsx ~ line 20 ~ data', data);
         const supported = await Linking.canOpenURL(data);
         if (supported) {
           if (data.indexOf('sahatha.vn') > 0) {
@@ -44,16 +44,16 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
     navigation.goBack();
     navigation.navigate(screens.home);
     // navigation.navigate(screens.product_scan, {
-    //   params: { urlScan: 'https://sahatha.vn/a/G1409' },
+    //   params: { urlScan: 'https://sahatha.vn/a/Gwiel' },
     // });
   }, [navigation]);
 
   return (
     <View style={styles.styContain}>
-      <TouchableOpacity onPress={onBack} style={styles.backContainer}>
-        <Text style={styles.back}>back</Text>
-      </TouchableOpacity>
-      <Text style={styles.styTxtHeader}>
+      <View style={styles.backContainer}>
+        <AppBars onPressLeft={onBack} />
+      </View>
+      <Text style={styles.styTxtHeader} fontType={'fontBold'}>
         Quét mã vạch, QR code, Tem chống giả để kiểm tra thông tin sản phẩm và phát hiện hàng giả
       </Text>
 
@@ -106,17 +106,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.SizeScale(100),
     width: width - 60,
-    fontWeight: 'bold',
     textAlign: 'center',
     color: '#FFF',
     fontSize: Platform.SizeScale(16),
   },
   backContainer: {
     position: 'absolute',
-    top: Platform.SizeScale(10),
-    left: Platform.SizeScale(10),
-  },
-  back: {
-    fontSize: Platform.SizeScale(24),
+    top: Platform.SizeScale(0),
+    left: Platform.SizeScale(0),
   },
 });

@@ -1,5 +1,6 @@
 import { call } from 'redux-saga/effects';
-import { API_STATUS } from '../../config';
+import { API_STATUS, screens } from '../../config';
+import navigationService from '../../navigation/navigation-service';
 import { ResponseT } from '../../services/types';
 import { alertError, alertMessage } from '../../util';
 
@@ -21,6 +22,7 @@ export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, .
         'Lỗi',
         () => {
           //logout
+          navigationService.navigate(screens.appStack, {});
         },
         result.message,
       );

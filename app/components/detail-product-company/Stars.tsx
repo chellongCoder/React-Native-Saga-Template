@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import FadeAnim from '../../anim/FadeAnim';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import { Images } from '../../constants';
 import { PushStarT } from '../../screens/product_detail/types';
 import { Platform } from '../../theme';
 
@@ -27,7 +28,7 @@ const _Stars = ({ value, index, pushStars }: { value: any; index: number; pushSt
     <>
       {Array.from(Array(stars).keys()).map((v, i) => {
         return (
-          <FadeAnim duration={500}>
+          <FadeAnim key={i} duration={500}>
             <RippleButtonAnim onPress={() => setNewStars(i, 0)}>
               <Image style={styles.icon} source={{ uri: 'product_detail_2_03' }} />
             </RippleButtonAnim>
@@ -36,9 +37,9 @@ const _Stars = ({ value, index, pushStars }: { value: any; index: number; pushSt
       })}
       {Array.from(Array(5 - stars).keys()).map((v, i) => {
         return (
-          <FadeAnim duration={500}>
+          <FadeAnim key={i} duration={500}>
             <RippleButtonAnim onPress={() => setNewStars(i, stars)}>
-              <Image style={styles.icon} source={{ uri: 'product_detail_2_03-5' }} />
+              <Image style={styles.icon} source={Images.hidenstar} />
             </RippleButtonAnim>
           </FadeAnim>
         );

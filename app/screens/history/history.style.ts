@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { height, width } from '../../constants';
 import { Platform, theme } from '../../theme';
 
 const { colors } = theme;
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     width: Platform.SizeScale(10),
     height: Platform.SizeScale(10),
     marginHorizontal: Platform.SizeScale(3),
+    marginBottom: 8,
   },
   styCouCmt: {
     color: colors.gray,
@@ -56,7 +58,6 @@ const styles = StyleSheet.create({
   styVerify: {
     color: colors.green,
     fontSize: 12,
-    fontWeight: '400',
     flex: 1,
   },
   styCompany: {
@@ -78,6 +79,16 @@ const styles = StyleSheet.create({
     shadowRadius: 2.22,
 
     elevation: 3,
+  },
+  styWrapEmpty: {
+    flex: 1,
+    width: width,
+    height: height / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  styTxtEmpty: {
+    color: theme.colors.gray,
   },
 });
 

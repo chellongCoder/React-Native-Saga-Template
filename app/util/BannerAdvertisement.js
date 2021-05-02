@@ -42,9 +42,9 @@ export default class BannerAdvertisement extends Component {
     }
 
     render() {
-        let { data } = this.props;
+        let { data, style } = this.props;
         return (
-            <View style={styles.styWrapBanner}>
+            <View style={[styles.styWrapBanner, style]}>
                 <Swiper
                     style={styles.wrapper}
                     autoplay={true}

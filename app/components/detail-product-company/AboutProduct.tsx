@@ -7,7 +7,9 @@ import { Text } from '../text';
 const _AboutProduct = ({ productDetail }: { productDetail?: DetailProductT }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Thông tin sản phẩm </Text>
+      <Text fontType="fontBold" style={styles.title}>
+        Thông tin sản phẩm{' '}
+      </Text>
       <View style={styles.content}>
         <Text isViewHtml>{productDetail?.description}</Text>
       </View>
@@ -23,11 +25,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: Platform.SizeScale(14),
-    fontFamily: 'RobotoMono-Regular',
-    fontWeight: 'bold',
     paddingLeft: Platform.SizeScale(20),
   },
   content: {
     marginTop: Platform.SizeScale(10),
+    width: Platform.deviceWidth - Platform.SizeScale(20),
+    alignSelf: 'center',
   },
 });

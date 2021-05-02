@@ -2,11 +2,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { screens } from '../config';
 import Home from '../redux/connects/home.connect';
-import Notification from '../screens/notification';
-import Account from '../screens/account';
 import { BottomTab } from '../components';
 import TabQrCode from '../screens/qr_code/TabQrCode';
-import { NewsScreen } from '../screens';
+import { NewsScreen, NotificationScreen } from '../screens';
+import AccountStack from './account-stack';
 const BottomTabStack = createBottomTabNavigator();
 
 export const tabBar = (props: any) => <BottomTab {...props} />;
@@ -37,14 +36,14 @@ export default function TabNavigator() {
       />
       <BottomTabStack.Screen
         name={screens.notification}
-        component={Notification}
+        component={NotificationScreen}
         options={{
           tabBarLabel: 'Thông báo',
         }}
       />
       <BottomTabStack.Screen
         name={screens.profile}
-        component={Account}
+        component={AccountStack}
         options={{
           tabBarLabel: 'tài khoản',
         }}

@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Pro Check</string>
+	<string>Checkroof</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>8</string>
+	<string>12</string>
 	<key>CodePushDeploymentKey</key>
 	<string>$(CodePushDeploymentKey_iOS)</string>
 	<key>FacebookAppID</key>
@@ -54,7 +54,7 @@
 	<key>FacebookDisplayName</key>
 	<string>$(AppName)</string>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -80,7 +80,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>ProCheck muốn truy cập thư viện để lấy ảnh</string>
 	<key>UIAppFonts</key>
@@ -148,6 +148,18 @@
 		<string>MYRIADPRO-REGULAR.OTF</string>
 		<string>MYRIADPRO-SEMIBOLD.OTF</string>
 		<string>MYRIADPRO-SEMIBOLDIT.OTF</string>
+		<string>SFProDisplay-Black.ttf</string>
+		<string>SFProDisplay-BlackItalic.ttf</string>
+		<string>SFProDisplay-Bold.ttf</string>
+		<string>SFProDisplay-BoldItalic.ttf</string>
+		<string>SFProDisplay-ExtraLight.ttf</string>
+		<string>SFProDisplay-ExtraLightItalic.ttf</string>
+		<string>SFProDisplay-Italic.ttf</string>
+		<string>SFProDisplay-Light.ttf</string>
+		<string>SFProDisplay-LightItalic.ttf</string>
+		<string>SFProDisplay-Regular.ttf</string>
+		<string>SFProDisplay-SemiBold.ttf</string>
+		<string>SFProDisplay-SemiBoldItalic.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

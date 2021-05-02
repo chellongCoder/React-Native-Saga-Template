@@ -17,22 +17,36 @@ const AppBarsBase = ({
   textAlign = 'left',
   isShowDrawer = false,
   hasRightIcons = true,
+  backgroundColor = COLORS.WHITE,
+  colorIcon = COLORS.BLACK,
 }: AppBarsProps) => {
   const styles = useStyleAppBars();
   const renderLeft = useMemo(() => {
     return (
-      <TouchableOpacity onPress={onPressLeft} style={styles.imageContainer}>
-        <FastImage style={CommonStyle.image} resizeMode="contain" source={Images.back} />
+      <TouchableOpacity
+        onPress={onPressLeft}
+        style={styles.imageContainer}
+        hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}>
+        <FastImage
+          style={[CommonStyle.image, { width: '80%', height: '80%' }]}
+          resizeMode="contain"
+          source={Images.back}
+          tintColor={colorIcon}
+        />
       </TouchableOpacity>
     );
-  }, [onPressLeft, styles.imageContainer]);
+  }, [colorIcon, onPressLeft, styles.imageContainer]);
   const renderRight = useMemo(() => {
-    return <TouchableOpacity onPress={onPressRight}>{hasRightIcons ? <Text>right</Text> : <></>}</TouchableOpacity>;
+    return (
+      <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={onPressRight}>
+        {hasRightIcons ? <Text>right</Text> : <></>}
+      </TouchableOpacity>
+    );
   }, [hasRightIcons, onPressRight]);
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.WHITE} />
-      <View style={styles.safeArea}>
+      <View style={[styles.safeArea, { backgroundColor }]}>
         <View style={[styles.container]}>
           {renderLeft}
           <Text isLongText numberOfLines={1}>

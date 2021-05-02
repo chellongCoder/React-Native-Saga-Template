@@ -13,9 +13,8 @@ const DrawerNavigator = () => {
     return <Drawer {...props} />;
   };
   return (
-    <DrawerStack.Navigator drawerContent={renderContent}>
+    <DrawerStack.Navigator statusBarAnimation="slide" drawerType="slide" drawerContent={renderContent}>
       <DrawerStack.Screen options={{ swipeEnabled: true }} name={screens.bottomTabStack} component={BottomTabStack} />
-      <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.register} component={RegisterScreen} />
       <DrawerStack.Screen options={{ swipeEnabled: false }} name={screens.product_scan} component={ProductScanScreen} />
     </DrawerStack.Navigator>
   );

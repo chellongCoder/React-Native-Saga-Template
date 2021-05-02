@@ -1,22 +1,27 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { View, StyleSheet, Text, TouchableWithoutFeedback, Image } from 'react-native';
+import { View, TouchableWithoutFeedback, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import { Platform } from '../../theme';
 import { COLORS } from '../../constants';
 import { TopicItem } from '../slider-item';
+import { useImageView } from '../../hooks';
+import { PhotoSlider } from '../../screens/product_scan/types';
 import { useStyleSlider } from './styles';
 
-export const Slider = ({ data }: { data?: any[] }) => {
+export const Slider = ({ data }: { data?: PhotoSlider[] }) => {
   const styles = useStyleSlider();
-  const [isShowControl, setIsShowControl] = useState(true);
   const carousel = useRef<any>();
   const [activeSlide, setActiveSlide] = useState(0);
+  const imageView = useImageView();
 
   const onShowControl = () => {
-    setIsShowControl(!isShowControl);
+    imageView.show(data ? data.map((value) => value.cover) : []);
   };
 
-  const onTopicPress = () => {};
+  const onTopicPress = useCallback(() => {
+    imageView.show(data ? data.map((value) => value.cover) : []);
+  }, [data, imageView]);
+
   const topicItem = useCallback(
     ({ item }: any) => {
       return <TopicItem onPress={onTopicPress} item={item} />;
@@ -34,9 +39,14 @@ export const Slider = ({ data }: { data?: any[] }) => {
         {data &&
           data.map((value, index) => {
             return index === activeSlide ? (
-              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_active_paging' }} />
+              <Image
+                key={index}
+                resizeMode="contain"
+                style={styles.dot}
+                source={{ uri: 'product_detail_active_paging' }}
+              />
             ) : (
-              <Image resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
+              <Image key={index} resizeMode="contain" style={styles.dot} source={{ uri: 'product_detail_paging' }} />
             );
           })}
       </View>

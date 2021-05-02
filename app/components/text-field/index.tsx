@@ -32,6 +32,14 @@ export const TextField = forwardRef(
 
     const { colors } = theme;
 
+    const iosEye = useMemo(() => {
+      return !showSecureTextEntry ? 'ios-eye' : 'ios-eye-off';
+    }, [showSecureTextEntry]);
+
+    const androidEye = useMemo(() => {
+      return !showSecureTextEntry ? 'eye-outline' : 'eye-off-outline';
+    }, [showSecureTextEntry]);
+
     const contentRight = useMemo(() => {
       if (!secureTextEntry) {
         return renderRightAccessory?.();
@@ -42,12 +50,12 @@ export const TextField = forwardRef(
         }
         return (
           <Touchable onPress={showPassword}>
-            <Icon size={Platform.SizeScale(40)} name="ios-eye" />
+            <Icon size={Platform.SizeScale(40)} name={Platform.OS === 'android' ? androidEye : iosEye} />
           </Touchable>
         );
       }
       return renderRightAccessory?.();
-    }, [renderRightAccessory, secureTextEntry]);
+    }, [androidEye, iosEye, renderRightAccessory, secureTextEntry]);
 
     return (
       <View style={[styles.content, style]}>

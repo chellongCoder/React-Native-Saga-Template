@@ -55,7 +55,7 @@ export default class ListItem extends Component<Props, State> {
         <View style={styles.contain}>
           <Row>
             <Text style={styles.styLabel}>{name}</Text>
-            <TouchableOpacity onPress={this.handlerGoToMore}>
+            <TouchableOpacity hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }} onPress={this.handlerGoToMore}>
               <Text style={styles.styTxtMore}>Xem thêm</Text>
             </TouchableOpacity>
           </Row>
