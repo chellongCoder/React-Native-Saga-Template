@@ -1,0 +1,1 @@
+chạy : npm run generate screen | component | hook | model 

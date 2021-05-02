@@ -107,4 +107,48 @@ module.exports = (plop) => {
       },
     ],
   });
+  plop.setGenerator('model', {
+    description: 'Create a model',
+    // User input prompts provided as arguments to the template
+    prompts: [
+      {
+        // Raw text input
+        type: 'input',
+        // Variable name for this input
+        name: 'name',
+        // Prompt to display on command line
+        message: 'What is your model name?',
+      },
+    ],
+    actions: [
+      {
+        // Add a new file
+        type: 'add',
+        // Path for the new file
+        path: 'app/redux/types/{{kebabCase name}}.type.ts',
+        // Handlebars template used to generate content of new file
+        templateFile: 'plop-templates/model/types.js.hbs',
+      },
+      {
+        type: 'add',
+        path: 'app/redux/actions/{{name}}.action.ts',
+        templateFile: 'plop-templates/model/action.js.hbs',
+      },
+      {
+        type: 'add',
+        path: 'app/redux/reducers/{{name}}.reducer.ts',
+        templateFile: 'plop-templates/model/reducer.js.hbs',
+      },
+      {
+        type: 'add',
+        path: 'app/redux/sagas/{{name}}.saga.ts',
+        templateFile: 'plop-templates/model/saga.js.hbs',
+      },
+      {
+        type: 'add',
+        path: 'app/services/{{name}}-service.ts',
+        templateFile: 'plop-templates/model/service.js.hbs',
+      },
+    ],
+  });
 };

@@ -9,6 +9,7 @@ export const API_CONFIG = {
   USER_INFO: 'api/user_info',
   UPDATE_INFO: 'api/update_user',
   POLICY: 'api/policy',
+  NOTIFICATION: 'api/notifications',
   NEWS_NOTIFICATION_DETAIL: '/api/notification_detail',
 };
 
