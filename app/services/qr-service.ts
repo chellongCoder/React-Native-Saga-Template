@@ -1,4 +1,6 @@
+import { API_CONFIG } from '../config';
 import AppConfig from '../config/app-config';
+import { VerifyProductT } from '../screens/product_scan/types';
 import ApiSauce from './ApiSauceHandler';
 
 const { API_URL, API_URL_DEV, SERVER_KEY } = AppConfig;
@@ -22,8 +24,15 @@ const getDataSuggest = (params: ParamsSuggest) =>
     ...params,
   });
 
+const verifyProduct = (params: VerifyProductT) =>
+  api.post(API_CONFIG.CHECK_VERIFY_PRODUCT, {
+    server_key: SERVER_KEY,
+    ...params,
+  });
+
 // let's return back our create method as the default.
 export const ApiQr = {
   getDataScanQR,
   getDataSuggest,
+  verifyProduct,
 };

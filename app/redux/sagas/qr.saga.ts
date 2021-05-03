@@ -4,6 +4,7 @@ import { ApiResponse } from 'apisauce';
 import { qrActionsCreator } from '../actions';
 import { ApiQr } from '../../services';
 import { mapDetailProduct } from '../../helpers/product.helper';
+import { VerifyProductT } from '../../screens/product_scan/types';
 import { callSafe } from './common.saga';
 
 function* getDataScanQr({
@@ -31,6 +32,20 @@ function* getDataScanQr({
   }
 }
 
+function* verifyProduct({ payload }: Action<VerifyProductT>) {
+  try {
+    const response: ApiResponse<any, any> = yield callSafe(ApiQr.verifyProduct, payload);
+    if (response.status === 200) {
+      yield put(qrActionsCreator.verifyProductSuccess(response));
+    } else {
+      yield put(qrActionsCreator.verifyProductFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(qrActionsCreator.verifyProductFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 export default function* () {
   yield takeEvery(qrActionsCreator.getDataScanRequest, getDataScanQr);
+  yield takeEvery(qrActionsCreator.verifyProductRequest, verifyProduct);
 }

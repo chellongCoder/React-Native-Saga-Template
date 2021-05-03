@@ -4,6 +4,7 @@ const initialState = {
   product: {},
   isLoading: false,
   error: null,
+  idMaHoa: '',
 };
 
 export default function (state = initialState, action) {
@@ -15,6 +16,7 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: true,
         error: null,
+        idMaHoa: '',
       };
     case GET_DATA_SCAN_SUCCESS:
       return {
@@ -22,12 +24,14 @@ export default function (state = initialState, action) {
         isLoading: false,
         product: payload.product,
         error: null,
+        idMaHoa: payload.id_mahoa,
       };
     case GET_DATA_SCAN_FAILD:
       return {
         ...state,
         isLoading: false,
         error: payload.error,
+        idMaHoa: '',
       };
     default:
       return state;

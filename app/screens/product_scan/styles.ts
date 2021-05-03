@@ -12,6 +12,13 @@ export const useProductDetailStyle = () => {
         content: {
           paddingHorizontal: Platform.SizeScale(20),
         },
+        button: {
+          paddingVertical: Platform.SizeScale(10),
+          marginTop: Platform.SizeScale(10),
+          borderRadius: Platform.SizeScale(10),
+          width: Platform.SizeScale(150),
+          alignSelf: 'center',
+        },
       }),
     [],
   );

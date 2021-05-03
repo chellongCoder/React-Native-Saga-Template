@@ -22,6 +22,7 @@ import { RootState } from '../../redux/reducers';
 import { ApiQr } from '../../services/qr-service';
 import { getDeviceToken } from '../../Common/Common';
 import { alertMessage } from '../../util';
+import { COLORS } from '../../constants';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
 
@@ -29,7 +30,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const {
     params: { urlScan },
   } = route.params;
-  const { isLoading, error } = useSelector((state: RootState) => state.QRData);
+  const { isLoading, error, idMaHoa: id_mahoa } = useSelector((state: RootState) => state.QRData);
   const { userInfo } = useSelector((state: RootState) => state.AuthData);
   const styles = useProductDetailStyle();
   const navigation = useNavigation();
@@ -77,6 +78,15 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     scrollRef.current.scrollToPosition(0, 0);
   }, []);
 
+  const onShowVerify = useCallback(() => {
+    dispatch(
+      qrActionsCreator.verifyProductRequest({
+        id_mahoa,
+        input_verify: productDetail?.codeProduct || '',
+      }),
+    );
+  }, [dispatch, id_mahoa, productDetail?.codeProduct]);
+
   useEffect(() => {
     if (isLoading) {
       hookLoadingGlobal.onShow();
@@ -106,11 +116,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
         <Comment {...{ productDetail }} />
         <SuggestProduct {...{ scrollToTop }} data={dataSuggest || []} navigation={navigation} />
       </KeyboardAwareScrollView>
-      <AppButton
-        // labelStyles={styles.labelStyles}
-        // style={[styles.button, { backgroundColor: COLORS.blue }]}
-        title="Mua tại nhà sx"
-      />
+      <AppButton onSubmit={onShowVerify} style={[styles.button, { backgroundColor: COLORS.GREEEN }]} title="Xác thực" />
     </View>
   );
 };

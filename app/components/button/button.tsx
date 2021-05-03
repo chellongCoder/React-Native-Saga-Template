@@ -19,4 +19,4 @@ function AppButton({ labelStyles, style, onSubmit, title, isLoadingVisible }: Ap
   );
 }
 
-export default withTheme(AppButton);
+export default AppButton;
