@@ -1,18 +1,20 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
+import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { useLoadingGlobal } from '../../hooks';
+import { useLoadingGlobal, useModal } from '../../hooks';
 import {
   AboutProduct,
   AppBars,
   AppButton,
-  ButtonGroup,
   Comment,
   InfoProduct,
+  InputCodeProduct,
   ItemCompany,
+  ModalError,
+  ModalSuccess,
   Rating,
   Slider,
   SuggestProduct,
@@ -23,6 +25,7 @@ import { ApiQr } from '../../services/qr-service';
 import { getDeviceToken } from '../../Common/Common';
 import { alertMessage } from '../../util';
 import { COLORS } from '../../constants';
+import { screens } from '../../config';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
 
@@ -30,8 +33,17 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const {
     params: { urlScan },
   } = route.params;
-  const { isLoading, error, idMaHoa: id_mahoa } = useSelector((state: RootState) => state.QRData);
-  const { userInfo } = useSelector((state: RootState) => state.AuthData);
+  const {
+    isLoading,
+    error,
+    verifySuccess,
+    verifyError,
+    idMaHoa,
+    inputVerify,
+    activeError,
+    activeSuccess,
+  }: any = useSelector((state: RootState) => state.QRData);
+  const { userInfo, data: userLogin, tempData }: any = useSelector((state: RootState) => state.AuthData);
   const styles = useProductDetailStyle();
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -39,6 +51,13 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   const [dataSuggest, setDataSuggest] = useState([]);
   const hookLoadingGlobal = useLoadingGlobal();
   const scrollRef: any = useRef();
+  const modal = useModal();
+  const isLogin = useMemo(() => {
+    return !!userLogin || !!tempData;
+  }, [tempData, userLogin]);
+  const accessToken = useMemo(() => {
+    return userLogin?.accessToken || tempData?.accessToken;
+  }, [tempData?.accessToken, userLogin?.accessToken]);
 
   const getDataSuggest = useCallback(async (id) => {
     const response = await ApiQr.getDataSuggest({ product_id: id });
@@ -56,6 +75,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
         setProductDetail(response);
         getDataSuggest(response.id);
       },
+      hideMessage: true,
     };
     const { deviceToken } = await getDeviceToken();
     if (!_.isEmpty(deviceToken)) {
@@ -78,14 +98,41 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     scrollRef.current.scrollToPosition(0, 0);
   }, []);
 
+  const renderInputCode = useCallback(() => {
+    return <InputCodeProduct />;
+  }, []);
+
+  const renderModalSuccess = useCallback(
+    (title: string) => {
+      return <ModalSuccess onHide={modal.onHide} title={title} />;
+    },
+    [modal.onHide],
+  );
+
+  const renderModalError = useCallback(
+    (title: string) => {
+      return <ModalError onHide={modal.onHide} title={title} />;
+    },
+    [modal.onHide],
+  );
+
   const onShowVerify = useCallback(() => {
+    modal.onShow(renderInputCode());
+  }, [modal, renderInputCode]);
+
+  const onVerifyProduct = useCallback(() => {
+    if (!isLogin) {
+      navigation.navigate(screens.login);
+      return;
+    }
     dispatch(
-      qrActionsCreator.verifyProductRequest({
-        id_mahoa,
-        input_verify: productDetail?.codeProduct || '',
+      qrActionsCreator.activeProductRequest({
+        id_mahoa: idMaHoa,
+        input_verify: inputVerify,
+        token: accessToken,
       }),
     );
-  }, [dispatch, id_mahoa, productDetail?.codeProduct]);
+  }, [accessToken, dispatch, idMaHoa, inputVerify, isLogin, navigation]);
 
   useEffect(() => {
     if (isLoading) {
@@ -93,10 +140,41 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
     } else {
       hookLoadingGlobal.onHide();
     }
+  }, [hookLoadingGlobal, isLoading]);
+
+  useEffect(() => {
     if (!_.isEmpty(error)) {
       alertMessage('Cảnh báo', () => navigation.goBack(), 'Không tìm thấy sản phẩm liên quan.');
     }
-  }, [error, hookLoadingGlobal, isLoading, navigation]);
+  }, [error, navigation]);
+
+  useEffect(() => {
+    if (verifySuccess) {
+      modal.onHide();
+      modal.onShow(renderModalSuccess('Xác thực thành công'));
+    }
+  }, [modal, renderModalSuccess, verifySuccess]);
+
+  useEffect(() => {
+    if (verifyError) {
+      modal.onHide();
+      modal.onShow(renderModalError('Xác thực không thành công'));
+    }
+  }, [modal, renderModalError, verifyError]);
+
+  useEffect(() => {
+    if (activeSuccess) {
+      modal.onHide();
+      modal.onShow(renderModalSuccess(activeSuccess?.message));
+    }
+  }, [activeSuccess, modal, renderModalSuccess, verifySuccess]);
+
+  useEffect(() => {
+    if (activeError) {
+      modal.onHide();
+      modal.onShow(renderModalError(activeError?.message));
+    }
+  }, [activeError, modal, renderModalError, verifyError]);
 
   useEffect(() => {
     getDataScanRequest();
@@ -116,7 +194,20 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
         <Comment {...{ productDetail }} />
         <SuggestProduct {...{ scrollToTop }} data={dataSuggest || []} navigation={navigation} />
       </KeyboardAwareScrollView>
-      <AppButton onSubmit={onShowVerify} style={[styles.button, { backgroundColor: COLORS.GREEEN }]} title="Xác thực" />
+
+      {verifySuccess ? (
+        <AppButton
+          onSubmit={onVerifyProduct}
+          style={[styles.button, { backgroundColor: COLORS.blue }]}
+          title="Kích hoạt bảo hành"
+        />
+      ) : (
+        <AppButton
+          onSubmit={onShowVerify}
+          style={[styles.button, { backgroundColor: COLORS.GREEEN }]}
+          title="Xác thực"
+        />
+      )}
     </View>
   );
 };

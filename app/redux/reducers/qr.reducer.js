@@ -1,10 +1,26 @@
-import { GET_DATA_SCAN_REQUEST, GET_DATA_SCAN_SUCCESS, GET_DATA_SCAN_FAILD } from '../types/index';
+import {
+  GET_DATA_SCAN_REQUEST,
+  GET_DATA_SCAN_SUCCESS,
+  GET_DATA_SCAN_FAILD,
+  CHANGE_INPUT_VERIFY,
+  VERIFY_PRODUCT_REQUEST,
+  VERIFY_PRODUCT_SUCCESS,
+  VERIFY_PRODUCT_FAILED,
+  ACTIVE_PRODUCT_REQUEST,
+  ACTIVE_PRODUCT_SUCCESS,
+  ACTIVE_PRODUCT_FAILED,
+} from '../types/index';
 
 const initialState = {
   product: {},
   isLoading: false,
   error: null,
   idMaHoa: '',
+  inputVerify: '',
+  verifySuccess: undefined,
+  verifyError: undefined,
+  activeSuccess: undefined,
+  activeError: undefined,
 };
 
 export default function (state = initialState, action) {
@@ -16,7 +32,6 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: true,
         error: null,
-        idMaHoa: '',
       };
     case GET_DATA_SCAN_SUCCESS:
       return {
@@ -32,6 +47,49 @@ export default function (state = initialState, action) {
         isLoading: false,
         error: payload.error,
         idMaHoa: '',
+      };
+    case CHANGE_INPUT_VERIFY:
+      return {
+        ...state,
+        inputVerify: payload,
+      };
+    case VERIFY_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        verifyError: undefined,
+        verifySuccess: undefined,
+      };
+    case VERIFY_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        verifySuccess: payload,
+      };
+    case VERIFY_PRODUCT_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        verifyError: payload.error,
+      };
+    case ACTIVE_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        activeError: undefined,
+        activeSuccess: undefined,
+      };
+    case ACTIVE_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        activeSuccess: payload,
+      };
+    case ACTIVE_PRODUCT_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        activeError: payload.error,
       };
     default:
       return state;

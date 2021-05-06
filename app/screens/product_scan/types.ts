@@ -42,3 +42,10 @@ export type VerifyProductT = {
   id_mahoa: string;
   input_verify: string;
 };
+
+export type ActiveProductT = {
+  server_key?: string;
+  id_mahoa: string;
+  input_verify: string;
+  token: string;
+};

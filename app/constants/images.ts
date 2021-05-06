@@ -21,6 +21,8 @@ const user = require('../assets/icons/drawer_06.png');
 const add_user = require('../assets/icons/drawer_09.png');
 const logout = require('../assets/icons/drawer_12.png');
 const hidenstar = require('../assets/images/product_detail_2_03_05.png');
+const verify = require('../assets/images/cf.png');
+const verify_error = require('../assets/images/error-flat.png');
 
 const Images = {
   logo,
@@ -46,6 +48,8 @@ const Images = {
   add_user,
   logout,
   hidenstar,
+  verify,
+  verify_error,
 };
 
 export { Images };

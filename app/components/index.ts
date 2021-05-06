@@ -25,3 +25,7 @@ export * from './slider-item';
 export * from './toast-info';
 export * from './list';
 export * from './item-new';
+export * from './modal';
+export * from './input-code-product';
+export * from './modal-success';
+export * from './modal-error';

@@ -13,10 +13,16 @@ const authPersistConfig = {
   blacklist: ['requesting', 'tempData'],
 };
 
+const qrPersistConfig = {
+  key: 'auth',
+  storage: AsyncStorage,
+  whitelist: [],
+};
+
 const RootReducer = combineReducers({
   AuthData: persistReducer(authPersistConfig, AuthData),
   HomeData,
-  QRData,
+  QRData: persistReducer(qrPersistConfig, QRData),
   ProductData,
   NewData,
   NotificationData,
