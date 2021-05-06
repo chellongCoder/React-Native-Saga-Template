@@ -21,6 +21,7 @@ import BottomSheetProvider from './tools/bottom-sheet';
 import ImageViewProvider from './tools/image-view';
 import ToastInfoProvider from './tools/toast-info';
 import NetworkProvider from './tools/network';
+import ModalProvider from './tools/modal';
 
 enableScreens();
 
@@ -85,12 +86,14 @@ const App = () => {
                   <ToastInfoProvider>
                     <ImageViewProvider>
                       <BottomSheetProvider>
-                        <PaperProvider>
-                          <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                            <AppNavigator />
-                            <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-                          </NavigationContainer>
-                        </PaperProvider>
+                        <ModalProvider>
+                          <PaperProvider>
+                            <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                              <AppNavigator />
+                              <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                            </NavigationContainer>
+                          </PaperProvider>
+                        </ModalProvider>
                       </BottomSheetProvider>
                     </ImageViewProvider>
                   </ToastInfoProvider>

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Button, withTheme } from 'react-native-paper';
+import { Text } from '../text';
 import styles from './button.styles';
 import { AppButtonType } from './type';
 
@@ -8,13 +9,12 @@ function AppButton({ labelStyles, style, onSubmit, title, isLoadingVisible }: Ap
   return (
     <Button
       accessibilityStates
-      labelStyle={[styles.label, labelStyles]}
       mode="contained"
       uppercase={false}
       onPress={onSubmit}
       loading={isLoadingVisible}
       style={[styles.container, style]}>
-      {title}
+      <Text style={[styles.label, labelStyles]}>{title}</Text>
     </Button>
   );
 }

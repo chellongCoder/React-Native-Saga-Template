@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Linking, StyleSheet, Text as RCText } from 'react-native';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import ParsedText from 'react-native-parsed-text';
+import { COLORS } from '../../constants';
 import { FontFamily, Platform } from '../../theme';
 import { ParsedTextProps } from './types';
 
@@ -12,6 +13,7 @@ const Text = ({
   isLongText,
   numberOfLines,
   fontType = 'fontRegular',
+  color,
   ...other
 }: ParsedTextProps) => {
   const onShouldStartLoadWithRequest = useCallback((req) => {
@@ -27,7 +29,7 @@ const Text = ({
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
-    style = StyleSheet.flatten([Platform.textBase, style, { fontFamily: FontFamily[fontType] }]);
+    style = StyleSheet.flatten([Platform.textBase, { color }, style, { fontFamily: FontFamily[fontType] }]);
   }
 
   if (isLongText) {
