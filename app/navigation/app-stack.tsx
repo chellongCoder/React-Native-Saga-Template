@@ -5,6 +5,7 @@ import Home from '../redux/connects/home.connect';
 import HomeDetail from '../redux/connects/HomeDetailContainer';
 import { ProductScreen } from '../screens';
 import History from '../screens/history';
+import SearchScreen from '../screens/search/index';
 
 const MainStack = createStackNavigator();
 
@@ -15,6 +16,7 @@ export default function MainNavigator() {
       <MainStack.Screen name={screens.homeDetail} component={HomeDetail} />
       <MainStack.Screen name={screens.product} component={ProductScreen} />
       <MainStack.Screen name={screens.historyScanCode} component={History} />
+      <MainStack.Screen name={screens.search} component={SearchScreen} />
     </MainStack.Navigator>
   );
 }

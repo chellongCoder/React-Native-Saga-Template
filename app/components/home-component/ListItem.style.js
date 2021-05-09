@@ -3,6 +3,7 @@ import { theme, FontFamily, Platform } from '../../theme';
 const { width, height } = Dimensions.get('window');
 const width_img_product = width / 1.9;
 const height_img_product = (width - 80) / 2;
+console.log('width/height', width_img_product / height_img_product);
 const { colors } = theme;
 
 const styles = StyleSheet.create({
