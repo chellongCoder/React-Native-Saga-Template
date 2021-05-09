@@ -9,6 +9,7 @@ import {
   ACTIVE_PRODUCT_REQUEST,
   ACTIVE_PRODUCT_SUCCESS,
   ACTIVE_PRODUCT_FAILED,
+  RESET,
 } from '../types/index';
 
 const initialState = {
@@ -90,6 +91,10 @@ export default function (state = initialState, action) {
         ...state,
         isLoading: false,
         activeError: payload.error,
+      };
+    case RESET:
+      return {
+        ...initialState,
       };
     default:
       return state;

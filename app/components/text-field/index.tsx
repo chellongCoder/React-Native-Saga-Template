@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, useMemo, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { useLayout } from '@react-native-community/hooks';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Entypo';
 import { Text } from '../text';
 import { Touchable } from '../touchable';
 import { Platform, theme } from '../../theme';
@@ -33,11 +33,11 @@ export const TextField = forwardRef(
     const { colors } = theme;
 
     const iosEye = useMemo(() => {
-      return !showSecureTextEntry ? 'ios-eye' : 'ios-eye-off';
+      return !showSecureTextEntry ? 'eye' : 'eye-with-line';
     }, [showSecureTextEntry]);
 
     const androidEye = useMemo(() => {
-      return !showSecureTextEntry ? 'eye-outline' : 'eye-off-outline';
+      return !showSecureTextEntry ? 'eye' : 'eye-with-line';
     }, [showSecureTextEntry]);
 
     const contentRight = useMemo(() => {
@@ -50,7 +50,7 @@ export const TextField = forwardRef(
         }
         return (
           <Touchable onPress={showPassword}>
-            <Icon size={Platform.SizeScale(40)} name={Platform.OS === 'android' ? androidEye : iosEye} />
+            <Icon size={Platform.SizeScale(30)} name={Platform.OS === 'android' ? androidEye : iosEye} />
           </Touchable>
         );
       }

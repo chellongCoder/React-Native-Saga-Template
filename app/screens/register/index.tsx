@@ -4,6 +4,7 @@ import { Image, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useDispatch, useSelector } from 'react-redux';
+import IonicIcon from 'react-native-vector-icons/Ionicons';
 import { AppButton, TextField } from '../../components';
 import { screens } from '../../config';
 import { CommonStyle, Images } from '../../constants';
@@ -12,6 +13,7 @@ import navigationService from '../../navigation/navigation-service';
 import { authActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { alertError } from '../../util';
+import { Platform } from '../../theme';
 import { useRegisterStyle } from './styles';
 
 const _RegisterScreen = ({ navigation }: any) => {
@@ -26,10 +28,26 @@ const _RegisterScreen = ({ navigation }: any) => {
   const dispatch = useDispatch();
   const toast = useToastInfo();
 
+  const renderLeftAccessoryName = useCallback(() => {
+    return (
+      <View style={styles.logoInput}>
+        <IonicIcon name="ios-person" size={Platform.SizeScale(20)} />
+      </View>
+    );
+  }, [styles.logoInput]);
+
   const renderLeftAccessoryMail = useCallback(() => {
     return (
       <View style={styles.logoInput}>
-        <Image resizeMode="contain" style={CommonStyle.image} source={Images.mail} />
+        <IonicIcon name="ios-mail" size={Platform.SizeScale(20)} />
+      </View>
+    );
+  }, [styles.logoInput]);
+
+  const renderLeftAccessoryPhone = useCallback(() => {
+    return (
+      <View style={styles.logoInput}>
+        <IonicIcon name="ios-phone-portrait" size={Platform.SizeScale(20)} />
       </View>
     );
   }, [styles.logoInput]);
@@ -37,7 +55,7 @@ const _RegisterScreen = ({ navigation }: any) => {
   const renderLeftAccessoryPassword = useCallback(() => {
     return (
       <View style={styles.logoInput}>
-        <Image resizeMode="contain" style={CommonStyle.image} source={Images.lock} />
+        <IonicIcon name="ios-key" size={Platform.SizeScale(20)} />
       </View>
     );
   }, [styles.logoInput]);
@@ -87,7 +105,7 @@ const _RegisterScreen = ({ navigation }: any) => {
         <View style={styles.content}>
           <TextField
             onChangeText={setName}
-            renderLeftAccessory={renderLeftAccessoryMail}
+            renderLeftAccessory={renderLeftAccessoryName}
             style={styles.inpuRateStyle}
             placeholder="Tên đầy đủ"
             inputStyle={styles.inputStyles}
@@ -101,7 +119,7 @@ const _RegisterScreen = ({ navigation }: any) => {
           />
           <TextField
             onChangeText={setPhone}
-            renderLeftAccessory={renderLeftAccessoryMail}
+            renderLeftAccessory={renderLeftAccessoryPhone}
             style={styles.inpuRateStyle}
             placeholder="Số điện thoại"
             inputStyle={styles.inputStyles}

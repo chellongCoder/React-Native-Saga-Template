@@ -1,33 +1,34 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, StyleSheet, Dimensions, Linking, Alert, TouchableOpacity } from 'react-native';
 import { useBarcodeRead, BarcodeMaskWithOuterLayout } from '@nartc/react-native-barcode-mask';
 import { RNCamera } from 'react-native-camera';
-import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { connect } from 'react-redux';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { androidCameraPermissionOptions } from '../../Common/Common';
 import { AppBars, Text } from '../../components';
 import { screens } from '../../config';
 import { Platform } from '../../theme';
-import HeaderMain from '../../util/HeaderMain';
+import navigationService from '../../navigation/navigation-service';
+
 const { width, height } = Dimensions.get('window');
-function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
+
+function QrCodeScreen({ navigation }: StackNavigationProp<any>) {
   const [isbarcodeRead, setbarcodeRead] = useState(true);
   const { barcodeRead, onBarcodeRead, onBarcodeFinderLayoutChange } = useBarcodeRead(
     isbarcodeRead,
     async (data: string) => {
-      setbarcodeRead(false);
       if (data) {
+        setbarcodeRead(false);
         console.log('🚀 ~ file: index.tsx ~ line 20 ~ data', data);
         const supported = await Linking.canOpenURL(data);
         if (supported) {
           if (data.indexOf('sahatha.vn') > 0) {
-            navigation.navigate(screens.product_scan, {
+            navigationService.replace(screens.product_scan, {
               params: { urlScan: data },
             });
             return;
           }
           await Linking.openURL(data);
-          setbarcodeRead(true);
         } else {
           Alert.alert(`Don't know how to open this URL: ${data}`);
           setbarcodeRead(true);
