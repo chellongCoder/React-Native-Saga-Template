@@ -1,19 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, SafeAreaView, TextInput, StatusBar, TouchableOpacity } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
+import { Text } from '../components';
+import { screens } from '../config';
 import { tabModel } from '../model/TabModel';
 import { theme } from '../theme';
 import Row from './Row';
 import styles from './StyleHeaderMain';
 const { colors } = theme;
-
 interface Props {
   value?: string | undefined;
   screen?: number | string;
   bgColor?: string;
+  disableInput?: boolean;
   onPressLeft?: () => void;
   onChangeText: (value: string) => void;
+  onEndEditing?: () => void;
 }
 
 const HeaderMain = (props: Props) => {
@@ -32,21 +36,25 @@ const HeaderMain = (props: Props) => {
 
 function SearchComponent(props: Props) {
   const { screen } = props;
+  const navigation = useNavigation();
   const navigateSearchPropduct = () => {
-    // navigationService.navigate(screens.product, {});
+    navigation.navigate(screens.appStack, { screen: screens.search });
   };
   switch (screen) {
     case tabModel.home:
       return (
         <TouchableOpacity onPress={navigateSearchPropduct} activeOpacity={1} style={styles.stySearch}>
           <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
-          <TextInput
+          {/* <TextInput
+            editable={!props.disableInput}
             value={props.value}
             placeholder="Nhập nội dung tìm kiếm"
             placeholderTextColor={colors.gray}
             style={styles.styInput}
             onChangeText={(text) => props.onChangeText(text)}
-          />
+            onEndEditing={props.onEndEditing}
+          /> */}
+          <Text style={styles.styInput}>Nhập nội dung tìm kiếm</Text>
         </TouchableOpacity>
       );
     default:
@@ -54,11 +62,13 @@ function SearchComponent(props: Props) {
         <View style={styles.stySearch}>
           <IconAntDesign name={'search1'} size={18} color={colors.gray} style={{ alignSelf: 'center' }} />
           <TextInput
+            editable={!props.disableInput}
             value={props.value}
             placeholder="Nhập nội dung tìm kiếm"
             placeholderTextColor={colors.gray}
             style={styles.styInput}
             onChangeText={(text) => props.onChangeText(text)}
+            onEndEditing={props.onEndEditing}
           />
         </View>
       );

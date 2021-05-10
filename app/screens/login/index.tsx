@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import FastImage from 'react-native-fast-image';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-community/async-storage';
+import IonicIcon from 'react-native-vector-icons/Ionicons';
 import { AppButton, Checkbox, FacebookButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { CommonStyle, Images } from '../../constants';
 import { useLoadingGlobal } from '../../hooks';
 import { RootState } from '../../redux/reducers';
 import { screens } from '../../config';
+import { Platform } from '../../theme';
 import { useLoginStyle } from './styles';
 
 const LoginScreen = ({ navigation }: any) => {
@@ -28,7 +30,7 @@ const LoginScreen = ({ navigation }: any) => {
   const renderLeftAccessoryMail = useCallback(() => {
     return (
       <View style={styles.logoInput}>
-        <Image resizeMode="contain" style={CommonStyle.image} source={Images.mail} />
+        <IonicIcon name="ios-mail" size={Platform.SizeScale(20)} />
       </View>
     );
   }, [styles.logoInput]);
@@ -36,7 +38,7 @@ const LoginScreen = ({ navigation }: any) => {
   const renderLeftAccessoryPassword = useCallback(() => {
     return (
       <View style={styles.logoInput}>
-        <Image resizeMode="contain" style={CommonStyle.image} source={Images.lock} />
+        <IonicIcon name="ios-key" size={Platform.SizeScale(20)} />
       </View>
     );
   }, [styles.logoInput]);

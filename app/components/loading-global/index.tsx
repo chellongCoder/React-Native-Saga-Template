@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
-import Animated, { Easing } from 'react-native-reanimated';
+import Animated, { EasingNode } from 'react-native-reanimated';
 import { CommonStyle, Images } from '../../constants';
 import { useLoadingGlobalStyle } from './styles';
 
@@ -11,7 +11,7 @@ const _LoadingGlobal = ({}) => {
     Animated.timing(opacity, {
       toValue: 1,
       duration: 500,
-      easing: Easing.linear,
+      easing: EasingNode.linear,
     }).start(() => {
       console.log('ok end');
     });

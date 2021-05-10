@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash';
 import { AppBars, Banner, ListFullOption, SearchBar, Text } from '../../components';
 import ElementItem from '../../components/home-component/ElementItem';
 import { mapListProductMore } from '../../helpers/product.helper';
@@ -11,6 +12,7 @@ import { Platform } from '../../theme';
 import { screens } from '../../config';
 import { useLoadingGlobal } from '../../hooks';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
+import { productActionsCreator } from '../../redux/actions/product.action';
 import { useProductStyle } from './styles';
 import { ProductProps, ProductPropsScreen } from './types';
 
@@ -22,6 +24,7 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   const { productsMore, isLoading, sliders } = useSelector((state: RootState) => state.HomeData);
   const data = useMemo(() => mapListProductMore(productsMore), [productsMore]);
   const [page, setPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
   const loading = useLoadingGlobal();
 
   const onBack = useCallback(() => {
@@ -41,14 +44,17 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
     const paging = page + 1;
     const payload = {
       access_token: '',
-      params: {
-        category_id: categoryId,
-        page: paging,
-      },
+      category_id: categoryId.toString(),
+      page: paging,
+      search_name: searchText,
     };
-    dispatch(homeActionsCreator.getDataMoreLoadMoreRequest(payload));
+    if (searchText) {
+      dispatch(productActionsCreator.loadmoreSearchDataMoreRequest(payload));
+    } else {
+      dispatch(homeActionsCreator.getDataMoreLoadMoreRequest(payload));
+    }
     setPage(paging);
-  }, [categoryId, dispatch, page]);
+  }, [categoryId, dispatch, page, searchText]);
 
   const getDataMoreRequest = useCallback(() => {
     const payload = {
@@ -59,7 +65,24 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
       },
     };
     dispatch(homeActionsCreator.getDataMoreRequest(payload));
+    setPage(1);
   }, [categoryId, dispatch]);
+
+  const onSearch = _.debounce(
+    (text) => {
+      setSearchText(text);
+      dispatch(
+        productActionsCreator.searchDataMoreRequest({
+          access_token: '',
+          category_id: categoryId.toString(),
+          page: 1,
+          search_name: text,
+        }),
+      );
+    },
+    400,
+    { leading: false, trailing: true },
+  );
 
   const renderEmpty = useCallback(() => {
     return (
@@ -91,7 +114,7 @@ export const ProductScreen = ({ route }: ProductPropsScreen) => {
   return (
     <View style={styles.container}>
       <AppBars title={title} hasRightIcons={false} onPressLeft={onBack} />
-      <SearchBar />
+      <SearchBar onChangeText={onSearch} />
       <BannerAdvertisement style={styles.viewBanner} data={sliders} />
 
       <ListFullOption

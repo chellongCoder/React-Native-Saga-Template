@@ -103,6 +103,7 @@ class Home extends React.Component<Props, State> {
           value={textSearch}
           {...this.props}
           bgColor={theme.colors.green}
+          disableInput={true}
         />
         <ScrollView
           style={{ flex: 1 }}

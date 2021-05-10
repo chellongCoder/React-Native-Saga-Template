@@ -5,6 +5,7 @@ import { ResponseT } from '../../services/types';
 import { alertError, alertMessage } from '../../util';
 
 export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, ...args: Parameters<Fn>) {
+  const { hideMessage }: any = args;
   try {
     const result: ResponseT<T> = yield call(fn, ...args);
     console.log(
@@ -37,7 +38,7 @@ export function* callSafe<Fn extends (params: any) => Promise<any>, T>(fn: Fn, .
     console.log(
       `🛠 LOG: 🚀 --> --------------------------------------------------------------------------------------------`,
     );
-    alertError(error.message);
+    hideMessage && alertError(error.message);
     throw error;
   }
 }

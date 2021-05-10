@@ -36,3 +36,16 @@ export interface DetailProductT {
   shop?: ShopT;
   gotoUrl: string;
 }
+
+export type VerifyProductT = {
+  server_key?: string;
+  id_mahoa: string;
+  input_verify: string;
+};
+
+export type ActiveProductT = {
+  server_key?: string;
+  id_mahoa: string;
+  input_verify: string;
+  token: string;
+};

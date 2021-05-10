@@ -30,6 +30,7 @@ const screens = {
   changeInfo: 'ChangeInfo',
   rules: 'Rules',
   createQR: 'createQR',
+  search: 'searchScreen',
 };
 
 enum ROUTES {
@@ -61,6 +62,7 @@ enum ROUTES {
   changeInfo = 'ChangeInfo',
   rules = 'Rules',
   createQR = 'createQR',
+  search = 'searchScreen',
 }
 
 export { screens, ROUTES };
