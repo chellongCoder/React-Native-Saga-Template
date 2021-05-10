@@ -26,6 +26,7 @@ import { getDeviceToken } from '../../Common/Common';
 import { alertMessage } from '../../util';
 import { COLORS } from '../../constants';
 import { screens } from '../../config';
+import navigationService from '../../navigation/navigation-service';
 import { useProductDetailStyle } from './styles';
 import { DetailProductT, ProductDetailProps } from './types';
 
@@ -144,7 +145,7 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
 
   useEffect(() => {
     if (!_.isEmpty(error)) {
-      alertMessage('Cảnh báo', () => navigation.goBack(), 'Không tìm thấy sản phẩm liên quan.');
+      alertMessage('Cảnh báo', () => navigationService.goBack(), 'Không tìm thấy sản phẩm liên quan.');
     }
   }, [error, navigation]);
 
@@ -179,6 +180,12 @@ const _ProductScan = ({ route }: ProductDetailProps) => {
   useEffect(() => {
     getDataScanRequest();
   }, [dispatch, getDataScanRequest, hookLoadingGlobal]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(qrActionsCreator.resetStore());
+    };
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>

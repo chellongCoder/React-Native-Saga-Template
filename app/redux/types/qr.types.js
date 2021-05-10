@@ -12,3 +12,4 @@ export const ACTIVE_PRODUCT_SUCCESS = '@@redux/qr/ACTIVE_PRODUCT_SUCCESS';
 export const ACTIVE_PRODUCT_FAILED = '@@redux/qr/ACTIVE_PRODUCT_FAILED';
 
 export const CHANGE_INPUT_VERIFY = '@@redux/qr/CHANGE_INPUT_VERIFY';
+export const RESET = '@@redux/qr/RESET';

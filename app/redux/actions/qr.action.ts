@@ -11,6 +11,7 @@ import {
   ACTIVE_PRODUCT_REQUEST,
   ACTIVE_PRODUCT_SUCCESS,
   ACTIVE_PRODUCT_FAILED,
+  RESET,
 } from '../types';
 
 export const qrActionsCreator = {
@@ -30,4 +31,5 @@ export const qrActionsCreator = {
   activeProductFaild: createAction(ACTIVE_PRODUCT_FAILED),
 
   changeInputVerify: createAction(CHANGE_INPUT_VERIFY),
+  resetStore: createAction(RESET),
 };

@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { View, TouchableOpacity, Image } from 'react-native';
+import { screens } from '../../config';
 import { COLORS } from '../../constants';
+import navigationService from '../../navigation/navigation-service';
 import { NewsByCategoryT } from '../../screens/news/types';
 import { convertTimeToAMPM } from '../../util';
 import { Text } from '../text';
@@ -12,9 +14,11 @@ const _ItemNew = ({ item }: { item: NewsByCategoryT }) => {
     <TouchableOpacity
       style={[styles.viewItem, styles.viewItemShadow]}
       hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
-      onPress={() => {}}>
+      onPress={() => {
+        navigationService.navigate(screens.newsDetail, { item });
+      }}>
       <View style={styles.viewImageWrapper}>
-        <Image source={{ uri: item.image }} style={{ resizeMode: 'cover', flex: 1 }} />
+        <Image source={{ uri: item.image ? item.image : '' }} style={{ resizeMode: 'cover', flex: 1 }} />
       </View>
 
       <View style={styles.viewRight}>

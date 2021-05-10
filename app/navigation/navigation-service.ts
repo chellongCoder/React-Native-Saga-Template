@@ -26,6 +26,17 @@ function replace(routeName: string, params: { [key: string]: any }) {
   _navigator?.dispatch(StackActions.replace(routeName, params));
 }
 
+function reset(routeName: string, params: { [key: string]: any }) {
+  _navigator?.dispatch((state) => {
+    const index = state.routeNames.indexOf(routeName);
+    //@ts-ignore
+    return CommonActions.reset({
+      ...state,
+      index,
+    });
+  });
+}
+
 // add other navigation functions that you need and export them
 
 export default {
@@ -35,4 +46,5 @@ export default {
   _navigator,
   getTopLevelNavigator,
   replace,
+  reset,
 };

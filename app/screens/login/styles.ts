@@ -33,6 +33,8 @@ export const useLoginStyle = () => {
           width: Platform.SizeScale(30),
           height: Platform.SizeScale(30),
           marginLeft: Platform.SizeScale(10),
+          alignItems: 'center',
+          justifyContent: 'center',
         },
         checkboxContainer: {
           marginLeft: Platform.SizeScale(20),

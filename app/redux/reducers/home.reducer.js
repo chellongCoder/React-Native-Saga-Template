@@ -17,6 +17,7 @@ import {
   GET_DATA_PRODUCT_MORE_LOADMORE_REQUEST,
   GET_DATA_PRODUCT_MORE_LOADMORE_SUCCESS,
   GET_DATA_PRODUCT_MORE_LOADMORE_FAILD,
+  LOADMORE_SEARCH_DATA_PRODUCT_REQUEST,
 } from '../types/index';
 
 const initialState = {
@@ -149,6 +150,13 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: false,
+        success: undefined,
+      };
+    case LOADMORE_SEARCH_DATA_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading,
+        error: null,
         success: undefined,
       };
     default:

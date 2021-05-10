@@ -5,6 +5,8 @@ import { homeActionsCreator } from '../actions';
 import { Api } from '../../services';
 import { PostCommentParamsT } from '../../screens/product_detail/types';
 import { mapListProductCategory } from '../../helpers/product.helper';
+import { ProductSearchPramsT } from '../../screens/product/types';
+import { productActionsCreator } from '../actions/product.action';
 import { callSafe } from './common.saga';
 
 function* getDataProducts({ payload }: Action<any>) {
@@ -35,9 +37,35 @@ function* getDataProductsMore({ payload }: Action<any>) {
   }
 }
 
+function* searchDataProductsMore({ payload }: Action<ProductSearchPramsT>) {
+  try {
+    const response: ApiResponse<any, any> = yield Api.searchDataProductMore(payload);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataMoreSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
 function* getDataProductsMoreLoadMore({ payload }: Action<any>) {
   try {
     const response: ApiResponse<any, any> = yield Api.getDataProductMore(payload.access_token, payload.params);
+    if (response.status === 200) {
+      yield put(homeActionsCreator.getDataMoreLoadMoreSuccess(response));
+    } else {
+      yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: response.originalError }));
+    }
+  } catch (err) {
+    yield put(homeActionsCreator.getDataMoreLoadMoreFaild({ error: err ? err : 'User Login Failed!' }));
+  }
+}
+
+function* searchDataProductsMoreLoadMore({ payload }: Action<ProductSearchPramsT>) {
+  try {
+    const response: ApiResponse<any, any> = yield Api.searchDataProductMore(payload);
     if (response.status === 200) {
       yield put(homeActionsCreator.getDataMoreLoadMoreSuccess(response));
     } else {
@@ -96,4 +124,6 @@ export default function* () {
   yield takeEvery(homeActionsCreator.getDataMoreRequest, getDataProductsMore);
   yield takeEvery(homeActionsCreator.getDataMoreLoadMoreRequest, getDataProductsMoreLoadMore);
   yield takeEvery(homeActionsCreator.postCommentRequest, postComment);
+  yield takeEvery(productActionsCreator.searchDataMoreRequest, searchDataProductsMore);
+  yield takeEvery(productActionsCreator.loadmoreSearchDataMoreRequest, searchDataProductsMoreLoadMore);
 }
