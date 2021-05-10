@@ -62,6 +62,14 @@ export interface RelatedProduct {
     thumbnailoptimize: string;
   };
 }
+
+export type ProductSearchPramsT = {
+  search_name: string;
+  category_id: string;
+  page: number;
+  access_token: string;
+};
+
 type ProductParamList = {
   [ROUTES.product]: { categoryId: number; title: string };
 };

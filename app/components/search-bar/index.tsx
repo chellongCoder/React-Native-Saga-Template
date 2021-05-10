@@ -5,12 +5,17 @@ import { theme } from '../../theme';
 import { TextField } from '../text-field';
 import { useStyleSearch } from './styles';
 
-export const SearchBar = ({ style }: { style?: ViewStyle }) => {
+export const SearchBar = ({ style, onChangeText }: { style?: ViewStyle; onChangeText: (text: string) => void }) => {
   const { colors } = theme;
   const styles = useStyleSearch();
   const refInput = useRef<TextInput>(null);
 
-  const onChangeTextSearch = useCallback(() => {}, []);
+  const onChangeTextSearch = useCallback(
+    (text: string) => {
+      onChangeText?.(text);
+    },
+    [onChangeText],
+  );
 
   const renderLeftAccessory = useCallback(() => {
     return (

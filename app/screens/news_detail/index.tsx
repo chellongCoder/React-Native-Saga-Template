@@ -1,9 +1,10 @@
 import React, { memo, useEffect, useMemo, useState } from 'react';
-import { View, ImageBackground, FlatList, Image, ListRenderItem, ScrollView } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, ImageBackground, FlatList, Image, ListRenderItem, ScrollView, TouchableOpacity } from 'react-native';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useDispatch, useSelector } from 'react-redux';
+import { StackActions } from '@react-navigation/core';
 import { COLORS } from '../../constants';
 import { newsActionsCreator } from '../../redux/actions';
 import { Platform } from '../../theme';
@@ -12,13 +13,15 @@ import navigationService from '../../navigation/navigation-service';
 import { mapperNewsByCategory } from '../../helpers/news.helper';
 import { RootState } from '../../redux/reducers';
 import { useImageView } from '../../hooks';
+import { NewsByCategoryT } from '../news/types';
 import { useNewsStyle } from './styles';
 // import { dataCate } from './__mocks__/data';
 
-const _NewsScreenDetail = ({ route }) => {
+const _NewsScreenDetail = ({ navigation, route }) => {
   const dataRoute = route.params.item;
   const scrollElementHeightPercent = 20;
   const styles = useNewsStyle();
+  // const navigation = useNavigation();
   const dispatch = useDispatch();
   const { news: _news } = useSelector((state: RootState) => state.NewData);
   const news = useMemo(() => mapperNewsByCategory(_news), [_news]);
@@ -32,24 +35,22 @@ const _NewsScreenDetail = ({ route }) => {
     dispatch(newsActionsCreator.getNewsDetailNotificationRequest());
   }, [dispatch]);
   const imageViewer = useImageView();
-  const renderItemHorizontal: ListRenderItem<{
-    id: number;
-    title: string;
-    image: string;
-  }> = ({ item }) => {
+  const renderItemHorizontal: ListRenderItem<NewsByCategoryT> = ({ item }) => {
+    const onPushDetail = () => {
+      navigation.dispatch(StackActions.push('NewsDetail', { item }));
+    };
+    const onZoomImage = () => {
+      imageViewer.show([item.image]);
+    };
     return (
-      <View style={styles.itemWrapper}>
-        <TouchableOpacity
-          onPress={() => {
-            imageViewer.show([item.image]);
-          }}
-          style={styles.itemViewImage}>
+      <TouchableOpacity onPress={onPushDetail} style={styles.itemWrapper}>
+        <TouchableOpacity onPress={onZoomImage} style={styles.itemViewImage}>
           <Image style={styles.itemImage} source={{ uri: item.image }} />
         </TouchableOpacity>
         <Text style={styles.itemText} numberOfLines={3}>
           {item.title}
         </Text>
-      </View>
+      </TouchableOpacity>
     );
   };
   const onBack = () => {

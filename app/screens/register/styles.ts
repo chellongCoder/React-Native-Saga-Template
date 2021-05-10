@@ -15,7 +15,7 @@ export const useRegisterStyle = () => {
         },
         logo: {
           width: Platform.SizeScale(150),
-          height: Platform.deviceHeight / 3,
+          height: Platform.deviceHeight / 3.5,
           alignSelf: 'center',
         },
         inpuRateStyle: {
@@ -32,6 +32,8 @@ export const useRegisterStyle = () => {
           width: Platform.SizeScale(30),
           height: Platform.SizeScale(30),
           marginLeft: Platform.SizeScale(10),
+          alignItems: 'center',
+          justifyContent: 'center',
         },
         checkboxContainer: {
           marginLeft: Platform.SizeScale(20),
