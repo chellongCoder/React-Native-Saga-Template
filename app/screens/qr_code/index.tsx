@@ -44,7 +44,7 @@ function QrCodeScreen({ navigation }: DrawerContentComponentProps<DrawerContentO
     navigation.goBack();
     navigation.navigate(screens.home);
     // navigation.navigate(screens.product_scan, {
-    //   params: { urlScan: 'https://sahatha.vn/a/Gwiel' },
+    //   params: { urlScan: 'https://sahatha.vn/a/G1409' },
     // });
   }, [navigation]);
 

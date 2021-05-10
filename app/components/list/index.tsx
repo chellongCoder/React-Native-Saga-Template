@@ -115,6 +115,7 @@ export const ListFullOption = forwardRef(
 
     useImperativeHandle(ref, () => ({
       scrollToEnd,
+      scrollTo,
     }));
 
     const onRefresh = useCallback(async () => {
@@ -165,6 +166,10 @@ export const ListFullOption = forwardRef(
 
     const scrollToEnd = () => {
       flatList?.current.scrollToEnd({ animated: true });
+    };
+
+    const scrollTo = () => {
+      flatList?.current.scrollTo({ x: 0, y: 0, animated: true });
     };
 
     return (

@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     marginHorizontal: 5,
     fontFamily: FontFamily.fontRegular,
+    flex: 1,
   },
 });
 

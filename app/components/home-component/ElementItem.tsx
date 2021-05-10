@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Image } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Text } from '../index';
@@ -17,14 +17,23 @@ interface Props {
 }
 
 const ElementItem = (props: Props) => {
-  const { featuredImg, name, rating, unitPrice, quantity } = props.item;
+  const [noImage, setNoImage] = useState('');
+  let { name, rating, unitPrice, quantity, thumbnailImg } = props.item;
+  thumbnailImg = thumbnailImg?.replace(/ +/g, '%20');
+  thumbnailImg = !thumbnailImg.includes('https://sahatha.vn') ? `https://sahatha.vn/${thumbnailImg}` : thumbnailImg;
+
+  const onError = () => {
+    setNoImage('https://lasd.lv/public/assets/no-image.png');
+  };
+
   return (
     <RippButton onPress={() => props.handlerGoToDetail?.(props?.item)}>
       <View style={[styles.styWrapElement, { width: props.width }]}>
         <FastImage
-          source={{ uri: featuredImg }}
+          source={{ uri: noImage || thumbnailImg }}
           resizeMode={'contain'}
           style={[styles.styImage, { width: props.width }]}
+          onError={onError}
         />
         <View style={styles.styWrapInfo}>
           <Text style={styles.styTxtName} numberOfLines={2}>
