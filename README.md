@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="app/assets/images/logo.png" alt="Logo" width="100%">
+    <img src="https://images.viblo.asia/31560351-9c10-41b8-8f3e-6a641ac9e0d9.png" alt="Logo" width="100%">
 </div>
 
 [![Release Date](https://img.shields.io/badge/Release%20Date-May%202020-green.svg)](https://shields.io/)
@@ -24,7 +24,6 @@ Project cung cấp **1 Kiến trúc phát triển mobile đa nền tảng** Phâ
 
 ## Kiến trúc
 
-The main purpose of the Architecture of the boilerplate is the separation of concerns
 Mục tiêu chính của kiến trúc là phân tách các phần của project.
 
 - phân tách giữa **components** và **screens**.
