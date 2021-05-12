@@ -1,0 +1,41 @@
+import {
+{{constantCase name}}_REQUEST, {{constantCase name}}_SUCCESS , {{constantCase name}}_FAILED 
+} from '../types';
+
+const initialState = {
+  isLoading: false,
+  error: null,
+  {{pascalCase name}}s: [],
+    success: null,
+};
+
+export default function (state = initialState, action) {
+  const { payload, type } = action;
+  switch (type) {
+    case {{constantCase name}}_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+        error: null,
+        success: null,
+      };
+    }
+    case {{constantCase name}}_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        {{pascalCase name}}s: payload.data,
+      };
+    }
+    case {{constantCase name}}_FAILED: {
+      return {
+        ...state,
+        isLoading: false,
+        error: payload.error,
+      };
+    }
+
+    default:
+      return state;
+  }
+}
