@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Checkroof</string>
+	<string>react-native-basesaga</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -54,7 +54,7 @@
 	<key>FacebookDisplayName</key>
 	<string>$(AppName)</string>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -80,7 +80,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>ProCheck muốn sử dụng camera của bạn để quét mã</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>ProCheck muốn truy cập thư viện để lấy ảnh</string>
 	<key>UIAppFonts</key>

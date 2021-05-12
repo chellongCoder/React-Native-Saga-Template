@@ -3,12 +3,11 @@ import { View, Image } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { Text } from '../index';
 import Row from '../../util/Row';
-import { AppIcon } from '../../Common/AppIcon';
-import { VNDCurrencyFormatting } from '../../Common/Common';
+import { AppIcon } from '../../constants/AppIcon';
 import RippButton from '../../anim/RippleButtonAnim';
-import TextHelper from '../../Common/TextHelper';
 import { ProductProps } from '../../screens/product/types';
 import styles from './ListItem.style';
+import { TextHelper, VNDCurrencyFormatting } from '../../constants';
 
 interface Props {
   handlerGoToDetail?: (item: ProductProps) => void;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { AppIcon } from '../Common/AppIcon';
+import { AppIcon } from '../constants/AppIcon';
 import Image from 'react-native-fast-image';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { FontFamily } from '../theme';

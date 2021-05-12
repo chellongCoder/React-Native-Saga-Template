@@ -6,13 +6,11 @@ import _ from 'lodash';
 import { AppBars, Text } from '../../components';
 import HeaderMain from '../../util/HeaderMain';
 import Row from '../../util/Row';
-import { AppIcon } from '../../Common/AppIcon';
+import { AppIcon } from '../../constants/AppIcon';
 import { ApiHistory } from '../../services';
 import { screens } from '../../config';
 import { useLoadingGlobal } from '../../hooks';
-import { CommonStyle } from '../../constants';
-import { text01 } from '../../Common/TextHelper';
-import { getDeviceToken } from '../../Common/Common';
+import { CommonStyle, getDeviceToken, TextHelper } from '../../constants';
 import { RootState } from '../../redux/reducers';
 import styles from './history.style';
 
@@ -90,7 +88,7 @@ const History = () => {
             <Row>
               <Image source={AppIcon.IconVerify} style={styles.styImgStar} />
               <Text style={styles.styVerify} numberOfLines={1} fontType={'fontBold'}>
-                {text01}
+                {TextHelper.text01}
               </Text>
               <Image source={AppIcon.IconCompany} style={styles.styImgStar} />
               <Text style={styles.styCompany} numberOfLines={1}>

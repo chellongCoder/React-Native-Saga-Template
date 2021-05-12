@@ -3,7 +3,7 @@ import { Text, View, Image } from 'react-native';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import FastImage from 'react-native-fast-image';
 import Row from '../../util/Row';
-import { AppIcon } from '../../Common/AppIcon';
+import { AppIcon } from '../../constants/AppIcon';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
 import navigationService from '../../navigation/navigation-service';
 import { screens } from '../../config';

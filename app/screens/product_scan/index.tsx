@@ -22,9 +22,8 @@ import {
 import { qrActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
 import { ApiQr } from '../../services/qr-service';
-import { getDeviceToken } from '../../Common/Common';
 import { alertMessage } from '../../util';
-import { COLORS } from '../../constants';
+import { COLORS, getDeviceToken } from '../../constants';
 import { screens } from '../../config';
 import navigationService from '../../navigation/navigation-service';
 import { useProductDetailStyle } from './styles';

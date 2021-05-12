@@ -4,11 +4,11 @@ import { useBarcodeRead, BarcodeMaskWithOuterLayout } from '@nartc/react-native-
 import { RNCamera } from 'react-native-camera';
 import { connect } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { androidCameraPermissionOptions } from '../../Common/Common';
 import { AppBars, Text } from '../../components';
 import { screens } from '../../config';
 import { Platform } from '../../theme';
 import navigationService from '../../navigation/navigation-service';
+import { androidCameraPermissionOptions } from '../../constants';
 
 const { width, height } = Dimensions.get('window');
 

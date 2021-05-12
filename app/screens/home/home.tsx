@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList, ScrollView, RefreshControl } from 'react-native';
 import _ from 'lodash';
 import HeaderMain from '../../util/HeaderMain';
-import { tabModel } from '../../model/TabModel';
+import { tabModel } from '../../constants/TabModel';
 import BannerAdvertisement from '../../util/BannerAdvertisement';
 import ListItem from '../../components/home-component/ListItem';
 import { ProductCategoryProps } from '../product/types';
@@ -11,7 +11,6 @@ import ListItemShimmer from '../../components/home-component/ElementShimmer';
 import BannerAdvertisementShimmer from '../../util/BannerAdvertisementShimmer';
 import { Text } from '../../components';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
-import { getToken } from '../../Common/Common';
 import MenuMain from './MenuMain';
 import styles from './home.styles';
 interface Props {

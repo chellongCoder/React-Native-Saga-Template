@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Picker } from 'native-base';
-import { AppIcon } from '../Common/AppIcon';
+import { AppIcon } from '../constants/AppIcon';
 import { Platform } from '../theme';
 import { province } from '../screens/ChangeInfo/types';
 

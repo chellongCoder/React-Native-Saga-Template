@@ -1,8 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { getGender } from '../Common/Common';
 import { Text } from '../components';
-import { COLORS } from '../constants';
+import { COLORS, getGender } from '../constants';
 import { checkboxGender } from '../screens/ChangeInfo/types';
 import { Platform } from '../theme';
 import Row from './Row';

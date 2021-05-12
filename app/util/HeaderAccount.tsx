@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import _ from 'lodash';
 import React from 'react';
 import { View, ImageBackground, StyleSheet } from 'react-native';
-import { AppIcon } from '../Common/AppIcon';
+import { AppIcon } from '../constants/AppIcon';
 import { AppBars, Text } from '../components';
 import { COLORS } from '../constants';
 import { Platform } from '../theme';

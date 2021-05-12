@@ -4,7 +4,7 @@ import { View, FlatList } from 'react-native';
 import Image from 'react-native-fast-image';
 import { useNavigation } from '@react-navigation/native';
 import _ from 'lodash';
-import { AppIcon } from '../../Common/AppIcon';
+import { AppIcon } from '../../constants/AppIcon';
 import { Text } from '../../components';
 import Row from '../../util/Row';
 import { theme } from '../../theme';

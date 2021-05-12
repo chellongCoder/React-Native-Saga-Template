@@ -6,7 +6,7 @@ import { Text } from '../text';
 import { COLORS } from '../../constants/colors';
 import { DetailProductT } from '../../screens/product_detail/types';
 import { Rate } from '../rating';
-import { VNDCurrencyFormatting } from '../../Common/Common';
+import { VNDCurrencyFormatting } from '../../constants/Common';
 
 const _InfoProduct = ({ productDetail }: { productDetail?: DetailProductT }) => {
   const onShare = useCallback(async () => {

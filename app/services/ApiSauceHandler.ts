@@ -2,9 +2,9 @@ import apisauce, { ApiResponse, ApisauceInstance } from 'apisauce';
 import { Method } from 'axios';
 import { Alert, Platform } from 'react-native';
 import jwtDecode from 'jwt-decode';
-import { getToken, saveToken } from '../Common/Common';
 import { isExpried } from '../util/AuthCommon';
 import AppConfig from '../config/app-config';
+import { getToken, saveToken } from '../constants';
 const { API_URL_DEV, SERVER_KEY } = AppConfig;
 const api_url = API_URL_DEV;
 

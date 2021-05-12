@@ -5,7 +5,7 @@ const gender = {
   other: 'other',
 };
 
-module.exports = {
+export const TextHelper = {
   text01,
   gender,
 };

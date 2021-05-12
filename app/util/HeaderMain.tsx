@@ -5,7 +5,7 @@ import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import RippleButtonAnim from '../anim/RippleButtonAnim';
 import { Text } from '../components';
 import { screens } from '../config';
-import { tabModel } from '../model/TabModel';
+import { tabModel } from '../constants/TabModel';
 import { theme } from '../theme';
 import Row from './Row';
 import styles from './StyleHeaderMain';

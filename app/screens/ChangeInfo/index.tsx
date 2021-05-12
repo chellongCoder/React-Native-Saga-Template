@@ -6,15 +6,13 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 import { useSelector, useDispatch } from 'react-redux';
 import ImagePickerCrop from 'react-native-image-crop-picker';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
-import { AppIcon } from '../../Common/AppIcon';
-import { gender } from '../../Common/TextHelper';
+import { AppIcon } from '../../constants/AppIcon';
 import { AppBars, Text } from '../../components';
-import { COLORS } from '../../constants';
+import { COLORS, TextHelper } from '../../constants';
 import CheckBoxIcon from '../../util/CheckBoxIcon';
 import TextInputInfo from '../../util/TextInputInfo';
 import Row from '../../util/Row';
 import { RootState } from '../../redux/reducers';
-import { getToken } from '../../Common/Common';
 import { alertMessage, showConfirm } from '../../util';
 import { accountActionsCreator } from '../../redux/actions';
 import { useLoadingGlobal } from '../../hooks';
@@ -161,9 +159,9 @@ const ChangeInfo = (props: Props) => {
             <Text style={styles.styTxtLabel} fontType={'fontBold'}>
               Giới tính:{' '}
             </Text>
-            <CheckBoxIcon selectedValue={genderValue} gender={gender.male} handlerSelect={handlerSelect} />
-            <CheckBoxIcon selectedValue={genderValue} gender={gender.female} handlerSelect={handlerSelect} />
-            <CheckBoxIcon selectedValue={genderValue} gender={gender.other} handlerSelect={handlerSelect} />
+            <CheckBoxIcon selectedValue={genderValue} gender={TextHelper.gender.male} handlerSelect={handlerSelect} />
+            <CheckBoxIcon selectedValue={genderValue} gender={TextHelper.gender.female} handlerSelect={handlerSelect} />
+            <CheckBoxIcon selectedValue={genderValue} gender={TextHelper.gender.other} handlerSelect={handlerSelect} />
           </Row>
           <TextInputInfo
             value={name}
