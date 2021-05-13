@@ -14,7 +14,6 @@ export * from './search-bar';
 export * from './banner';
 export * from './slider';
 export * from './info-product';
-export * from './detail-product-company';
 export * from './loading-global';
 export * from './rating';
 export * from './bottom-sheet';
@@ -29,4 +28,3 @@ export * from './modal';
 export * from './input-code-product';
 export * from './modal-success';
 export * from './modal-error';
-

@@ -8,9 +8,9 @@ import { theme } from '../../theme';
 import styles from './bottom-tab.styles';
 import { IconTabbar } from './icon-tabbar';
 
-const IconsTab = [ICONS.HOME_UNFOCUS, ICONS.NEW_UNFOCUS, ICONS.QRCODE, ICONS.ALERT_UNFOCUS, ICONS.ACOUNT_UNFOCUS];
-const IconsTabFocus = [ICONS.HOME_FOCUS, ICONS.NEW_FOCUS, ICONS.QRCODE, ICONS.ALERT_FOCUS, ICONS.ACOUNT_FOCUS];
-const NameTab = ['Trang chủ', 'Tin tức', '', 'Thông báo', 'Tài khoản'];
+const IconsTab = [ICONS.NEW_UNFOCUS, ICONS.HOME_UNFOCUS, ICONS.QRCODE, ICONS.ALERT_UNFOCUS, ICONS.ACOUNT_UNFOCUS];
+const IconsTabFocus = [ICONS.NEW_FOCUS, ICONS.HOME_FOCUS, ICONS.QRCODE, ICONS.ALERT_FOCUS, ICONS.ACOUNT_FOCUS];
+const NameTab = ['News', 'Market', '', 'Baskets', 'Support'];
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomTabBarOptions>) => {
   const [t, i18n] = useTranslation();
   const { colors } = theme;

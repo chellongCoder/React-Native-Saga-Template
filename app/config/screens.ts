@@ -63,6 +63,9 @@ enum ROUTES {
   rules = 'Rules',
   createQR = 'createQR',
   search = 'searchScreen',
+  market = 'MarketScreen',
+  basket = 'BasketScreen',
+  support = 'SupportScreen',
 }
 
 export { screens, ROUTES };

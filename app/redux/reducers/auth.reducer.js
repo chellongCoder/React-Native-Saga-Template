@@ -1,133 +1,34 @@
-import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGOUT_ERROR,
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-  REGISTER_ERROR,
-  LOGIN_ERROR,
-  USER_INFO_SUCCESS,
-  USER_INFO_ERROR,
-  LOGOUT_SUCCESS,
-  UPDATE_INFO_SUCCESS,
-  UPDATE_INFO_ERROR,
-  UPDATE_INFO_REQUEST,
-} from '../types';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../types';
 
 const initialState = {
   requesting: false,
-  error: undefined,
-  success: null,
-  data: undefined,
-  userInfo: undefined,
-  tempData: undefined,
-  isLoading: false,
-  isErrUpdateInfo: false,
+  isLoggedIn: false,
 };
 
 export default function (state = initialState, action) {
-  const { payload, type } = action;
+  const { type } = action;
   switch (type) {
     case LOGIN_REQUEST: {
       return {
         ...state,
         requesting: true,
-        error: undefined,
-        success: null,
+        isLoggedIn: false,
       };
     }
     case LOGIN_SUCCESS: {
-      return payload.remember
-        ? {
-            ...state,
-            requesting: false,
-            data: payload.user,
-            tempData: payload.user,
-          }
-        : {
-            ...state,
-            requesting: false,
-            tempData: payload.user,
-          };
+      return {
+        ...state,
+        requesting: false,
+        isLoggedIn: true,
+      };
     }
     case LOGIN_ERROR: {
       return {
         ...state,
         requesting: false,
-        error: payload.error,
-        success: null,
+        isLoggedIn: false,
       };
     }
-    case LOGOUT_SUCCESS: {
-      return {
-        ...state,
-        data: undefined,
-        tempData: undefined,
-        error: undefined,
-        success: payload,
-      };
-    }
-    case LOGOUT_ERROR: {
-      return {
-        ...state,
-        requesting: false,
-        error: payload.error,
-        success: null,
-      };
-    }
-    case REGISTER_REQUEST: {
-      return {
-        ...state,
-        requesting: true,
-        error: undefined,
-        success: null,
-      };
-    }
-    case REGISTER_SUCCESS: {
-      return {
-        ...state,
-        requesting: false,
-        success: payload.user,
-      };
-    }
-    case REGISTER_ERROR: {
-      return {
-        ...state,
-        requesting: false,
-        error: payload.error,
-        success: null,
-      };
-    }
-    case USER_INFO_SUCCESS:
-      return {
-        ...state,
-        userInfo: { ...payload.user, access_token: state.tempData?.access_token },
-      };
-    case USER_INFO_ERROR:
-      return {
-        ...state,
-        error: payload.error,
-      };
-    case UPDATE_INFO_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        isErrUpdateInfo: false,
-      };
-    case UPDATE_INFO_SUCCESS:
-      return {
-        ...state,
-        userInfo: payload.user,
-        isLoading: false,
-        isErrUpdateInfo: false,
-      };
-    case UPDATE_INFO_ERROR:
-      return {
-        ...state,
-        error: payload.error,
-        isLoading: false,
-        isErrUpdateInfo: true,
-      };
     default:
       return state;
   }

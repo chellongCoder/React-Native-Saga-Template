@@ -1,3 +1,1 @@
-import AppNavigator from './root-stack.js';
-
-export default AppNavigator;
+export * from './root-stack';

@@ -5,11 +5,8 @@ export enum HTTP_PROTOCOL {
 }
 
 export type LOGIN_PARAMS = {
-  server_key?: string;
   email: string;
   password: string;
-  remember: 0 | 1;
-  device_token: string;
 };
 
 export type LOGOUT_PARAMS = {

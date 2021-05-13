@@ -13,7 +13,6 @@ import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import LoadingGlobalProvider from './tools/loading-global';
 import { DropDownHolder } from './components';
-import AppNavigator from './navigation/root-stack';
 import { theme } from './theme';
 import { store } from './redux/store/index';
 import navigationService from './navigation/navigation-service';
@@ -22,6 +21,7 @@ import ImageViewProvider from './tools/image-view';
 import ToastInfoProvider from './tools/toast-info';
 import NetworkProvider from './tools/network';
 import ModalProvider from './tools/modal';
+import { AppNavigator } from './navigation';
 
 enableScreens();
 
