@@ -88,8 +88,8 @@ const NetworkProvider = ({ children }: NetworkProps) => {
   };
 
   useEffect(() => {
-    checkPermission();
-    createNotificationListeners();
+    // checkPermission();
+    // createNotificationListeners();
   }, [checkPermission]);
 
   const contextValue = useMemo<NetworkContextValue>(() => ({}), []);

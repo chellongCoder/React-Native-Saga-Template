@@ -43,7 +43,7 @@ const WalkThrough = (props) => {
           <TouchableOpacity
             hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
             style={styles.skip}
-            onPress={() => props.navigation.navigate(screens.drawerStack)}>
+            onPress={() => props.navigation.navigate(screens.login)}>
             <Text
               style={{
                 color: colors.primary,
@@ -71,7 +71,7 @@ const WalkThrough = (props) => {
       <TouchableOpacity
         hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
         style={styles.buttonCircle}
-        onPress={() => props.navigation.navigate(screens.drawerStack)}>
+        onPress={() => props.navigation.navigate(screens.login)}>
         <Ionicons name="md-checkmark" color={colors.white} size={24} />
       </TouchableOpacity>
     );
@@ -82,7 +82,7 @@ const WalkThrough = (props) => {
       data={slides}
       showNextButton={true}
       showDoneButton={true}
-      onSkip={() => props.navigation.navigate(screens.home)}
+      onSkip={() => props.navigation.navigate(screens.login)}
       activeDotStyle={{ backgroundColor: colors.primary }}
       renderItem={_renderItem}
       renderDoneButton={_renderDoneButton}

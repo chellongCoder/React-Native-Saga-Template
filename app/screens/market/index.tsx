@@ -1,17 +1,17 @@
 import React, { memo } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useRegisterStyle } from './styles'
+import { useMarketStyle } from './styles'
 
-const _RegisterScreen = ({}) => {
+const _MarketScreen = ({}) => {
 const navigation = useNavigation();
-const styles = useRegisterStyle();
+const styles = useMarketStyle();
 
   return (
     <View>
-      <Text>Register Screen</Text>
+      <Text>Market Screen</Text>
     </View>
   );
 };
 
-export const RegisterScreen = memo(_RegisterScreen);
+export const MarketScreen = memo(_MarketScreen);
