@@ -1,15 +1,16 @@
 import React, { memo } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useHomeStyle } from './styles'
+import { CandlestickChart } from '../../components';
+import { useHomeStyle } from './styles';
 
 const _HomeScreen = ({}) => {
-const navigation = useNavigation();
-const styles = useHomeStyle();
+  const navigation = useNavigation();
+  const styles = useHomeStyle();
 
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <View style={styles.container}>
+      <CandlestickChart />
     </View>
   );
 };
