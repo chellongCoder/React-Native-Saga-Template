@@ -148,7 +148,8 @@ target 'ShadowGateApp' do
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
-
+  pod 'RNCharts', :path => '../node_modules/react-native-charts-wrapper'
+  
   target 'ShadowGateAppTests' do
     inherit! :complete
     # Pods for testing

@@ -1,6 +1,6 @@
 export default {
-  fontRegular: 'SFProDisplay-Regular',
-  fontBold: 'SFProDisplay-Bold',
-  fontLight: 'SFProDisplay-Light',
-  fontItalic: 'SFProDisplay-LightItalic',
+  fontRegular: 'Mulish-Medium',
+  fontBold: 'Mulish-Bold',
+  fontLight: 'Mulish-Light',
+  fontItalic: 'Mulish-Italic',
 };
