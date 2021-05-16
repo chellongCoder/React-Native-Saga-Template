@@ -3,13 +3,19 @@ import React, { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '..';
-import { ICONS } from '../../constants';
+import { COLORS, Icons } from '../../constants';
 import { theme } from '../../theme';
 import styles from './bottom-tab.styles';
 import { IconTabbar } from './icon-tabbar';
 
-const IconsTab = [ICONS.NEW_UNFOCUS, ICONS.HOME_UNFOCUS, ICONS.QRCODE, ICONS.ALERT_UNFOCUS, ICONS.ACOUNT_UNFOCUS];
-const IconsTabFocus = [ICONS.NEW_FOCUS, ICONS.HOME_FOCUS, ICONS.QRCODE, ICONS.ALERT_FOCUS, ICONS.ACOUNT_FOCUS];
+const IconsTab = [Icons.ICON_NEWS, Icons.ICON_MARKET, Icons.ICON_HOME, Icons.ICON_BASKET, Icons.ICON_SUPPORT];
+const IconsTabFocus = [
+  Icons.ICON_NEW_FOCUS,
+  Icons.ICON_MARKET,
+  Icons.ICON_HOME,
+  Icons.ICON_BASKET,
+  Icons.ICON_SUPPORT_FOCUS,
+];
 const NameTab = ['News', 'Market', '', 'Baskets', 'Support'];
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomTabBarOptions>) => {
   const [t, i18n] = useTranslation();
@@ -61,15 +67,19 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
           style={styles.tab}>
           {isFocused && <View style={styles.borderTab} />}
           {!isFocused ? <IconTabbar name={IconsTab[index]} /> : <IconTabbar name={IconsTabFocus[index]} />}
-          <Text style={[styles.tabText, { color: isFocused ? colors.green : styles.tabText.color }]}>
+          <Text style={[styles.tabText, { color: isFocused ? COLORS.GREEN2 : styles.tabText.color }]}>
             {i18(`${NameTab[index]}`)}
           </Text>
         </TouchableOpacity>
       );
     });
-  }, [colors.green, i18, navigation, state.index, state.routes]);
+  }, [i18, navigation, state.index, state.routes]);
 
-  return <View style={styles.container}>{routes}</View>;
+  return (
+    <View style={styles.container}>
+      <View style={styles.contentTab}>{routes}</View>
+    </View>
+  );
 };
 
 export { BottomTab };

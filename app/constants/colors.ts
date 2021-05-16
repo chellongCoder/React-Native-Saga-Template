@@ -1,6 +1,6 @@
 const COLORS = {
   PRIMARY_COLOR: '#CE8678',
-  RED: 'red',
+  RED: '#FF3165',
   LIGHT: '#f4f4f4',
   CUSTOM_GRAY: '#999999',
   WHITE: '#ffffff',
@@ -10,11 +10,13 @@ const COLORS = {
   GREEEN: '#B6D433',
   blue: '#667EEA',
   BOLD_GRAY: '#949494',
-  GREEN: '#019444',
+  GREEN: '#0BB04D',
   blue2: '#2095A2',
-  GREEN2: '#8DA427',
+  GREEN2: '#028E82',
+  GREEN3: '#13A69A',
   darkBlue: '#042C5C',
   lightBlue: '#226CB4',
+  BACKGROUND: '#E5E5E5',
 };
 
 export { COLORS };

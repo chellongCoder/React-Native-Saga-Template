@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useMarketStyle } from './styles'
+import { useMarketStyle } from './styles';
 
 const _MarketScreen = ({}) => {
-const navigation = useNavigation();
-const styles = useMarketStyle();
+  const navigation = useNavigation();
+  const styles = useMarketStyle();
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Market Screen</Text>
     </View>
   );

@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
 import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useSupportStyle } from './styles'
+import { useSupportStyle } from './styles';
 
 const _SupportScreen = ({}) => {
-const navigation = useNavigation();
-const styles = useSupportStyle();
+  const navigation = useNavigation();
+  const styles = useSupportStyle();
 
   return (
-    <View>
+    <View style={styles.container}>
       <Text>Support Screen</Text>
     </View>
   );
