@@ -8,7 +8,7 @@ import { IconTabProps } from './types';
 export const IconTabbar = ({ name, styleImageContainer }: IconTabProps) => {
   return (
     <View style={[styles.icon, styleImageContainer]}>
-      <FastImage resizeMode="contain" style={styles.image} source={Images[name]} />
+      <FastImage resizeMode="contain" style={styles.image} source={name} />
     </View>
   );
 };
