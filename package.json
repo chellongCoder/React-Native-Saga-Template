@@ -27,7 +27,9 @@
     "codepush-ios:production": "appcenter codepush promote -a procheck/procheck-ios -s Staging -d Production",
     "codepush-android:staging": "appcenter codepush release-react -a procheck/procheck-android -d Staging",
     "codepush-android:production": "appcenter codepush promote -a procheck/procheck-android -s Staging -d Production",
-    "ios:beta": "fastlane ios beta"
+    "ios:beta": "fastlane ios beta",
+    "import-image": "cd app/assets && ./bashImportImage.sh && cd .. && cd ..",
+    "import-icon": "cd app/assets && ./bashImportIcon.sh && cd .. && cd .."
   },
   "dependencies": {
     "@nartc/react-native-barcode-mask": "^1.2.0",

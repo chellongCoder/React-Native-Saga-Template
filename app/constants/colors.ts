@@ -13,7 +13,7 @@ const COLORS = {
   GREEN: '#0BB04D',
   blue2: '#2095A2',
   GREEN2: '#028E82',
-  GREEN3: '#13A69A',
+  GREEN3: 'rgba(2, 142, 130, 0.3);',
   darkBlue: '#042C5C',
   lightBlue: '#226CB4',
   BACKGROUND: '#E5E5E5',
