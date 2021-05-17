@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import { withTheme } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { screens } from '../../config';
+import { ROUTES, screens } from '../../config';
 import styles from './walkthrough.styles';
 
 const WalkThrough = (props) => {
@@ -43,7 +43,7 @@ const WalkThrough = (props) => {
           <TouchableOpacity
             hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
             style={styles.skip}
-            onPress={() => props.navigation.navigate(screens.login)}>
+            onPress={() => props.navigation.navigate(ROUTES.login)}>
             <Text
               style={{
                 color: colors.primary,
@@ -71,7 +71,7 @@ const WalkThrough = (props) => {
       <TouchableOpacity
         hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
         style={styles.buttonCircle}
-        onPress={() => props.navigation.navigate(screens.login)}>
+        onPress={() => props.navigation.navigate(ROUTES.login)}>
         <Ionicons name="md-checkmark" color={colors.white} size={24} />
       </TouchableOpacity>
     );
@@ -82,7 +82,7 @@ const WalkThrough = (props) => {
       data={slides}
       showNextButton={true}
       showDoneButton={true}
-      onSkip={() => props.navigation.navigate(screens.login)}
+      onSkip={() => props.navigation.navigate(ROUTES.login)}
       activeDotStyle={{ backgroundColor: colors.primary }}
       renderItem={_renderItem}
       renderDoneButton={_renderDoneButton}
