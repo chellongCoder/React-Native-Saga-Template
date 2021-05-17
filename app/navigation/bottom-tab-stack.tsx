@@ -13,7 +13,7 @@ export const BottomTabNavigator = () => {
     <BottomTabStack.Navigator {...{ tabBar, initialRouteName: screens.home }}>
       <BottomTabStack.Screen name={ROUTES.news} component={NewsScreen} />
       <BottomTabStack.Screen name={ROUTES.market} component={MarketScreen} />
-      <BottomTabStack.Screen name={ROUTES.home} component={CoinProfile1Screen} />
+      <BottomTabStack.Screen name={ROUTES.home} component={HomeScreen} />
       <BottomTabStack.Screen name={ROUTES.basket} component={BasketScreen} />
       <BottomTabStack.Screen name={ROUTES.support} component={SupportScreen} />
     </BottomTabStack.Navigator>

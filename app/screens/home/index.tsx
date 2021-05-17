@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
-import { View, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { CandlestickChart } from '../../components';
+import { CandlestickChart, BodyTopbar } from '../../components';
 import { useHomeStyle } from './styles';
 
 const _HomeScreen = ({}) => {
@@ -9,8 +9,16 @@ const _HomeScreen = ({}) => {
   const styles = useHomeStyle();
 
   return (
-    <View style={styles.container}>
-      <CandlestickChart />
+    <View style={styles.containerHome}>
+      <ScrollView>
+        <View style={styles.container}>
+          <BodyTopbar />
+        </View>
+        {/* từ branch của longnn  */}
+        <View style={styles.container}>
+          <CandlestickChart />
+        </View>
+      </ScrollView>
     </View>
   );
 };

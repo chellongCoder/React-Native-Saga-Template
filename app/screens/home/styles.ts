@@ -1,5 +1,5 @@
-import React, { memo, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS } from '../../constants';
 
@@ -8,6 +8,9 @@ export const useHomeStyle = () => {
   return useMemo(
     () =>
       StyleSheet.create({
+        containerHome: {
+          backgroundColor: COLORS.BLACK,
+        },
         container: {
           flex: 1,
           backgroundColor: COLORS.BACKGROUND,
