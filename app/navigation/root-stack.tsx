@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { StatusBar } from 'react-native';
-import { screens } from '../config';
+import { ROUTES, screens } from '../config';
 import { RootState } from '../redux/reducers';
 import { BottomTabNavigator } from './bottom-tab-stack';
 import AuthNavigator from './auth-stack';
@@ -17,7 +17,7 @@ const screenOptions = {
 
 const LoggedInNavigator = () => (
   <LoggedInStack.Navigator>
-    <Stack.Screen name={screens.bottomTabStack} component={BottomTabNavigator} options={screenOptions} />
+    <Stack.Screen name={ROUTES.bottomTabStack} component={BottomTabNavigator} options={screenOptions} />
   </LoggedInStack.Navigator>
 );
 
