@@ -70,10 +70,12 @@ export const useBodyTopbarStyle = () => {
           flexDirection: 'row',
           alignItems: 'center',
         },
+        btnFeature: {
+          marginLeft: Platform.SizeScale(30),
+        },
         feature: {
           width: Platform.SizeScale(18),
           height: Platform.SizeScale(18),
-          marginLeft: Platform.SizeScale(30),
         },
       }),
     [],
