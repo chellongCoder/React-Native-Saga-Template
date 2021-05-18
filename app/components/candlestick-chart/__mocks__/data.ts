@@ -5,7 +5,7 @@ import {CandleStickDataset} from 'react-native-charts-wrapper'
 export const dataSets: CandleStickDataset[] = [
     {
       values: [
-        { shadowH: 101.76, shadowL: 100.4, open: 100.78, close: 101.03 },
+        { shadowH: 101.76, shadowL: 100.4, open: 100.78, close: 100.78 },
         { shadowH: 101.58, shadowL: 100.27, open: 101.31, close: 101.12 },
         { shadowH: 102.24, shadowL: 100.15, open: 101.41, close: 101.17 },
         { shadowH: 102.28, shadowL: 101.5, open: 102.24, close: 102.23 },
@@ -104,14 +104,15 @@ export const dataSets: CandleStickDataset[] = [
       ],
       label: '',
       config: {
-        highlightColor: processColor('darkgray'),
-        shadowColor: processColor('blue'),
+        highlightColor: processColor('red'),
+        shadowColor: processColor('black'),
         shadowWidth: 1,
-        shadowColorSameAsCandle: true,
+        shadowColorSameAsCandle: false,
         increasingColor: processColor(COLORS.GREEN),
         increasingPaintStyle: 'FILL',
         decreasingColor: processColor(COLORS.RED),
-        drawValues: false
+        drawValues: false,
+        neutralColor: processColor(COLORS.GRAY),
       },
     },
   ];
