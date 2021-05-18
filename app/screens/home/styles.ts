@@ -9,14 +9,14 @@ export const useHomeStyle = () => {
     () =>
       StyleSheet.create({
         containerHome: {
-          backgroundColor: COLORS.BLACK,
+          // backgroundColor: COLORS.BACKGROUND,
         },
         container: {
           flex: 1,
-          backgroundColor: COLORS.BACKGROUND,
+          // backgroundColor: COLORS.BACKGROUND,
         },
         contentHome: {
-          backgroundColor: COLORS.BACKGROUND,
+          // backgroundColor: COLORS.BACKGROUND,
         },
       }),
     [],

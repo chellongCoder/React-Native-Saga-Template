@@ -18,6 +18,7 @@ export const useBodyTopbarStyle = () => {
           marginHorizontal: Platform.SizeScale(5),
           alignItems: 'flex-end',
           flexWrap: 'wrap',
+          height: Platform.SizeScale(45),
         },
         bubbleDot: {
           width: Platform.SizeScale(10),

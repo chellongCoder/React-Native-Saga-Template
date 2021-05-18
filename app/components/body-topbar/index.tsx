@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { Fragment, memo } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { Icons, Images } from '../../constants';
 import { useBodyTopbarStyle } from './styles';
@@ -16,10 +16,14 @@ const _BodyTopbar = ({ avatar, message, name }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.headBar}>
-        <View style={styles.bubbleDot} />
-        <View style={styles.thinking}>
-          <Text style={styles.messThinking}>{message}</Text>
-        </View>
+        {message !== '' && message && (
+          <Fragment>
+            <View style={styles.bubbleDot} />
+            <View style={styles.thinking}>
+              <Text style={styles.messThinking}>{message}</Text>
+            </View>
+          </Fragment>
+        )}
       </View>
       <View style={styles.bottomBar}>
         <View style={styles.leftBar}>

@@ -17,6 +17,7 @@ const COLORS = {
   darkBlue: '#042C5C',
   lightBlue: '#226CB4',
   BACKGROUND: '#E5E5E5',
+  TRANSPARENT: 'rgba(0, 0, 0, 0)',
 };
 
 export { COLORS };

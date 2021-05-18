@@ -17,4 +17,5 @@ export default {
     width,
     height,
   },
+  gradientGreen: ['#0A4742', '#058075'],
 };

@@ -1,7 +1,9 @@
 import React, { memo } from 'react';
 import { View, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import LinearGradient from 'react-native-linear-gradient';
 import { CandlestickChart, BodyTopbar } from '../../components';
+import { theme } from '../../theme';
 import { useHomeStyle } from './styles';
 import { SlideNews } from './SlideNews';
 import { TabMarkets } from './TabMarkets';
@@ -11,13 +13,10 @@ const _HomeScreen = ({}) => {
   const styles = useHomeStyle();
 
   return (
-    <View style={styles.containerHome}>
-      <ScrollView>
+    <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={theme.gradientGreen} style={styles.container}>
+      <ScrollView style={styles.containerHome}>
         <View style={styles.container}>
-          <BodyTopbar
-            message="Hi Willaotiexig, yesterday’s loss is today’s gain. Improve your skills for better chance at winning!"
-            name="shadow gate"
-          />
+          <BodyTopbar message="" name="shadow gate" />
           <View style={styles.contentHome}>
             {/* News of the day */}
             <SlideNews />
@@ -30,7 +29,7 @@ const _HomeScreen = ({}) => {
           <CandlestickChart />
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 
