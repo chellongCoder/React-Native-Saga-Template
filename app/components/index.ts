@@ -31,3 +31,5 @@ export * from './modal-error';
 export * from './candlestick-chart';
 export * from './coin-profile-entry-info';
 export * from './body-topbar';
+export * from './rain-bow';
+export * from './coin-base';

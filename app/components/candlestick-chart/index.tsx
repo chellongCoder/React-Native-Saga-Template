@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
-import { View, Text, processColor } from 'react-native';
+import { View, processColor } from 'react-native';
 import { CandleStickChart, ChartLegend } from 'react-native-charts-wrapper';
 import _ from 'lodash';
-import { Platform } from '../../theme';
+import { Text } from '../text';
 import { useCandlestickChartStyle } from './styles';
 import { dataSets } from './__mocks__/data';
 
@@ -97,9 +97,9 @@ const _CandlestickChart = ({}) => {
           maxVisibleValueCount={16}
           autoScaleMinMaxEnabled={true}
           zoom={{
-            scaleX: data.dataSets[0].values ? data.dataSets[0].values.length / 8 : 0,
+            scaleX: 1,
             scaleY: 1,
-            xValue: Platform.OS === 'ios' ? -Number.MAX_SAFE_INTEGER : Number.MAX_SAFE_INTEGER,
+            xValue: 1,
             yValue: 1,
             axisDependency: 'RIGHT',
           }}
