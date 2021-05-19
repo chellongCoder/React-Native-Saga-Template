@@ -33,5 +33,13 @@
   "Component": {
     "continueWithFacebook": "Continue With Facebook",
     "continueWithGoogle": "Continue With Google"
+  },
+
+  "CoinProfile": {
+    "day": "day",
+    "week": "week",
+    "month": "month",
+    "year": "year",
+    "all": "all"
   }
 }

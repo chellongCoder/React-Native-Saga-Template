@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, Dimensions } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
+import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import Svg, { Path, Defs, LinearGradient, Stop, Circle, G, Line, Rect } from 'react-native-svg';
 import Animated, { useAnimatedProps, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { mixPath, useVector } from 'react-native-redash';
@@ -56,12 +56,22 @@ const Graph = () => {
   const style = useAnimatedStyle(() => ({
     transform: [{ translateX: withTiming(BUTTON_WIDTH * current.value) }],
   }));
+  const Gradient = () => (
+    <Defs key={'gradient'}>
+      <LinearGradient id={'gradient'} x1={'0'} y1={'0%'} x2={'100%'} y2={'0%'}>
+        <Stop offset={'0%'} stopColor={'#7DC1FF'} />
+        <Stop offset={'50%'} stopColor={'#9180FF'} />
+        <Stop offset={'100%'} stopColor={'#E869F3'} />
+      </LinearGradient>
+    </Defs>
+  );
   return (
     <View style={styles.container}>
       <Header translation={translation} index={current} />
       <View>
         <Svg width={SIZE} height={SIZE}>
-          <AnimatedPath animatedProps={animatedProps} fill="transparent" stroke="black" strokeWidth={3} />
+          <AnimatedPath animatedProps={animatedProps} fill="transparent" stroke="url(#gradient)" strokeWidth={3} />
+          <Gradient />
         </Svg>
         <Cursor translation={translation} index={current} />
       </View>

@@ -43,7 +43,7 @@ const Header = ({ translation, index }: HeaderProps) => {
   }));
   return (
     <View style={styles.container}>
-      <ETH />
+      {/* <ETH /> */}
       <View style={styles.values}>
         <View>
           <ReText style={styles.value} text={price} />
