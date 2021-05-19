@@ -66,6 +66,7 @@ enum ROUTES {
   market = 'MarketScreen',
   basket = 'BasketScreen',
   support = 'SupportScreen',
+  coinProfile1 = 'CoinProfile1',
 }
 
 export { screens, ROUTES };

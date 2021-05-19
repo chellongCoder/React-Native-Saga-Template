@@ -10,8 +10,6 @@ export const useBodyTopbarStyle = () => {
       StyleSheet.create({
         container: {
           flex: 1,
-          marginHorizontal: Platform.SizeScale(15),
-          paddingVertical: Platform.SizeScale(5),
         },
         headBar: {
           flexDirection: 'row',
@@ -43,10 +41,11 @@ export const useBodyTopbarStyle = () => {
           fontFamily: FontFamily.fontLight,
         },
         bottomBar: {
-          marginHorizontal: Platform.SizeScale(5),
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
+          paddingHorizontal: Platform.SizeScale(15),
+          paddingBottom: Platform.SizeScale(15),
         },
         leftBar: {
           flexDirection: 'row',

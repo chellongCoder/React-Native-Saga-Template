@@ -10,4 +10,8 @@ export type ParsedTextProps = ParsedTextPropsBase & {
   numberOfLines?: number;
   fontType?: 'fontRegular' | 'fontBold' | 'fontItalic' | 'fontLight';
   color?: string;
+  activeColor?: string;
+  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
+  isPress?: boolean;
+  onPress?: () => void;
 };

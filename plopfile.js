@@ -151,4 +151,28 @@ module.exports = (plop) => {
       },
     ],
   });
+  plop.setGenerator('mock', {
+    description: 'Create a mock data',
+    // User input prompts provided as arguments to the template
+    prompts: [
+      {
+        // Raw text input
+        type: 'input',
+        // Variable name for this input
+        name: 'name',
+        // Prompt to display on command line
+        message: 'What is your mock component?',
+      },
+    ],
+    actions: [
+      {
+        // Add a new file
+        type: 'add',
+        // Path for the new file
+        path: 'app/components/{{kebabCase name}}/__mocks__/data.ts',
+        // Handlebars template used to generate content of new file
+        templateFile: 'plop-templates/mock.js.hbs',
+      },
+    ],
+  });
 };

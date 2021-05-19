@@ -74,7 +74,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
         </TouchableOpacity>
       );
     });
-  }, [i18, navigation, state.index, state.routes]);
+  }, [i18, navigation, state]);
 
   return (
     <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={theme.gradientGreen} style={styles.container}>

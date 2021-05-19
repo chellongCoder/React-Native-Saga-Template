@@ -1,20 +1,26 @@
 import React, { Fragment, memo } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Icons, Images } from '../../constants';
+import LinearGradient from 'react-native-linear-gradient';
+import { COLORS, Icons, Images } from '../../constants';
 import { useBodyTopbarStyle } from './styles';
 
 interface Props {
   avatar?: string;
   message?: string;
   name?: string;
+  children?: React.ReactNode;
 }
-const _BodyTopbar = ({ avatar, message, name }: Props) => {
+const _BodyTopbar = ({ avatar, message, name, children }: Props) => {
   const styles = useBodyTopbarStyle();
   const onSearchPress = () => {};
   const onNotifyPress = () => {};
   const onBasketPress = () => {};
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      start={{ x: 0.0444, y: 0.0444 }}
+      end={{ x: 1.097, y: 1.097 }}
+      colors={COLORS.GREEN_GRADIENT}
+      style={styles.container}>
       <View style={styles.headBar}>
         {message !== '' && message && (
           <Fragment>
@@ -54,7 +60,8 @@ const _BodyTopbar = ({ avatar, message, name }: Props) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+      {children}
+    </LinearGradient>
   );
 };
 

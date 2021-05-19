@@ -5,7 +5,7 @@ const COLORS = {
   CUSTOM_GRAY: '#999999',
   WHITE: '#ffffff',
   BLACK: '#000000',
-  GRAY: '#A6A6A6',
+  GRAY: '#C8C8C8',
   GRAY1: '#504c54',
   GREEEN: '#B6D433',
   blue: '#667EEA',
@@ -18,6 +18,8 @@ const COLORS = {
   lightBlue: '#226CB4',
   BACKGROUND: '#E5E5E5',
   TRANSPARENT: 'rgba(0, 0, 0, 0)',
+  GREEN_GRADIENT: ['#0A4742', '#058075'],
+  REVERSE_GREEN_GRADIENT: ['#16877D', '#0B413C'],
 };
 
 export { COLORS };
