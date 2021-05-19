@@ -17,6 +17,8 @@ const COLORS = {
   darkBlue: '#042C5C',
   lightBlue: '#226CB4',
   BACKGROUND: '#E5E5E5',
+  GREEN_GRADIENT: ['#0A4742', '#058075'],
+  REVERSE_GREEN_GRADIENT: ['#16877D', '#0B413C'],
 };
 
 export { COLORS };

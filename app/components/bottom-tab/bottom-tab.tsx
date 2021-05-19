@@ -73,7 +73,7 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
         </TouchableOpacity>
       );
     });
-  }, [i18, navigation, state.index, state.routes]);
+  }, [i18, navigation, state]);
 
   return (
     <View style={styles.container}>

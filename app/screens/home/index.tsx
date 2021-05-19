@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { CandlestickChart } from '../../components';
+import { BodyTopbar, CandlestickChart } from '../../components';
 import { ROUTES } from '../../config';
 import { useHomeStyle } from './styles';
 
@@ -15,9 +15,13 @@ const _HomeScreen = ({}) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={gotoCoin}>
-        <Text>go to coin</Text>
-      </TouchableOpacity>
+      <BodyTopbar>
+        <View style={styles.body}>
+          <TouchableOpacity onPress={gotoCoin}>
+            <Text>go to coin</Text>
+          </TouchableOpacity>
+        </View>
+      </BodyTopbar>
     </View>
   );
 };
