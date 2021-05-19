@@ -14,3 +14,13 @@ export const convertTimeToAMPM = (time: any) => {
 export const openCall = (phoneNumber?: string) => {
   Linking.openURL(`tel:${phoneNumber}`);
 };
+
+export const choiceItemArray = (arr: any[], choicedItem: any, index: number) => {
+  const search = arr.filter((item) => item.name !== choicedItem.name).map((value) => ({ ...value, active: false }));
+  const insert = (arr, index, newItem) => [...arr.slice(0, index), newItem, ...arr.slice(index)];
+  const newArr = insert(search, index, {
+    name: choicedItem.name,
+    active: !choicedItem.active,
+  });
+  return newArr;
+};

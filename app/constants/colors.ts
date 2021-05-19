@@ -5,7 +5,7 @@ const COLORS = {
   CUSTOM_GRAY: '#999999',
   WHITE: '#ffffff',
   BLACK: '#000000',
-  GRAY: '#A6A6A6',
+  GRAY: '#C8C8C8',
   GRAY1: '#504c54',
   GREEEN: '#B6D433',
   blue: '#667EEA',
