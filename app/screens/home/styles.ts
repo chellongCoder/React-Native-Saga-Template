@@ -14,7 +14,6 @@ export const useHomeStyle = () => {
         },
         container: {
           flex: 1,
-          // backgroundColor: COLORS.BACKGROUND,
         },
         contentHome: {
           // backgroundColor: COLORS.BACKGROUND,

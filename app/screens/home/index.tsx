@@ -1,8 +1,10 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { BodyTopbar } from '../../components';
 import { ROUTES } from '../../config';
+import { useBackground } from '../../hooks';
+import { BACKGROUND_TYPE } from '../../components/background/types';
 import { useHomeStyle } from './styles';
 import { SlideNews } from './SlideNews';
 import { TabMarkets } from './TabMarkets';
@@ -10,6 +12,17 @@ import { TabMarkets } from './TabMarkets';
 const _HomeScreen = ({}) => {
   const navigation = useNavigation();
   const styles = useHomeStyle();
+  const background = useBackground();
+
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      background.changeBackground(BACKGROUND_TYPE.GREEN_GRADIENT);
+      background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
+    });
+    return () => {
+      navigation.removeListener('focus', () => {});
+    };
+  }, [background, navigation]);
 
   const gotoCoin = useCallback(() => {
     navigation.navigate(ROUTES.coinProfile1);

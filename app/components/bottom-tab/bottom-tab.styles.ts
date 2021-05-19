@@ -6,8 +6,7 @@ const { colors } = theme;
 
 export default StyleSheet.create({
   container: {
-    height: Platform.SizeScale(70),
-    backgroundColor: COLORS.BACKGROUND,
+    height: Platform.SizeScale(80),
     zIndex: 999,
   },
   contentTab: {

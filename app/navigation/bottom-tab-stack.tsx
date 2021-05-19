@@ -10,7 +10,11 @@ export const tabBar = (props: any) => <BottomTab {...props} />;
 
 export const BottomTabNavigator = () => {
   return (
-    <BottomTabStack.Navigator {...{ tabBar, initialRouteName: ROUTES.home }}>
+    <BottomTabStack.Navigator
+      {...{
+        tabBar,
+        initialRouteName: ROUTES.home,
+      }}>
       <BottomTabStack.Screen name={ROUTES.news} component={NewsScreen} />
       <BottomTabStack.Screen name={ROUTES.market} component={MarketScreen} />
       <BottomTabStack.Screen name={ROUTES.home} component={HomeScreen} />
