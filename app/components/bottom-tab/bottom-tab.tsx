@@ -2,7 +2,6 @@ import { BottomTabBarOptions, BottomTabBarProps } from '@react-navigation/bottom
 import React, { Fragment, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import { Text } from '..';
 import { COLORS, Icons } from '../../constants';
 import { theme } from '../../theme';
@@ -77,9 +76,9 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
   }, [i18, navigation, state]);
 
   return (
-    <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} colors={theme.gradientGreen} style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.contentTab}>{routes}</View>
-    </LinearGradient>
+    </View>
   );
 };
 
