@@ -1,9 +1,11 @@
 import React, { memo, useCallback } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { BodyTopbar, CandlestickChart } from '../../components';
+import { BodyTopbar } from '../../components';
 import { ROUTES } from '../../config';
 import { useHomeStyle } from './styles';
+import { SlideNews } from './SlideNews';
+import { TabMarkets } from './TabMarkets';
 
 const _HomeScreen = ({}) => {
   const navigation = useNavigation();
@@ -20,6 +22,12 @@ const _HomeScreen = ({}) => {
           <TouchableOpacity onPress={gotoCoin}>
             <Text>go to coin</Text>
           </TouchableOpacity>
+          <View style={styles.contentHome}>
+            {/* News of the day */}
+            <SlideNews />
+            {/* Shadow Markets Watch */}
+            <TabMarkets />
+          </View>
         </View>
       </BodyTopbar>
     </View>
