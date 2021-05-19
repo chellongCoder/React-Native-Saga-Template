@@ -1,3 +1,5 @@
+import Color from 'color';
+
 const COLORS = {
   PRIMARY_COLOR: '#CE8678',
   RED: '#FF3165',
@@ -18,7 +20,8 @@ const COLORS = {
   lightBlue: '#226CB4',
   BACKGROUND: '#E5E5E5',
   TRANSPARENT: 'rgba(0, 0, 0, 0)',
-  GREEN_GRADIENT: ['#0A4742', '#058075'],
+  GREEN_GRADIENT: [Color('#0A4742', 'hex').alpha(4.44).toString(), Color('#058075', 'hex').alpha(109.7).toString()],
+  PINK_GRADIENT: ['#FFD8D8', '#B499FF'],
   REVERSE_GREEN_GRADIENT: ['#16877D', '#0B413C'],
 };
 

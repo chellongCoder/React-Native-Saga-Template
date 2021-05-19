@@ -2,7 +2,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { Root } from 'native-base';
 import React, { Suspense, useEffect } from 'react';
-import { Platform, SafeAreaView, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import codePush from 'react-native-code-push';
 import DropdownAlert from 'react-native-dropdownalert';
 import 'react-native-gesture-handler';
@@ -10,7 +10,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { enableScreens } from 'react-native-screens';
 import SplashScreen from 'react-native-splash-screen';
 import { Provider } from 'react-redux';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import LoadingGlobalProvider from './tools/loading-global';
 import { DropDownHolder } from './components';
 import { theme } from './theme';
@@ -22,6 +22,7 @@ import ToastInfoProvider from './tools/toast-info';
 import NetworkProvider from './tools/network';
 import ModalProvider from './tools/modal';
 import { AppNavigator } from './navigation';
+import BackgroundProvider from './tools/background';
 
 enableScreens();
 
@@ -80,26 +81,28 @@ const App = () => {
       <Provider store={store}>
         <Suspense fallback={null}>
           <Root>
-            <SafeAreaView style={styles.container}>
-              <LoadingGlobalProvider>
-                <NetworkProvider>
-                  <ToastInfoProvider>
-                    <ImageViewProvider>
-                      <BottomSheetProvider>
-                        <ModalProvider>
-                          <PaperProvider>
-                            <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                              <AppNavigator />
-                              <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-                            </NavigationContainer>
-                          </PaperProvider>
-                        </ModalProvider>
-                      </BottomSheetProvider>
-                    </ImageViewProvider>
-                  </ToastInfoProvider>
-                </NetworkProvider>
-              </LoadingGlobalProvider>
-            </SafeAreaView>
+            <PaperProvider>
+              <BackgroundProvider>
+                <SafeAreaView edges={['top']} style={styles.container}>
+                  <LoadingGlobalProvider>
+                    <NetworkProvider>
+                      <ToastInfoProvider>
+                        <ImageViewProvider>
+                          <BottomSheetProvider>
+                            <ModalProvider>
+                              <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                                <AppNavigator />
+                                <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                              </NavigationContainer>
+                            </ModalProvider>
+                          </BottomSheetProvider>
+                        </ImageViewProvider>
+                      </ToastInfoProvider>
+                    </NetworkProvider>
+                  </LoadingGlobalProvider>
+                </SafeAreaView>
+              </BackgroundProvider>
+            </PaperProvider>
           </Root>
         </Suspense>
       </Provider>
