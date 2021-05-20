@@ -1,6 +1,5 @@
 export * from './bottom-tab';
 export * from './button';
-export * from './drawer';
 export * from './dropDownHolder';
 export { default as FacebookButton } from './facebook-button';
 export { default as GoogleButton } from './google-button';
@@ -25,7 +24,6 @@ export * from './toast-info';
 export * from './list';
 export * from './item-new';
 export * from './modal';
-export * from './input-code-product';
 export * from './modal-success';
 export * from './modal-error';
 export * from './candlestick-chart';
