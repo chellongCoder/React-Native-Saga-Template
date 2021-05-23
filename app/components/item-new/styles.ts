@@ -1,8 +1,8 @@
-import React, { memo, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS } from '../../constants';
-import { Platform } from '../../theme';
+import { FontFamily, Platform } from '../../theme';
 
 export const useItemNewStyle = () => {
   const insets = useSafeAreaInsets();
@@ -11,21 +11,11 @@ export const useItemNewStyle = () => {
       StyleSheet.create({
         viewItem: {
           flexDirection: 'row',
-          borderRadius: Platform.SizeScale(8),
-          height: Platform.SizeScale(100),
+          height: Platform.SizeScale(170),
           marginTop: 10,
-          backgroundColor: COLORS.WHITE,
-        },
-        viewItemShadow: {
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 6,
-          },
-          shadowOpacity: 0.1,
-          shadowRadius: Platform.SizeScale(8),
-
-          elevation: 5,
+          backgroundColor: COLORS.GREEEN,
+          borderRadius: Platform.SizeScale(20),
+          paddingTop: Platform.SizeScale(40),
         },
         viewImageWrapper: {
           width: Platform.deviceWidth * 0.25,
@@ -33,23 +23,37 @@ export const useItemNewStyle = () => {
           borderTopLeftRadius: Platform.SizeScale(8),
           borderBottomLeftRadius: Platform.SizeScale(8),
         },
-        viewRight: {
+        viewContent: {
           flex: 1,
-          paddingLeft: Platform.SizeScale(15),
-          paddingRight: Platform.SizeScale(12),
-          paddingVertical: Platform.SizeScale(8),
+          paddingHorizontal: Platform.SizeScale(10),
+          borderRadius: Platform.SizeScale(15),
         },
         viewItemTitle: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
         viewTextTitle: {
           padding: Platform.SizeScale(6),
-          backgroundColor: COLORS.GREEEN,
-          borderRadius: Platform.SizeScale(4),
           width: '60%',
         },
-        viewTextContent: { paddingTop: Platform.SizeScale(4), marginRight: Platform.SizeScale(10) },
+        viewDescription: { paddingTop: Platform.SizeScale(4), marginRight: Platform.SizeScale(10) },
         textTitle: {
+          fontSize: Platform.SizeScale(18),
+          fontWeight: '700',
           color: COLORS.WHITE,
-          fontSize: Platform.SizeScale(12),
+          paddingHorizontal: Platform.SizeScale(15),
+        },
+        textDescription: {
+          fontSize: Platform.SizeScale(13),
+          paddingHorizontal: Platform.SizeScale(15),
+          fontWeight: '400',
+          fontFamily: FontFamily.fontLight,
+          color: COLORS.WHITE,
+        },
+        viewMore: {
+          alignItems: 'flex-end',
+        },
+        textMore: {
+          color: COLORS.WHITE,
+          fontSize: Platform.SizeScale(13),
+          padding: Platform.SizeScale(10),
         },
       }),
     [],

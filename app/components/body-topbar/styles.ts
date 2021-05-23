@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
 import { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { COLORS } from '../../constants';
 import { FontFamily } from '../../theme';
 import { Platform } from '../../theme/platform';
@@ -44,7 +44,7 @@ export const useBodyTopbarStyle = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingHorizontal: Platform.SizeScale(15),
+          paddingHorizontal: Platform.SizeScale(30),
           paddingBottom: Platform.SizeScale(15),
         },
         leftBar: {
