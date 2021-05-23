@@ -1,12 +1,9 @@
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { COLORS } from '../../constants';
-import { Platform, theme } from '../../theme';
+import { Platform } from '../../theme';
 
 export const useSliderNewsStyle = () => {
-  const insets = useSafeAreaInsets();
-  const { colors } = theme;
   return useMemo(
     () =>
       StyleSheet.create({
@@ -18,11 +15,11 @@ export const useSliderNewsStyle = () => {
         },
         nextSlide: {
           position: 'absolute',
-          top: 0,
-          left: 0,
+          top: Platform.SizeScale(60),
+          bottom: Platform.SizeScale(60),
           right: 0,
-          bottom: 0,
           justifyContent: 'center',
+          paddingVertical: 10,
           alignItems: 'flex-end',
         },
         icoArrow: {
