@@ -1,12 +1,12 @@
-import React, { memo, useCallback, useEffect } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React, { memo, useCallback, useEffect } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { BodyTopbar } from '../../components';
+import { BACKGROUND_TYPE } from '../../components/background/types';
 import { ROUTES } from '../../config';
 import { useBackground } from '../../hooks';
-import { BACKGROUND_TYPE } from '../../components/background/types';
-import { useHomeStyle } from './styles';
 import { SlideNews } from './SlideNews';
+import { useHomeStyle } from './styles';
 import { TabMarkets } from './TabMarkets';
 
 const _HomeScreen = ({}) => {
@@ -32,15 +32,15 @@ const _HomeScreen = ({}) => {
     <View style={styles.container}>
       <BodyTopbar>
         <View style={styles.body}>
-          <TouchableOpacity onPress={gotoCoin}>
-            <Text>go to coin</Text>
-          </TouchableOpacity>
           <View style={styles.contentHome}>
             {/* News of the day */}
             <SlideNews />
             {/* Shadow Markets Watch */}
             <TabMarkets />
           </View>
+          <TouchableOpacity onPress={gotoCoin}>
+            <Text>go to coin</Text>
+          </TouchableOpacity>
         </View>
       </BodyTopbar>
     </View>
