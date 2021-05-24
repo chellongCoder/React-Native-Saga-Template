@@ -13,6 +13,7 @@ export const ICON_SUPPORT_FOCUS = require('./../assets/icons/icon_support_focus.
 export const ICON_SEARCH = require('./../assets/icons/icon_search.png');
 export const ICON_BELL = require('./../assets/icons/icon_bell.png');
 export const ICON_BASKET_WHITE = require('./../assets/icons/icon_basket_white.png');
+export const ICON_NEXT = require('./../assets/icons/icon_next.png');
 export const Icons = {
   DRAWER_03,
   DRAWER_06,
@@ -29,4 +30,5 @@ export const Icons = {
   ICON_SEARCH,
   ICON_BELL,
   ICON_BASKET_WHITE,
+  ICON_NEXT,
 };
