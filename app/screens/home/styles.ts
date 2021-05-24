@@ -34,6 +34,15 @@ export const useHomeStyle = () => {
         wrapSlider: {
           marginTop: Platform.SizeScale(5),
         },
+        marketContainer: {},
+        textMore: {},
+        wrapMarkets: {},
+        wrapHeadMarket: {
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexDirection: 'row',
+          marginRight: Platform.SizeScale(15),
+        },
       }),
     [],
   );
