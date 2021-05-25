@@ -22,7 +22,11 @@ const COLORS = {
   TRANSPARENT: 'rgba(0, 0, 0, 0)',
   GREEN_GRADIENT: [Color('#0A4742', 'hex').alpha(4.44).toString(), Color('#058075', 'hex').alpha(109.7).toString()],
   PINK_GRADIENT: ['#FFD8D8', '#B499FF'],
+  MINT_BLUE_GRADIENT: ['#D3EAFF', '#E4FAFF'],
   REVERSE_GREEN_GRADIENT: ['#16877D', '#0B413C'],
+  BUTON_GREEN: '#13A69A',
+  LIGHT_GREEEN: '#0BB04D',
+  GREEN4: '#12C585',
 };
 
 export { COLORS };

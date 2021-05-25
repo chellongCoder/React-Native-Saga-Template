@@ -17,6 +17,24 @@ export const useCoinProfile1Style = () => {
         chart: {
           flex: 1,
         },
+        leftBread: {
+          alignItems: 'baseline',
+        },
+        rightBread: {
+          backgroundColor: COLORS.BUTON_GREEN,
+          paddingVertical: Platform.SizeScale(5),
+          paddingHorizontal: Platform.SizeScale(10),
+          borderRadius: Platform.SizeScale(20),
+        },
+        txtRightBread: {
+          fontSize: Platform.SizeScale(12),
+          color: COLORS.WHITE,
+          marginRight: Platform.SizeScale(5),
+        },
+        txtPrice: {
+          fontSize: Platform.SizeScale(30),
+          marginRight: Platform.SizeScale(10),
+        },
       }),
     [],
   );

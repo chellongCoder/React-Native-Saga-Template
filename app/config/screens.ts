@@ -67,6 +67,7 @@ enum ROUTES {
   basket = 'BasketScreen',
   support = 'SupportScreen',
   coinProfile1 = 'CoinProfile1',
+  icoProfile = 'IcoProfile',
 }
 
 export { screens, ROUTES };

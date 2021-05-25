@@ -18,6 +18,7 @@ const Text = ({
   textTransform = 'none',
   isPress = false,
   onPress,
+  fontSize,
   ...other
 }: ParsedTextProps) => {
   const onShouldStartLoadWithRequest = useCallback((req) => {
@@ -36,6 +37,7 @@ const Text = ({
     style = StyleSheet.flatten([
       Platform.textBase,
       { color: isPress ? activeColor : color, textTransform },
+      { fontSize },
       style,
       { fontFamily: isPress ? FontFamily.fontBold : FontFamily[fontType] },
     ]);
