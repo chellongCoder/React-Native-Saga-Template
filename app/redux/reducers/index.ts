@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist';
 import { LOGOUT_SUCCESS } from '../types';
 import AuthData from './auth.reducer';
 import ProductData from './product.reducer';
+import CryptoData from './crypto.reducer';
 const authPersistConfig = {
   key: 'auth',
   storage: AsyncStorage,
@@ -21,6 +22,7 @@ const RootReducer = (state: any, action: any) => {
 const appReducer = combineReducers({
   AuthData: persistReducer(authPersistConfig, AuthData),
   ProductData,
+  CryptoData,
 });
 export default RootReducer;
 export type RootState = ReturnType<typeof RootReducer>;
