@@ -24,7 +24,15 @@ export const useHomeStyle = () => {
           borderTopLeftRadius: Platform.SizeScale(33),
           borderTopRightRadius: Platform.SizeScale(33),
           paddingTop: Platform.SizeScale(20),
-          paddingLeft: Platform.SizeScale(20),
+          paddingLeft: Platform.SizeScale(15),
+        },
+        title: {
+          fontSize: Platform.SizeScale(20),
+          marginLeft: Platform.SizeScale(15),
+          fontWeight: '500',
+        },
+        wrapSlider: {
+          marginTop: Platform.SizeScale(5),
         },
       }),
     [],

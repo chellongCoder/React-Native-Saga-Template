@@ -29,7 +29,8 @@
     "codepush-android:production": "appcenter codepush promote -a procheck/procheck-android -s Staging -d Production",
     "ios:beta": "fastlane ios beta",
     "import-image": "cd app/assets && ./bashImportImage.sh && cd .. && cd ..",
-    "import-icon": "cd app/assets && ./bashImportIcon.sh && cd .. && cd .."
+    "import-icon": "cd app/assets && ./bashImportIcon.sh && cd .. && cd ..",
+    "tcp":"adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
     "@nartc/react-native-barcode-mask": "^1.2.0",
