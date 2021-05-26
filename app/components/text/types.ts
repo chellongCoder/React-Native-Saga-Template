@@ -10,6 +10,7 @@ export type ParsedTextProps = ParsedTextPropsBase & {
   numberOfLines?: number;
   fontType?: 'fontRegular' | 'fontBold' | 'fontItalic' | 'fontLight';
   color?: string;
+  fontSize?: number;
   activeColor?: string;
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
   isPress?: boolean;

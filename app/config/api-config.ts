@@ -13,6 +13,7 @@ export const API_CONFIG = {
   NEWS_NOTIFICATION_DETAIL: '/api/notification_detail',
   CHECK_VERIFY_PRODUCT: '/api/check_verify_product',
   CHECK_ACTIVE_PRODUCT: '/api/check_active_product',
+  CRYPTO: '/api/crypto',
 };
 
 export const API_STATUS = {

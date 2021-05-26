@@ -17,7 +17,7 @@ const _HomeScreen = ({}) => {
   useEffect(() => {
     navigation.addListener('focus', () => {
       background.changeBackground(BACKGROUND_TYPE.GREEN_GRADIENT);
-      background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
+      // background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
     });
     return () => {
       navigation.removeListener('focus', () => {});
@@ -26,6 +26,10 @@ const _HomeScreen = ({}) => {
 
   const gotoCoin = useCallback(() => {
     navigation.navigate(ROUTES.coinProfile1);
+  }, [navigation]);
+
+  const gotoIco = useCallback(() => {
+    navigation.navigate(ROUTES.icoProfile);
   }, [navigation]);
 
   return (
@@ -40,6 +44,9 @@ const _HomeScreen = ({}) => {
           </View>
           <TouchableOpacity onPress={gotoCoin}>
             <Text>go to coin</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={gotoIco}>
+            <Text>go to Ico</Text>
           </TouchableOpacity>
         </View>
       </BodyTopbar>

@@ -125,7 +125,7 @@ module.exports = (plop) => {
         // Add a new file
         type: 'add',
         // Path for the new file
-        path: 'app/redux/types/{{kebabCase name}}.type.ts',
+        path: 'app/redux/types/{{kebabCase name}}.types.ts',
         // Handlebars template used to generate content of new file
         templateFile: 'plop-templates/model/types.js.hbs',
       },

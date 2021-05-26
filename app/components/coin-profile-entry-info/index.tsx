@@ -6,6 +6,7 @@ import { Text } from '../text';
 import { COLORS, CommonStyle, Icons } from '../../constants';
 import { choiceItemArray } from '../../util';
 import RippleButtonAnim from '../../anim/RippleButtonAnim';
+import { Icon } from '../common-icon';
 import { useCoinProfileEntryInfoStyle } from './styles';
 import { Info } from './Info';
 
@@ -60,9 +61,7 @@ const _CoinProfileEntryInfo = ({}) => {
           );
         })}
         <RippleButtonAnim containerStyle={styles.icon}>
-          <View style={[CommonStyle.normalIcon]}>
-            <Image resizeMode="contain" source={Icons.ICON_INCREASE} style={CommonStyle.image} />
-          </View>
+          <Icon icon={Icons.ICON_INCREASE} />
         </RippleButtonAnim>
       </View>
       <Info />
