@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import { CoinsContent, IcoContent, IdoContent, NtfContent, Text } from '..';
 import { COLORS } from '../../constants';
 import { mockData } from '../markets-watch/__mocks__/data';
 import { useMarketWatchStyle } from './styles';
@@ -13,6 +14,7 @@ const _MarketWatch = ({
 }) => {
   const styles = useMarketWatchStyle();
   const [activeTab, setActiveTab] = useState(mockData.title[0].name);
+  console.log('log ---> activeTab', activeTab);
   return (
     <View style={styles.container}>
       <View>
@@ -33,7 +35,10 @@ const _MarketWatch = ({
           ))}
         </View>
         <View style={styles.contentTab}>
-          <Text>Content</Text>
+          {activeTab === 'Coins' && <CoinsContent />}
+          {activeTab === 'ICO' && <IcoContent />}
+          {activeTab === 'NTF' && <NtfContent />}
+          {activeTab === 'IDO' && <IdoContent />}
         </View>
       </View>
     </View>

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { MarketWatch } from '../../components/market-watch';
+import { MarketWatch } from '../../components';
 import { useHomeStyle } from './styles';
 
 const _TabMarkets = ({ onPressMore }: any) => {

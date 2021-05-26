@@ -48,7 +48,7 @@ export const useMarketWatchStyle = () => {
           borderTopLeftRadius: Platform.SizeScale(10),
         },
         contentTab: {
-          height: Platform.deviceHeight / 4,
+          height: Platform.deviceHeight / 3.3,
           backgroundColor: COLORS.WHITE,
         },
       }),
