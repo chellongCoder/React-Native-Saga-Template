@@ -50,6 +50,7 @@ export const useMarketWatchStyle = () => {
         contentTab: {
           height: Platform.deviceHeight / 3.3,
           backgroundColor: COLORS.WHITE,
+          borderBottomLeftRadius: Platform.SizeScale(10),
         },
       }),
     [],
