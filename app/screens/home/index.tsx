@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { BodyTopbar } from '../../components';
 import { BACKGROUND_TYPE } from '../../components/background/types';
 import { ROUTES } from '../../config';
@@ -42,12 +42,12 @@ const _HomeScreen = ({}) => {
             {/* Shadow Markets Watch */}
             <TabMarkets />
           </View>
-          <TouchableOpacity onPress={gotoCoin}>
+          {/* <TouchableOpacity onPress={gotoCoin}>
             <Text>go to coin</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={gotoIco}>
             <Text>go to Ico</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </BodyTopbar>
     </View>
