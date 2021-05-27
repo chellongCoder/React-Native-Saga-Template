@@ -14,3 +14,8 @@ export type ProductRateT = {
   image: string[];
   avatar: string;
 };
+
+export type BackgroundGradientT = {
+  colors: string[];
+  angle: number;
+};

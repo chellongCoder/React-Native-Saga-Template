@@ -2,7 +2,6 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import ImageCropPicker, { ImageOrVideo } from 'react-native-image-crop-picker';
 import { useDispatch, useSelector } from 'react-redux';
 import { BottomSheet } from '../../components';
-import { productActionsCreator } from '../../redux/actions/product.action';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
 import { BottomSheetContext } from './context';
@@ -29,18 +28,6 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
             })
               .then((image: ImageOrVideo) => {
                 console.log('image', 'name', image, selectedImage);
-                dispatch(
-                  productActionsCreator.setChoicedImages({
-                    images: [
-                      ...selectedImage,
-                      {
-                        name: image.filename,
-                        type: image.mime,
-                        uri: Platform.OS === 'android' ? image.path : image.sourceURL,
-                      },
-                    ],
-                  }),
-                );
               })
               .catch((error) => {
                 console.log('error', error);
@@ -60,11 +47,6 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
                     uri: Platform.OS === 'android' ? image.path : image.sourceURL,
                   };
                 });
-                dispatch(
-                  productActionsCreator.setChoicedImages({
-                    images: [...selectedImage, ...choicedImgs],
-                  }),
-                );
               })
               .catch((error) => {
                 console.log('error', error);
@@ -75,7 +57,7 @@ const BottomSheetProvider = ({ children }: BottomSheetProps) => {
         }
       } catch (error) {}
     },
-    [dispatch, selectedImage],
+    [selectedImage],
   );
   const onShowActionSheet = useCallback(() => {
     refActionSheet?.current.show();

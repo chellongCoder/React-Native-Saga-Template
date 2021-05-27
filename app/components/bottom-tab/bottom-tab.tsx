@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '..';
 import { COLORS, Icons } from '../../constants';
+import { useBackground } from '../../hooks';
 import { theme } from '../../theme';
+import { BACKGROUND_TYPE } from '../background/types';
 import styles from './bottom-tab.styles';
 import { IconTabbar } from './icon-tabbar';
 
@@ -19,7 +21,16 @@ const IconsTabFocus = [
 const NameTab = ['News', 'Market', '', 'Baskets', 'Support'];
 const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomTabBarOptions>) => {
   const [t, i18n] = useTranslation();
-  const { colors } = theme;
+  const background = useBackground();
+
+  const backgroundTab = useMemo(() => {
+    switch (background.backgroundTab) {
+      case BACKGROUND_TYPE.GREEN_GRADIENT:
+        return COLORS.TRANSPARENT;
+      case BACKGROUND_TYPE.NORMAL_BACKGROUND:
+        return COLORS.BACKGROUND;
+    }
+  }, [background.backgroundTab]);
   const i18 = useCallback(
     (key) => {
       return t(key);
@@ -73,10 +84,10 @@ const BottomTab = ({ state, descriptors, navigation }: BottomTabBarProps<BottomT
         </TouchableOpacity>
       );
     });
-  }, [i18, navigation, state.index, state.routes]);
+  }, [i18, navigation, state]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: backgroundTab }]}>
       <View style={styles.contentTab}>{routes}</View>
     </View>
   );

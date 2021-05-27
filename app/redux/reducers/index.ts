@@ -3,21 +3,12 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { persistReducer } from 'redux-persist';
 import { LOGOUT_SUCCESS } from '../types';
 import AuthData from './auth.reducer';
-import HomeData from './home.reducer';
-import QRData from './qr.reducer';
 import ProductData from './product.reducer';
-import NewData from './news.reducer';
-import NotificationData from './notification.reducer';
+import CryptoData from './crypto.reducer';
 const authPersistConfig = {
   key: 'auth',
   storage: AsyncStorage,
   blacklist: ['requesting', 'tempData'],
-};
-
-const qrPersistConfig = {
-  key: 'auth',
-  storage: AsyncStorage,
-  whitelist: [],
 };
 
 const RootReducer = (state: any, action: any) => {
@@ -30,11 +21,8 @@ const RootReducer = (state: any, action: any) => {
 
 const appReducer = combineReducers({
   AuthData: persistReducer(authPersistConfig, AuthData),
-  HomeData,
-  QRData: persistReducer(qrPersistConfig, QRData),
   ProductData,
-  NewData,
-  NotificationData,
+  CryptoData,
 });
 export default RootReducer;
 export type RootState = ReturnType<typeof RootReducer>;

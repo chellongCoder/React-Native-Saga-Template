@@ -17,7 +17,7 @@ const logger = createLogger({
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['AuthData', 'QRData'],
+  blacklist: [],
 };
 // Middleware: Redux Saga
 const onError = (error: Error, errorInfo: any) => {

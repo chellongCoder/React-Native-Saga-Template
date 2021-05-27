@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { StatusBar } from 'react-native';
 import { ROUTES, screens } from '../config';
 import { RootState } from '../redux/reducers';
+import { CoinProfile1Screen, IcoProfileScreen } from '../screens';
 import { BottomTabNavigator } from './bottom-tab-stack';
 import AuthNavigator from './auth-stack';
 
@@ -18,6 +19,8 @@ const screenOptions = {
 const LoggedInNavigator = () => (
   <LoggedInStack.Navigator>
     <Stack.Screen name={ROUTES.bottomTabStack} component={BottomTabNavigator} options={screenOptions} />
+    <Stack.Screen name={ROUTES.coinProfile1} component={CoinProfile1Screen} options={screenOptions} />
+    <Stack.Screen name={ROUTES.icoProfile} component={IcoProfileScreen} options={screenOptions} />
   </LoggedInStack.Navigator>
 );
 

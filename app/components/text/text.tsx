@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Linking, StyleSheet, Text as RCText } from 'react-native';
 import AutoHeightWebView from 'react-native-autoheight-webview';
 import ParsedText from 'react-native-parsed-text';
@@ -14,6 +14,11 @@ const Text = ({
   numberOfLines,
   fontType = 'fontRegular',
   color,
+  activeColor = color,
+  textTransform = 'none',
+  isPress = false,
+  onPress,
+  fontSize,
   ...other
 }: ParsedTextProps) => {
   const onShouldStartLoadWithRequest = useCallback((req) => {
@@ -29,7 +34,13 @@ const Text = ({
   if (style instanceof Array) {
     style.unshift(Platform.textBase);
   } else {
-    style = StyleSheet.flatten([Platform.textBase, { color }, style, { fontFamily: FontFamily[fontType] }]);
+    style = StyleSheet.flatten([
+      Platform.textBase,
+      { color: isPress ? activeColor : color, textTransform },
+      { fontSize },
+      style,
+      { fontFamily: isPress ? FontFamily.fontBold : FontFamily[fontType] },
+    ]);
   }
 
   if (isLongText) {
@@ -69,7 +80,13 @@ const Text = ({
     );
   }
   return (
-    <ParsedText allowFontScaling={false} selectable={true} numberOfLines={numberOfLines} {...other} style={style}>
+    <ParsedText
+      {...{ onPress }}
+      allowFontScaling={false}
+      selectable={true}
+      numberOfLines={numberOfLines}
+      {...other}
+      style={style}>
       {children}
     </ParsedText>
   );
