@@ -1,0 +1,45 @@
+{
+    "Intro": {
+      "title1": "Title 1",
+      "description1": "Description 1",
+      "title2": "Title 2",
+      "description2": "Description 2",
+      "title3": "Title 3",
+      "description3": "Description 3",
+      "skip": "Skip"
+    },
+  
+    "Home": {
+      "title": "Home"
+    },
+  
+    "Drawer": {
+      "changeLanguage": "Change Language",
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout"
+    },
+  
+    "BottomTab": {
+      "search": "Search",
+      "Home": "trang chủ",
+      "Profile": "Profile",
+      "History": "History",
+      "News": "News",
+      "QRCode": "QRCode",
+      "TabQRCode": "QRCode"
+    },
+  
+    "Component": {
+      "continueWithFacebook": "Continue With Facebook",
+      "continueWithGoogle": "Continue With Google"
+    },
+
+    "CoinProfile": {
+      "day": "day",
+      "week": "week",
+      "month": "month",
+      "year": "year",
+      "all": "all"
+    }
+  }
