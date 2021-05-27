@@ -14,16 +14,15 @@ export const useLoginStyle = () => {
           marginHorizontal: Platform.SizeScale(20),
         },
         logo: {
-          width: Platform.SizeScale(150),
+          width: Platform.deviceWidth,
           height: Platform.deviceHeight / 3,
           alignSelf: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
         inpuRateStyle: {
-          borderWidth: StyleSheet.hairlineWidth,
-          height: Platform.SizeScale(50),
-          borderRadius: Platform.SizeScale(25),
+          paddingRight: Platform.SizeScale(10),
           marginBottom: Platform.SizeScale(20),
-          borderColor: COLORS.GRAY,
         },
         inputStyles: {
           fontSize: Platform.SizeScale(12),
@@ -32,7 +31,6 @@ export const useLoginStyle = () => {
         logoInput: {
           width: Platform.SizeScale(30),
           height: Platform.SizeScale(30),
-          marginLeft: Platform.SizeScale(10),
           alignItems: 'center',
           justifyContent: 'center',
         },
@@ -45,7 +43,6 @@ export const useLoginStyle = () => {
         },
         buttonLogin: {
           backgroundColor: COLORS.GREEEN,
-          borderRadius: Platform.SizeScale(40),
           marginTop: Platform.SizeScale(40),
           paddingVertical: Platform.SizeScale(5),
         },

@@ -5,8 +5,8 @@ import { BackgroundContext } from './context';
 import { BackgroundContextValue, BackgroundProps } from './types';
 
 const BackgroundProvider = ({ children }: BackgroundProps) => {
-  const [backgroundType, setBackgroundType] = useState<BACKGROUND_TYPE>(BACKGROUND_TYPE.GREEN_GRADIENT);
-  const [backgroundTab, setBackgroundTab] = useState<BACKGROUND_TYPE>(BACKGROUND_TYPE.NORMAL_BACKGROUND);
+  const [backgroundType, setBackgroundType] = useState<BACKGROUND_TYPE>(BACKGROUND_TYPE.PURPLE_GRADIENT);
+  const [backgroundTab, setBackgroundTab] = useState<BACKGROUND_TYPE>(BACKGROUND_TYPE.PURPLE_GRADIENT);
 
   const changeBackground = useCallback((type: BACKGROUND_TYPE) => {
     setBackgroundType(type);

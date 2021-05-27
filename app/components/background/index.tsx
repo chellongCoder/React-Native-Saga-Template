@@ -9,11 +9,8 @@ const _Background = ({ type }: BackgroundProps) => {
   const styles = useBackgroundStyle();
 
   switch (type) {
-    case BACKGROUND_TYPE.GREEN_GRADIENT:
-      return <LinearGradient useAngle angle={108.66} colors={COLORS.GREEN_GRADIENT} style={styles.container} />;
-    case BACKGROUND_TYPE.MINT_BLUE_GRADIENT:
-      return <LinearGradient useAngle angle={180} colors={COLORS.MINT_BLUE_GRADIENT} style={styles.container} />;
-
+    case BACKGROUND_TYPE.PURPLE_GRADIENT:
+      return <LinearGradient useAngle angle={180} colors={COLORS.PURPLE_GRANDIENT} style={styles.container} />;
     default:
       return <View style={styles.container} />;
   }

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../constants';
 import { Platform, theme } from '../../theme';
 
 export const useStylesTextField = () => {
@@ -9,18 +10,16 @@ export const useStylesTextField = () => {
     () =>
       StyleSheet.create({
         content: {
-          borderRadius: Platform.SizeScale(10),
+          borderRadius: Platform.SizeScale(5),
           borderColor: colors.gray,
           borderWidth: 1,
           height: Platform.SizeScale(40),
           alignItems: 'center',
           flexDirection: 'row',
-          paddingHorizontal: Platform.SizeScale(6),
           backgroundColor: colors.white,
         },
         input: {
           flexGrow: 1,
-          padding: Platform.SizeScale(6),
           ...Platform.textBase,
           color: colors.black,
         },
@@ -44,6 +43,16 @@ export const useStylesTextField = () => {
           fontSize: Platform.SizeScale(18),
           color: colors.black,
           marginRight: Platform.SizeScale(3),
+        },
+        leftInput: {
+          backgroundColor: COLORS.GRAY,
+          height: Platform.SizeScale(38),
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingHorizontal: Platform.SizeScale(10),
+          marginRight: Platform.SizeScale(10),
+          borderTopLeftRadius: Platform.SizeScale(5),
+          borderBottomLeftRadius: Platform.SizeScale(5),
         },
       }),
     [colors],

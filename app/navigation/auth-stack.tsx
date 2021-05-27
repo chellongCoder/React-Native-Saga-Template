@@ -9,7 +9,7 @@ const AuthStack = createStackNavigator();
 export default function AuthNavigator() {
   return (
     <AuthStack.Navigator headerMode="none">
-      <AuthStack.Screen name={ROUTES.walkthrough} component={WalkThrough} />
+      {/* <AuthStack.Screen name={ROUTES.walkthrough} component={WalkThrough} /> */}
       <AuthStack.Screen name={ROUTES.login} component={LoginScreen} />
       <AuthStack.Screen name={ROUTES.register} component={RegisterScreen} />
     </AuthStack.Navigator>

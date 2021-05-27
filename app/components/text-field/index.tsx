@@ -64,7 +64,7 @@ export const TextField = forwardRef(
             <Text style={[styles.label, labelStyle]}>{label}</Text>
           </View>
         )}
-        {renderLeftAccessory?.()}
+        <View style={styles.leftInput}>{renderLeftAccessory?.()}</View>
         {!!prefix && <Text style={[styles.prefix, prefixStyle]}>{prefix}</Text>}
         <TextInput
           allowFontScaling={false}
