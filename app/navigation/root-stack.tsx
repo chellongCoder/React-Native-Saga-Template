@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { StatusBar } from 'react-native';
 import { ROUTES, screens } from '../config';
 import { RootState } from '../redux/reducers';
-import { CoinProfile1Screen, IcoProfileScreen } from '../screens';
-import { BottomTabNavigator } from './bottom-tab-stack';
+import { TableInoutScreen } from '../screens';
 import AuthNavigator from './auth-stack';
+import DrawerNavigator from './drawer-stack';
 
 const Stack = createStackNavigator();
 const LoggedInStack = createStackNavigator();
@@ -18,9 +18,8 @@ const screenOptions = {
 
 const LoggedInNavigator = () => (
   <LoggedInStack.Navigator>
-    <Stack.Screen name={ROUTES.bottomTabStack} component={BottomTabNavigator} options={screenOptions} />
-    <Stack.Screen name={ROUTES.coinProfile1} component={CoinProfile1Screen} options={screenOptions} />
-    <Stack.Screen name={ROUTES.icoProfile} component={IcoProfileScreen} options={screenOptions} />
+    <Stack.Screen name={ROUTES.drawerStack} component={DrawerNavigator} options={screenOptions} />
+    <Stack.Screen name={ROUTES.tableInout} component={TableInoutScreen} options={screenOptions} />
   </LoggedInStack.Navigator>
 );
 

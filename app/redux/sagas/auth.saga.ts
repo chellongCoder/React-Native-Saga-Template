@@ -7,9 +7,15 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   try {
     yield put(authActionsCreator.loginSuccess());
   } catch (err) {
-    yield put(
-      authActionsCreator.loginError(),
-    );
+    yield put(authActionsCreator.loginError());
+  }
+}
+
+function* logoutSaga(action: Effect<string>) {
+  try {
+    yield put(authActionsCreator.logoutSuccess());
+  } catch (err) {
+    yield put(authActionsCreator.logoutError());
   }
 }
 
@@ -20,7 +26,13 @@ function* watchLogin() {
   }
 }
 
+function* watchLogout() {
+  while (true) {
+    const action: Effect = yield take(authActionsCreator.logoutRequest);
+    yield* logoutSaga(action);
+  }
+}
 
 export default function* () {
-  yield all([fork(watchLogin)]);
+  yield all([fork(watchLogin), fork(watchLogout)]);
 }

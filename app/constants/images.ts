@@ -1,6 +1,8 @@
-export const AVATAR_DEFAULT = require('./../assets/images/avatar_default.png')
-export const IMAGE_AVATAR = require('./../assets/images/image_avatar.png')
+export const AVATAR_DEFAULT = require('./../assets/images/avatar_default.png');
+export const IMAGE_AVATAR = require('./../assets/images/image_avatar.png');
+export const NOIMAGE = require('./../assets/images/noimage.jpeg');
 export const Images = {
-AVATAR_DEFAULT,
-IMAGE_AVATAR,
-}
+  AVATAR_DEFAULT,
+  IMAGE_AVATAR,
+  NOIMAGE,
+};

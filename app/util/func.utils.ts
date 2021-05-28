@@ -24,3 +24,33 @@ export const choiceItemArray = (arr: any[], choicedItem: any, index: number) => 
   });
   return newArr;
 };
+
+export function getFormattedDate(date: Date) {
+  var year = date.getFullYear();
+
+  var month = (1 + date.getMonth()).toString();
+  month = month.length > 1 ? month : '0' + month;
+
+  var day = date.getDate().toString();
+  day = day.length > 1 ? day : '0' + day;
+
+  return month + '/' + day + '/' + year;
+}
+
+function checkTime(i: number) {
+  if (i < 10) {
+    i = '0' + i;
+  }
+  return i;
+}
+
+export function getFormattedTime(time: Date) {
+  var today = new Date(time);
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  return h + ':' + m + ':' + s;
+}

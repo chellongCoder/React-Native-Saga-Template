@@ -68,6 +68,7 @@ enum ROUTES {
   support = 'SupportScreen',
   coinProfile1 = 'CoinProfile1',
   icoProfile = 'IcoProfile',
+  tableInout = 'TableInout',
 }
 
 export { screens, ROUTES };

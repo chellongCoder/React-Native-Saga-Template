@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import LinearGradient, { LinearGradientProps } from 'react-native-linear-gradient';
-import IonicIcon from 'react-native-vector-icons/AntDesign';
 import { COLORS } from '../../constants';
 import { Text } from '../text';
-import { Platform } from '../../theme';
 import styles from './button.styles';
 import { AppButtonType } from './type';
 
-function AppButton({ labelStyles, style, onSubmit, title, isLoadingVisible }: AppButtonType | any) {
+function AppButton({ labelStyles, style, onSubmit, title, ml, mr, mb, mt, icon }: AppButtonType) {
   const configBackground: LinearGradientProps = {
     colors: COLORS.BLUE_GRADIENT,
     start: {
@@ -17,11 +15,15 @@ function AppButton({ labelStyles, style, onSubmit, title, isLoadingVisible }: Ap
       y: 0,
     },
   };
+  const _style = useMemo(
+    () => [styles.button, { marginLeft: ml, marginRight: mr, marginTop: mt, marginBottom: mb }, style],
+    [mb, ml, mr, mt, style],
+  );
   return (
-    <LinearGradient style={styles.button} {...{ ...configBackground }} useAngle={true}>
-      <TouchableOpacity onPress={onSubmit} style={[styles.container, style]}>
-        <IonicIcon color={COLORS.WHITE} name="login" size={Platform.SizeScale(20)} />
-        <Text style={[styles.label, labelStyles]}>{title}</Text>
+    <LinearGradient style={_style} {...{ ...configBackground }} useAngle={true}>
+      <TouchableOpacity onPress={onSubmit} style={[styles.container]}>
+        {icon}
+        <Text style={[styles.label, labelStyles]}>{title?.toUpperCase()}</Text>
       </TouchableOpacity>
     </LinearGradient>
   );

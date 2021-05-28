@@ -2,7 +2,8 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentOption
 import React from 'react';
 import { Drawer } from '../components';
 import { screens } from '../config';
-import BottomTabStack from './bottom-tab-stack';
+import { HomeScreen } from '../screens';
+import { BottomTabNavigator } from './bottom-tab-stack';
 
 const DrawerStack = createDrawerNavigator();
 
@@ -12,7 +13,7 @@ const DrawerNavigator = () => {
   };
   return (
     <DrawerStack.Navigator statusBarAnimation="slide" drawerType="slide" drawerContent={renderContent}>
-      <DrawerStack.Screen options={{ swipeEnabled: true }} name={screens.bottomTabStack} component={BottomTabStack} />
+      <DrawerStack.Screen options={{ swipeEnabled: true }} name={screens.bottomTabStack} component={HomeScreen} />
     </DrawerStack.Navigator>
   );
 };

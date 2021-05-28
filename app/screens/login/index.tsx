@@ -7,9 +7,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import { AppButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { COLORS } from '../../constants';
-import { useLoadingGlobal } from '../../hooks';
+import { useBackground, useLoadingGlobal } from '../../hooks';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
+import { BACKGROUND_TYPE } from '../../components/background/types';
 import { useLoginStyle } from './styles';
 
 const _LoginScreen = ({ navigation }: any) => {
@@ -19,6 +20,7 @@ const _LoginScreen = ({ navigation }: any) => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const background = useBackground();
 
   const renderLeftAccessoryMail = useCallback(() => {
     return (
@@ -61,6 +63,16 @@ const _LoginScreen = ({ navigation }: any) => {
     }
   }, [loading, requesting]);
 
+  useEffect(() => {
+    navigation.addListener('focus', () => {
+      background.changeBackground(BACKGROUND_TYPE.PURPLE_GRADIENT);
+      // background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
+    });
+    return () => {
+      navigation.removeListener('focus', () => {});
+    };
+  }, [background, navigation]);
+
   const configBackground = {
     colors: COLORS.PURPLE_GRANDIENT,
     angle: 180,
@@ -97,7 +109,11 @@ const _LoginScreen = ({ navigation }: any) => {
             inputStyle={styles.inputStyles}
           />
 
-          <AppButton title="ĐĂNG NHẬP" onSubmit={onLogin} />
+          <AppButton
+            icon={<IonicIcon color={COLORS.WHITE} name="login" size={Platform.SizeScale(20)} />}
+            title="ĐĂNG NHẬP"
+            onSubmit={onLogin}
+          />
           <View style={styles.logo}>
             <Text color={COLORS.WHITE} fontSize={Platform.SizeScale(20)}>
               Chấm công bằng khuôn mặt{' '}

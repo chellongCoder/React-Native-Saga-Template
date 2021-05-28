@@ -1,13 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { memo, useCallback, useEffect } from 'react';
-import { View } from 'react-native';
-import { BodyTopbar } from '../../components';
+import { ScrollView, View } from 'react-native';
+import IonicIcon from 'react-native-vector-icons/AntDesign';
+import { CommonHeader } from '../../components';
 import { BACKGROUND_TYPE } from '../../components/background/types';
 import { ROUTES } from '../../config';
+import { COLORS } from '../../constants';
 import { useBackground } from '../../hooks';
-import { SlideNews } from './SlideNews';
+import { Platform } from '../../theme';
+import { ButtonGroup } from './button-group';
+import { Capture } from './capture';
 import { useHomeStyle } from './styles';
-import { TabMarkets } from './TabMarkets';
+import TabWork from './tab-work';
 
 const _HomeScreen = ({}) => {
   const navigation = useNavigation();
@@ -17,7 +21,6 @@ const _HomeScreen = ({}) => {
   useEffect(() => {
     navigation.addListener('focus', () => {
       background.changeBackground(BACKGROUND_TYPE.GREEN_GRADIENT);
-      // background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
     });
     return () => {
       navigation.removeListener('focus', () => {});
@@ -34,22 +37,19 @@ const _HomeScreen = ({}) => {
 
   return (
     <View style={styles.container}>
-      <BodyTopbar>
-        <View style={styles.body}>
-          <View style={styles.contentHome}>
-            {/* News of the day */}
-            <SlideNews />
-            {/* Shadow Markets Watch */}
-            <TabMarkets />
-          </View>
-          {/* <TouchableOpacity onPress={gotoCoin}>
-            <Text>go to coin</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={gotoIco}>
-            <Text>go to Ico</Text>
-          </TouchableOpacity> */}
-        </View>
-      </BodyTopbar>
+      <CommonHeader
+        icon={<IonicIcon color={COLORS.WHITE} name="menuunfold" size={Platform.SizeScale(20)} />}
+        buttonBackColor={COLORS.BUTON_GREEN}
+        title={'Chấm công'}
+        isRight={false}
+      />
+      <ScrollView>
+        <TabWork />
+
+        <ButtonGroup />
+
+        <Capture />
+      </ScrollView>
     </View>
   );
 };

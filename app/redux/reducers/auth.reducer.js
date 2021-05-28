@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../types';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_ERROR } from '../types';
 
 const initialState = {
   requesting: false,
@@ -27,6 +27,27 @@ export default function (state = initialState, action) {
         ...state,
         requesting: false,
         isLoggedIn: false,
+      };
+    }
+
+    case LOGOUT_REQUEST: {
+      return {
+        ...state,
+        requesting: true,
+      };
+    }
+    case LOGOUT_SUCCESS: {
+      return {
+        ...state,
+        requesting: false,
+        isLoggedIn: false,
+      };
+    }
+    case LOGOUT_ERROR: {
+      return {
+        ...state,
+        requesting: false,
+        isLoggedIn: true,
       };
     }
     default:

@@ -10,7 +10,7 @@ const COLORS = {
   GRAY: '#C8C8C8',
   GRAY1: '#504c54',
   GREEEN: '#B6D433',
-  blue: '#667EEA',
+  blue: '#33B5E6',
   BOLD_GRAY: '#949494',
   GREEN: '#0BB04D',
   blue2: '#2095A2',
