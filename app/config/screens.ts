@@ -69,6 +69,7 @@ enum ROUTES {
   coinProfile1 = 'CoinProfile1',
   icoProfile = 'IcoProfile',
   tableInout = 'TableInout',
+  splash = 'SplashScreen',
 }
 
 export { screens, ROUTES };

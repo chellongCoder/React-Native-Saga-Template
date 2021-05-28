@@ -8,3 +8,4 @@ export * from './register';
 export * from './coin-profile1';
 export * from './ico-profile';
 export * from './table-inout';
+export * from './splash';

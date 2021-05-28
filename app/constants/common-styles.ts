@@ -44,10 +44,10 @@ export const CommonStyle = StyleSheet.create({
   shadow: {
     shadowColor: '#000',
     shadowOffset: {
-      width: 0,
-      height: 5,
+      width: 1,
+      height: 1,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.4,
     shadowRadius: 5,
 
     elevation: 5,

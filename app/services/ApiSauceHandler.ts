@@ -11,6 +11,7 @@ const api_url = API_URL_DEV;
 const messageError: any = {
   NETWORK_ERROR: 'Không thể kết nối đến máy chủ. Vui lòng thử lại!',
   CLIENT_ERROR: 'Không thể kết nối đến máy chủ. Vui lòng thử lại!',
+  TIMEOUT_ERROR: 'Thời gian chờ request quá lâu',
 };
 
 export default class ApiSauce {
@@ -57,22 +58,6 @@ export default class ApiSauce {
     let formdata = new FormData();
     const { payload } = params;
     formdata.append('device_type', Platform.OS);
-    // for (const key in payload) {
-    //   if (Object.prototype.hasOwnProperty.call(payload, key)) {
-    //     const element = payload[key];
-    //     if (element === 'avatar') {
-    //       const image = payload[element];
-    //       formdata.append(element, {
-    //         uri: image.path,
-    //         type: image.mime,
-    //         name: image.filename,
-    //       });
-    //     } else {
-    //       formdata.append(key, element);
-    //     }
-    //   }
-    // }
-
     Object.keys(payload).forEach((value) => {
       if (value === 'avatar') {
         const image = payload[value];
@@ -87,7 +72,7 @@ export default class ApiSauce {
     });
     console.log('formdata', formdata);
     // trước khi thực hiện 1 request cần kiểm tra Expired Token.
-    await this.handlerExpiredToken();
+    // await this.handlerExpiredToken();
     const res = await apiRequest(params.url, formdata);
     console.log(
       '%cHANDLE_RESPONSE',

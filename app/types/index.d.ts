@@ -19,3 +19,36 @@ export type BackgroundGradientT = {
   colors: string[];
   angle: number;
 };
+
+export type MasterDateT = {
+  domains: {
+    dev: string;
+    nikkekin: string;
+    hpv: string;
+    bang: string;
+    hyperion: string;
+    nikkeikin: string;
+    demo1: string;
+    smg: string;
+  };
+  personGroup: {
+    dev: string;
+    nikkekin: string;
+    hpv: string;
+    bang: string;
+    hyperion: string;
+    nikkeikin: string;
+    demo1: string;
+    smg: string;
+  };
+  currency: {
+    dev: string;
+    nikkekin: string;
+    hpv: string;
+    bang: string;
+    hyperion: string;
+    nikkeikin: string;
+    demo1: string;
+    smg: string;
+  };
+};

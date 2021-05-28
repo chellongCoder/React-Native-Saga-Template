@@ -1,26 +1,32 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import IonicIcon from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
+import _ from 'lodash';
 import { AppButton, Text, TextField } from '../../components';
 import { authActionsCreator } from '../../redux/actions';
 import { COLORS } from '../../constants';
-import { useBackground, useLoadingGlobal } from '../../hooks';
+import { useBackground, useLoadingGlobal, useToastInfo } from '../../hooks';
 import { RootState } from '../../redux/reducers';
 import { Platform } from '../../theme';
 import { BACKGROUND_TYPE } from '../../components/background/types';
+import { mapMasterData } from '../../helpers/auth.helper';
 import { useLoginStyle } from './styles';
 
 const _LoginScreen = ({ navigation }: any) => {
-  const styles = useLoginStyle();
+  const { masterDatas: _masterDatas } = useSelector((state: RootState) => state.MasterData);
+  const masterDatas = useMemo(() => mapMasterData(_masterDatas), [_masterDatas]);
   const { requesting } = useSelector((state: RootState) => state.AuthData);
+  const styles = useLoginStyle();
   const loading = useLoadingGlobal();
+  const [codeCompany, setCodeCompany] = useState('');
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const background = useBackground();
+  const toast = useToastInfo();
 
   const renderLeftAccessoryMail = useCallback(() => {
     return (
@@ -47,13 +53,19 @@ const _LoginScreen = ({ navigation }: any) => {
   }, [styles.logoInput]);
 
   const onLogin = useCallback(async () => {
-    dispatch(
-      authActionsCreator.loginRequest({
-        email: userName,
-        password: password,
-      }),
-    );
-  }, [dispatch, password, userName]);
+    if (_.isEmpty(codeCompany) || _.isEmpty(userName) || _.isEmpty(password)) {
+      toast.showError(' Các trường không được để trống.');
+      return;
+    }
+    const config = {
+      user_id: userName,
+      password: password,
+      device_id: 'aaaaa',
+      token: 'aaaaaaaabbbbbbb',
+      url: masterDatas.domains[codeCompany.toLocaleLowerCase()],
+    };
+    dispatch(authActionsCreator.loginRequest(config));
+  }, [codeCompany, dispatch, masterDatas, password, toast, userName]);
 
   useEffect(() => {
     if (requesting) {
@@ -66,7 +78,6 @@ const _LoginScreen = ({ navigation }: any) => {
   useEffect(() => {
     navigation.addListener('focus', () => {
       background.changeBackground(BACKGROUND_TYPE.PURPLE_GRADIENT);
-      // background.changeBackgroundTab(BACKGROUND_TYPE.NORMAL_BACKGROUND);
     });
     return () => {
       navigation.removeListener('focus', () => {});
@@ -87,14 +98,14 @@ const _LoginScreen = ({ navigation }: any) => {
       <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
         <View style={styles.content}>
           <TextField
-            onChangeText={setUserName}
+            onChangeText={setCodeCompany}
             renderLeftAccessory={renderLeftAccessoryMail}
             style={styles.inpuRateStyle}
             placeholder="Mã công ty"
             inputStyle={styles.inputStyles}
           />
           <TextField
-            onChangeText={setPassword}
+            onChangeText={setUserName}
             renderLeftAccessory={renderLeftAccessoryUsername}
             style={styles.inpuRateStyle}
             placeholder="Tên đăng nhập "

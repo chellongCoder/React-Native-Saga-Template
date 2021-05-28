@@ -1,13 +1,15 @@
-import AsyncStorage from '@react-native-community/async-storage';
 import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
-import { LOGIN_PARAMS } from '../../services/types';
+import { AuthApi } from '../../services';
+import { LOGIN_PARAMS, ResponseT } from '../../services/types';
 import { authActionsCreator } from '../actions';
+import { callSafe } from './common.saga';
 
 function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   try {
-    yield put(authActionsCreator.loginSuccess());
+    const response: ResponseT<any> = yield callSafe(AuthApi.login, action.payload);
+    yield put(authActionsCreator.loginSuccess(response));
   } catch (err) {
-    yield put(authActionsCreator.loginError());
+    yield put(authActionsCreator.loginError(err ? err : 'User Login Failed!'));
   }
 }
 

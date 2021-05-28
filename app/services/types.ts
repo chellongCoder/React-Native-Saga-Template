@@ -5,8 +5,11 @@ export enum HTTP_PROTOCOL {
 }
 
 export type LOGIN_PARAMS = {
-  email: string;
+  user_id: string;
   password: string;
+  device_id: string;
+  token: string;
+  url: string;
 };
 
 export type LOGOUT_PARAMS = {
@@ -28,7 +31,8 @@ export type SIGNUP_PARAMS = {
 export interface ResponseT<T> {
   data: T;
   message: string;
-  status: number;
+  status_code: number;
+  error?: any;
 }
 
 export type USER_INFO_PARAMS = {

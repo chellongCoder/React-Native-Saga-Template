@@ -5,10 +5,11 @@ import { LOGOUT_SUCCESS } from '../types';
 import AuthData from './auth.reducer';
 import ProductData from './product.reducer';
 import CryptoData from './crypto.reducer';
+import MasterData from './master-data.reducer';
 const authPersistConfig = {
   key: 'auth',
   storage: AsyncStorage,
-  blacklist: ['requesting', 'tempData'],
+  blacklist: ['requesting'],
 };
 
 const RootReducer = (state: any, action: any) => {
@@ -23,6 +24,7 @@ const appReducer = combineReducers({
   AuthData: persistReducer(authPersistConfig, AuthData),
   ProductData,
   CryptoData,
+  MasterData,
 });
 export default RootReducer;
 export type RootState = ReturnType<typeof RootReducer>;

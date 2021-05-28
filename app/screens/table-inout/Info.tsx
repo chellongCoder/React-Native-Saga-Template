@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { DropdownSelection } from '../../components';
 
 const _Info = () => {
   return (
     <View>
-      <DropdownSelection />
+      <Text>asdasd</Text>
     </View>
   );
 };
