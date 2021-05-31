@@ -23,6 +23,7 @@ import NetworkProvider from './tools/network';
 import ModalProvider from './tools/modal';
 import { AppNavigator } from './navigation';
 import BackgroundProvider from './tools/background';
+import DatePickerProvider from './tools/date-picker';
 
 enableScreens();
 
@@ -82,26 +83,28 @@ const App = () => {
         <Suspense fallback={null}>
           <Root>
             <PaperProvider>
-              <BackgroundProvider>
-                <SafeAreaView edges={['top']} style={styles.container}>
-                  <LoadingGlobalProvider>
-                    <NetworkProvider>
-                      <ToastInfoProvider>
-                        <ImageViewProvider>
-                          <BottomSheetProvider>
-                            <ModalProvider>
-                              <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
-                                <AppNavigator />
-                                <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
-                              </NavigationContainer>
-                            </ModalProvider>
-                          </BottomSheetProvider>
-                        </ImageViewProvider>
-                      </ToastInfoProvider>
-                    </NetworkProvider>
-                  </LoadingGlobalProvider>
-                </SafeAreaView>
-              </BackgroundProvider>
+              <DatePickerProvider>
+                <BackgroundProvider>
+                  <SafeAreaView edges={['top']} style={styles.container}>
+                    <LoadingGlobalProvider>
+                      <NetworkProvider>
+                        <ToastInfoProvider>
+                          <ImageViewProvider>
+                            <BottomSheetProvider>
+                              <ModalProvider>
+                                <NavigationContainer ref={navigationService.setTopLevelNavigator} theme={theme}>
+                                  <AppNavigator />
+                                  <DropdownAlert ref={(ref) => DropDownHolder.setDropDown(ref)} />
+                                </NavigationContainer>
+                              </ModalProvider>
+                            </BottomSheetProvider>
+                          </ImageViewProvider>
+                        </ToastInfoProvider>
+                      </NetworkProvider>
+                    </LoadingGlobalProvider>
+                  </SafeAreaView>
+                </BackgroundProvider>
+              </DatePickerProvider>
             </PaperProvider>
           </Root>
         </Suspense>

@@ -4,13 +4,15 @@ import { MasterDateT } from '../types';
 export const mapUserLogin = (data: any): UserLoginT => {
   return {
     accessToken: data.access_token,
-    avatar: data.user.avatar_original,
-    email: data.user.email,
+    avatar: data.avatar,
+    email: data.email,
+    departmentName: data.department_name,
     expiredIn: data.expires_in,
-    id: data.user.id,
-    name: data.user.name,
-    phone: data.user.phone,
-    userType: data.user.user_type,
+    id: data.id,
+    name: data.user_name,
+    phone: data.phone,
+    role: data.role,
+    gender: data.gender,
   };
 };
 

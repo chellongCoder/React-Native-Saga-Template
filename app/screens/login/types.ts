@@ -6,5 +6,7 @@ export interface UserLoginT {
   email: string;
   name: string;
   phone: string;
-  userType: string;
+  departmentName: string;
+  role: string;
+  gender: string;
 }

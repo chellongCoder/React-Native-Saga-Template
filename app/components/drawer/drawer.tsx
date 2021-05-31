@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
@@ -9,12 +9,14 @@ import { COLORS } from '../../constants';
 import { Text } from '../text';
 import { authActionsCreator } from '../../redux/actions';
 import { RootState } from '../../redux/reducers';
+import { mapUserLogin } from '../../helpers/auth.helper';
 import styles from './drawer.styles';
 
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
   const { userInfo, url }: any = useSelector((state: RootState) => state.AuthData);
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
+  const user = useMemo(() => mapUserLogin(userInfo), [userInfo]);
 
   const i18 = (key) => {
     return t(key);
@@ -45,7 +47,9 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         <View style={styles.userInfo}>
-          <Text color={COLORS.WHITE}>Lê Thu Trà - Offshore</Text>
+          <Text color={COLORS.WHITE}>
+            {user.name} - {user.departmentName}
+          </Text>
         </View>
         <TouchableOpacity
           hitSlop={{ top: 10, bottom: 10, right: 10, left: 10 }}
