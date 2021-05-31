@@ -1,28 +1,29 @@
 import { API_CONFIG } from '../config';
 import AppConfig from '../config/app-config';
+import { WorkoutParamsT } from '../screens/home/types';
+import { ApiParamsT } from '../types';
 import ApiSauce from './ApiSauceHandler';
-import { LOGIN_PARAMS, LOGOUT_PARAMS } from './types';
 const { API_URL, API_URL_DEV } = AppConfig;
 const api_url = API_URL_DEV;
 const api = ApiSauce.getInstance(api_url);
 
-const login = (params: LOGIN_PARAMS) => {
+const postCheckinCheckout = (params: ApiParamsT) => {
   const API = new ApiSauce(params.url);
   const { url, ...data } = params;
-  return API.post(API_CONFIG.LOGIN, {
+  return API.post(API_CONFIG.CHECKIN_CHECKOUT, {
     ...data,
   });
 };
 
-const logout = (params: LOGOUT_PARAMS) => {
+const postWorkoutRegistration = (params: WorkoutParamsT) => {
   const API = new ApiSauce(params.url);
   const { url, ...data } = params;
-  return API.post(API_CONFIG.LOGOUT, {
+  return API.post(API_CONFIG.SAVE_WORKOUT_REGISTRATION, {
     ...data,
   });
 };
 
-export const AuthApi = {
-  login,
-  logout,
+export const TimekeepApi = {
+  postCheckinCheckout,
+  postWorkoutRegistration,
 };

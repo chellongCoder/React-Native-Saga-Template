@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useMemo } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
 import LinearGradient, { LinearGradientProps } from 'react-native-linear-gradient';
 import { COLORS } from '../../constants';
 import { Text } from '../text';

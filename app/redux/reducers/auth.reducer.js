@@ -4,6 +4,7 @@ const initialState = {
   requesting: false,
   isLoggedIn: false,
   userInfo: null,
+  url: '',
 };
 
 export default function (state = initialState, action) {
@@ -15,6 +16,7 @@ export default function (state = initialState, action) {
         requesting: true,
         isLoggedIn: false,
         userInfo: null,
+        url: payload.url,
       };
     }
     case LOGIN_SUCCESS: {

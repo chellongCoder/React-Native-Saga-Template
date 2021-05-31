@@ -27,3 +27,16 @@ export const showConfirm = (title = 'Xác nhận', message = '', onPositive = ()
     },
   ]);
 };
+
+export function alertInput(onCofirm: (value?: string) => void) {
+  Alert.prompt('Nhập lý do xin nghỉ', '', [
+    {
+      text: 'Huỷ',
+      onPress: () => {},
+    },
+    {
+      text: 'Gửi',
+      onPress: (value?: string) => onCofirm(value),
+    },
+  ]);
+}

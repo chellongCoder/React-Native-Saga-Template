@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
   label: { ...Platform.textBase, color: COLORS.WHITE, marginLeft: Platform.SizeScale(5) },
   container: {
     alignItems: 'center',
-    marginVertical: Platform.SizeScale(20),
     flexDirection: 'row',
     justifyContent: 'center',
+    paddingVertical: Platform.SizeScale(20),
   },
   button: {
     borderRadius: Platform.SizeScale(5),

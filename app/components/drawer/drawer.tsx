@@ -3,15 +3,16 @@ import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { DrawerContentComponentProps, DrawerContentOptions } from '@react-navigation/drawer';
 import { useDispatch, useSelector } from 'react-redux';
-import _ from 'lodash';
 import { drawerIcons } from '../../helpers';
 import { ROUTES, screens } from '../../config';
 import { COLORS } from '../../constants';
 import { Text } from '../text';
 import { authActionsCreator } from '../../redux/actions';
+import { RootState } from '../../redux/reducers';
 import styles from './drawer.styles';
 
 function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions>) {
+  const { userInfo, url }: any = useSelector((state: RootState) => state.AuthData);
   const [t, i18n] = useTranslation();
   const dispatch = useDispatch();
 
@@ -32,8 +33,13 @@ function Drawer({ navigation }: DrawerContentComponentProps<DrawerContentOptions
   };
 
   const onLogout = useCallback(() => {
-    dispatch(authActionsCreator.logoutRequest());
-  }, [dispatch]);
+    dispatch(
+      authActionsCreator.logoutRequest({
+        token: userInfo?.access_token || '',
+        url,
+      }),
+    );
+  }, [dispatch, url, userInfo]);
 
   return (
     <SafeAreaView style={styles.container}>

@@ -20,6 +20,11 @@ export type BackgroundGradientT = {
   angle: number;
 };
 
+export interface ApiParamsT {
+  url: string;
+  token: string;
+}
+
 export type MasterDateT = {
   domains: {
     dev: string;

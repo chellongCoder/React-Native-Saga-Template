@@ -10,40 +10,40 @@ platform :ios do
    # iOS Lanes
    desc 'Fetch certificates and provisioning profiles'
     lane :certificates do
-    match(app_identifier: 'com.vn.procheck', type: 'development', readonly: false)
-    match(app_identifier: 'com.vn.procheck', type: 'appstore', readonly: false)
+    match(app_identifier: 'vn.hyperion.TimeSheet', type: 'development', readonly: false)
+    match(app_identifier: 'vn.hyperion.TimeSheet', type: 'appstore', readonly: false)
     end 
 
     desc 'Build the iOS application.'
     private_lane :build do
       produce(
-        username: 'benglish.vn@gmail.com',
-        app_identifier: 'com.vn.procheck'
+        username: 'ncong@hyperion.co.jp',
+        app_identifier: 'vn.hyperion.TimeSheet'
       )
-        increment_build_number(xcodeproj: './ios/ProCheck.xcodeproj')
-        build_app(workspace: "./ios/ProCheck.xcworkspace", scheme: "Release")
+        increment_build_number(xcodeproj: './ios/TimesheetHyperion.xcodeproj')
+        build_app(workspace: "./ios/TimesheetHyperion.xcworkspace", scheme: "TimesheetHyperion")
     end
 
     desc 'Ship to Testflight.'
     lane :beta do
         build
         upload_to_testflight(
-          username: "benglish.vn@gmail.com",
-          app_identifier: 'com.vn.procheck'
+          username: "ncong@hyperion.co.jp",
+          app_identifier: 'vn.hyperion.TimeSheet'
         )
-        commit_version_bump(message: 'Bump build', xcodeproj: './ios/PatientApp.xcodeproj')
+        commit_version_bump(message: 'Bump build', xcodeproj: './ios/TimesheetHyperion.xcodeproj')
         push_to_git_remote
     end
 
     desc "Generate new localized screenshots"
     lane :screenshots do
-        capture_screenshots(workspace: "ios/PatientApp.xcworkspace", scheme: "PatientAppUITests")
+        capture_screenshots(workspace: "ios/TimesheetHyperion.xcworkspace", scheme: "TimesheetHyperionUITests")
     end
 
     lane(:snappy) do |options|
         snapshot(
-          project: 'ios/PatientApp.xcodeproj',
-          scheme: 'PatientAppUITests',
+          project: 'ios/TimesheetHyperion.xcodeproj',
+          scheme: 'TimesheetHyperionUITests',
           devices: [
             "iPhone 8",
             "iPhone SE (2nd generation)",
@@ -58,7 +58,7 @@ platform :ios do
     end
       
     lane :tests do
-        run_tests(workspace: "PatientApp.xcworkspace",
+        run_tests(workspace: "TimesheetHyperion.xcworkspace",
             devices: ["iPhone 8", "iPad Air"],
             scheme: "PatientApp")
       end

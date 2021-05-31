@@ -507,7 +507,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 44DZTJZ28X;
+						DevelopmentTeam = ZFGW3W39X5;
 						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 					};
@@ -948,8 +948,8 @@
 				CODE_SIGN_ENTITLEMENTS = TimesheetHyperion/TimesheetHyperion.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44DZTJZ28X;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = ZFGW3W39X5;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -957,13 +957,13 @@
 				);
 				INFOPLIST_FILE = TimesheetHyperion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyperion.timesheet;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.hyperion.TimeSheet;
 				PRODUCT_NAME = TimesheetHyperion;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -982,18 +982,18 @@
 				CODE_SIGN_ENTITLEMENTS = TimesheetHyperion/TimesheetHyperion.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 44DZTJZ28X;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = ZFGW3W39X5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = TimesheetHyperion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.2;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyperion.timesheet;
+				PRODUCT_BUNDLE_IDENTIFIER = vn.hyperion.TimeSheet;
 				PRODUCT_NAME = TimesheetHyperion;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -13,8 +13,8 @@ export type LOGIN_PARAMS = {
 };
 
 export type LOGOUT_PARAMS = {
-  server_key?: string;
   token: string;
+  url: string;
 };
 
 export type SIGNUP_PARAMS = {

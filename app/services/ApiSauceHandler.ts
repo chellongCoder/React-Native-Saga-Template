@@ -57,6 +57,9 @@ export default class ApiSauce {
   handleResponse = async (apiRequest: (url: string, payload: any) => Promise<ApiResponse<any, any>>, params: any) => {
     let formdata = new FormData();
     const { payload } = params;
+    if (payload.token) {
+      this.setHeader('Authorization', `Bearer ${payload.token}`);
+    }
     formdata.append('device_type', Platform.OS);
     Object.keys(payload).forEach((value) => {
       if (value === 'avatar') {

@@ -1,4 +1,4 @@
-import { Linking } from 'react-native';
+import { Alert, Linking } from 'react-native';
 
 export const convertTimeToAMPM = (time: any) => {
   // Check correct time format and split into components
@@ -34,7 +34,7 @@ export function getFormattedDate(date: Date) {
   var day = date.getDate().toString();
   day = day.length > 1 ? day : '0' + day;
 
-  return month + '/' + day + '/' + year;
+  return day + '/' + month + '/' + year;
 }
 
 function checkTime(i: number) {

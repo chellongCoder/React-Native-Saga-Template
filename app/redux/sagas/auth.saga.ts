@@ -1,6 +1,6 @@
 import { all, call, Effect, fork, put, take } from 'redux-saga/effects';
 import { AuthApi } from '../../services';
-import { LOGIN_PARAMS, ResponseT } from '../../services/types';
+import { LOGIN_PARAMS, LOGOUT_PARAMS, ResponseT } from '../../services/types';
 import { authActionsCreator } from '../actions';
 import { callSafe } from './common.saga';
 
@@ -13,11 +13,12 @@ function* loginSaga(action: Effect<string, LOGIN_PARAMS>) {
   }
 }
 
-function* logoutSaga(action: Effect<string>) {
+function* logoutSaga(action: Effect<string, LOGOUT_PARAMS>) {
   try {
-    yield put(authActionsCreator.logoutSuccess());
+    const response: ResponseT<any> = yield callSafe(AuthApi.logout, action.payload);
+    yield put(authActionsCreator.logoutSuccess(response));
   } catch (err) {
-    yield put(authActionsCreator.logoutError());
+    yield put(authActionsCreator.logoutError(err));
   }
 }
 
