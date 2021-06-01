@@ -149,7 +149,9 @@ target 'TimesheetHyperion' do
   pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
   pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
   pod 'RNCharts', :path => '../node_modules/react-native-charts-wrapper'
-  
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  # pod 'Firebase/Messaging', '~> 6.29.0'
   target 'TimesheetHyperionTests' do
     inherit! :complete
     # Pods for testing

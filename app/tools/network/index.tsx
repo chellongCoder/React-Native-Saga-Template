@@ -1,13 +1,13 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import firebase from 'react-native-firebase';
-// import { Network } from '../../components';
+import messaging from '@react-native-firebase/messaging';
+import { Alert } from 'react-native';
 import { NetworkContext } from './context';
 import { NetworkContextValue, NetworkProps } from './types';
 
 const NetworkProvider = ({ children }: NetworkProps) => {
   const getToken = async () => {
-    var fcm_token = await firebase.messaging().getToken();
+    var fcm_token = await messaging().getToken();
     console.log(`🛠 LOG: 🚀 --> ----------------------------------------------------------------------------`);
     console.log(`🛠 LOG: 🚀 --> ~ file: index.tsx ~ line 11 ~ getToken ~ fcm_token`, fcm_token);
     console.log(`🛠 LOG: 🚀 --> ----------------------------------------------------------------------------`);
@@ -16,9 +16,14 @@ const NetworkProvider = ({ children }: NetworkProps) => {
 
   const requestPermission = useCallback(async () => {
     try {
-      await firebase.messaging().requestPermission();
+      const authStatus = await messaging().requestPermission();
       // User has authorized
-      getToken();
+      const enabled =
+        authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+        authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+      if (enabled) {
+        getToken();
+      }
     } catch (error) {
       console.log(`🛠 LOG: 🚀 --> -----------------------------------------------------------------------------`);
       console.log(`🛠 LOG: 🚀 --> ~ file: index.tsx ~ line 23 ~ requestPermission ~ error`, error);
@@ -28,12 +33,11 @@ const NetworkProvider = ({ children }: NetworkProps) => {
   }, []);
 
   const checkPermission = useCallback(async () => {
-    const enabled = await firebase.messaging().hasPermission();
+    const enabled = await messaging().hasPermission();
     console.log(`🛠 LOG: 🚀 --> -------------------------------------------------------------------------------`);
     console.log(`🛠 LOG: 🚀 --> ~ file: index.tsx ~ line 29 ~ checkPermission ~ enabled`, enabled);
     console.log(`🛠 LOG: 🚀 --> -------------------------------------------------------------------------------`);
     let fcm_token = await AsyncStorage.getItem('@fcm_token');
-
     if (enabled && !fcm_token) {
       getToken();
     } else {
@@ -41,55 +45,23 @@ const NetworkProvider = ({ children }: NetworkProps) => {
     }
   }, [requestPermission]);
 
-  const createNotificationListeners = async () => {
-    /*
-     * Triggered when a particular notification has been received in foreground
-     * */
-    firebase.notifications().onNotification((notification) => {
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async (remoteMessage) => {
       console.log(
-        `🛠 LOG: 🚀 --> ------------------------------------------------------------------------------------------------`,
+        `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------`,
       );
-      console.log(`🛠 LOG: 🚀 --> ~ file: index.tsx ~ line 49 ~ firebase.notifications ~ notification`, notification);
+      console.log(`🛠 LOG: 🚀 --> ~ file: index.tsx ~ line 52 ~ unsubscribe ~ remoteMessage`, remoteMessage);
       console.log(
-        `🛠 LOG: 🚀 --> ------------------------------------------------------------------------------------------------`,
+        `🛠 LOG: 🚀 --> ---------------------------------------------------------------------------------------`,
       );
-      const { title, body } = notification;
-      console.log(title, body);
-      const showNotification = new firebase.notifications.Notification()
-        .setNotificationId(notification.notificationId)
-        .setTitle(notification.title)
-        .setBody(notification.body)
-        .setData(notification.data);
-      showNotification.android.setChannelId('iWish');
-      firebase.notifications().displayNotification(showNotification);
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
     });
-    /*
-     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
-     * */
-    firebase.notifications().onNotificationOpened((notificationOpen) => {
-      const { title, body, data } = notificationOpen.notification;
-      console.log(title, body, data);
-    });
-    /*
-     * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
-     * */
-    const notificationOpen = await firebase.notifications().getInitialNotification();
-    if (notificationOpen) {
-      const { title, body, data } = notificationOpen.notification;
-      console.log(title, body, data);
-    }
-    /*
-     * Triggered for data only payload in foreground
-     * */
-    firebase.messaging().onMessage((message) => {
-      //process data message
-      console.log(message);
-    });
-  };
+
+    return unsubscribe;
+  }, []);
 
   useEffect(() => {
-    // checkPermission();
-    // createNotificationListeners();
+    checkPermission();
   }, [checkPermission]);
 
   const contextValue = useMemo<NetworkContextValue>(() => ({}), []);

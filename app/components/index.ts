@@ -31,7 +31,6 @@ export * from './modal';
 export * from './modal-error';
 export * from './modal-success';
 export * from './ntf-content';
-export { default as PushNotification } from './push-notifications';
 export * from './rain-bow';
 export * from './rating';
 export * from './search-bar';
